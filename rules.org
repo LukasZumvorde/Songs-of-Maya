@@ -1,4 +1,4 @@
-#+title:      My Pen And Paper RPG Ruleset
+#+title:      My Pen And Paper Ruleset
 #+date:       [2022-10-03 Mo 13:19]
 
 #+OPTIONS: toc:nil H:10 tex:t author:nil date:nil num:3

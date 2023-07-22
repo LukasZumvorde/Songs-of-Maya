@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+  <title>Character Generator</title>
+  <style>
+	body {
+		background-color: #ACF;
+		font-family: "Roboto","Arial",sans-serif;
+	}
+
+	button.addrow {
+		background-color: #0460CD;
+		border: none;
+		color: white;
+		padding: 8px 12px;
+		text-decoration: none;
+		margin: 4px 4px;
+		cursor: pointer;
+	}
+
+	button.delrow {
+		background-color: #0460CD;
+		border: none;
+		color: white;
+		padding: 4px 8px;
+		text-decoration: none;
+		margin: 0px 0px;
+		cursor: pointer;
+	}
+
+	input {
+		font-family: "Roboto","Arial",sans-serif;
+		font-size: 14px;
+	}
+
+	input[type=text], input[type=number] {
+		background-color: #D9E9FF;
+		border: 1px solid #000;
+		padding: 3px 3px;
+		text-decoration: none;
+		margin: none;
+		cursor: pointer;
+	}
+
+	input[type=number] {
+		text-align: right;
+	}
+
+	input:read-only, textarea:read-only {
+		background-color: lightgrey;
+	}
+
+	input.description {
+		width: 99%;
+	}
+
+	textarea {
+		background-color: #D9E9FF;
+		border: 1px solid #000;
+		padding: 3px 3px;
+		text-decoration: none;
+		margin: none;
+		cursor: pointer;
+		font-family: "Roboto","Arial",sans-serif;
+		font-size: 14px;
+	}
+
+	textarea.description {
+		width: 99.25%;
+	}
+
+	.container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-items: center;
+		grid-template-areas:
+			"general attributes"
+			"skills skills"
+			"traits traits";
+		flex-grow: 1;
+		container-type: inline-size;
+		container-name: container;
+		margin-left: 10vw;
+		margin-right: 10vw;
+	}
+
+	.divgeneral {
+		grid-area: general;
+	}
+
+	.divattributes {
+		grid-area: attributes;
+	}
+
+	.portrait {
+		grid-area: portrait;
+		display:none;
+	}
+
+	.portrait > img{
+		max-width:33vw;
+		max-height:300px;
+	}
+
+	.divskills {
+		grid-area: skills;
+		column-span: 2;
+		width: 100%;
+	}
+
+	.divtraits {
+		grid-area: traits;
+		column-span: 2;
+		padding-bottom: 75px;
+		width: 100%;
+	}
+
+	.divrules {
+		grid-area: rules;
+		padding-bottom: 75px;
+		width: 0vw;
+		margin: 0px;
+		transition: width 2s;
+	}
+
+	.footer {
+		display: flex;
+		flex-direction: horizontal;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		height: 75px;
+		width: 100%;
+		background-color: #D9E9FF;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+	}
+
+	@media only screen and (max-width:1100px) {
+		.container {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				/* "portrait" */
+				"general"
+				"attributes"
+				"skills"
+				"traits"
+				"roll"
+				"check";
+		}
+	}
+
+	#rollresults {
+		text-align: center;
+	}
+
+	.resulthighlighted {
+		color: #0460CD;
+	}
+	.resultnormal {
+		color: #000000;
+	}
+  </style>
+
+  <body>
+	<div class="container">
+	  <div class="portrait">
+		<img id="portrait" src=""><br/>
+		<input id="inputportrait" type="file" accept="image/*">
+	  </div>
+		<div class="divgeneral">
+		  <h2>General</h2>
+		  <table>
+			<tr>
+			  <th><label for="name">Name: </label></th>
+			  <td><input type="text" id="name" name="name" size="60"/></td>
+			</tr>
+			<tr>
+			  <th><label for="name">Notes: </label></th>
+			  <td><textarea class="characterdescription" rows="10" cols="60"></textarea></td>
+			</tr>
+			<tr>
+			  <th><label for="CP">CP: </label></th>
+			  <td><label id="cp"></label></td>
+			</tr>
+		  </table>
+		</div><!-- divgeneral -->
+
+		<div class="divattributes">
+		  <h2>Attributes</h2>
+		  <table>
+			<thead>
+			  <tr>
+				<th>Category</th>
+				<th>Attribute</th>
+				<th>Value</th>
+				<th></th>
+				<th>Description</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<th rowspan="2">Physical</th>
+				<td>Strength</td>
+				<td><input type="number" min="0" max="999" id="strength" name="strength" size="3"/></td>
+				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
+				<td>strength and hardyness</td>
+			  </tr>
+			  <tr>
+				<td>Dexterity</td>
+				<td><input type="number" min="0" max="999" id="dexterity" name="dexterity" size="3"/></td>
+				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
+				<td>agility, speed, precision</td>
+			  </tr>
+			  <tr>
+				<th rowspan="2">Mental</th>
+				<td>Will</td>
+				<td><input type="number" min="0" max="999" id="will" name="will" size="3"/></td>
+				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
+				<td>percevirance, attention</td>
+			  </tr>
+			  <tr>
+				<td>Intelect</td>
+				<td><input type="number" min="0" max="999" id="intelect" name="intelect" size="3"/></td>
+				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
+				<td>intellegence, knowledge</td>
+			  </tr>
+			  <tr>
+				<th rowspan="2">Sozial</th>
+				<td>Empathy</td>
+				<td><input type="number" min="0" max="999" id="empathy" name="empathy" size="3"/></td>
+				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
+				<td>understanding people</td>
+			  </tr>
+			  <tr>
+				<td>Charisma</td>
+				<td><input type="number" min="0" max="999" id="charisma" name="charisma" size="3"/></td>
+				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
+				<td>interacting with people</td>
+			  </tr>
+			  <tr>
+				<th rowspan="2">Resources</th>
+				<td>Gear</td>
+				<td><input type="number" min="0" max="999" id="gear" name="gear" size="3"></td>
+				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
+				<td>Gear you have prepared</td>
+				</tr>
+			  <tr>
+				<td>Finances</td>
+				<td><input type="number" min="0" max="999" id="finances" name="finances" size="3"/></td>
+				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
+				<td>Money and investments </td>
+			  </tr>
+			  </tbody>
+			</table>
+		  </div> <!-- divattributes -->
+
+		  <div class="divskills">
+			<table id="skillstable" style="width:100%">
+			  <tr>
+				<th>Skill</th>
+				<th style="width:100%">Description</th>
+				<th>Cost</th>
+				<th>Lvl</th>
+				<th>Use</th>
+			  </tr>
+			  <tr onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
+				<td><input type="text" name="name" size="25" class="name" value="Soldier" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned dicipline and coordination.</textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
+				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="1"/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
+				<td><input type="text" name="name" size="25" class="name" value="Trouthsayer" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You have learned to peer into possible futures, read people and make inferences on what will likely happen. You have learned the art of putting on an act. </textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
+				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="1"/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
+				<td><input type="text" name="name" size="25" class="name" value="Ranger" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You know how to survive in the wild. You can hunt, bushcraft and gather everything you need. You have honed your hearing and are proficient at tracking.</textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
+				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="1"/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
+				<td><input type="text" name="name" size="25" class="name" value="College Mage" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You have studied the art of magic. You learned them with books, astronomy and experiments. You can cast spells by pronouncing incantations, magical glyphs and potent periphinalia. You still need the appropriate trait to cast magic from specific schools of magic.</textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
+				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="1"/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
+				<td><input type="text" name="name" size="25" class="name" value="Survivalist" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You have spend quite a lot of time outdoors. Consumed books about wilderness survival and so on. You know how to build shelter, find food and water, and much more. </textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="1" readonly/></td>
+				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="1"/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			</table>
+			<button type="button" id="addskill" class="addrow">+</button>
+		  </div> <!-- divskills -->
+
+		  <div class="divtraits">
+			<table id="traitstable" style="width:100%">
+			  <tr>
+				<th style="width:25em">Trait</th>
+				<th style="width:100%">Description</th>
+				<th>Cost</th>
+				<th>Use</th>
+			  </tr>
+			  <tr>
+				<td><input type="text" class="name" size="25" value="Friend of Nature" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You can talk to the forces of nature and have a chance to convince them to help you. This can be asking, a bird what he has seen, letting youself be concealed by a bush or calling a wild bear to aid you in combat.</textarea></td>
+				<td><input type="number" class="cost" size="3" min="0" max="999" value="7" readonly/></td>
+				<td><input type="checkbox" class="use"/></td>
+				<td><button type="button" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" class="name" size="25" value="Illusionist" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You are adapt at creating illusions. The bigger and more complex they get the harder this is.</textarea></td>
+				<td><input type="number" class="cost" size="3" min="0" max="999" value="7" readonly/></td>
+				<td><input type="checkbox" class="use"/></td>
+				<td><button type="button" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Speedster" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks and you always have at least 1 success in them.</textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="14" readonly/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Medium" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You can commune with ghosts and spirits. You have no control over them, but you can gain their attention.</textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Nightvision" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You can see in darkness as if it were light.</textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Sleepless" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You dont need sleep. This means you have a lot more time in a day, but you still need to rest from to much physical or mental excertion.</textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Flight" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You can fly. Be it with wings or otherwise. Your speed in flight is no different from your speed on land.</textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="16" readonly/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Tinkerer" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You can build wonderous mechanikal marvels. From clocks up to steam powered automata.</textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Hacker" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You are not only proficient in computer science but you can even achieve movie worthy feats like stoping another car with only your laptop during a car chase. Tools not included.</textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Plot Armor"/></td>
+				<td><textarea rows="1" class="description" readonly>Each scene you can discard a point of damage you would take. The plot armor only allies to one of the categories (Physical, Mental, Sozial) This trait can be taken multiple times.</textarea></td>
+				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="checkbox" class="use" name="use"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			</table>
+			<button type="button" id="addtrait" class="addrow">+</button>
+		  </div> <!-- divtraits -->
+		</div> <!-- container -->
+
+		<div class="footer">
+		  <div class="divroll">
+			<button type="button" onclick="updateRollResults( 1 );">1 &#127922;</button>
+			<button type="button" onclick="updateRollResults( 2 );">2 &#127922;</button>
+			<button type="button" onclick="updateRollResults( 3 );">3 &#127922;</button>
+			<button type="button" onclick="updateRollResults( 4 );">4 &#127922;</button>
+			<button type="button" onclick="updateRollResults( 5 );">5 &#127922;</button>
+			<button type="button" onclick="updateRollResults( 6 );">6 &#127922;</button>
+			<button type="button" onclick="updateRollResults( 7 );">7 &#127922;</button>
+			<button type="button" onclick="updateRollResults( 8 );">8 &#127922;</button>
+			<button type="button" onclick="updateRollResults( 9 );">9 &#127922;</button>
+			<button type="button" onclick="updateRollResults( 10 );">10 &#127922;</button>
+			<button type="button" onclick="updateRollResults( 11 );">11 &#127922;</button>
+			<button type="button" onclick="updateRollResults( 12 );">12 &#127922;</button>
+			<input type="number" class="numberofdies" size="2" min="0" max="99" value="1"/>
+			<button type="button" id="rolldies" onclick="updateRollResults( this.closest('div').querySelector('input').valueAsNumber || 0 );">roll</button>
+		  </div>
+
+		  <div class="divcheck">
+			<table id="rollresults">
+			  <tr>
+				<th>Skill: </th>
+				<td><span name="dice1" style='font-size:26px;'>&#9856;</span></td>
+				<td><span name="dice2" style='font-size:26px;'>&#9857;</span></td>
+				<td><span name="dice3" style='font-size:26px;'>&#9858;</span></td>
+				<td><span name="dice4" style='font-size:26px;'>&#9859;</span></td>
+				<td><span name="dice5" style='font-size:26px;'>&#9860;</span></td>
+				<td><span name="dice6" style='font-size:26px;'>&#9861;</span></td>
+			  </tr>
+			  <tr>
+				<th>Success: </th>
+				<td><label name="roll1">&nbsp;</label></td>
+				<td><label name="roll2">&nbsp;</label></td>
+				<td><label name="roll3">&nbsp;</label></td>
+				<td><label name="roll4">&nbsp;</label></td>
+				<td><label name="roll5">&nbsp;</label></td>
+				<td><label name="roll6">&nbsp;</label></td>
+			  </tr>
+			</table>
+		  </div> <!-- divcheck -->
+	  </div> <!-- footer -->
+	</body>
+	<script type="text/javascript">
+	  function calcTotalCP() {
+		  attributes = 0;
+		  attributes += document.getElementById("strength").valueAsNumber || 0;
+		  attributes += document.getElementById("dexterity").valueAsNumber || 0;
+		  attributes += document.getElementById("will").valueAsNumber || 0;
+		  attributes += document.getElementById("intelect").valueAsNumber || 0;
+		  attributes += document.getElementById("empathy").valueAsNumber || 0;
+		  attributes += document.getElementById("charisma").valueAsNumber || 0;
+		  attributes += document.getElementById("gear").valueAsNumber || 0;
+		  attributes += document.getElementById("finances").valueAsNumber || 0;
+
+		  skills = 0;
+		  skillrows = document.getElementById("skillstable").rows;
+		  for ( var i = 1; i < skillrows.length; i++ ) {
+			  if(skillrows[i].querySelector('.use').checked)
+				  skills += (skillrows[i].querySelector('.level').valueAsNumber - 1) * (skillrows[i].querySelector('.cost').valueAsNumber || 0)
+		  }
+
+		  traits = 0;
+		  traitrows = document.getElementById("traitstable").rows;
+		  for ( var i = 1; i < traitrows.length; i++ ) {
+			  if(traitrows[i].querySelector('.use').checked)
+				  traits += traitrows[i].querySelector('.cost').valueAsNumber || 0;
+		  }
+
+		  document.getElementById("cp").innerHTML = attributes*2 + skills + traits || 0;
+	  }
+
+	  function addSkillorTrait(table, read_only=false, levelable=false, name="", description="", cost="") {
+		  row = document.createElement("tr");
+		  table.appendChild(row);
+		  cell_name = document.createElement("td");
+		  row.appendChild(cell_name);
+		  input_name = document.createElement("input");
+		  cell_name.appendChild(input_name);
+		  input_name.setAttribute("type","text");
+		  input_name.setAttribute("name","name");
+		  input_name.setAttribute("size","25");
+		  input_name.setAttribute("class","name");
+		  cell_description = document.createElement("td");
+		  row.appendChild(cell_description);
+		  textarea_description = document.createElement("textarea");
+		  textarea_description.setAttribute("class", "description");
+		  textarea_description.setAttribute("rows","1");
+		  cell_description.appendChild(textarea_description);
+
+		  cell_cost = document.createElement("td");
+		  row.appendChild(cell_cost);
+		  input_cost = document.createElement("input");
+		  input_cost.setAttribute("type","number");
+		  input_cost.setAttribute("class","cost");
+		  input_cost.setAttribute("name","cost");
+		  input_cost.setAttribute("size","3");
+		  input_cost.setAttribute("min","0");
+		  input_cost.setAttribute("max","999");
+		  input_cost.setAttribute("value","1");
+		  cell_cost.appendChild(input_cost);
+
+		  if(levelable){
+			  cell_level = document.createElement("td");
+			  row.appendChild(cell_level);
+			  input_level = document.createElement("input");
+			  input_level.setAttribute("type","number");
+			  input_level.setAttribute("class","level");
+			  input_level.setAttribute("name","level");
+			  input_level.setAttribute("size","2");
+			  input_level.setAttribute("min","1");
+			  input_level.setAttribute("max","6");
+			  input_level.setAttribute("value","1");
+			  cell_level.appendChild(input_level);
+			  row.setAttribute("onmouseover","highlightresult(this.querySelector('.level').value)");
+			  row.setAttribute("onmouseout","removeresulthighlight()");
+			  row.setAttribute("onclick","highlightresult(this.querySelector('.level').value)");
+		  }
+
+		  cell_checkbox = document.createElement("td");
+		  row.appendChild(cell_checkbox);
+		  input_checkbox = document.createElement("input");
+		  input_checkbox.setAttribute("type","checkbox");
+		  input_checkbox.setAttribute("class","use");
+		  input_checkbox.setAttribute("name","use");
+		  cell_checkbox.appendChild(input_checkbox);
+		  cell_deletebutton = document.createElement("td");
+		  row.appendChild(cell_deletebutton);
+		  button_deleterow = document.createElement("button");
+		  button_deleterow.setAttribute("type","button");
+		  button_deleterow.setAttribute("id","deleterow");
+		  button_deleterow.setAttribute("class","delrow");
+		  button_deleterow.setAttribute("onclick","this.closest('tr').remove()");
+		  button_deleterow.textContent = "x";
+		  cell_deletebutton.appendChild(button_deleterow);
+		  if(read_only){
+			  input_name.setAttribute("readonly",true);
+			  input_description.setAttribute("readonly",true);
+			  input_cost.setAttribute("readonly",true);
+		  }
+		  if(name){
+			  input_name.setAttribute("value", name);
+		  }
+		  if(description){
+			  input_description.setAttribute("value", description);
+		  }
+		  if(cost){
+			  input_cost.setAttribute("value", cost);
+		  }
+	  }
+
+	  function addPredefinedSkill(name,desc,cost) {
+		  table = document.getElementById("skillstable");
+		  addSkillorTrait(table, read_only=true, levelable=true, name=name, description=desc, cost=cost);
+	  }
+	  function addPredefinedTrait(name,desc,cost) {
+		  table = document.getElementById("traitstable");
+		  addSkillorTrait(table, read_only=true, levelable=false, name=name, description=desc, cost=cost);
+	  }
+
+	  function addSkill() {
+		  skillstable = document.getElementById("skillstable");
+		  addSkillorTrait(skillstable, read_only=false, levelable=true);
+	  }
+
+	  function addTrait() {
+		  traitstable = document.getElementById("traitstable");
+		  addSkillorTrait(traitstable);
+	  }
+
+	  document.getElementById("addskill").onclick = addSkill;
+	  document.getElementById("addtrait").onclick = addTrait;
+	  document.addEventListener("change", calcTotalCP);
+	  calcTotalCP();
+
+	  function dies(n){
+		  var rolls = []
+		  for(var i=0; i<n; i++){
+			  rolls.push(Math.floor(Math.random() * 6) + 1);
+		  }
+		  return rolls
+	  }
+
+	  function countEyes(rolls){
+		  return [
+			  rolls.filter(x => x <= 1).length,
+			  rolls.filter(x => x <= 2).length,
+			  rolls.filter(x => x <= 3).length,
+			  rolls.filter(x => x <= 4).length,
+			  rolls.filter(x => x <= 5).length,
+			  rolls.filter(x => x <= 6).length
+		  ]
+	  }
+
+	  function removeresulthighlight() {
+		  document.getElementById("rollresults").querySelectorAll("[name^=roll]").forEach(e => e.setAttribute("class","resultnormal"));
+		  document.getElementById("rollresults").querySelectorAll("[name^=dice]").forEach(e => e.setAttribute("class","resultnormal"));
+	  }
+	  function highlightresult(n) {
+		  removeresulthighlight()
+		  document.getElementById("rollresults").querySelector("[name=roll"+n+"]").setAttribute("class","resulthighlighted");
+		  document.getElementById("rollresults").querySelector("[name=dice"+n+"]").setAttribute("class","resulthighlighted");
+	  }
+
+	  function updateRollResults(n){
+		  var counts = countEyes(dies( n ));
+		  document.querySelector("[name=roll1]").textContent = counts[0];
+		  document.querySelector("[name=roll2]").textContent = counts[1];
+		  document.querySelector("[name=roll3]").textContent = counts[2];
+		  document.querySelector("[name=roll4]").textContent = counts[3];
+		  document.querySelector("[name=roll5]").textContent = counts[4];
+		  document.querySelector("[name=roll6]").textContent = counts[5];
+	  }
+
+	  function changePortrait() {
+		  var f = document.getElementById("inputportrait").files[0];
+		  document.getElementById("portrait").src = URL.createObjectURL( f );
+	  }
+
+	  document.getElementById("inputportrait").onchange = changePortrait;
+	</script>
+  </html>
+
+
+
+
