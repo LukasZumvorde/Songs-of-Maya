@@ -1,0 +1,499 @@
+** Variant 4
+
+*** Character Values
+**** Attributes
+There are the following Attributes
+- Physical: Your fitness and health.
+  - Strength
+  - Dexterity
+- Mental: Your ability to reason and problem solve
+  - Will
+  - Intelect
+- Social: Your ability to read and interact with people
+  - Empathy
+  - Charisma
+- Resources: The resourcen you can muster and aquire (finances, gear).
+  
+Meaning of values:
+- 0: you are unable to do anything difficult in this field. A character with severe muscle distrofy in its end stage might have pysical 0 or a mindless robot might have social 0.
+- 1: weak at this field
+- 2: normal
+- 3: strong
+- 4: very strong
+- 5: exceptional
+
+The attributes determines the number of dice being thrown during a skillcheck.
+
+***** Temporatry Attributes
+Attributes can increase or decrease for a time. Temporary Attribute points can add up. They are called tATR with ATR being the short form of the attribute in question.
+#+begin_example
+Treasure (Temporary Ressources):
+A treasure might be abstracted as some temporary Ressource Attribute Points. When you intend to aquire something that is above your general wealth level you roll for your resoruces score with a difficulty depending on the purchase. These teporary Ressources can be used on top of your normal ressoruces to make this roll. If you still fail or dont succeed the roll you will lose some or all of your treasure, having spend it. If you succeed however you may keep the teporary attribute points.
+#+end_example
+If you fail a check and you have (positive) temporary attribute points then you loose the difference between what you rolled and the difficulty.
+
+Negative temporary attribute points are also called damage.
+
+**** Skills
+Skilly measure the mastery of a skill. They are expressed as a background description and a level (number between 1 and 5). The skill levels are comparable to how much time a typical person has to spend to reach the same expertise in this area if it were his dayjob.
+
+| level | equi. experience | cost in CP |
+|-------+------------------+------------|
+|     1 | 0 years          |            |
+|     2 | 2 years          |            |
+|     3 | 5 years          |            |
+|     4 | 10 years         |            |
+|     5 | 15 years         |            |
+|     6 | 20 years         |            |
+
+The skilllevel determines the likelyhood of a success on a roll. A roll during a skillcheck is counted as a success if the dice shows less or equal eyes than the skilllevel.
+
+#+begin_example
+Professional Chef: You have learned not only to cook but also to plan the foodstuffs on storage, to store propperly, to calucalte profitability, to motivate and coordinate a team of people.
+#+end_example
+
+#+begin_example
+Soldier: You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned dicipline and coordination.
+#+end_example
+
+#+begin_example
+Trouthsayer: You have learned to peer into possible futures, read people and make inferences on what will likely happen. You have learned the art of putting on an act. 
+#+end_example
+
+*** Tests and Contests
+Roll as many six sided dice as your attribute value is. Count each die with your skill level or less eyes and subtract the difficulty of the check. The result are your successes. If the successes are negative the check fails.
+
+Modifiers:
+- reroll a die
+- increasing the number of eyes on the die by 1
+- Change of successrate/skill
+- roll mode dice
+
+Colaborative tests:
+- Everyone rolls individually and then sum together all successes.
+
+Controlling Difficulty
+- (default) demand a number of successes 
+- Reduce number of dice
+- reduce skill / successrate
+
+Effects:
+- Every action has a default effect. For example in a fight it is wounding an enemy (1/2temporary attribute point).
+- Different effects can also be declared by the player. (e.g. disarming the enemy). Combinations are also possible
+- An Effect might cost more than one success.
+- Multiple effects can be declared
+
+Risky checks:
+If a check is risky the character might incurr something bad if the check fails. If the check fails the difference between the negative successes are used to incur effects to the characters disadvantage. 
+
+Contest:
+Both parties each roll their check. the party with the higher successes wins and can use the difference in successes to declare effects. By default the effect is temporary damage to an ability of the enemy (negative temporarily ability).
+
+Multible actions:
+You can perform multible actions. The checks are made independently. You can use at most the higher of the atributes numbers of dice in total. For each action your maximum number of dice is your respective attribute value. An common example is to use some of the action to attack and some to defend.
+
+
+*** Actions
+Actions are predefined things that can be done in contests. They have a predefined effect. If a character decides to perform an action he can use some of his dice to roll on it.
+
+Constructing actions:
+To construct an action simply add together all effects you need. The total CP cost (or at least 0) is what you need to pay to learn the action.
+
+Glossar:
+- Successes: are the successfull dice being rolled during the action check.
+- free successes: are the successes that are not yet used to create another effect.
+- consume successes: use a success and thus making it no free any more
+- CP: Character Points
+- Area of effect: The area within which the action affects entitys
+- Entity: A character, being or object
+
+  
+**** total damage prevention (20)
+Prevent all damage.
+
+**** Variable damage prevention (0)
+prevent two damage per success.
+
+**** Variable Damage to other (0)
+make two damage per success on the contested roll. 
+
+**** Variable Damage (0, 1d)
+Roll the dice invested in this effect. Each success produces 1 damage to the target.
+
+**** Fixed Damage (0, 3d)
+Without rolling the dice invested in this effect you porduce 1 damage to the target.
+
+**** Fixed Damageq to other (0)
+make one damage on one or more successes on the contested roll
+
+**** Difficulty (-3 each)
+The successes are reduced by 1
+
+**** Range: Self (0)
+Can be appied to one self.
+
+**** Range: Close (0)
+Includes Range self
+
+Can be applied to others that are within close range.
+
+**** Range: Far (6)
+Includes range touch
+
+Can be applied to others that are within far range.
+
+**** Range: Remote (12)
+Includes range far
+
+Can be applied to others that are within remote range.
+
+**** Area of effect: close (6)
+Applies to every target within close range of the spells center of effect.
+**** Area of effect: far (12)
+Applies to every target within far range of the spells center of effect.
+**** Area of effect: remote (18)
+Applies to every target within remote range of the spells center of effect.
+
+**** Not contestible (10)
+No contest roll will be performed.
+
+**** Willing target (0)
+The target can be another willing entity.
+
+**** Unwilling target (0)
+The target does not have to be willing. It can contest the action with its own roll. The roll can be performed as a reaction.
+
+**** Risky (-var)
+If the action fails the negative effect(action) will be applied. This brings CP equivalent to the cost of the negative action happening. There has to be the possibility of failure for an action to be risky at all.
+
+**** Heal variable Damage (6)
+Heal two damage per success.
+
+**** Heal fixed damage (4)
+Heal one damage
+
+**** self damage (-var)
+Apply the damage on yourself.
+
+**** takes extra time (-5 each)
+Takes one more round to perform the action.
+**** Consumes cheap item (-5)
+To perform the action a cheap item is being consumed/used. For example an arrow is being used to shoot a bow.
+
+**** Example Actions
+Melee Attack (0 CP)
+- variable damage (0 CP)
+- unwilling target (0 CP)
+- range: close (0 CP)
+- Risky
+  - 1x fixed damage ()
+	Fatigue
+	
+Give health to other (2 CP)
+- range close (3)
+- willing target (0)
+- 2x Heal fixed (8)
+- risky (-3)
+  - fixed damage (3)
+- self damage (-6)
+  - 2x fixed damage (6)
+
+
+
+Atk (0)
+- var dmg (6)
+- range close (6)
+- unwilling target (0)
+  - can be contested (-12)
+
+Range Atk (0)
+- var dmg (6)
+- range far (12)
+- unwilling target (0)
+  - can be contested (-12)
+- Consumes item (-6)
+
+Fixed dmg attack (0)
+- 2x fixed dmg (2x3 = 6)
+- range close (6)
+- unwilling target (0)
+  - can be contested (-12)
+
+Transfer lifeforce (12)
+- heal var dmg (12)
+- self dmg (-var)
+  - var dmg (6)
+- range close (6)
+- willing target (0)
+
+   
+
+  
+**** Old Effects
+
+Damage (1)
+Make two damage to the target per success on the roll.
+
+Damage over an area (2)
+Per two successes you apply one negative temporary attribute point to all targets in the area (all targets are close to one another)
+
+(Dis)advantage (2)
+Per two successes you can provide to one party a (dis)advantage. Per advantage one die can be rerolled. Per disadvantage one die that showed a success has to be rerolled. This holds (usually) until the end of combat.
+
+Change of the battlefield (?)
+You change the battlefield in a meaningfull way. You may block of a route or area to anyone (2 successes) or throw a magical darkness over an area (1 success).
+
+Prevent damage (1)
+Per success you prevent two damage.
+
+*** Contests
+The clasic example for a contest is combat, but debates and other things can be handled in the same way. Contests are resolved one round at a time. In each round each character or party might be able to do something. Each action occurs in order (see initiative). More than one action can be performed. For each action at least 1 dice has to be used. Each action has a assiciated attribute. You can at most use as many dice as is your attribute value on the action. You can use at most the ammount of your highest attribute in dice during a round in total (sum of all actions).
+
+- Declaration of intend, for each character in reverse order of initiative
+  - The character declares what actions they want to perform and how many dice they reserve for it.
+  - If necessary the GM decides what attributes to use for an action.
+- Resolving the actions, for each character in order of initiative
+  - The character rolls and resolves his actions.
+  - If other characters reserved dice for defencive actions they may roll them to contest it.
+
+**** Initiative
+The initiative determines the order during a contest. How your initiative gets calculated depends on the contest and ins decided by the GM. For most fights it should be DEX+WIL. In a contest actions are perfoemed in order starting with the character with the highest initive. If two or more have the same initiave they make a roll with a dice. The highest result goes first.
+
+*** Traits
+Traits are distinglishing things about the character. They can be bought for character points. This is possible both at character creation and later in the game.
+ They might be extraordinary strength or the ability to cast certain magic. Some traits (like all magic) should come with a risk (all checks are risky checks).
+
+#+begin_example
+Herkulian Stength:
+You are extra strong. For feats of strength you can roll 1 additional die and get at least one success.
+#+end_example
+
+#+begin_example
+Pyromancy:
+You can make a risky mental check to summon the primordial elemental forces of fire. You can shape and direct them to cause effects. 
+#+end_example
+
+*** Character Creation
+
+Distribute 12 points on your Attributes (Physical, Mental, Sozial, Ressources)
+
+Create two skills and give one the level 3 and the other the level 4.
+
+Create two feats.
+
+Give your character equipment. You can choose whatever is within your pricerange (ressource value is smaller or equal your ressrouce attribute). You may choose one item that is 1 point above your pricerange. 
+
+**** Character advancement
+
+The GM decides milestones for his players. Those might be personal goals of the characters (finding his long lost father or proving his worth to the temple), or points in the story (ending the epidemic in the city, defeating the evil lich).
+
+At each milestone the Characters may get to advance their character. They can choose
+- improve one attribute by one point
+- learn one new skill at level 1
+- improve one skill by one point
+- learn one feat
+
+*** Wounds and Health
+
+Wounds are like negative temporary attribute points. Once your attribute effectively falls below 0 you are out of commision. The way in which you are taken out depends on the attribute and what caused the damage.
+
+#+begin_example
+Bob the Barbarian got hit in combat multiple times. He has 4 Physical but 3 physical wounds. Now he additionally got confused by a spell and thinks his Comrades are enemys. His compatriot Roger the Rogue tries to nonlethaly take him out by hitting him with his blackjack over the head. He succeeds and makes another 2 wounds. Bob goes down, bleeding from his old wounds but still alive.
+#+end_example
+
+#+begin_example
+Silvia the Spy finds herself in a fierce debate with the Diplomat. She trys to convince him to go with her plan. Over the time she makes 3 social damage which is enough to convince him as his social position is severely damaged by the documents she leaked a week ago.
+#+end_example
+
+You should decide in your group how long it takes to regenerate a point of hard damanage (like wounds). We recommend to allow at least one roll on each regeneration period. Note that it is unlikely that the character has any skill in healing up. So his skill is likely to be 1.
+Rolling on regeneration means rolling on the attribute as it is at the time (including temporary attribute points and wounds). The successes are regenerated points. The least severe (lasting) damage is healed up first.
+If someone gives a wounded medical help (or equivalent for other kinds of damage) the successes can be used by the wounded in the regeneration. The poits can either be used to increase the chance of regeneration (skill) or increase the number of dice available.
+
+*** Range
+There are 3 different ranges. It takes one round to move one range class. You can however move within a range class unrestricted (within reason). While moving you can still use your action.
+
+Close: Normal hand to hand fighting distance
+Far: A distance you can throw something at.
+Remote: Quite a distance away. You might be able to shoot a rifle or a bow at this distance but it takes a while to run this distance.
+
+
+*** Items and Equipment
+
+Items have a RV (Ressource Value) this determines how expensive or hard to get it is. Apart from that they have a description and maybe special effects. Let your fantasy go wild. A few examples can be found below.
+
+An item can be found or bought. To buy an item you need to be somewhere where it is possible to be bought. Roll on Ressources. If you get at least the RV successes you have bought the item.
+#+begin_example
+Sword:
+Its a stabby piece of metal. Especially good at harming unarmored enemies. Not so great at slicing though armor. 
+#+end_example
+
+#+begin_example
+Chainmail:
+A metal fabric that protects your torso and arms from being cut or stabbed pretty well. 
+#+end_example
+
+To create an item first give it a short description. It should make clear on what what kind of actions it may give advantages or what kind of effects may be created with it. Second you determine its RV (ressource value).
+0: Basically free: Everyone can aquire it if they want to (example: a club)
+1: Cheap: Even people with the lowest income will typically be able to affort this. (example: simple clothes, a fridge, a set of tools) 
+2: Affordable: (example: An appartment or a regular house)
+3: Expensive: (example: Sportscar)
+4: Very expensive (example: a small airplane)
+5: Luxourious: This is something that only the very rich can affort (example: private jet) 
+
+**** Buying
+A PC may aquire any item whose RV is at or below his Ressrouce attribute, without any further checks.
+
+A PC may aquire an item whose RV is above his resource attribute by making a risky check witht he difficulty being the RV of the item.
+
+**** Selling
+
+
+
+** Caluclations and experiments
+
+*** Calc 1
+
+#+begin_src python :results output drawer
+import random
+import operator
+# import numpy as np
+# import matplotlib as mpl
+# from matplotlib import pyplot as plt
+
+def nd6(n):
+    return [random.randint(1,6) for i in range(n)]
+
+def check(attribute, skill):
+    return sum(map(lambda x: operator.le(x, skill), nd6(attribute)))
+
+def risky_check(attribute, skill, risk):
+    c = check(attribute, skill)
+    if c > risk:
+        c += risk
+    else:
+        c -= risk
+    return c
+
+def run_experiment(at_attr, at_skill, at_risk, de_attr, de_skill, de_risk, n):
+    effects = 0
+    passed = 0
+    failed = 0
+    for i in range(n):
+        at = risky_check(at_attr, at_skill, at_risk)
+        de = risky_check(de_attr, de_skill, de_risk)
+        effect = at - de
+        if effect > 0:
+            passed += 1
+        else:
+            failed += 1
+        effects += effect
+    print(passed, failed, 100*float(passed) / float(passed+failed))
+
+# # change attackers skill
+# run_experiment(4, 1, 0, 4, 3, 0, 1000)
+# run_experiment(4, 2, 0, 4, 3, 0, 1000)
+# run_experiment(4, 3, 0, 4, 3, 0, 1000)
+# run_experiment(4, 4, 0, 4, 3, 0, 1000)
+# run_experiment(4, 5, 0, 4, 3, 0, 1000)
+# # change defenders skill
+# run_experiment(4, 3, 0, 4, 1, 0, 1000)
+# run_experiment(4, 3, 0, 4, 2, 0, 1000)
+# run_experiment(4, 3, 0, 4, 3, 0, 1000)
+# run_experiment(4, 3, 0, 4, 4, 0, 1000)
+# run_experiment(4, 3, 0, 4, 5, 0, 1000)
+
+# # change attackers attribute
+# run_experiment(1, 3, 0, 3, 3, 0, 1000)
+# run_experiment(2, 3, 0, 3, 3, 0, 1000)
+# run_experiment(3, 3, 0, 3, 3, 0, 1000)
+# run_experiment(4, 3, 0, 3, 3, 0, 1000)
+# run_experiment(5, 3, 0, 3, 3, 0, 1000)
+# # change defenders attribute
+# run_experiment(3, 3, 0, 1, 3, 0, 1000)
+# run_experiment(3, 3, 0, 2, 3, 0, 1000)
+# run_experiment(3, 3, 0, 3, 3, 0, 1000)
+# run_experiment(3, 3, 0, 4, 3, 0, 1000)
+# run_experiment(3, 3, 0, 5, 3, 0, 1000)
+
+# change attackers risk
+run_experiment(7, 3, 1, 7, 3, 0, 1000)
+run_experiment(7, 3, 2, 7, 3, 0, 1000)
+run_experiment(7, 3, 3, 7, 3, 0, 1000)
+run_experiment(7, 3, 4, 7, 3, 0, 1000)
+run_experiment(7, 3, 5, 7, 3, 0, 1000)
+# change defenders risk
+run_experiment(7, 3, 0, 7, 3, 1, 1000)
+run_experiment(7, 3, 0, 7, 3, 2, 1000)
+run_experiment(7, 3, 0, 7, 3, 3, 1000)
+run_experiment(7, 3, 0, 7, 3, 4, 1000)
+run_experiment(7, 3, 0, 7, 3, 5, 1000)
+
+
+
+#+end_src
+
+#+RESULTS:
+:results:
+(577, 423, 57.7)
+(683, 317, 68.3)
+(503, 497, 50.3)
+(231, 769, 23.1)
+(52, 948, 5.2)
+(229, 771, 22.9)
+(228, 772, 22.8)
+(491, 509, 49.1)
+(791, 209, 79.1)
+(934, 66, 93.4)
+:end:
+
+*** Calc 2
+
+Calculate the expected damage that would be done in battle
+
+#+begin_src python :results output drawer
+import random
+import operator
+import numpy as np
+import math
+
+def propRSuccesses(n, r, p):
+    return math.factorial(n) / math.factorial(r) / math.factorial(n-r) * p**r * (1-p)**(n-r)
+
+A = 3 # total dice for player A
+B = 3 # total dice for player B
+pA = 5/6 # successchance for 1 die for player A
+pB = 4/6 # successchance for 1 die for player B
+propMatrix = np.zeros((A,B))
+propSuccA = np.array([ propRSuccesses(A, r, pA) for r in range(A+1) ])
+propSuccB = np.array([ propRSuccesses(B, r, pB) for r in range(B+1) ])
+propEncounter = np.outer(propSuccA, propSuccB)
+
+def expecedDamage(propM):
+    I = np.shape(propM)[0]
+    J = np.shape(propM)[1]
+    eDA = 0
+    eDB = 0
+    for i in range(I):
+        for j in range(J):
+            if(i > j):
+                eDA += 2 * abs(i-j) * propM[i,j]
+            elif(i < j):
+                eDB += 2 * abs(i-j) * propM[i,j]
+            else:
+                pass
+    return eDA, eDB
+
+eDA, eDB = expecedDamage(propEncounter)
+print("A rolls %i die with a success rate of %f" % (A, pA))
+print("B rolls %i die with a success rate of %f" % (B, pB))
+print("Expected damage done by player A: ", eDA)
+print("Expected damage done by player B: ", eDB)
+#+end_src
+
+#+RESULTS:
+:results:
+A rolls 3 die with a success rate of 0.833333
+B rolls 3 die with a success rate of 0.666667
+Expected damage done by player A:  1.3683127572016465
+Expected damage done by player B:  0.3683127572016459
+:end:

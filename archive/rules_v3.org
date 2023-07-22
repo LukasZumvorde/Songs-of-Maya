@@ -1,0 +1,255 @@
+** Variant 3
+
+*** Charactervalues
+**** a Attributes
+These measure your potential.
+
+Physical: Your fitness and health.
+Mental: Your ability to reason and problem solve
+Social: Your ability to read and interact with people
+Resoruces: The resourcen you can muster and aquire.
+
+#+begin_example
+Alternative
+- Fitness
+- Dexterity
+- Intellect
+- Perception
+- Willpower
+- Charisma
+- Ressoruces
+#+end_example
+
+Meaning of values:
+0: you are unable to do anything difficult in this field. A character with severe muscle distrofy in its end stage might have pysical 0 or a mindless robot might have social 0.
+1: very weak at this field
+2: weak
+3: normal
+4: strong
+5: very strong
+
+There is no maximum value.
+
+
+
+**** Temporary Attributes
+- You can temporarily gain Attribute points.
+- These are either lost at a specific time or whenever you fail a roll on this attribute.
+- The ammount of points lost is the difference between the difficulty and the attribute but always at least 1.
+
+#+begin_example
+Treasure (Temporary Ressources):
+A treasure might be abstracted as some temporary Ressource Attribute Points. When you intend to aquire something that is above your general wealth level you roll for your resoruces score with a difficulty depending on the purchase. These teporary Ressources can be used on top of your normal ressoruces to make this roll. If you still fail or dont succeed the roll you will lose some or all of your treasure, having spend it. 
+#+end_example
+
+**** Skills
+These measure your mastery of skills
+Skills are expressed as background descriptions and a level.
+
+The level expresses how much time someone typicaly spends spends on reaching the same level of skill in this area of expertice if it were his dayjob.
+lvl 0: You have never done this before
+lvl 1: You have spend about 1 year in this job 
+lvl 2: You have spend about 5 year in this job 
+lvl 3: You have spend about 10 year in this job 
+lvl 4: You have spend about 15 year in this job 
+lvl 5: You have spend about 20 year in this job 
+
+#+begin_example
+Professional Chef: You have learned not only to cook but also to plan the foodstuffs on storage, to store propperly, to calucalte profitability, to motivate and coordinate a team of people.
+#+end_example
+
+#+begin_example
+Soldier: You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned dicipline and coordination.
+#+end_example
+
+#+begin_example
+Trouthsayer: You have learned to peer into possible futures, read people and make inferences on what will likely happen. You have learned the art of putting on an act. 
+#+end_example
+
+*** Tests and Contests
+N: Number of Dice - this is a measure of potential. Determined by the Attribute
+S: Skill / Successrate - this is a measure of concistency and routine in the task at hand. The best applicable skill you have is determining this value.
+Roll Nd6. Each roll of S or lower is a success. You have to achieve a certain ammount of successes to pass a roll.
+
+
+Modifiers are possible
+- reroll a die
+- increasing the number of eyes on the die by 1
+- Change of successrate/skill
+- roll mode dice
+
+Collaborative Tests
+- Everyone rolls individually and then sum together all successes.
+
+Controlling Difficulty
+- (default) demand a number of successes 
+- Reduce number of dice
+- reduce skill / successrate
+
+
+Effects:
+- Every action has a default effect. For example in a fight it is wounding an enemy.
+- Different effects can also be declared by the player. (e.g. disarming the enemy). Combinations are also possible
+- An Effect myght cost more than one success.
+- Multiple effects can be declared
+
+**** Tests
+Roll the dice of the best fitting Attribute. Apply feats if applicable. Use your skills if applicable. Determine the number of successes. If the number of successes is at least as high as the difficulty of the roll, the test is passed. A larger surplus of succeses might give some bonus effects (at the GM discretion). A deficit in succeses is a fail and might have negative consequences.
+
+**** Contests
+Two parties each roll their dice. The party with the higher successes wins and can use the difference in successes to declare effects. By default the effect is temporary damage to an ability of the enemy (negative temporarily ability). 
+
+
+**** Unbalanced Contests
+***** Version 1
+If the two parties try to achieve different things in the round the contests is unbalanced.
+
+- OA (Offensive Action) is what you want to do. You can only have 1 OA.
+- DA (Defensive Action) is what you have to do because of the others actions
+- Your dicepool is the highest of all your OA and DA dicepools
+- Split your dicepool onto your OA and DAs. The dicepool of them can get no bigger than their original dicepool. Giving 0 dice into any dicepool is possible. 
+- Go over all the OA and resolve them as contests. The effects happen all at once.
+
+***** Version 2
+Determine initiative order somehow
+
+- start with worst initiative and work you way up
+  - decide OA (offensive action).
+  - Determine ammount of dice to use for it
+  - roll the dice
+  - defender decides ammount of dice for DA
+  - defender can roll his DA (defensive action) immediately
+  - Other defenders can also jump in and help out with their DAs
+- 
+  
+**** Helping
+A characters can help one another. For this one declares the action and the other declares to help them. All successes from the tests are added together. The original actor can use all the successes for the effect as if he had rolled them himself.
+
+**** Protecting
+A character can decide to protect another. He can then use the succeses either to protect himself or the protected from damage. 
+
+**** Effects
+
+***** negative temporary attributes
+Cost: 1 success per negative temporary attribute
+
+This is the default effect during any kind of contests. A temporary attribute is given to the target. How long this effect holds is up to the GM to decide and depends on how the effect was caused. The effect should normally at least hold for the rest of the combat.
+#+begin_example
+Wound (Physical)
+A deep cut caused by the slash of a sword. If unattended for long enough it might cause further issues like bleeding out. If not healed otherwise the body will need several days to regenerate.
+#+end_example
+
+#+begin_example
+Out of breath (Physical)
+A buch pnches and being strangled caused the body to be weakended. The stamina is used up. The character should recover from this within minutes or hours once it gets some rest. 
+#+end_example
+
+***** (dis)advantage
+Cost: 2/3/4 succeses per advantage to once own side or disatvantage to the others
+
+You gain advantage dice or cause disadvantage dice.
+
+An advantage has been created in the general situation of the character/all/group. This might be having the high ground in combat or having ambushed the enemy. It might also be having the enemy surounded. If this effect only encompasses close range or others as well has to be decided by the GM depending on the situation. This effect normally holds until the end of combat, but in the case of an ambush might only hold for the first round.
+
+**** Taking Risks
+You can take a risk for a contest to gain a greater effect.
+You roll the dice as normal. If your successes are more than the risk you passed and gain the risk in extra successes. If your successes are less or equal to the risk you lose those sucesses. The GM may decide for those successes to cause your negative effects instead.
+
+
+*** Combat rounds
+
+Everyone acts at the same time in a round.
+- Everyone declares what they indend to do
+- The GM informs everyone about what successes they need to reach to get what they want and if they can use their ability and skill for it.
+- Everyone rolls and results are compared.
+- Effects get declared.
+
+*** Feats
+
+Feats are special things a character can do. They might be spells or just being realy good at doing something like climbing buildings. Some feats should also come with a risk (at least 1). For an idea about how severe this should be, look at the positive effects you can make in contests. In the easiest case you incur wounds in the ammount missed successes. All magic spells and special combat maneuvers should have a risk of at least 1.
+
+#+begin_example
+Wallclimber:
+You can climb any but the most extreme buildings. 
+#+end_example
+
+
+#+begin_example
+Fireball spell:
+You can summon the primordial elemental forces of fire, compress them into a ball and hurl it at a target.
+This feat allows you to cast this spell to attack in combat to harm enemys up to far range. It is also able to set flamable stuff aflame. 
+You declare a difficulty (representing the ammount of power you want to put into the spell). If you roll at least as much succeses as the spells difficulty it succeds. On a success you make the difficulty of the spell in extra damage. 
+But be carefull it could blow up in your face. On a failure it burns you (and potentially the peope around you) for the missing successes.
+#+end_example
+
+*** Spontaneous Feats
+Sometimes players have creative ideas of something to do in combat or otherwise. We should not just disallow it because they lack the feat for it. Instead make the risk higher by doubling the negative effects they suffer, if they fail. The GM has always the posibility to disallow a spontaneous feat all together or make it more difficult (by demanding a certain ammount of successes). He can also require a previous check to be passed.
+
+#+begin_example
+Alrik wants to swing on the chandelier and kick the big bully in the chest. He makes a dexterity check to attack. The risk of the feat is 2. If he succeeds he can use 2 extra points on effects against his target. In this case he would use it to throw the bully to the ground. If he fails however with equal or less than 2 points he suffers consequences equal to 2*2 + the ammount he missed by.
+
+Check: dexterity
+Risk: 2
+Effect on Success: 2+difference effects against target
+Effect on fail but >2: -
+Effect on fail but <2: 2*2+differene against himself
+
+
+#+end_example
+
+
+
+*** Character creation
+- Think about how much experience your character has and give him the appropriate skills.
+- Agree on total number of attribute points with the party. Spread these points over your attributes however you like.
+- select or create N feats
+
+*** Wounds and Health
+Wounds are like negative temporary attribute points. Once your attribute effectively falls below 0 you are out of commision. The way in which you are taken out depends on the attribute and what caused the damage.
+
+#+begin_example
+Bob the Barbarian got hit in combat multiple times. He has 4 Physical but 3 physical wounds. Now he additionally got confused by a spell and thinks his Comrades are enemys. His compatriot Roger the Rogue tries to nonlethaly take him out by hitting him with his blackjack over the head. He succeeds and makes another 2 wounds. Bob goes down, bleeding from his old wounds but still alive.
+#+end_example
+
+#+begin_example
+Silvia the Spy finds herself in a fierce debate with the Diplomat. She trys to convince him to go with her plan. Over the time she makes 3 social damage witch is enough to convince him as his social position is severely damaged by the documents she leaked a week ago.
+#+end_example
+
+You should decide in your group how long it takes to regenerate a point of hard damanage (like wounds). We recommend to allow at least one roll on each regeneration period. Note that it is unlikely that the character has any skill in healing up. So his skill is likely to be 1.
+Rolling on regeneration means rolling on the attribute as it is at the time (including temporary attribute points and wounds). The successes are regenerated points. The least severe (lasting) damage is healed up first.
+
+
+**** Healing Damage
+
+Health effects can
+- remove wounds
+- increase the chance of regenerating (giving skill)
+- increase the number of dice available for regeneration
+
+If someone gives a wounded medical help (or equivalent for other kinds of damage) the successes can be used by the wounded in the regeneration. The poits can either be used to increase the chance of regeneration (skill) or increase the number of dice available.
+
+
+*** Range
+
+There are 3 different ranges. It takes one round to move one range class. You can however move within a range class unrestricted (within reason)
+
+Close: Normal hand to hand fighting distance
+Far: A distance you can throw something at.
+remote: Quite a distance away. You might be able to shoot a rifle or a bow at this distance but it takes a while to run this distance.
+
+
+*** Items & Equipment
+
+Items have a RV (Ressource Value) this determines how expensive or hard to get it is. Apart from that they have a description and maybe special effects. Let your fantasy go wild. A few examples can be found below.
+
+An item can be found or bought. To buy an item you need to be somewhere where it is possible to be bought. Roll on Ressources. If you get at least the RV successes you have bought the item.
+
+#+begin_example
+Sword:
+Its a stabby piece of metal. Especially good at harming unarmored enemies. Not so great at slicing though armor. 
+#+end_example
+
+#+begin_example
+Chainmail:
+A metal fabric that protects your torso and arms from being cut or stabbed pretty well. 
+#+end_example

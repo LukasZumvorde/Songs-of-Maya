@@ -1,0 +1,233 @@
+** Variant 1
+
+*** Contests
+
+Contests are there to decide how situations play out if the outcome is not initially clear. This are often conflicts. Not necessarily violent ones though.
+Like in other Systems contests are divided up into rounds. 
+Different than in other systems though everyones actions happen at the same time. What happens during one round in only decided in the very last phase of the contest. Also different than in many other systems contests are communal meaning that every character adds to the success of his party directly.
+
+**** Phases
+There are 1 ore more rounds of contest. Each round takes an indeterminate ammount of [[*Time][time]]. Each round is divided into phases.
+
+***** Phase 1: Declaration of actions
+From the character with the lowest to the player with the highest [[*Initiative][initiative]], everyone declares what his [[*Action][action]] is going to be. The [[*Attributes][attribute]] that is rolled on and helping [[*Modifier][modifiers]] are all decided on. 
+The ordering gives players with a higher (better) initiative the option do react on the decisions of the others.
+
+***** Phase 2: Rolling the dice
+Now every character rolles his dice. 
+
+***** Phase 3: Evaluation of the dice
+[[*Modifier][Modifiers]] are applied to the dice and they are evaluated. It might be necessary to roll some more dice. Each character has a number of successes at his disposal. All paries decide how many of these successes they want to use against the other party and how many they want to use in order to defend themselves. Each attacking success that is not negated by a defense success is going to reduce the [[*Situation Value (SV)][Situation  Value (SV)]] by one. 
+
+An action only has any [[*Effect][effect]] if it was successfull.
+
+***** Phase 4: Description of the results
+Depending on the successfull actions and the resulting change in SV the game master describes how the round plays out and what the results are. often there was a signifficant change to the conflict that might apply some lasting [[*Modifier][modifiers]] to the situation.
+
+**** Action
+An action is whatever a person tries to accomplish. An action can be invented on the spot or be given roules by an item, feat, or anything else. Most actions just add their successes to the contest, but some are difficult and may fail. They will only add their successes if at least a certain ammout is reached.
+
+An Action is rolled on an Attribute. This means that the base number of (six sided) dice being used is determined by the Attribute. A rolled die is normally considered a success if it shows a 5 or 6. This is the standard success range of 2 (the two highest numbers are a success). Only the number of successes matter in the end. 
+
+**** Effect
+
+An effect can be anything. It is something that is caused by an action. It is described in free text form or just implied by the description. It can also add modifiers to all following actions in the contest. 
+
+For example:
+The party is in a firefight. 
+Player A: shoots at the opponents
+Player B: uses his strength to flip a table and create cover for his group
+Player C: also shoots at the opponents. 
+Player B can use his successes to win the contest as normal but additionally now he and his colleges have cover. The game master grants them an increase of one for the successranage if the roll is used to defend (negate enemy successes)
+
+**** Modifier
+
+Modifiers are changes to how an action is rolled. They always impact the dice rolls and how the succeses are evaluated. They can be whatever you can think of. An extreme example would be 
+
+#+begin_example
+On a full moon you may roll one dice more.
+One 5 being rolled has to be rerolled.
+The Successrange is reduced by one. 
+#+end_example
+Modifiers can stack with one another. If the order sould ever matter use the most advantageous one. 
+
+Here is a non exaustive list of examples of Modifiers
+- Successrange (SR) increased or decreased by one
+- Reroll a die
+- Reroll a die and take the higher/lower
+- Roll one more or less dice
+- Reroll a die if it shows a certain number
+- Increase/decrease the number of one die by one
+
+
+**** Situation  Value (SV)
+This value is initially the total sum of the levels of a party. This value represents the inital situation and resiliency of the group. Once the Value sinks to 0 the party has lost the conflict. How this loss is represented in game is up to the game master, and should reflect the intentions of the party and their opponents. For example a beaten group of guards might flee from the szene if their situation value sinks to 0, or one from the group of adventurers is eaten if the mountain beast succeeds in his hunt.
+
+**** Time
+
+A round is as long as is usefull to the story. In a sniper battle or the court of law a round might take hours or days while in a knivefight it might encompass a couple of seconds. I advice to not assign any defined length to a round. They dont even need to be of the same length inside a contest.
+
+**** Contests against inanimate objects or circumstances
+
+A party in a contest does not have to have any agency. For example a spiked pit trap be such a party. 
+For inanimate partys you can forego rolling dice but instead take a fixed result. Players should still roll their dice against this in most cases. 
+
+
+**** Initiative
+The initiatve determines the order of the characters in combat. The higher the initiative the better. In most conflicts the initiative is the sum of perception and willpower, this is a measure of awareness and decisiveness. The GM can also determine that the initiative should be generated differently for a contest. 
+
+*** Characters
+**** Level
+
+ The level of a character is his total experience divided by 3. It is a measure of his overall strength and experience, but also doubles as a measure of the resiliency to failure (but not necessarily damage).
+
+**** Character Creation
+
+ The group decides on a starting experience for the characters. The experience can then be distributed onto the attributes. 
+
+ Additonally each player decides on 3 aspects that the character should have. Most aspects are positive but they can also be negative. Each Negative aspect gives you one additional positive aspect.
+
+***** Starting Experience
+
+  Each group has to decide on the starting Experience they want to give. It has to be at least 6 in order to raise each attribute to at least 1.
+
+***** Attributes
+
+ There are the 6 basic attributes
+
+ - Fitness
+ - Dexterity
+ - Intellect
+ - Perception
+ - Willpower
+ - Charisma
+
+ They have a minimum value of 1 and no maximum. 
+ Raising an Attribute by 1 costs 3 experience points. A new positive aspects costs 1 experience point (exceptions see Aspects) 
+
+***** Aspects
+An aspect is some defining feature of the character and often describe some special talent of the character. They can give modifications on fitting actions or allow the character to perform certain actions in the first place. Most aspects cost 1 experience point. Negative aspects might give you another aspect in for the value of 1 experience point. If an aspect seems to extemely good/bad the cost can be doubled.
+
+ Examples:
+ - Athlete: roll one more dice for actions concerning running and jumping.
+ - Medical Routine: You always have at least one succes in medical actions.
+ - Psicic telecinesis: The character can perform actions that move things with his mind.
+ - One Leg: The character has only one leg. Certain actions are harder to perform (-1 die)
+
+***** Equipment
+For the most part it is succicient to decide what starting equipment makes sense for the character. 
+Some items can have defined properties that make them especially usefull in contests. Those might be handled the same as aspects, appart from them being easier to lose.
+
+**** Character Advancement
+
+ Every once in a while characters should gain experience. It is up to the group to decide whether they want to advance every one or more sessions or after reaching certain milestones. On average one should get one experience point in a normal session. 
+
+
+*** Testlauf 
+
+**** Vorbereitung
+
+Jeder Charakter hat in jedem Attribut 3 Punkte.
+Jeder entscheidet sich für ein Attribut welches er erhöht und eines welches er senkt.
+Jeder hat eine Hauptaufgabe (Beruf) auf dem Schiff
+Jeder hat eine besondere begabung/eigenschaft
+Jeder Hat einen besonderen gegenstand.
+
+**** Geschichte
+
+- Gruppe sind Weltraumpiraten
+- Beginn in einem Landungspot
+- Andocken an einer Luftschleuse (lvl 2)
+- 1 Aufgabe: Zugriff verschaffen. Mögliche Lösungswege (Hacken, Gewaltsam aufbrechen, Mit Werkzeugen aufschneiden, anderweitig umgehen)
+- Danach folgt die Gruppe einem Flur in Richtung Brücke. Dabei stoßen sie auf eine gruppe von Verteidigern.
+- 2 Aufgabe: Kampf gegen Verteidiger. Mögliche Lösungswege (Kampf, Sprechen, Austricksen)
+- Zuletzt Übernimmt die Gruppe das Schiff und nutzt es im Kampf gegen einen Feindlichen Jäger der sich vom hauptschiff gelöst hat.
+- 3 Aufgabe: Schiffskampf
+
+
+**** Verteidiger
+
+3 Crewmitglieder des Schiffes und der Captain. Desweiteren befindet sich vor der Brücke 1 automatisches geschütz
+
+Crewmitglied (lvl 2)
+- Plasmagewehre
+- kennen das Schiff sehr gut (mod +1 vorteil)
+- Gemeinsam eine Rauchgranate
+
+Captain (lvl 2)
+- Plasmapistole
+- kennt das Schiff sehr gut (mod +1 vorteil)
+- Guter Motivationsredner (mod +1d)
+
+Turret (lvl 1)
+- Plasmageschütz
+
+Verstärkung:
+Crewmitglied 1
+
+
+
+**** Schiffskampf
+
+Gekapertes Schiff
+- unvertrautes Schiff (mod 1 nachteil)
+- Mehr feuerkraft (mod +1d)
+- Wesendlich mehr panzerung (mod +1 SV)
+- Statuinen: Navigator, Waffenoffizier, Engineering
+
+
+Jäger (lvl 7)
+- Sehr manüvrierfähig (mod 1 würfel des gegners zur verteidigung um 1 verringern)
+- 1 Photonentorpedo (einmalig einsetzbar mod +3d sofern vorher schon getroffen wurde)
+
+
+*** Ergebnisse des Testlaufs
+
+- Anzahl der Würfel ist sehr entscheidend. Das ist gut aber auch gefährlich => Auf Balance achten
+- Würfelboni machen spaß und sind vielfältig. Vorteilswürfe sind eine gute Mechanik
+- Würfelboni erscheinen manchmal willkürlich (weil zu sehr vom meister abhängig)
+- Die regeln sind einfach und födern das Rollenspiel
+- Die Communalisierung der Kämpfe lassen die Taten uns resultate des einzelnen untergehen
+- Statische Hindernisse müssen überarbeitet werden.
+- Alternative idee: Von spezifischen Talenden Attribute ab leiten
+- Mehr eindeutigkeit würde diskussionen vermeiden und befriedigender sein.
+- Es sollte vorher klar sein gegen wen sich erfolge richten werden und was die auswirkungen sind.
+- Es sollte klar sein was das Zeitintervall für eine Runde ist.
+- Rule of Cool für gute Aktionen sollte möglich sein.
+- Verletzungen sollten folgen haben
+- Spieler sollten stärker entscheiden können welchen effekt sie erziehlen wollen.
+
+
+*** Ideen für die Überarbeitung
+  
+- Erschaffe Regeln mit denen Gruppen gemeinsam ein Schiff verbessern/verändern können in einem Konflikt. Das Schiff als Avatar der Gruppe welches sie buffen können.
+- Gebe Spielern in einem Konflikt die möglichkeit ihre erfolge unmittelbar auf effekte und gegner an zu setzen.
+- Statische Hindernisse mit Würfeln ausstatten, damit sie besser mit skalieren.
+
+
+**** Avatar
+An Avatar is an entity that acts instead of one or more characters in a contest.
+#+begin_example
+The players man a ship. None of the players alone can be responcible for the success but each can help. In this example the Ship is the Avatar of the players.
+#+end_example
+An avatar has his own Attributes and skills like any other character but because it has no agency on its own it relies on others to enable it.
+The Game maste distributed the attribute dice of the avatar into several positions. Each position can be manned by a player character. 
+
+**** New Dice rolls
+
+You always roll 2d6 and add the eyes. Attributes add a static ammount to this sum. Modifiers might change the ammount added by attributes or the dice rolls.
+
+Difficulties
+|    | Difficulty |
+|----+------------|
+|  4 | Very Easy  |
+|  7 | Easy       |
+| 10 | Moderate   |
+| 13 | Hard       |
+| 16 | Very Hard  |
+
+**** Effects
+Wound (1)
+One disadvantage die on relevant rolls (mostly everything physical). For each wound more than one roll a d6, whenever a new wound is received. On a 5 or 6 make the wound a heavy wound. 
+
+Heavy Wound (1)

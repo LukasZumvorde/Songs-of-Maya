@@ -1,0 +1,593 @@
+* COMMENT Calc
+Calculate combat statistics with dmg to dice and
+1 success making 2 dmg in offence
+1 success making 1 dmg in defence
+
+Always split available dice equally
+
+#+begin_src python :results output drawer
+import random
+import math
+import operator
+
+def nd6(n):
+    return [random.randint(1,6) for i in range(n)]
+
+def check(attribute, skill):
+    return sum(map(lambda x: operator.le(x, skill), nd6(attribute)))
+
+class Player:
+    attr = 0
+    skill = 2
+    atk_dmg = 2
+    blk_dmg = 1
+
+    def __init__(self, attribute=0, skill=2, atk_strat= lambda x: math.floor( x / 2)):
+        self.attr = attribute
+        self.atk_strat = atk_strat
+        self.skill = skill
+
+    def offensiveDice(self):
+        return max(0, min(self.atk_strat(self.attr), self.attr))
+
+    def defensiveDice(self):
+        return self.attr - self.offensiveDice()
+
+    def isDead(self):
+        return self.attr <= 0
+
+    def takeDmg(self, n):
+        self.attr -= n
+
+    def offensiveCheck(self):
+        return check(self.offensiveDice(), self.skill)
+
+    def defensiveCheck(self):
+        return check(self.defensiveDice(), self.skill)
+
+
+def combatRound(attacker, defender):
+    atk = attacker.offensiveCheck()
+    blk = defender.defensiveCheck()
+    attacker.takeDmg( max(blk - atk, 0) * 1 * defender.blk_dmg )
+    defender.takeDmg( max(atk - blk, 0) * 1 * attacker.atk_dmg )
+    if blk == atk:
+        attacker.takeDmg(1 )
+
+def simulateCombat(A, B):
+    for r in range(1,99):
+        combatRound(A,B)
+        if A.isDead():
+            return r, "B"
+        if B.isDead():
+            return r, "A"
+        combatRound(B,A)
+        if A.isDead():
+            return r, "B"
+        if B.isDead():
+            return r, "A"
+    return r, 0
+
+def experiment(p1attr, p1skill, p1strat,
+               p2attr, p2skill, p2strat):
+    fights = 1000
+    stat=dict()
+    print("Simulate %i fights with P1(%sd|%s) and P2(%sd|%s)" % (fights,p1attr,p1skill,p2attr,p2skill))
+    for i in range(fights):
+        A = Player(attribute=p1attr, skill=p1skill, atk_strat=p1strat)
+        A.atk_dmg = 0
+        A.blk_dmg = 4
+        B = Player(attribute=p2attr, skill=p2skill, atk_strat=p2strat)
+        B.atk_dmg = 6
+        B.blk_dmg = 0
+        time, winner = simulateCombat(A, B)
+        stat.setdefault(time,0)
+        stat[time] += 1
+        stat.setdefault(winner,0)
+        stat[winner] += 1
+    for i in stat.items():
+        stat[i[0]] = i[1]/fights
+    print(" A: %3s%%" % round(stat["A"]*100), end='  |  ')
+    print("B: %3s%%" % round(stat["B"]*100))
+    print(*["%2s " % k for k in sorted(filter(lambda x: type(x) == int , stat.keys()))], sep=' ')
+    print(*["%2s%%" % round(i[1]*100) for i in sorted(filter(lambda x: type(x[0]) == int , stat.items()))], sep=' ')
+    # print(" A: %3s%%" % round(stat.pop("A")/fights * 100), end='  |  ')
+    # print("B: %3s%%" % round(stat.pop("B")/fights * 100))
+    # print(*["%2s " % k for k in sorted(stat.keys())], sep=' ')
+    # print(*["%2s%%" % round(i[1]/fights*100) for i in sorted(stat.items())], sep=' ')
+    # print(A.__dict__)
+    # print(B.__dict__)
+    print()
+    return stat
+
+
+# experiment(10, 2, lambda x: math.floor( x / 2),
+#            13, 1, lambda x: math.floor( x / 2))
+# experiment(10, 3, lambda x: math.floor( x / 2),
+#            13, 2, lambda x: math.floor( x / 2))
+# experiment(10, 4, lambda x: math.floor( x / 2),
+#            13, 3, lambda x: math.floor( x / 2))
+# experiment(10, 5, lambda x: math.floor( x / 2),
+#            13, 4, lambda x: math.floor( x / 2))
+# experiment(10, 6, lambda x: math.floor( x / 2),
+#            13, 5, lambda x: math.floor( x / 2))
+
+# experiment(10, 2, lambda x: math.floor( x / 1),
+#            10, 2, lambda x: math.floor( x / 2))
+# experiment(10, 2, lambda x: math.floor( x / 2),
+#            10, 2, lambda x: math.floor( x / 1))
+experiment(10, 2, lambda x: math.floor( x / 2),
+           10, 2, lambda x: math.floor( x / 2))
+# experiment(10, 2, lambda x: math.floor( x / 100),
+#            10, 2, lambda x: math.floor( x / 2))
+# experiment(10, 2, lambda x: math.floor( x / 2),
+#            10, 2, lambda x: math.floor( x / 100))
+
+
+#+end_src
+
+#+RESULTS:
+:results:
+Simulate 1000 fights with P1(10d|2) and P2(10d|2)
+ A:  52%  |  B:  48%
+ 1   2   3   4   5   6   7   8 
+22% 34% 25% 12%  5%  1%  0%  1%
+
+:end:
+
+Raise skill cost: 7
+Raise attribute cost: 2
+Of draw attacker takes 1 dmg
+If defender is better attacker takes 1 dmg
+If attacker is better defender takes 2 dmg
+
+* COMMENT Metics for checks
+#+begin_src python :results output drawer
+pure_attack_strat = lambda x: x
+pure_block_strat = lambda x: 0
+defensive_strat = lambda x: math.floor(x / 2)
+offensive_strat = lambda x: math.ceil(x / 2)
+
+def distance(S):
+    return abs(S["A"] - S["B"])
+
+for attr in range(1,25):
+    for skill in range(1,6):
+        for strat in [pure_attack_strat, pure_block_strat, defensive_strat, offensive_strat]:
+            S = experiment(attr, skill, strat
+                           attr, skill, strat)
+            
+
+
+#+end_src
+
+
+Test successrates for single checks
+#+begin_src python :results output drawer
+import random
+import math
+import operator
+
+def nd6(n):
+    return [random.randint(1,6) for i in range(n)]
+
+def check(attribute, skill):
+    return sum(map(lambda x: operator.le(x, skill), nd6(attribute)))
+
+def successrate(attr, skill, difficulty, n):
+    wins = 0
+    for i in range(n):
+        if check(attr,skill) >= difficulty:
+            wins += 1
+    return wins/n
+
+def bestValueForCP(cp, difficulty):
+    costAttr = 2
+    costSkill = 7
+    rBest , aBest, sBest = 0, 0, 0
+    n = 1000
+    for a in range(1, math.ceil(cp / costAttr)+1):
+        for s in range(1, math.ceil(cp / costSkill)+1):
+            if (a*costAttr) + (s*costSkill) > cp:
+                continue
+            r = successrate(a, s, difficulty, n)
+            if r >= rBest:
+                rBest, aBest, sBest = r, a, s
+    return aBest, sBest, rBest
+
+
+
+# # for unexperienced people 5 attribute are worth 1 difficulty
+# print( successrate( 3, 1, 1, 1000) )
+# print( successrate( 8, 1, 2, 1000) )
+# print( successrate(13, 1, 3, 1000) )
+# print( successrate(18, 1, 4, 1000) )
+
+# # For experienced people 2 attribute are worth 1 difficulty
+# print( successrate( 1, 3, 1, 1000) )
+# print( successrate( 3, 3, 2, 1000) )
+# print( successrate( 5, 3, 3, 1000) )
+# print( successrate( 7, 3, 4, 1000) )
+
+# # for masters 1 attribute are worth 1 difficulty
+# print( successrate( 1, 5, 1, 1000) )
+# print( successrate( 2, 5, 2, 1000) )
+# print( successrate( 3, 5, 3, 1000) )
+# print( successrate( 5, 5, 4, 1000) )
+
+# # for a beginner 1 attribute makes the differece of 1 confidence level if  attribute is low
+# print( successrate(  1, 2, 1, 1000) )
+# print( successrate(  2, 2, 1, 1000) )
+# print( successrate(  3, 2, 1, 1000) )
+
+# # for a beginner 1 attribute makes the differece of 1 confidence level if  attribute is medium
+# print( successrate(  4, 2, 2, 1000) )
+# print( successrate(  5, 2, 2, 1000) )
+# print( successrate(  6, 2, 2, 1000) )
+
+# # for a beginner 2 attribute makes the differece of 1 confidence level if  attribute is high
+# print( successrate(  6, 2, 3, 1000) )
+# print( successrate(  8, 2, 3, 1000) )
+# print( successrate( 10, 2, 3, 1000) )
+
+# # with low attribute 1 skill makes the difference of 1 confidence level
+# print( successrate(  2, 1, 1, 1000) )
+# print( successrate(  2, 2, 1, 1000) )
+# print( successrate(  2, 3, 1, 1000) )
+
+# # with medium attribute 1 skill makes the difference of 1 confidence level
+# print( successrate(  4, 1, 2, 1000) )
+# print( successrate(  4, 2, 2, 1000) )
+# print( successrate(  4, 3, 2, 1000) )
+
+# # with high attribute 1 skill makes the difference of 1 confidence level
+# print( successrate(  6, 2, 3, 1000) )
+# print( successrate(  6, 3, 3, 1000) )
+# print( successrate(  6, 4, 3, 1000) )
+
+# # with high attribute 1 skill makes the difference of 2 confidence level
+# print( successrate(  8, 3, 5, 1000) )
+# print( successrate(  8, 4, 5, 1000) )
+# print( successrate(  8, 5, 5, 1000) )
+
+
+# print("Difficulty: 1")
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(13, 1))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(15, 1))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(20, 1))
+# print("Difficulty: 2")
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(22, 2))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(24, 2))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(27, 2))
+# print("Difficulty: 3")
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(28, 3))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(30, 3))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(34, 3))
+# print("Difficulty: 4")
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(33, 4))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(35, 4))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(38, 4))
+# print("Difficulty: 5")
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(38, 5))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(40, 5))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(43, 5))
+# print("Difficulty: 6")
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(42, 6))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(43, 6))
+# print("A: %2i S: %i R: %.2f" % bestValueForCP(46, 6))
+
+
+
+print("unskilled")
+print("A: %2i S: %i R: %.2f" % bestValueForCP(20, 0))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(20, 1))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(20, 2))
+print("Beginner")
+print("A: %2i S: %i R: %.2f" % bestValueForCP(25, 1))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(25, 2))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(25, 3))
+print("Experienced")
+print("A: %2i S: %i R: %.2f" % bestValueForCP(30, 2))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(30, 3))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(30, 4))
+print("Master")
+print("A: %2i S: %i R: %.2f" % bestValueForCP(35, 3))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(35, 4))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(35, 5))
+print("Grandmaster")
+print("A: %2i S: %i R: %.2f" % bestValueForCP(40, 4))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(40, 5))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(40, 6))
+print("Legendary")
+print("A: %2i S: %i R: %.2f" % bestValueForCP(45, 5))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(45, 6))
+print("A: %2i S: %i R: %.2f" % bestValueForCP(45, 7))
+#+end_src
+
+
+#+RESULTS:
+:results:
+unskilled
+A:  6 S: 1 R: 1.00
+A:  3 S: 2 R: 0.73
+A:  3 S: 2 R: 0.25
+Beginner
+A:  5 S: 2 R: 0.86
+A:  5 S: 2 R: 0.52
+A:  5 S: 2 R: 0.23
+Experienced
+A:  8 S: 2 R: 0.82
+A:  8 S: 2 R: 0.53
+A:  8 S: 2 R: 0.25
+Master
+A:  7 S: 3 R: 0.77
+A:  7 S: 3 R: 0.51
+A:  7 S: 3 R: 0.24
+Grandmaster
+A:  9 S: 3 R: 0.73
+A:  9 S: 3 R: 0.54
+A:  9 S: 3 R: 0.25
+Legendary
+A: 12 S: 3 R: 0.83
+A: 12 S: 3 R: 0.60
+A: 12 S: 3 R: 0.41
+:end:
+
+* COMMENT Fight simulator
+#+begin_src python :results output drawer
+import random
+import math
+import operator
+
+def nd6(n):
+    return [random.randint(1,6) for i in range(n)]
+
+def check(attribute, skill):
+    return sum(map(lambda x: operator.le(x, skill), nd6(attribute)))
+
+class Player:
+    attr1 = 0
+    attr2 = 0
+    skill = 2
+    atk_dmg = 2
+    blk_dmg = 1
+
+    def __init__(self, attr1=0, attr2=0, skill=2, atk_strat=None, dmg_strat=None, armor=0):
+        self.attr1 = attr1
+        self.attr2 = attr2
+        self.attr1_wound_s = 0
+        self.attr1_wound_m = 0
+        self.attr2_wound_s = 0
+        self.attr2_wound_m = 0
+        self.atk_strat = atk_strat or (lambda x: math.floor( x / 2))
+        self.dmg_strat = dmg_strat or (lambda dmg, a1, a2: dmg)
+        self.skill = skill
+        self.armor = armor
+
+    def offensiveDice(self):
+        attr1 = self.attr1 - self.attr1_wound_s - self.attr1_wound_m
+        return max(0, min(self.atk_strat(attr1), attr1))
+
+    def defensiveDice(self):
+        attr1 = self.attr1 - self.attr1_wound_s - self.attr1_wound_m
+        return attr1 - self.offensiveDice()
+
+    def isDead(self):
+        attr1 = self.attr1 - self.attr1_wound_s - self.attr1_wound_m
+        attr2 = self.attr2 - self.attr2_wound_s - self.attr2_wound_m
+        return attr1 <= 0 or attr2 <= 0
+
+    def takeDmg(self, n):
+        attr1 = self.attr1 - self.attr1_wound_s - self.attr1_wound_m
+        attr2 = self.attr2 - self.attr2_wound_s - self.attr2_wound_m
+        dmg1_s = self.dmg_strat(min(self.armor, n), attr1, attr2)
+        dmg2_s = max(0, min(self.armor, n) - dmg1_s)
+        dmg1_m = self.dmg_strat(max(0, n - min(self.armor, n)), attr1-dmg1_s, attr2-dmg2_s)
+        dmg2_m = max(0, n - min(self.armor, n)) - dmg1_m
+        self.attr1_wound_s += dmg1_s
+        self.attr2_wound_s += dmg2_s
+        self.attr1_wound_m += dmg1_m
+        self.attr2_wound_m += dmg2_m
+
+    def offensiveCheck(self):
+        return check(self.offensiveDice(), self.skill)
+
+    def defensiveCheck(self):
+        return check(self.defensiveDice(), self.skill)
+
+def atk_strat_equal_bias_atk(x):
+    return math.floor( x / 2 )
+
+def atk_strat_equal_bias_def(x):
+    return math.ceil( x / 2 )
+
+def dmg_strat_all_attr1(n, attr1, attr2):
+    return n
+
+def dmg_strat_all_attr2(n, attr1, attr2):
+    return 0
+
+def dmg_strat_all_attr2_sensible(n, attr1, attr2):
+    d1 = 0
+    d2 = n
+    if((attr2-1) < n):
+        d1 = d1 + (n - (attr2-1))
+    return d1
+
+def dmg_strat_equal_bias_attr1(n, attr1, attr2):
+    return math.floor( n / 2 )
+
+def dmg_strat_equal_bias_attr2(n, attr1, attr2):
+    return math.ceil( n / 2 )
+
+def dmg_strat_equal_bias_attr2_sensible(n, attr1, attr2):
+    d1 = math.floor( n / 2 )
+    d2 = n - d1
+    if(attr2 - 1 < d2):
+        d1 += d2 - (attr2-1)
+    return min(d1, n)
+
+
+
+def combatRound(combatant1, combatant2):
+    # get successes
+    c1_atk = combatant1.offensiveCheck()
+    c1_blk = combatant1.defensiveCheck()
+    c2_atk = combatant2.offensiveCheck()
+    c2_blk = combatant2.defensiveCheck()
+    # cancel c1_atk with c2_blk
+    h = min(c2_blk, c1_atk)
+    c1_atk -= h
+    c2_blk -= h
+    # cancel c2_atk with c1_blk
+    h = min(c1_blk, c2_atk)
+    c2_atk -= h
+    c1_blk -= h
+    # cancel c1_blk with c2_blk
+    h = min(c1_blk, c2_blk)
+    c1_blk -= h
+    c2_blk -= h
+    # take dmg
+    if( c1_atk == 0 and c2_atk == 0 and c1_blk == 0 and c2_blk == 0 ):
+        combatant1.takeDmg(1)
+        combatant2.takeDmg(1)
+    else:
+        combatant1.takeDmg( c2_atk * 2 + 1 * c2_blk )
+        combatant2.takeDmg( c1_atk * 2 + 1 * c1_blk )
+
+def simulateCombat(A, B):
+    for r in range(1,99):
+        combatRound(A,B)
+        if A.isDead() and B.isDead():
+            return r, 0
+        if A.isDead():
+            return r, "B"
+        if B.isDead():
+            return r, "A"
+    return r, 0
+
+def experiment(p1attr1, p1attr2, p1skill, p1_atk_strat, p1_dmg_strat,
+               p2attr1, p2attr2, p2skill, p2_atk_strat, p2_dmg_strat):
+    fights = 100
+    stat=dict()
+    print("Simulate %i fights with P1(%sd|%s) and P2(%sd|%s)" % (fights,p1attr1,p1skill,p2attr1,p2skill))
+    stat["Aattr1"] = 0
+    stat["Aattr2"] = 0
+    stat["Battr1"] = 0
+    stat["Battr2"] = 0
+    stat["A_attr1_wound_m"] = 0
+    stat["A_attr2_wound_m"] = 0
+    stat["B_attr1_wound_m"] = 0
+    stat["B_attr2_wound_m"] = 0
+    for i in range(fights):
+        A = Player(attr1=p1attr1, attr2=p1attr2, skill=p1skill, atk_strat=p1_atk_strat, dmg_strat=p1_dmg_strat, armor=2)
+        B = Player(attr1=p2attr1, attr2=p2attr2, skill=p2skill, atk_strat=p2_atk_strat, dmg_strat=p1_dmg_strat)
+        time, winner = simulateCombat(A, B)
+        stat["A_attr1_wound_m"] += A.attr1_wound_m
+        stat["A_attr2_wound_m"] += A.attr2_wound_m
+        stat["B_attr1_wound_m"] += B.attr1_wound_m
+        stat["B_attr2_wound_m"] += B.attr2_wound_m
+        if winner == "A":
+            stat[winner+"attr1"] += (A.attr1 - A.attr1_wound_m)
+            stat[winner+"attr2"] += (A.attr2 - A.attr2_wound_m)
+        elif winner == "B":
+            stat[winner+"attr1"] += (B.attr1 - B.attr1_wound_m)
+            stat[winner+"attr2"] += (B.attr2 - B.attr2_wound_m)
+        stat.setdefault(time,0)
+        stat[time] += 1
+        stat.setdefault(winner,0)
+        stat[winner] += 1
+    for i in stat.items():
+        stat[i[0]] = i[1]/fights
+    if not "A" in stat:
+        stat["A"] = 0
+    if not "B" in stat:
+        stat["B"] = 0
+    if not "N" in stat:
+        stat["N"] = 0
+    print(" A: %3s%%" % round(stat["A"]*100), end='  |  ')
+    print("B: %3s%%" % round(stat["B"]*100))
+    print(*["%2s " % k for k in sorted(filter(lambda x: type(x) == int , stat.keys()))], sep=' ')
+    print(*["%2s%%" % round(i[1]*100) for i in sorted(filter(lambda x: type(x[0]) == int , stat.items()))], sep=' ')
+    print()
+    print(" m wounds for attr1  A: %s  |  B: %s" % (stat["A_attr1_wound_m"] , stat["B_attr1_wound_m"]))
+    print(" m wounds for attr2  A: %s  |  B: %s" % (stat["A_attr2_wound_m"] , stat["B_attr2_wound_m"]))
+    print()
+    return stat
+
+# experiment(6,4,3,atk_strat_equal_bias_atk,dmg_strat_all_attr2_sensible,
+#            6,4,3,atk_strat_equal_bias_atk,dmg_strat_equal_bias_attr2_sensible)
+s = experiment(10, 10, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
+               6, 6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+a1, a2 = math.floor(s["Aattr1"]/max(1,s["A"])), math.floor(s["Aattr2"]/max(1,s["A"]))
+s = experiment(a1, a2, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
+               6,   6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+a1, a2 = math.floor(s["Aattr1"]/max(1,s["A"])), math.floor(s["Aattr2"]/max(1,s["A"]))
+s = experiment(a1, a2, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
+               6,   6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+a1, a2 = math.floor(s["Aattr1"]/max(1,s["A"])), math.floor(s["Aattr2"]/max(1,s["A"]))
+s = experiment(a1, a2, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
+               6,   6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+a1, a2 = math.floor(s["Aattr1"]/max(1,s["A"])), math.floor(s["Aattr2"]/max(1,s["A"]))
+s = experiment(a1, a2, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
+               6,   6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+a1, a2 = math.floor(s["Aattr1"]/max(1,s["A"])), math.floor(s["Aattr2"]/max(1,s["A"]))
+s = experiment(a1, a2, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
+               6,   6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+
+
+# print(dmg_strat_all_attr2_sensible(5, 6, 4))
+# print(dmg_strat_equal_bias_attr2_sensible(6, 6, 4))
+#+end_src
+
+#+RESULTS:
+:results:
+Simulate 100 fights with P1(10d|3) and P2(6d|3)
+ A: 100%  |  B:   0%
+ 1   2   3   4   5   6   7   8 
+ 1% 20% 36% 24% 16%  1%  1%  1%
+
+ m wounds for attr1  A: 0.01  |  B: 9.13
+ m wounds for attr2  A: 0.16  |  B: 5.0
+
+Simulate 100 fights with P1(9d|3) and P2(6d|3)
+ A:  99%  |  B:   1%
+ 2   3   4   5   6   7   8  10 
+ 6% 25% 29% 18% 10%  9%  2%  1%
+
+ m wounds for attr1  A: 0.07  |  B: 9.04
+ m wounds for attr2  A: 0.46  |  B: 4.97
+
+Simulate 100 fights with P1(8d|3) and P2(6d|3)
+ A:  98%  |  B:   2%
+ 2   3   4   5   6   7   8   9  10  11 
+ 8% 17% 29% 19% 12%  8%  3%  2%  1%  1%
+
+ m wounds for attr1  A: 0.12  |  B: 8.26
+ m wounds for attr2  A: 0.62  |  B: 5.0
+
+Simulate 100 fights with P1(7d|3) and P2(6d|3)
+ A:  74%  |  B:  26%
+ 2   3   4   5   6   7   8   9  10  11 
+ 1%  9% 12% 16% 22% 20%  6%  6%  6%  2%
+
+ m wounds for attr1  A: 1.02  |  B: 6.02
+ m wounds for attr2  A: 0.81  |  B: 4.55
+
+Simulate 100 fights with P1(5d|3) and P2(6d|3)
+ A:  12%  |  B:  88%
+ 2   3   4   5   6   7   8   9 
+ 6% 14% 23% 21% 20% 10%  5%  1%
+
+ m wounds for attr1  A: 2.72  |  B: 0.97
+ m wounds for attr2  A: 0.26  |  B: 2.71
+
+Simulate 100 fights with P1(0d|3) and P2(6d|3)
+ A:   0%  |  B: 100%
+ 1 
+100%
+
+ m wounds for attr1  A: 3.59  |  B: 0.0
+ m wounds for attr2  A: -1.0  |  B: 0.03
+
+:end:
