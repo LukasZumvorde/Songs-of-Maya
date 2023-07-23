@@ -57,31 +57,28 @@
 #+HTML_HEAD:	}
 #+HTML_HEAD: </style>
 
-
 * COMMENT TODOs
-- Charakter rechner
-- Geld anders darstellen?
+- replace kampagnie for another name that works both in german and english
 
-* COMMENT Playtest questions
+* COMMENT Play test questions
 Does the money and item system feel good?
-
   
 * Rules
 
 #+LATEX: \begin{multicols}{2}[]
 ** Character Values
 *** Attributes
-Attributes dedscribe a characters potential. The higher the value the greater things a character can achieve. There are the following 8 Attributes beloning to the 4 categories.
+Attributes describe a characters potential. The higher the value the greater things a character can achieve. There are the following 8 Attributes belonging to the 4 categories.
 
 | *Category* | *Attribute* | *Description*             |
 |------------+-------------+---------------------------|
-| Physical   | Strength    | strength and hardyness    |
+| Physical   | Strength    | strength and hardiness    |
 |            | Dexterity   | agility, speed, precision |
 |------------+-------------+---------------------------|
-| Mental     | Will        | percevirance, attention   |
-|            | Intelect    | intellegence, knowledge   |
+| Mental     | Will        | perseverance, attention   |
+|            | Intellect   | intelligence, knowledge   |
 |------------+-------------+---------------------------|
-| Sozial     | Empathy     | understanding people      |
+| Social     | Empathy     | understanding people      |
 |            | Charisma    | interacting with people   |
 |------------+-------------+---------------------------|
 | Resources  | Gear        | Gear you have prepared    |
@@ -103,7 +100,7 @@ They determine the amount of dice you can use for [[#sec:checks][checks]].
 
 Skills measure the mastery of a skill. They are expressed as a background description and a level (number between 1 and 6). The skill levels are comparable to how much time a typical person has to spend to reach the same expertise in this area if it were his dayjob. This does however not mean that a character needs to have taken that time to reach his skill level. Level 1 for any skill is free. Not all skills cost the same, the price depends on how specific it is.
 
-The skill determines the likelyhood of a success on a roll. A roll during a [[#sec:checks][checks]] is counted as a success if the dice shows less or equal eyes than the skill.
+The skill determines the likelihood of a success on a roll. A roll during a [[#sec:checks][checks]] is counted as a success if the dice shows less or equal eyes than the skill.
 
 
 #+ATTR_LATEX: :align c|l
@@ -123,7 +120,7 @@ See chapter [[#sec:loskills][List of Skills]] for examples.
 It might happen that you have a lot of very specific skills. If that is the case you can combine them to a more general skill. The total CP cost has to stay the same. The merging of skills needs the approval of the GM.
 
 *** Traits
-Traits are distinglishing things about the character. They can be bought for character points. This is possible both at character creation and later in the game.
+Traits are distinguishing things about the character. They can be bought for character points. This is possible both at character creation and later in the game.
 They might be extraordinary strength or the ability to cast certain magic. Some traits (like all magic) should come with a risk (all checks that can only be made with this trait are risky checks).
 
 See the chapter [[#sec:lotraits][List of Traits]] for examples
@@ -136,7 +133,7 @@ Use the Rules under Equipment to limit your starting gear.
 Character Advancement:
 You may reward your players with CP (character points) for reaching milestones in the story or simply surviving the session.
 
-- A skill point typicaly costs 7 CP but can vary based on how specific they are.
+- A skill point typically costs 7 CP but can vary based on how specific they are.
 - An attribute point costs 2 CP.
 - A Trait typically costs 7 CP but can vary widely. Negative traits can even have a negative price.
 
@@ -153,7 +150,7 @@ Each round you can make multiple checks. The total number of dice used is the la
 A Contest is when parties have opposing goals:
 - Parties describe what they indent to do
 - Parties decide (secretly) how many dice they want to use for each action (check)
-- Everybody rolles their dice
+- Everybody rolls their dice
 - Results of the checks are described. 
 
 *Effects:*
@@ -166,14 +163,14 @@ A Contest is when parties have opposing goals:
 For a list of effects see the section [[#sec:loeffects][List of Effects]]
 
 
-*Colaborative checks:*
+*Collaborative checks:*
 Everyone rolls individually and then sum together all successes.
 
 *Risky checks:*
-If a check is risky the character might incurr something bad if the check fails. If the check fails the negative successes are used to incur effects to the characters disadvantage, the minimum is 1. 
+If a check is risky the character might incur something bad if the check fails. If the check fails the negative successes are used to incur effects to the characters disadvantage, the minimum is 1. 
 
-*Predefined Effekts:*
-You can learn to achieve a certain combination of effects very effectively. You have to learn this as a trait. You can increase the difficulty of the check. Double the difficulty can be used to declare the predefined effects. The check automatically bekomes risky. This allows you to use the same dice to achieve multiple effects. Such a trait costs 1 CP per different effect.
+*Predefined Effects:*
+You can learn to achieve a certain combination of effects very effectively. You have to learn this as a trait. You can increase the difficulty of the check. Double the difficulty can be used to declare the predefined effects. The check automatically becomes risky. This allows you to use the same dice to achieve multiple effects. Such a trait costs 1 CP per different effect.
 
 *Concentration:*
 Some effects have to be kept up. In those cases the successes needed to achieve the effect block the attribute points (dice) from being used for anything else, as long as the concentration lasts. 
@@ -193,7 +190,7 @@ This table gives an overview of what a good difficulty for checks is by average 
 
 
 ** Damage
-Damage is taken on attribute categories and reduces the attribute points (points) you can use for all attributes in the category.  Once your attribute effectively falls below 0 you are out of commision with regards to this attribute. The way in which you are taken out depends on the attribute and what caused the damage.
+Damage is taken on attribute categories and reduces the attribute points (points) you can use for all attributes in the category.  Once your attribute effectively falls below 0 you are out of commission with regards to this attribute. The way in which you are taken out depends on the attribute and what caused the damage.
 
 #+begin_quote
 Bob the Barbarian got hit in combat multiple times. He has 4 Physical but 3 physical wounds. Now he additionally got confused by a spell and thinks his Comrades are enemys. His compatriot Roger the Rogue tries to nonlethaly take him out by hitting him with his blackjack over the head. He succeeds and makes another 2 damage. Bob goes down, bleeding from his old wounds but still alive.
@@ -204,13 +201,13 @@ Silvia the Spy finds herself in a fierce debate with the Diplomat. She trys to c
 #+end_quote
 
 Depending on the source of the damage it might heal after each scene, mission or kampagnie.
-- Scene: A thematically connected timeframe like a fight. (example: unarmed, blackjack, nets, drowning)
-- Mission: Until a milestone in the game is reached, for example until the quest is finished or story beat is reached (example; sword, fire, knive, falling great heights)
-- Kampagnie: Until a longterm goal is reached. For example until the evil King is vanquished. (example: nasgul blade, daemonic poison)
+- Scene: A thematically connected time frame like a fight. (example: unarmed, blackjack, nets, drowning)
+- Mission: Until a milestone in the game is reached, for example until the quest is finished or story beat is reached (example; sword, fire, knife, falling great heights)
+- Kampagnie: Until a long term goal is reached. For example until the evil King is vanquished. (example: nazgul blade, daemonic poison)
 The short form to write this is 2s(/m/k) for two damage that heals by the end of the scene(/mission/kampagnie).
   
 ** Armor / Damage reduction
-Armor or damage reduction (DR) does not negate damage completely but it changes its type to one that is faster to heal. With an armor of 2 up to 2m damage per contest/round are being reduced to 2s damage. Normally damage reduction should only go down to scene level and not remove damage completely. As an optional rule however you can decide that scene damage can be reduced to nothing as long as at least 1 dmg stays. When considering armor always think about the complete set being worn and not about simgle pieces. Decide which armor class fits.
+Armor or damage reduction (DR) does not negate damage completely but it changes its type to one that is faster to heal. With an armor of 2 up to 2m damage per contest/round are being reduced to 2s damage. Normally damage reduction should only go down to scene level and not remove damage completely. As an optional rule however you can decide that scene damage can be reduced to nothing as long as at least 1 damage stays. When considering armor always think about the complete set being worn and not about single pieces. Decide which armor class fits.
 
 #+ATTR_LATEX: :align l|c
 | *Armor Class* | *DR* |
@@ -229,9 +226,9 @@ Far: Quite a distance away. You might be able to shoot a rifle or a bow at this 
 
 ** Items and Equipment
 
-Items have a RV (Ressource Value) this determines how expensive or hard to get it is. Apart from that they have a description and maybe special effects. Let your fantasy go wild. A few examples can be found below.
+Items have a RV (Resource Value) this determines how expensive or hard to get it is. Apart from that they have a description and maybe special effects. Let your fantasy go wild. A few examples can be found below.
 
-An item can be found or bought. To buy an item you need to be somewhere where it is possible to be bought. Roll on Ressources. If you get at least the RV successes you have bought the item.
+An item can be found or bought. To buy an item you need to be somewhere where it is possible to be bought. Roll on Resources. If you get at least the RV successes you have bought the item.
 
 #+begin_quote
 Sword (RV 2):
@@ -239,26 +236,26 @@ Its a stabby piece of metal. Especially good at harming unarmored enemies. Not s
 #+end_quote
 
 #+begin_quote
-Chainmail (RV 3):
+Mail shirt (RV 3):
 A metal fabric that protects your torso and arms from being cut or stabbed pretty well. 
 #+end_quote
 
-To create an item first give it a short description. It should make clear on what what kind of actions it may give advantages or what kind of effects may be created with it. Second you determine its RV (ressource value).
+To create an item first give it a short description. It should make clear on what kind of actions it may give advantages or what kind of effects may be created with it. Second you determine its RV (resource value).
 
 #+ATTR_LATEX: :align c|l|l
 | *RV* | *Description*  | *Example*                   |
 |------+----------------+-----------------------------|
 |    0 | Free           | a club                      |
 |    1 | Cheap          | simple clothes, basic tools |
-|    2 | Affordable     | regular car, appartment     |
+|    2 | Affordable     | regular car, apartment      |
 |    3 | Costly         | regular house               |
-|    4 | Expensive      | sportscar                   |
+|    4 | Expensive      | sports car                  |
 |    5 | Very Expensive | small airplane              |
-|    6 | Luxourious     | private jet                 |
+|    6 | Luxurious      | private jet                 |
 
 
 *** Equipment
-Characters can have gear with a value of up to half the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normaly furnished home. Apply reason as necessary.
+Characters can have gear with a value of up to half the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
 
 When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check against the RV of what they would like to have in the moment to see if they do. The check is risky and if they fail they get the difference in damage to their Gear attribute until the end of the mission.
 
@@ -266,13 +263,13 @@ When out adventuring characters have all the gear that they have written down. A
 Characters can buy new stuff with a Finances check against the RV of what they want to buy. The check is risky and they get the difference in damage on their finances until the end of the mission if they fail. The GM does not have to let you retry on a fail.
 
 *** Crafting
-Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought for the RV-1 of the item to be build. To build the item the character needs to make a check with RV difficulty. If that fails the resoruces might be lost, depending on what they are.
+Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought for the RV-1 of the item to be build. To build the item the character needs to make a check with RV difficulty. If that fails the resources might be lost, depending on what they are.
 
 *** Gathering
 Resources can be gathered with a check and their RV as difficulty.
 
 *** Bribing
-To Bribe someone you need to give them more than they can normally compfortably afford. This means you need more than half their finances value in successes to bribe them.
+To Bribe someone you need to give them more than they can normally comfortably afford. This means you need more than half their finances value in successes to bribe them.
 
 #+LATEX: \newpage
 * Lists
@@ -284,7 +281,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 :END:
 
 #+begin_quote
-*Friend of Nature* (7): You can talk to the forces of nature and have a chance to convince them to help you. This can be asking, a bird what he has seen, letting youself be concealed by a bush or calling a wild bear to aid you in combat.
+*Friend of Nature* (7): You can talk to the forces of nature and have a chance to convince them to help you. This can be asking, a bird what he has seen, letting yourself be concealed by a bush or calling a wild bear to aid you in combat.
 #+end_quote
 
 #+begin_quote
@@ -300,11 +297,11 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Nightvision* (7): You can see in darkness as if it were light.
+*Night-vision* (7): You can see in darkness as if it were light.
 #+end_quote
 
 #+begin_quote
-*Sleepless* (7): You dont need sleep. This means you have a lot more time in a day, but you still need to rest from to much physical or mental excertion.
+*Sleepless* (7): You don't need sleep. This means you have a lot more time in a day, but you still need to rest from to much physical or mental exertion.
 #+end_quote
 
 #+begin_quote
@@ -312,15 +309,15 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Tinkerer* (7): You can build wonderous mechanikal marvels. From clocks up to steam powered automata. 
+*Tinkerer* (7): You can build wondrous mechanical marvels. From clocks up to steam powered automatons. 
 #+end_quote
 
 #+begin_quote
-*Hacker* (7): You are not only proficient in computer science but you can even achieve movie worthy feats like stoping another car with only your laptop during a car chase. Tools not included.
+*Hacker* (7): You are not only proficient in computer science but you can even achieve movie worthy feats like stopping another car with only your laptop during a car chase. Tools not included.
 #+end_quote
 
 #+begin_quote
-*Plot Armor* (1): Each scene you can discard a point of damage you would take. The plot armor only allies to one of the categories (Physical, Mental, Sozial) This trait can be taken multiple times.
+*Plot Armor* (1): Each scene you can discard a point of damage you would take. The plot armor only allies to one of the categories (Physical, Mental, Social) This trait can be taken multiple times.
 #+end_quote
 
 
@@ -330,15 +327,15 @@ None of the following lists is exhaustive. They should be taken as examples. You
 :END:
 
 #+begin_quote
-*Professional Chef* (7 CP): You have learned not only to cook but also to plan the foodstuffs on storage, to store propperly, to calucalte profitability, to motivate and coordinate a team of people.
+*Professional Chef* (7 CP): You have learned not only to cook but also to plan the foodstuffs on storage, to store properly, to calculate profitability, to motivate and coordinate a team of people.
 #+end_quote
 
 #+begin_quote
-*Soldier* (7 CP): You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned dicipline and coordination.
+*Soldier* (7 CP): You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned discipline and coordination.
 #+end_quote
 
 #+begin_quote
-*Trouthsayer* (7 CP): You have learned to peer into possible futures, read people and make inferences on what will likely happen. You have learned the art of putting on an act. 
+*Soothsayer* (7 CP): You have learned to peer into possible futures, read people and make inferences on what will likely happen. You have learned the art of putting on an act. 
 #+end_quote
 
 #+begin_quote
@@ -346,7 +343,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*College Mage* (7 CP): You have studied the art of magic. You learned them with books, astronomy and experiments. You can cast spells by pronouncing incantations, magical glyphs and potent periphinalia. You still need the appropriate trait to cast magic from specific schools of magic.
+*College Mage* (7 CP): You have studied the art of magic. You learned them with books, astronomy and experiments. You can cast spells by pronouncing incantations, magical glyphs and potent paraphernalia. You still need the appropriate trait to cast magic from specific schools of magic.
 #+end_quote
 
 #+begin_quote
@@ -368,15 +365,15 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Protective Amulet* (RV 2): This amulet made from magicaly potent elderwood protects lightly (1 damage reduction) from mental damge comming from magic.
+*Protective Amulet* (RV 2): This amulet made from magically potent elder wood protects lightly (1 damage reduction) from mental damage coming from magic.
 #+end_quote
 
 #+begin_quote
-*Pentagram Amulet* (RV 2): This amulet was made to prevent possession and influence of otherworldly forces. Allows you to rerol 1 die against attacks against your mental state when comming from ghosts, magic, or similar forces.
+*Pentagram Amulet* (RV 2): This amulet was made to prevent possession and influence of otherworldly forces. Allows you to reroll 1 die against attacks against your mental state when coming from ghosts, magic, or similar forces.
 #+end_quote
 
 #+begin_quote
-*Potion of Healing* (RV 3): When being drunk it allows you to reduce the healing time of up to 4 physical damage from M to S
+*Potion of Healing* (RV 3): When being drunk it allows you to reduce the healing time of up to 3 physical damage from M to S
 #+end_quote
 
 #+begin_quote
@@ -397,7 +394,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Block:* Each success is used to remove one success from an enemies attack on you or one of your collegues. If you win a contest with a block you can deal 1 damage per success (type appropriate to the weapon used). If an enemies block would deal damage to you it can also be blocked.
+*Block:* Each success is used to remove one success from an enemies attack on you or one of your colleagues. If you win a contest with a block you can deal 1 damage per success (type appropriate to the weapon used). If an enemies block would deal damage to you it can also be blocked.
 #+end_quote
 
 #+begin_quote
@@ -405,7 +402,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Push:* For 1 success you can force your enemy to move slightly. Pushing an ememy off a cliff still gives them a check to prevent them from falling.
+*Push:* For 1 success you can force your enemy to move slightly. Pushing an enemy off a cliff still gives them a check to prevent them from falling.
 #+end_quote
 
 #+begin_quote
@@ -417,11 +414,11 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Cause Disadvantage:* For 1 success each you can make the enemys position more disadvantageous. This means he has to rerol 1 die that would otherwise be a success until the end of the scene. Example: Forcing the emeny into a tight corner. 
+*Cause Disadvantage:* For 1 success each you can make the enemies position more disadvantageous. This means he has to reroll 1 die that would otherwise be a success until the end of the scene. Example: Forcing the enemy into a tight corner. 
 #+end_quote
 
 #+begin_quote
-*Blind:* For 2 successes. Take an emenys sense. Examples: Throw sand into eyes, Shatter eardrums with a lound noise.
+*Blind:* For 2 successes. Take an enemies sense. Examples: Throw sand into eyes, Shatter eardrums with a loud noise.
 #+end_quote
 
 #+begin_quote
@@ -433,7 +430,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Purify Thing:* Per success you can purify one unit of a non sentient thing. For example remove poisons from one days worth of food, or remove the daemonic blight from a couple trees in the forrest.
+*Purify Thing:* Per success you can purify one unit of a non sentient thing. For example remove poisons from one days worth of food, or remove the daemonic blight from a couple trees in the forest.
 #+end_quote
 
 #+begin_quote
@@ -445,7 +442,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Shapeshift:* Take the form of another being. The new forms max CP depends on the sucesses. Per success get 15 CP (max is the characters total CP). The effect holds until the end of the scene or until the end of the concentration.
+*Shape-shift:* Take the form of another being. The new forms max CP depends on the successes. Per success get 15 CP (max is the characters total CP). The effect holds until the end of the scene or until the end of the concentration.
 #+end_quote
 
 #+begin_quote
@@ -457,7 +454,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Influence:* You may make your victim do something they dont want to do. The game master decides how many successes you need. As orientation you can use the following examples.
+*Influence:* You may make your victim do something they don't want to do. The game master decides how many successes you need. As orientation you can use the following examples.
 - Make your enemy drop his weapon (1 success)
 - Make a wild bird deliver a message (2 successes)
 - make your victim jump from the bridge (3 successes)
@@ -484,7 +481,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Stop:* For 2 successes the victim can be stoped from movement.
+*Stop:* For 2 successes the victim can be stopped from movement.
 #+end_quote
 
 #+begin_quote
@@ -498,7 +495,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Consume Resource:* Different than other effects this one gives you additional successes for the value of 1 success / 2 RV. It is always up to the Gm if he allows this effect to be used. In order to consume a resoruce it most often needs to be preparated in some way (carving runes into it or manufactoring).
+*Consume Resource:* Different than other effects this one gives you additional successes for the value of 1 success / 2 RV. It is always up to the Gm if he allows this effect to be used. In order to consume a resource it most often needs to be prepared in some way (carving runes into it or manufacturing).
 #+end_quote
 
 #+begin_quote
@@ -515,17 +512,17 @@ Example: Anti magic field.
 
 #+begin_quote
 *Goblin* (34 CP)
-P:2, M:1, S:1, R:1, Bandit 2, Nightvision
+P:2, M:1, S:1, R:1, Bandit 2, Night-vision
 #+end_quote
 
 #+begin_quote
 *Wolf* (38 CP)
-P:3, M:1, S:2, R:0, Packhunter 3
+P:3, M:1, S:2, R:0, Pack-hunter 3
 #+end_quote
 
 #+begin_quote
 *Guard* (78 CP)
-P:4, M:4, S:4, R:4, Cityguard 3
+P:4, M:4, S:4, R:4, City-guard 3
 #+end_quote
 
 #+begin_quote
@@ -550,7 +547,7 @@ Ph: 5, Me: 3, So: 3, Re: 2, Banditry 2, Previous Profession 3
 
 #+begin_quote
 *Combat Drone* (34 CP)
-Ph: 3, Me: 1, So: 1, Re: 1, Shooting 4, Nightvision
+Ph: 3, Me: 1, So: 1, Re: 1, Shooting 4, Night-vision
 #+end_quote
 
 
@@ -559,28 +556,28 @@ Ph: 3, Me: 1, So: 1, Re: 1, Shooting 4, Nightvision
 * Optional Rules
 
 ** Less precise Attributes
-Instead of using the Attributes as listed you can use only the Categories. Learning a level in one of the categories costs duble of what a level in an attribute would cost.
+Instead of using the Attributes as listed you can use only the Categories. Learning a level in one of the categories costs double of what a level in an attribute would cost.
 
 ** No Abstraction for Money
 To remove the resources category from the attributes just raise the price of learning a level of the other attributes by 33%. The costs for goods and services depend on the kampaign setting.
 
 ** Fixed spells
-If you dont want PCs to be able to create situation specific spells then you can disallow it. Instead you need to define for every spell what effects they cause. Look at the rules for contests for guidance. The difficulty of the spell should be half the ammount of successes you would have needed to cause those effects. To learn a spell the player has to aquire it as a trait. Such a trait can be comparatively cheap though (1-5 CP depending on how many spells you want to exist). All spell checks are risky checks.
+If you don't want PCs to be able to create situation specific spells then you can disallow it. Instead you need to define for every spell what effects they cause. Look at the rules for contests for guidance. The difficulty of the spell should be half the amount of successes you would have needed to cause those effects. To learn a spell the player has to acquire it as a trait. Such a trait can be comparatively cheap though (1-5 CP depending on how many spells you want to exist). All spell checks are risky checks.
 
 ** Fixed spells with optional free casting of magic
-If you want spells in general to be predefined but still allow for free casting from time to time you can use the fixed spells optional rules and add the following. When free casting magic you dont need to have the trait for the spell and can even create the spell on the fly, but all effects cost double the successes on a roll. All magic checks stay risky.
+If you want spells in general to be predefined but still allow for free casting from time to time you can use the fixed spells optional rules and add the following. When free casting magic you don't need to have the trait for the spell and can even create the spell on the fly, but all effects cost double the successes on a roll. All magic checks stay risky.
 
 ** Retroactive Actions
 The DM may allow players retroactively having performed some action. For example having placed a trap beforehand. To balance this any check on such an action should be a risky check.
 
 ** Too Many Dice
-It can happen that you have to roll to many dice at once. If that happens your can instead divide the number of dice by a number (2,3,4) and multiply the number of successes by that number. If the dice are not evenly divisible just roll the rest regularly. It is advisable to use this method if the number of dice exeeds 12.
+It can happen that you have to roll to many dice at once. If that happens your can instead divide the number of dice by a number (2,3,4) and multiply the number of successes by that number. If the dice are not evenly divisible just roll the rest regularly. It is advisable to use this method if the number of dice exceeds 12.
 
 ** Exhausting Combat
 To limit the duration of a combat scene apply this rule. If in one round no party takes any damage, then apply 1s damage to each combatant from the exhaustion of combat. 
 
 #+LATEX: \newpage
-* Gameplay Examples
+* Game-play Examples
 
 ** Ambushed by Goblins
 
@@ -588,28 +585,28 @@ To limit the duration of a combat scene apply this rule. If in one round no part
 
 *A* is the player Anna with her character Amy (P: 3,M: 6,S: 4, Alchemist 3)
 
-*B* is the player Ben with his character Boris (P: 6,M: 4,S: 3, Babarian 3)
+*B* is the player Ben with his character Boris (P: 6,M: 4,S: 3, Barbarian 3)
 
-*GM:* As you walk along the forrest trail please roll for perception with your will.
+*GM:* As you walk along the forest trail please roll for perception with your will.
 - GM Rolls 3*2d|2 = 3 for the 3 goblins trying to ambush
 - A Rolls 6d|1 =  3
 - B Rolls 4d|3 =  3
 
-*GM:* You notice a shuffling in the bushes before you reach the chokepoint. You exchange a quick look with one another and know that the Goblins must be here. 
+*GM:* You notice a shuffling in the bushes before you reach the choke-point. You exchange a quick look with one another and know that the Goblins must be here. 
 
-*B:* I try to intimidate the goblins in order to prevent them from attacking us. I step forward as if there was nothing there and say to Amy "Remember the Wyvern we killed last week. Turns out it ate one of the royal knights. What total weaklings they must have been. I mean we ripped that lizards fucking head of without breaking a sweat."
+*B:* I try to intimidate the goblins in order to prevent them from attacking us. I step forward as if there was nothing there and say to Amy "Remember the Wivern we killed last week. Turns out it ate one of the royal knights. What total weaklings they must have been. I mean we ripped that lizards fucking head of without breaking a sweat."
 
-*GM:* roll for intimitation with charisma, you can use your babarian skill for it. The story sounds very much like what a babarian would do.
+*GM:* roll for intimidation with charisma, you can use your barbarian skill for it. The story sounds very much like what a barbarian would do.
 *B:* 3d1|3 = 1
 
-*GM:* Blocks wiht the goblins empathy 3d|1 = 1. Sorry Ben, the goblins are not convinced. They jump out of the bushes.
-*A:* Can i have prepared a smokebomb?
+*GM:* Blocks with the goblins empathy 3d|1 = 1. Sorry Ben, the goblins are not convinced. They jump out of the bushes.
+*A:* Can i have prepared a smoke bomb?
 
 *GM:* Sure make a retroactive check for your alchemy.
 
 *A:* 6d|3 = 3 It can cause 3 disadvantage to an enemy or how about 1 disadvantage to 3.
 
-*GM:* Sure. As i said the goblins jump out of the bushes and attack, still thinking that you dont expact them. They use all 6 dice to attack Ben since he is the biggest 6d|2 = 1.
+*GM:* Sure. As i said the goblins jump out of the bushes and attack, still thinking that you don't expect them. They use all 6 dice to attack Ben since he is the biggest 6d|2 = 1.
 
 *A:* I throw the bomb and try to attack one of the goblins with one die.
 
@@ -621,13 +618,13 @@ To limit the duration of a combat scene apply this rule. If in one round no part
 
 *B:* I defend of corse, but take 1 die to kill one of the goblins. 5d|3=4 and 1d|3=0 so 4 do block and 0 to hit.
 
-*GM:* Ok as the goblins jump out Amy stabs one with her rapier (2dmg) killing it and Boris not only jumps out of the way of their attacks but also cleaves one of them in two and injures the last. Next round: The remaining Goblin trys to flee and block whatever it can.
+*GM:* Ok as the goblins jump out Amy stabs one with her rapier (2m) killing it and Boris not only jumps out of the way of their attacks but also cleaves one of them in two and injures the last. Next round: The remaining Goblin tries to flee and block whatever it can.
 
 *A:* "Let him run"
 
 *B:* Not so fast. I try to give him one. 6d|3 = 3
 
-*GM:* There is no way it can block that. You give the goblin the final blow. Not only is there no more noice in the bushes now but the street is also painted red.
+*GM:* There is no way it can block that. You give the goblin the final blow. Not only is there no more noise in the bushes now but the street is also painted red.
 
 ** Hacker duel
 
@@ -655,25 +652,25 @@ To limit the duration of a combat scene apply this rule. If in one round no part
 
 *A* doesn't my team help me with that? And can i use my social engineering to maybe help out?
 
-*GM* Ok lets see, you get 5d|3 = 1 from you your team on the ground and the social engineering would take a retroactive check.
+*GM* Okay lets see, you get 5d|3 = 1 from you your team on the ground and the social engineering would take a retroactive check.
 
-*A* Ok then i have called in before ordering some pizza to that place. I use my sozial engineering 6d|3 = 1. That worked. And now for the tactics 10d|3 = 5 plus the help from the team and the pizza makes 7 against the 4 means 3 points left. Can i create some effect?
+*A* Okay then i have called in before ordering some pizza to that place. I use my social engineering 6d|3 = 1. That worked. And now for the tactics 10d|3 = 5 plus the help from the team and the pizza makes 7 against the 4 means 3 points left. Can i create some effect?
 
-*GM* Ok, what do you want to achieve?
+*GM* Okay, what do you want to achieve?
 
-*A* Lets blind those fuckers. I want to plant some emps on their equipment.
+*A* Lets blind those fuckers. I want to plant some EMPs on their equipment.
 
 *GM* Wouldn't that alarm them that something is up?
 
 *A* Not if we add a trigger. The effect "blinding" and "trigger" should add up to 3. Does that work.
 
-*GM* sounds good to me. Alright your team has reached the back entrance and is about to break into the building. They call in "Overwatch, we have a proplem. There is a combination lock that was not in the schematics. Please advice."
+*GM* sounds good to me. Alright your team has reached the back entrance and is about to break into the building. They call in "Over-watch, we have a problem. There is a combination lock that was not in the schematics. Please advice."
 
-*A* "Give me a sec." Hmm, their security system is state of the art. It might be easier to manipulate the people there. Can i find out who installed the system? "Hey guys, is there any manufactorer branding on the lock. Send me a recording."
+*A* "Give me a sec." Hmm, their security system is state of the art. It might be easier to manipulate the people there. Can i find out who installed the system? "Hey guys, is there any manufacturer branding on the lock. Send me a recording."
 
-*GM* "Roger" Shortly after you get a complete video recording of the locking system. It indeed includes the manufactorer branding.
+*GM* "Roger" Shortly after you get a complete video recording of the locking system. It indeed includes the manufacturer branding.
 
-*A* Can i find out who isntalled it?
+*A* Can i find out who installed it?
 
 *GM* This is a public institution. For transparency reasons they need to make reports on their expenses. So yea. But it will take some time.
 
