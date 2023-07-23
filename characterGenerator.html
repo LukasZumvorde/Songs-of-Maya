@@ -155,10 +155,17 @@
 	}
 
 	.resulthighlighted {
-		color: #0460CD;
+	  /* color: #0460CD; */
+	  color: #000;
+	  transition: color 500ms linear;
+	}
+	.resultobscured {
+		color: #888;
+	  transition: color 500ms linear;
 	}
 	.resultnormal {
-		color: #000000;
+		color: #000;
+	  transition: color 500ms linear;
 	}
   </style>
 
@@ -588,8 +595,12 @@
 		  document.getElementById("rollresults").querySelectorAll("[name^=roll]").forEach(e => e.setAttribute("class","resultnormal"));
 		  document.getElementById("rollresults").querySelectorAll("[name^=dice]").forEach(e => e.setAttribute("class","resultnormal"));
 	  }
+	  function obscureresult() {
+		  document.getElementById("rollresults").querySelectorAll("[name^=roll]").forEach(e => e.setAttribute("class","resultobscured"));
+		  document.getElementById("rollresults").querySelectorAll("[name^=dice]").forEach(e => e.setAttribute("class","resultobscured"));
+	  }
 	  function highlightresult(n) {
-		  removeresulthighlight()
+		  obscureresult()
 		  document.getElementById("rollresults").querySelector("[name=roll"+n+"]").setAttribute("class","resulthighlighted");
 		  document.getElementById("rollresults").querySelector("[name=dice"+n+"]").setAttribute("class","resulthighlighted");
 	  }

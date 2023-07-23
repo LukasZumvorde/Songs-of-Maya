@@ -466,8 +466,8 @@ def simulateCombat(A, B):
             return r, "A"
     return r, 0
 
-def experiment(p1attr1, p1attr2, p1skill, p1_atk_strat, p1_dmg_strat,
-               p2attr1, p2attr2, p2skill, p2_atk_strat, p2_dmg_strat):
+def experiment(p1attr1, p1attr2, p1skill, p1armor, p1_atk_strat, p1_dmg_strat,
+               p2attr1, p2attr2, p2skill, p2armor, p2_atk_strat, p2_dmg_strat):
     fights = 100
     stat=dict()
     print("Simulate %i fights with P1(%sd|%s) and P2(%sd|%s)" % (fights,p1attr1,p1skill,p2attr1,p2skill))
@@ -480,8 +480,8 @@ def experiment(p1attr1, p1attr2, p1skill, p1_atk_strat, p1_dmg_strat,
     stat["B_attr1_wound_m"] = 0
     stat["B_attr2_wound_m"] = 0
     for i in range(fights):
-        A = Player(attr1=p1attr1, attr2=p1attr2, skill=p1skill, atk_strat=p1_atk_strat, dmg_strat=p1_dmg_strat, armor=2)
-        B = Player(attr1=p2attr1, attr2=p2attr2, skill=p2skill, atk_strat=p2_atk_strat, dmg_strat=p1_dmg_strat)
+        A = Player(attr1=p1attr1, attr2=p1attr2, skill=p1skill, atk_strat=p1_atk_strat, dmg_strat=p1_dmg_strat, armor=p1armor)
+        B = Player(attr1=p2attr1, attr2=p2attr2, skill=p2skill, atk_strat=p2_atk_strat, dmg_strat=p1_dmg_strat, armor=p2armor)
         time, winner = simulateCombat(A, B)
         stat["A_attr1_wound_m"] += A.attr1_wound_m
         stat["A_attr2_wound_m"] += A.attr2_wound_m
@@ -509,31 +509,31 @@ def experiment(p1attr1, p1attr2, p1skill, p1_atk_strat, p1_dmg_strat,
     print("B: %3s%%" % round(stat["B"]*100))
     print(*["%2s " % k for k in sorted(filter(lambda x: type(x) == int , stat.keys()))], sep=' ')
     print(*["%2s%%" % round(i[1]*100) for i in sorted(filter(lambda x: type(x[0]) == int , stat.items()))], sep=' ')
-    print()
     print(" m wounds for attr1  A: %s  |  B: %s" % (stat["A_attr1_wound_m"] , stat["B_attr1_wound_m"]))
-    print(" m wounds for attr2  A: %s  |  B: %s" % (stat["A_attr2_wound_m"] , stat["B_attr2_wound_m"]))
+    # print(" m wounds for attr2  A: %s  |  B: %s" % (stat["A_attr2_wound_m"] , stat["B_attr2_wound_m"]))
     print()
     return stat
 
-# experiment(6,4,3,atk_strat_equal_bias_atk,dmg_strat_all_attr2_sensible,
-#            6,4,3,atk_strat_equal_bias_atk,dmg_strat_equal_bias_attr2_sensible)
-s = experiment(10, 10, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
-               6, 6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+Pa, Ea = 10, 6
+Ps, Es = 3, 2
+Pdr, Edr = 0, 0
+s = experiment(Pa, 10, Ps, Pdr, atk_strat_equal_bias_atk, dmg_strat_all_attr1,
+               Ea,  6, Es, Edr, atk_strat_equal_bias_atk, dmg_strat_all_attr1)
 a1, a2 = math.floor(s["Aattr1"]/max(1,s["A"])), math.floor(s["Aattr2"]/max(1,s["A"]))
-s = experiment(a1, a2, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
-               6,   6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+s = experiment(a1, a2, Ps, Pdr, atk_strat_equal_bias_atk, dmg_strat_all_attr1,
+               Ea,  6, Es, Edr, atk_strat_equal_bias_atk, dmg_strat_all_attr1)
 a1, a2 = math.floor(s["Aattr1"]/max(1,s["A"])), math.floor(s["Aattr2"]/max(1,s["A"]))
-s = experiment(a1, a2, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
-               6,   6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+s = experiment(a1, a2, Ps, Pdr, atk_strat_equal_bias_atk, dmg_strat_all_attr1,
+               Ea,  6, Es, Edr, atk_strat_equal_bias_atk, dmg_strat_all_attr1)
 a1, a2 = math.floor(s["Aattr1"]/max(1,s["A"])), math.floor(s["Aattr2"]/max(1,s["A"]))
-s = experiment(a1, a2, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
-               6,   6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+s = experiment(a1, a2, Ps, Pdr, atk_strat_equal_bias_atk, dmg_strat_all_attr1,
+               Ea,  6, Es, Edr, atk_strat_equal_bias_atk, dmg_strat_all_attr1)
 a1, a2 = math.floor(s["Aattr1"]/max(1,s["A"])), math.floor(s["Aattr2"]/max(1,s["A"]))
-s = experiment(a1, a2, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
-               6,   6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+s = experiment(a1, a2, Ps, Pdr, atk_strat_equal_bias_atk, dmg_strat_all_attr1,
+               Ea,  6, Es, Edr, atk_strat_equal_bias_atk, dmg_strat_all_attr1)
 a1, a2 = math.floor(s["Aattr1"]/max(1,s["A"])), math.floor(s["Aattr2"]/max(1,s["A"]))
-s = experiment(a1, a2, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible,
-               6,   6, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible)
+s = experiment(a1, a2, Ps, Pdr, atk_strat_equal_bias_atk, dmg_strat_all_attr1,
+               Ea,  6, Es, Edr, atk_strat_equal_bias_atk, dmg_strat_all_attr1)
 
 
 # print(dmg_strat_all_attr2_sensible(5, 6, 4))
@@ -542,52 +542,40 @@ s = experiment(a1, a2, 3, atk_strat_equal_bias_atk, dmg_strat_all_attr2_sensible
 
 #+RESULTS:
 :results:
-Simulate 100 fights with P1(10d|3) and P2(6d|3)
+Simulate 100 fights with P1(10d|3) and P2(6d|2)
  A: 100%  |  B:   0%
- 1   2   3   4   5   6   7   8 
- 1% 20% 36% 24% 16%  1%  1%  1%
+ 1   2   3 
+37% 53% 10%
+ m wounds for attr1  A: 0.32  |  B: 8.63
 
- m wounds for attr1  A: 0.01  |  B: 9.13
- m wounds for attr2  A: 0.16  |  B: 5.0
-
-Simulate 100 fights with P1(9d|3) and P2(6d|3)
- A:  99%  |  B:   1%
- 2   3   4   5   6   7   8  10 
- 6% 25% 29% 18% 10%  9%  2%  1%
-
- m wounds for attr1  A: 0.07  |  B: 9.04
- m wounds for attr2  A: 0.46  |  B: 4.97
-
-Simulate 100 fights with P1(8d|3) and P2(6d|3)
+Simulate 100 fights with P1(9d|3) and P2(6d|2)
  A:  98%  |  B:   2%
- 2   3   4   5   6   7   8   9  10  11 
- 8% 17% 29% 19% 12%  8%  3%  2%  1%  1%
+ 1   2   3   4   7 
+22% 53% 17%  7%  1%
+ m wounds for attr1  A: 0.69  |  B: 8.17
 
- m wounds for attr1  A: 0.12  |  B: 8.26
- m wounds for attr2  A: 0.62  |  B: 5.0
+Simulate 100 fights with P1(8d|3) and P2(6d|2)
+ A:  98%  |  B:   1%
+ 0   1   2   3   4   5 
+ 1% 21% 47% 21%  9%  2%
+ m wounds for attr1  A: 0.71  |  B: 8.1
 
-Simulate 100 fights with P1(7d|3) and P2(6d|3)
- A:  74%  |  B:  26%
- 2   3   4   5   6   7   8   9  10  11 
- 1%  9% 12% 16% 22% 20%  6%  6%  6%  2%
+Simulate 100 fights with P1(7d|3) and P2(6d|2)
+ A:  93%  |  B:   6%
+ 0   1   2   3   4   5   6 
+ 1%  7% 49% 22% 15%  4%  3%
+ m wounds for attr1  A: 1.12  |  B: 7.53
 
- m wounds for attr1  A: 1.02  |  B: 6.02
- m wounds for attr2  A: 0.81  |  B: 4.55
+Simulate 100 fights with P1(5d|3) and P2(6d|2)
+ A:  57%  |  B:  42%
+ 0   1   2   3   4   5   6   7 
+ 1%  7% 24% 29% 22% 15%  2%  1%
+ m wounds for attr1  A: 3.09  |  B: 4.76
 
-Simulate 100 fights with P1(5d|3) and P2(6d|3)
- A:  12%  |  B:  88%
- 2   3   4   5   6   7   8   9 
- 6% 14% 23% 21% 20% 10%  5%  1%
-
- m wounds for attr1  A: 2.72  |  B: 0.97
- m wounds for attr2  A: 0.26  |  B: 2.71
-
-Simulate 100 fights with P1(0d|3) and P2(6d|3)
- A:   0%  |  B: 100%
- 1 
-100%
-
- m wounds for attr1  A: 3.59  |  B: 0.0
- m wounds for attr2  A: -1.0  |  B: 0.03
+Simulate 100 fights with P1(2d|3) and P2(6d|2)
+ A:   1%  |  B:  99%
+ 1   2   3 
+52% 39%  9%
+ m wounds for attr1  A: 3.15  |  B: 0.84
 
 :end:

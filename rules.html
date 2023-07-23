@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-07-22 Sa 11:32 -->
+<!-- 2023-07-23 So 16:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Pen And Paper RPG Ruleset</title>
+<title>My Pen And Paper Ruleset</title>
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="org.css" />
 <style type="text/css">
@@ -15,6 +15,7 @@ background-color: #ACF;
 font-family: "Roboto","Arial",sans-serif;
 margin-left: 20vw;
 margin-right: 20vw;
+background-image: linear-gradient(to right, rgba(4,96,205,0.6), #ACF, #ACF, #ACF, rgba(4,96,205,0.6));
 }
 tbody tr:nth-child(odd) {
 background-color: ##9BF;
@@ -54,19 +55,19 @@ background-image: linear-gradient(to right, rgba(4,96,205,1), rgba(4,96,205,0));
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">My Pen And Paper RPG Ruleset</h1>
+<h1 class="title">My Pen And Paper Ruleset</h1>
 
 
-<div id="outline-container-org0aca887" class="outline-2">
-<h2 id="org0aca887"><span class="section-number-2">1.</span> Rules</h2>
+<div id="outline-container-org0e55a7f" class="outline-2">
+<h2 id="org0e55a7f"><span class="section-number-2">1.</span> Rules</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org508cbb3" class="outline-3">
-<h3 id="org508cbb3"><span class="section-number-3">1.1.</span> Character Values</h3>
+<div id="outline-container-orge84d882" class="outline-3">
+<h3 id="orge84d882"><span class="section-number-3">1.1.</span> Character Values</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org9b12461" class="outline-4">
-<h4 id="org9b12461"><span class="section-number-4">1.1.1.</span> Attributes</h4>
+<div id="outline-container-org1502d06" class="outline-4">
+<h4 id="org1502d06"><span class="section-number-4">1.1.1.</span> Attributes</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Attributes dedscribe a characters potential. The higher the value the greater things a character can achieve. There are the following 8 Attributes beloning to the 4 categories.
@@ -153,7 +154,7 @@ Attributes dedscribe a characters potential. The higher the value the greater th
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-right"><b>Level</b></th>
+<th scope="col" class="org-right"><b>Attribute</b></th>
 <th scope="col" class="org-left"><b>Grade</b></th>
 </tr>
 </thead>
@@ -196,16 +197,17 @@ They determine the amount of dice you can use for <a href="#sec:checks">checks</
 </div>
 </div>
 
-<div id="outline-container-org632a17e" class="outline-4">
-<h4 id="org632a17e"><span class="section-number-4">1.1.2.</span> Skill</h4>
+<div id="outline-container-orgbc8c263" class="outline-4">
+<h4 id="orgbc8c263"><span class="section-number-4">1.1.2.</span> Skill</h4>
 <div class="outline-text-4" id="text-1-1-2">
+<p>
+Skills measure the mastery of a skill. They are expressed as a background description and a level (number between 1 and 6). The skill levels are comparable to how much time a typical person has to spend to reach the same expertise in this area if it were his dayjob. This does however not mean that a character needs to have taken that time to reach his skill level. Level 1 for any skill is free. Not all skills cost the same, the price depends on how specific it is.
+</p>
+
 <p>
 The skill determines the likelyhood of a success on a roll. A roll during a <a href="#sec:checks">checks</a> is counted as a success if the dice shows less or equal eyes than the skill.
 </p>
 
-<p>
-Skills measure the mastery of a skill. They are expressed as a background description and a level (number between 1 and 6). The skill levels are comparable to how much time a typical person has to spend to reach the same expertise in this area if it were his dayjob. This does however not mean that a character needs to have taken that time to reach his skill level. Level 1 for any skill is free. Not all skills cost the same, the price depends on how specific it is.
-</p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -217,8 +219,13 @@ Skills measure the mastery of a skill. They are expressed as a background descri
 </colgroup>
 <thead>
 <tr>
+<th scope="col" class="org-right"><b>Skill</b></th>
+<th scope="col" class="org-left"><b>Equivalent</b></th>
+</tr>
+
+<tr>
 <th scope="col" class="org-right"><b>Level</b></th>
-<th scope="col" class="org-left"><b>Equivalent experience</b></th>
+<th scope="col" class="org-left"><b>experience</b></th>
 </tr>
 </thead>
 <tbody>
@@ -260,40 +267,30 @@ See chapter <a href="#sec:loskills">List of Skills</a> for examples.
 
 <p>
 <b>Merge Skills</b>
-It might happen that you have a lot of very specific skills. If that is the case you can combine them to a more general skill. The total CP cost has to stay the same.
+It might happen that you have a lot of very specific skills. If that is the case you can combine them to a more general skill. The total CP cost has to stay the same. The merging of skills needs the approval of the GM.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge37f8cb" class="outline-4">
-<h4 id="orge37f8cb"><span class="section-number-4">1.1.3.</span> Traits</h4>
+<div id="outline-container-orgf0558ca" class="outline-4">
+<h4 id="orgf0558ca"><span class="section-number-4">1.1.3.</span> Traits</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 Traits are distinglishing things about the character. They can be bought for character points. This is possible both at character creation and later in the game.
- They might be extraordinary strength or the ability to cast certain magic. Some traits (like all magic) should come with a risk (all checks are risky checks). 
+They might be extraordinary strength or the ability to cast certain magic. Some traits (like all magic) should come with a risk (all checks that can only be made with this trait are risky checks).
 </p>
 
-<blockquote>
 <p>
-Herkulian Stength (7CP):
-You are extra strong. For feats of strength you can roll 1 additional die and get at least one success.
+See the chapter <a href="#sec:lotraits">List of Traits</a> for examples
 </p>
-</blockquote>
-
-<blockquote>
-<p>
-Pyromancy (7CP):
-You can make a risky mental check to summon the primordial elemental forces of fire. You can shape and direct them to cause effects. 
-</p>
-</blockquote>
 </div>
 </div>
 
-<div id="outline-container-org63886d3" class="outline-4">
-<h4 id="org63886d3"><span class="section-number-4">1.1.4.</span> Character Creation</h4>
+<div id="outline-container-orgab04c69" class="outline-4">
+<h4 id="orgab04c69"><span class="section-number-4">1.1.4.</span> Character Creation</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <p>
-Distribute 110 CP on your Attributes, Skills and Traits
+Distribute 100 CP on your Attributes, Skills and Traits
 </p>
 
 <p>
@@ -318,12 +315,18 @@ You may reward your players with CP (character points) for reaching milestones i
 <h3 id="sec:checks"><span class="section-number-3">1.2.</span> Checks and Contests</h3>
 <div class="outline-text-3" id="text-sec:checks">
 <p>
-Roll as many six sided dice as your attribute value is. Count each die with your skill level or less eyes and subtract the difficulty (default is 0) of the check. The result are your successes. If the successes are negative the check fails.
+<b>Check:</b>
+Checks are rolled when the outcome of an action is not certain. Each check is bound to an attribute and a skill. One rolls a number of six sided dice and counts each die showing the skills level or less eyes, subtract the difficulty (default is 0) of the check. The result are your successes. If the successes are negative or 0 the check fails. For a check you can use at most your attribute value in dice.
+Each round you can make multiple checks. The total number of dice used is the largest attribute value of the checks. 
 </p>
 
+<p>
+<b>Contest:</b>
+A Contest is when parties have opposing goals:
+</p>
 <ul class="org-ul">
 <li>Parties describe what they indent to do</li>
-<li>Parties decide (secretly) how many dice they want to use for each action</li>
+<li>Parties decide (secretly) how many dice they want to use for each action (check)</li>
 <li>Everybody rolles their dice</li>
 <li>Results of the checks are described.</li>
 </ul>
@@ -332,11 +335,17 @@ Roll as many six sided dice as your attribute value is. Count each die with your
 <b>Effects:</b>
 </p>
 <ul class="org-ul">
+<li>Effects can be bought with successes after a check is made.</li>
 <li>Every action has a default effect. For example in a fight it is wounding an enemy.</li>
 <li>Different effects can also be declared by the player. (e.g. disarming the enemy).</li>
-<li>Combinations are also possible</li>
+<li>Combinations are also possible.</li>
 <li>An Effect might cost more than one success.</li>
 </ul>
+
+<p>
+For a list of effects see the section <a href="#sec:loeffects">List of Effects</a>
+</p>
+
 
 <p>
 <b>Colaborative checks:</b>
@@ -430,18 +439,15 @@ This table gives an overview of what is a good difficulty for checks by average 
 <p>
 For an easy check select the difficulty 1 lower. For a hard check select a difficulty 1 higher.
 </p>
-
-<p>
-For a list of effects see the section <a href="#sec:loeffects">List of Effects</a>
-</p>
 </div>
 </div>
 
-<div id="outline-container-orga5e2919" class="outline-3">
-<h3 id="orga5e2919"><span class="section-number-3">1.3.</span> Damage</h3>
+
+<div id="outline-container-org907b1ba" class="outline-3">
+<h3 id="org907b1ba"><span class="section-number-3">1.3.</span> Damage</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-Damage reduces the attribute points (points) you can use. Damage is typically taken on attribute categories. If this is the case the victim can divide the damage aritrarily on the attributes in the category. Once your attribute effectively falls below 0 you are out of commision with regards to this attribute. The way in which you are taken out depends on the attribute and what caused the damage.
+Damage is taken on attribute categories and reduces the attribute points (points) you can use for all attributes in the category.  Once your attribute effectively falls below 0 you are out of commision with regards to this attribute. The way in which you are taken out depends on the attribute and what caused the damage.
 </p>
 
 <blockquote>
@@ -470,11 +476,11 @@ The short form to write this is 2s(/m/k) for two damage that heals by the end of
 </div>
 </div>
 
-<div id="outline-container-org7ac730f" class="outline-3">
-<h3 id="org7ac730f"><span class="section-number-3">1.4.</span> Armor / Damage reduction</h3>
+<div id="outline-container-org0e9d6ce" class="outline-3">
+<h3 id="org0e9d6ce"><span class="section-number-3">1.4.</span> Armor / Damage reduction</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-Armor or damage reduction (DR) does not negate damage completely but it changes its type to one that is faster to heal. With an armor of 2 up to 2m damage per contest are bein reduced to 2s damage. Normally damage reduction should only go down to scene level and not remove damage completely. As an optional rule however you can decide that scene damage can be reduced to nothing as long as at least 1 dmg stays. When considering armor always think about the complete set being worn and not about simgle pieces. Decide which armor class fits.
+Armor or damage reduction (DR) does not negate damage completely but it changes its type to one that is faster to heal. With an armor of 2 up to 2m damage per contest/round are being reduced to 2s damage. Normally damage reduction should only go down to scene level and not remove damage completely. As an optional rule however you can decide that scene damage can be reduced to nothing as long as at least 1 dmg stays. When considering armor always think about the complete set being worn and not about simgle pieces. Decide which armor class fits.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -516,8 +522,8 @@ Armor or damage reduction (DR) does not negate damage completely but it changes 
 </div>
 </div>
 
-<div id="outline-container-org100bcc7" class="outline-3">
-<h3 id="org100bcc7"><span class="section-number-3">1.5.</span> Range</h3>
+<div id="outline-container-orge36e278" class="outline-3">
+<h3 id="orge36e278"><span class="section-number-3">1.5.</span> Range</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 There are 3 different ranges. It takes one round and half your dice for this round to move one range class. You can however move within a range class unrestricted (within reason). While moving you can still use your action.
@@ -531,8 +537,8 @@ Far: Quite a distance away. You might be able to shoot a rifle or a bow at this 
 </div>
 </div>
 
-<div id="outline-container-org7989f50" class="outline-3">
-<h3 id="org7989f50"><span class="section-number-3">1.6.</span> Items and Equipment</h3>
+<div id="outline-container-org9f0889f" class="outline-3">
+<h3 id="org9f0889f"><span class="section-number-3">1.6.</span> Items and Equipment</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 Items have a RV (Ressource Value) this determines how expensive or hard to get it is. Apart from that they have a description and maybe special effects. Let your fantasy go wild. A few examples can be found below.
@@ -624,8 +630,8 @@ To create an item first give it a short description. It should make clear on wha
 </div>
 
 
-<div id="outline-container-orgb23e95a" class="outline-4">
-<h4 id="orgb23e95a"><span class="section-number-4">1.6.1.</span> Equipment</h4>
+<div id="outline-container-org633b84e" class="outline-4">
+<h4 id="org633b84e"><span class="section-number-4">1.6.1.</span> Equipment</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 Characters can have gear with a value of up to the attribute resources / 2 in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normaly furnished home. Apply reason as necessary.
@@ -637,8 +643,8 @@ When out adventuring characters have all the gear that they have written down. A
 </div>
 </div>
 
-<div id="outline-container-org7185026" class="outline-4">
-<h4 id="org7185026"><span class="section-number-4">1.6.2.</span> Buying</h4>
+<div id="outline-container-org28dbc77" class="outline-4">
+<h4 id="org28dbc77"><span class="section-number-4">1.6.2.</span> Buying</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <p>
 Characters can buy new stuff with a finances check against the RV of what they want to buy. The check is risky and they get the difference in damage on their finances until the end of the mission if they fail. The GM does not have to let you retry on a fail.
@@ -646,8 +652,8 @@ Characters can buy new stuff with a finances check against the RV of what they w
 </div>
 </div>
 
-<div id="outline-container-org49e016d" class="outline-4">
-<h4 id="org49e016d"><span class="section-number-4">1.6.3.</span> Crafting</h4>
+<div id="outline-container-org058750c" class="outline-4">
+<h4 id="org058750c"><span class="section-number-4">1.6.3.</span> Crafting</h4>
 <div class="outline-text-4" id="text-1-6-3">
 <p>
 Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought for the RV-1 of the item to be build. To build the item the character needs to make a check with RV difficulty. If that fails the resoruces might be lost, depending on what they are.
@@ -655,8 +661,8 @@ Characters can also build their own items. For that they need the appropriate to
 </div>
 </div>
 
-<div id="outline-container-org8f26536" class="outline-4">
-<h4 id="org8f26536"><span class="section-number-4">1.6.4.</span> Gathering</h4>
+<div id="outline-container-org7e3cf21" class="outline-4">
+<h4 id="org7e3cf21"><span class="section-number-4">1.6.4.</span> Gathering</h4>
 <div class="outline-text-4" id="text-1-6-4">
 <p>
 Resources can be gathered with a check and their RV as difficulty.
@@ -664,8 +670,8 @@ Resources can be gathered with a check and their RV as difficulty.
 </div>
 </div>
 
-<div id="outline-container-org6ea7719" class="outline-4">
-<h4 id="org6ea7719"><span class="section-number-4">1.6.5.</span> Bribing</h4>
+<div id="outline-container-org4f23aeb" class="outline-4">
+<h4 id="org4f23aeb"><span class="section-number-4">1.6.5.</span> Bribing</h4>
 <div class="outline-text-4" id="text-1-6-5">
 <p>
 To Bribe someone you need to give them more than they can normally compfortably afford. This means you need more than half their finances value in successes to bribe them.
@@ -674,8 +680,8 @@ To Bribe someone you need to give them more than they can normally compfortably 
 </div>
 </div>
 </div>
-<div id="outline-container-org500e555" class="outline-2">
-<h2 id="org500e555"><span class="section-number-2">2.</span> Lists</h2>
+<div id="outline-container-orga0e147f" class="outline-2">
+<h2 id="orga0e147f"><span class="section-number-2">2.</span> Lists</h2>
 <div class="outline-text-2" id="text-2">
 </div>
 <div id="outline-container-sec:lotraits" class="outline-3">
@@ -946,13 +952,18 @@ The list is not exaustive. It should only be taken as a list of examples.
 
 <blockquote>
 <p>
-<b>Influence:</b> 
+<b>Influence:</b> You may make your victim do something they dont want to do. The game master decides how many successes you need. As orientation you can use the following examples.
 </p>
+<ul class="org-ul">
+<li>Make your enemy drop his weapon (1 success)</li>
+<li>Make a wild bird deliver a message (2 successes)</li>
+<li>make your victim jump from the bridge (3 successes)</li>
+</ul>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Shape Reality:</b> 
+<b>Shape Reality:</b>  The game master decides how many successes you need. As orientation you can use the following examples.
 </p>
 </blockquote>
 
@@ -976,29 +987,47 @@ The list is not exaustive. It should only be taken as a list of examples.
 
 <blockquote>
 <p>
-<b>Insight:</b> 
+<b>Insight:</b> per success you can gain insight with 1 sense for an additional success per distance class.
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Stop:</b> 
+<b>Stop:</b> For 2 successes the victim can be stoped from movement.
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>:</b> 
+<b>Trigger:</b> All other effects are triggered once a specific event happens. Costs 1 success. 
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>:</b> 
+<b>Shape Memory:</b> You may shape the memory of the victim. The game master decides how many successes you need. As orientation you can use the following examples.
+</p>
+<ul class="org-ul">
+<li>Make the immigrations officer believe you have already shown him your passport (1 success).</li>
+<li>Let your victim forget what happens during the duration of your spell (2 success).</li>
+</ul>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Consume Resource:</b> Different than other effects this one gives you additional successes for the value of 1 success / 2 RV. It is always up to the Gm if he allows this effect to be used. In order to consume a resoruce it most often needs to be preparated in some way (carving runes into it or manufactoring).
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Block Area:</b> To block some kind of thing from happening in an area (of a size like close range) you need to invest 3 successes. Add a block to this and the blocks successes will be used to reduce any attempt to achieve the thing in this area.
+Example: Anti magic field.
 </p>
 </blockquote>
 </div>
 </div>
+
 
 
 <div id="outline-container-sec:lonpcs" class="outline-3">
@@ -1020,7 +1049,7 @@ P:3, M:1, S:2, R:0, Packhunter 3
 
 <blockquote>
 <p>
-<b>Guard</b> (76 CP)
+<b>Guard</b> (78 CP)
 P:4, M:4, S:4, R:4, Cityguard 3
 </p>
 </blockquote>
@@ -1042,18 +1071,32 @@ S:16, D:8, W:6, I:2, E:2 ,C:2, G:1, F:1, Ogre Stuff: 3
 <blockquote>
 <p>
 <b>Zombie</b> (31 CP)
-P:3, M:1, S:1, R:1, Infectious Bite
+Ph:3, Me:1, So:1, Re:1, Infectious Bite
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Bandit</b> (73 CP)
+Ph: 5, Me: 3, So: 3, Re: 2, Banditry 2, Previous Profession 3
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Combat Drone</b> (34 CP)
+Ph: 3, Me: 1, So: 1, Re: 1, Shooting 4, Nightvision
 </p>
 </blockquote>
 </div>
 </div>
 </div>
-<div id="outline-container-org91de748" class="outline-2">
-<h2 id="org91de748"><span class="section-number-2">3.</span> Optional Rules</h2>
+<div id="outline-container-org0fa8ae7" class="outline-2">
+<h2 id="org0fa8ae7"><span class="section-number-2">3.</span> Optional Rules</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org391fab0" class="outline-3">
-<h3 id="org391fab0"><span class="section-number-3">3.1.</span> Less precise Attributes</h3>
+<div id="outline-container-org1774398" class="outline-3">
+<h3 id="org1774398"><span class="section-number-3">3.1.</span> Less precise Attributes</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Instead of using the Attributes as listed you can use only the Categories. Learning a level in one of the categories costs duble of what a level in an attribute would cost.
@@ -1061,8 +1104,8 @@ Instead of using the Attributes as listed you can use only the Categories. Learn
 </div>
 </div>
 
-<div id="outline-container-org447606b" class="outline-3">
-<h3 id="org447606b"><span class="section-number-3">3.2.</span> No Abstraction for Money</h3>
+<div id="outline-container-orgcbc6f03" class="outline-3">
+<h3 id="orgcbc6f03"><span class="section-number-3">3.2.</span> No Abstraction for Money</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 To remove the resources category from the attributes just raise the price of learning a level of the other attributes by 33%. The costs for goods and services depend on the kampaign setting.
@@ -1070,26 +1113,26 @@ To remove the resources category from the attributes just raise the price of lea
 </div>
 </div>
 
-<div id="outline-container-org012514e" class="outline-3">
-<h3 id="org012514e"><span class="section-number-3">3.3.</span> Fixed spells with optional free casting of magic</h3>
+<div id="outline-container-org6ff8218" class="outline-3">
+<h3 id="org6ff8218"><span class="section-number-3">3.3.</span> Fixed spells</h3>
 <div class="outline-text-3" id="text-3-3">
+<p>
+If you dont want PCs to be able to create situation specific spells then you can disallow it. Instead you need to define for every spell what effects they cause. Look at the rules for contests for guidance. The difficulty of the spell should be half the ammount of successes you would have needed to cause those effects. To learn a spell the player has to aquire it as a trait. Such a trait can be comparatively cheap though (1-5 CP depending on how many spells you want to exist). All spell checks are risky checks.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8a45d17" class="outline-3">
+<h3 id="org8a45d17"><span class="section-number-3">3.4.</span> Fixed spells with optional free casting of magic</h3>
+<div class="outline-text-3" id="text-3-4">
 <p>
 If you want spells in general to be predefined but still allow for free casting from time to time you can use the fixed spells optional rules and add the following. When free casting magic you dont need to have the trait for the spell and can even create the spell on the fly, but all effects cost double the successes on a roll. All magic checks stay risky.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgee02f0d" class="outline-3">
-<h3 id="orgee02f0d"><span class="section-number-3">3.4.</span> Fixed spells</h3>
-<div class="outline-text-3" id="text-3-4">
-<p>
-If you dont want PCs to be able to create situation specific spells then you can disallow it. Instead you need to define for every spell what effects they cause. Look at the rules for contests for guidance. The difficulty of the spell should be the ammount of successes you would have needed to cause those effects. To learn a spell the player has to aquire it as a trait. Such a trait can be comparatively cheap though (1-5 CP depending on how many spells you want to exist). All spell checks are risky checks.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgc47b719" class="outline-3">
-<h3 id="orgc47b719"><span class="section-number-3">3.5.</span> Retroactive Actions</h3>
+<div id="outline-container-org12f5c38" class="outline-3">
+<h3 id="org12f5c38"><span class="section-number-3">3.5.</span> Retroactive Actions</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 The DM may allow players retroactively having performed some action. For example having placed a trap beforehand. To balance this any check on such an action should be a risky check.
@@ -1097,8 +1140,8 @@ The DM may allow players retroactively having performed some action. For example
 </div>
 </div>
 
-<div id="outline-container-org2a89147" class="outline-3">
-<h3 id="org2a89147"><span class="section-number-3">3.6.</span> Too Many Dice</h3>
+<div id="outline-container-orgbe40984" class="outline-3">
+<h3 id="orgbe40984"><span class="section-number-3">3.6.</span> Too Many Dice</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 It can happen that you have to roll to many dice at once. If that happens your can instead divide the number of dice by a number (2,3,4) and multiply the number of successes by that number. If the dice are not evenly divisible just roll the rest regularly. It is advisable to use this method if the number of dice exeeds 12.
@@ -1106,12 +1149,114 @@ It can happen that you have to roll to many dice at once. If that happens your c
 </div>
 </div>
 
-<div id="outline-container-org87c16ae" class="outline-3">
-<h3 id="org87c16ae"><span class="section-number-3">3.7.</span> Exhausting Combat</h3>
+<div id="outline-container-org1084b1d" class="outline-3">
+<h3 id="org1084b1d"><span class="section-number-3">3.7.</span> Exhausting Combat</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
-To limit the duration of a combat scene apply this rule. If in one round no party takes any damage, then apply 1s damage to each combatant. 
+To limit the duration of a combat scene apply this rule. If in one round no party takes any damage, then apply 1s damage to each combatant from the exhaustion of combat. 
 </p>
+</div>
+</div>
+</div>
+<div id="outline-container-org84e8ce7" class="outline-2">
+<h2 id="org84e8ce7"><span class="section-number-2">4.</span> Gameplay Examples</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org7ee371d" class="outline-3">
+<h3 id="org7ee371d"><span class="section-number-3">4.1.</span> Ambushed by Goblins</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+<b>GM</b> is the Game Master Mathew controlling the 3 goblins (P: 2, M; 1, S: 1, Bandit 2)
+</p>
+
+<p>
+<b>A</b> is the player Anna with her character Amy (P: 3,M: 6,S: 4, Alchemist 3)
+</p>
+
+<p>
+<b>B</b> is the player Ben with his character Boris (P: 6,M: 4,S: 3, Babarian 3)
+</p>
+
+<p>
+<b>GM:</b> As you walk along the forrest trail please roll for perception with your will.
+</p>
+<ul class="org-ul">
+<li>GM Rolls 3*2d|2 = 3 for the 3 goblins trying to ambush</li>
+<li>A Rolls 6d|1 =  3</li>
+<li>B Rolls 4d|3 =  3</li>
+</ul>
+
+<p>
+<b>GM:</b> You notice a shuffling in the bushes before you reach the chokepoint. You exchange a quick look with one another and know that the Goblins must be here. 
+</p>
+
+<p>
+<b>B:</b> I try to intimidate the goblins in order to prevent them from attacking us. I step forward as if there was nothing there and say to Amy "Remember the Wyvern we killed last week. Turns out it ate one of the royal knights. What total weaklings they must have been. I mean we ripped that lizards fucking head of without breaking a sweat."
+</p>
+
+<p>
+<b>GM:</b> roll for intimitation with charisma, you can use your babarian skill for it. The story sounds very much like what a babarian would do.
+<b>B:</b> 3d1|3 = 1
+</p>
+
+<p>
+<b>GM:</b> Blocks wiht the goblins empathy 3d|1 = 1. Sorry Ben, the goblins are not convinced. They jump out of the bushes.
+<b>A:</b> Can i have prepared a smokebomb?
+</p>
+
+<p>
+<b>GM:</b> Sure make a retroactive check for your alchemy.
+</p>
+
+<p>
+<b>A:</b> 6d|3 = 3 It can cause 3 disadvantage to an enemy or how about 1 disadvantage to 3.
+</p>
+
+<p>
+<b>GM:</b> Sure. As i said the goblins jump out of the bushes and attack, still thinking that you dont expact them. They use all 6 dice to attack Ben since he is the biggest 6d|2 = 1.
+</p>
+
+<p>
+<b>A:</b> I throw the bomb and try to attack one of the goblins with one die.
+</p>
+
+<p>
+<b>GM:</b> Roll on dexterity to see if you throw well. Once success is enough.
+</p>
+
+<p>
+<b>A:</b> 2d|3 = 2 and 1d|1 = 1 full success on everything. 
+</p>
+
+<p>
+<b>GM:</b> congrats starting with next round all goblins have 1 disadvantage and you will hit one of them immediately. Ben?
+</p>
+
+<p>
+<b>B:</b> I defend of corse, but take 1 die to kill one of the goblins. 5d|3=4 and 1d|3=0 so 4 do block and 0 to hit.
+</p>
+
+<p>
+<b>GM:</b> Ok as the goblins jump out Amy stabs one with her rapier (2dmg) killing it and Boris not only jumps out of the way of their attacks but also cleaves one of them in two and injures the last. Next round: The remaining Goblin trys to flee and block whatever it can.
+</p>
+
+<p>
+<b>A:</b> "Let him run"
+</p>
+
+<p>
+<b>B:</b> Not so fast. I try to give him one. 6d|3 = 3
+</p>
+
+<p>
+<b>GM:</b> There is no way it can block that. You give the goblin the final blow. Not only is there no more noice in the bushes now but the street is also painted red.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3001601" class="outline-3">
+<h3 id="org3001601"><span class="section-number-3">4.2.</span> Court Case</h3>
+<div class="outline-text-3" id="text-4-2">
 </div>
 </div>
 </div>

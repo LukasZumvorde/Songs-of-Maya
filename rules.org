@@ -19,6 +19,7 @@
 #+HTML_HEAD:		font-family: "Roboto","Arial",sans-serif;
 #+HTML_HEAD:		margin-left: 20vw;
 #+HTML_HEAD:		margin-right: 20vw;
+#+HTML_HEAD:		background-image: linear-gradient(to right, rgba(4,96,205,0.6), #ACF, #ACF, #ACF, rgba(4,96,205,0.6));
 #+HTML_HEAD:	}
 #+HTML_HEAD:	tbody tr:nth-child(odd) {
 #+HTML_HEAD:		background-color: ##9BF;
@@ -61,6 +62,10 @@
 - Charakter rechner
 - Geld anders darstellen?
 
+* COMMENT Playtest questions
+Does the money and item system feel good?
+
+  
 * Rules
 
 #+LATEX: \begin{multicols}{2}[]
@@ -83,53 +88,48 @@ Attributes dedscribe a characters potential. The higher the value the greater th
 |            | Finances    | Money and investments     |
 
 #+ATTR_LATEX: :align c|l
-| *Level* | *Grade*     |
-|---------+-------------|
-|       3 | Unskilled   |
-|       5 | Beginner    |
-|       7 | Experienced |
-|       9 | Master      |
-|      11 | Grandmaster |
-|      13 | Legend      |
+| *Attribute* | *Grade*     |
+|-------------+-------------|
+|           3 | Unskilled   |
+|           5 | Beginner    |
+|           7 | Experienced |
+|           9 | Master      |
+|          11 | Grandmaster |
+|          13 | Legend      |
 
 They determine the amount of dice you can use for [[#sec:checks][checks]]. 
 
 *** Skill
-The skill determines the likelyhood of a success on a roll. A roll during a [[#sec:checks][checks]] is counted as a success if the dice shows less or equal eyes than the skill.
 
 Skills measure the mastery of a skill. They are expressed as a background description and a level (number between 1 and 6). The skill levels are comparable to how much time a typical person has to spend to reach the same expertise in this area if it were his dayjob. This does however not mean that a character needs to have taken that time to reach his skill level. Level 1 for any skill is free. Not all skills cost the same, the price depends on how specific it is.
 
+The skill determines the likelyhood of a success on a roll. A roll during a [[#sec:checks][checks]] is counted as a success if the dice shows less or equal eyes than the skill.
+
+
 #+ATTR_LATEX: :align c|l
-| *Level* | *Equivalent experience* |
-|-------+-----------------------|
-|     1 | 0 years               |
-|     2 | 2 years               |
-|     3 | 5 years               |
-|     4 | 10 years              |
-|     5 | 15 years              |
-|     6 | 20 years              |
+| *Skill* | *Equivalent* |
+| *Level* | *experience* |
+|---------+--------------|
+|       1 | 0 years      |
+|       2 | 2 years      |
+|       3 | 5 years      |
+|       4 | 10 years     |
+|       5 | 15 years     |
+|       6 | 20 years     |
 
 See chapter [[#sec:loskills][List of Skills]] for examples.
 
 *Merge Skills*
-It might happen that you have a lot of very specific skills. If that is the case you can combine them to a more general skill. The total CP cost has to stay the same.
+It might happen that you have a lot of very specific skills. If that is the case you can combine them to a more general skill. The total CP cost has to stay the same. The merging of skills needs the approval of the GM.
 
 *** Traits
 Traits are distinglishing things about the character. They can be bought for character points. This is possible both at character creation and later in the game.
- They might be extraordinary strength or the ability to cast certain magic. Some traits (like all magic) should come with a risk (all checks are risky checks). 
+They might be extraordinary strength or the ability to cast certain magic. Some traits (like all magic) should come with a risk (all checks that can only be made with this trait are risky checks).
 
-#+begin_quote
-Herkulian Stength (7CP):
-You are extra strong. For feats of strength you can roll 1 additional die and get at least one success.
-#+end_quote
-
-#+begin_quote
-Pyromancy (7CP):
-You can make a risky mental check to summon the primordial elemental forces of fire. You can shape and direct them to cause effects. 
-#+end_quote
+See the chapter [[#sec:lotraits][List of Traits]] for examples
 
 *** Character Creation
-Distribute 110 CP on your Attributes, Skills and Traits
+Distribute 100 CP on your Attributes, Skills and Traits
 
 Use the Rules under Equipment to limit your starting gear.
 
@@ -145,39 +145,42 @@ You may reward your players with CP (character points) for reaching milestones i
 :CUSTOM_ID: sec:checks
 :END:
 
-Roll as many six sided dice as your attribute value is. Count each die with your skill level or less eyes and subtract the difficulty (default is 0) of the check. The result are your successes. If the successes are negative the check fails.
+*Check:*
+Checks are rolled when the outcome of an action is not certain. Each check is bound to an attribute and a skill. One rolls a number of six sided dice and counts each die showing the skills level or less eyes, subtract the difficulty (default is 0) of the check. The result are your successes. If the successes are negative or 0 the check fails. For a check you can use at most your attribute value in dice.
+Each round you can make multiple checks. The total number of dice used is the largest attribute value of the checks. 
 
+*Contest:*
+A Contest is when parties have opposing goals:
 - Parties describe what they indent to do
-- Parties decide (secretly) how many dice they want to use for each action
+- Parties decide (secretly) how many dice they want to use for each action (check)
 - Everybody rolles their dice
 - Results of the checks are described. 
 
 *Effects:*
+- Effects can be bought with successes after a check is made.
 - Every action has a default effect. For example in a fight it is wounding an enemy.
 - Different effects can also be declared by the player. (e.g. disarming the enemy).
-- Combinations are also possible
+- Combinations are also possible.
 - An Effect might cost more than one success.
+
+For a list of effects see the section [[#sec:loeffects][List of Effects]]
+
 
 *Colaborative checks:*
 Everyone rolls individually and then sum together all successes.
 
-*Contest:*
-Both parties each roll their check. the party with the higher successes wins and can use the difference in successes to declare effects. By default the effect is to damage the enemy.
-
 *Risky checks:*
-If a check is risky the character might incurr something bad if the check fails. If the check fails the difference between the negative successes are used to incur effects to the characters disadvantage. 
-
-*Multible actions:*
-You can perform multible actions. The checks are made independently. You can use at most the higher of the atributes numbers of dice in total. For each action your maximum number of dice is your respective attribute value. An common example is to use some of the action to attack and some to defend.
+If a check is risky the character might incurr something bad if the check fails. If the check fails the negative successes are used to incur effects to the characters disadvantage, the minimum is 1. 
 
 *Predefined Effekts:*
-You can learn to achieve a certain combination of effects very effectively. You have to learn this as a trait. You can increase the difficulty of the check. Double the difficulty can be used to declare the predefined effects. The check automatically bekomes risky. This allows you to use the same dice to achieve multiple effects. Such a trait costs 1 CP.
+You can learn to achieve a certain combination of effects very effectively. You have to learn this as a trait. You can increase the difficulty of the check. Double the difficulty can be used to declare the predefined effects. The check automatically bekomes risky. This allows you to use the same dice to achieve multiple effects. Such a trait costs 1 CP per different effect.
 
 *Concentration:*
 Some effects have to be kept up. In those cases the successes needed to achieve the effect block the attribute points (dice) from being used for anything else, as long as the concentration lasts. 
 
+*Difficulty:*
+This table gives an overview of what a good difficulty for checks is by average CP investment into attribute and skill, and what level of experience such a person would be described as having. For an easy check select the difficulty 1 lower. For a hard check select a difficulty 1 higher.
 
-This table gives an overview of what is a good difficulty for checks by average CP investment into attribute and skill, and what level of experience such a person would be described as having.
 #+ATTR_LATEX: :align c|c|l
 | *Dif* | *CP* | *Good for ..* |
 |-------+------+---------------|
@@ -187,12 +190,10 @@ This table gives an overview of what is a good difficulty for checks by average 
 |     3 |   35 | master        |
 |     4 |   40 | grand master  |
 |     5 |   45 | legend        |
-For an easy check select the difficulty 1 lower. For a hard check select a difficulty 1 higher.
 
-For a list of effects see the section [[#sec:loeffects][List of Effects]]
 
 ** Damage
-Damage reduces the attribute points (points) you can use. Damage is typically taken on attribute categories. If this is the case the victim can divide the damage aritrarily on the attributes in the category. Once your attribute effectively falls below 0 you are out of commision with regards to this attribute. The way in which you are taken out depends on the attribute and what caused the damage.
+Damage is taken on attribute categories and reduces the attribute points (points) you can use for all attributes in the category.  Once your attribute effectively falls below 0 you are out of commision with regards to this attribute. The way in which you are taken out depends on the attribute and what caused the damage.
 
 #+begin_quote
 Bob the Barbarian got hit in combat multiple times. He has 4 Physical but 3 physical wounds. Now he additionally got confused by a spell and thinks his Comrades are enemys. His compatriot Roger the Rogue tries to nonlethaly take him out by hitting him with his blackjack over the head. He succeeds and makes another 2 damage. Bob goes down, bleeding from his old wounds but still alive.
@@ -209,15 +210,15 @@ Depending on the source of the damage it might heal after each scene, mission or
 The short form to write this is 2s(/m/k) for two damage that heals by the end of the scene(/mission/kampagnie).
   
 ** Armor / Damage reduction
-Armor or damage reduction (DR) does not negate damage completely but it changes its type to one that is faster to heal. With an armor of 2 up to 2m damage per contest are bein reduced to 2s damage. Normally damage reduction should only go down to scene level and not remove damage completely. As an optional rule however you can decide that scene damage can be reduced to nothing as long as at least 1 dmg stays. When considering armor always think about the complete set being worn and not about simgle pieces. Decide which armor class fits.
+Armor or damage reduction (DR) does not negate damage completely but it changes its type to one that is faster to heal. With an armor of 2 up to 2m damage per contest/round are being reduced to 2s damage. Normally damage reduction should only go down to scene level and not remove damage completely. As an optional rule however you can decide that scene damage can be reduced to nothing as long as at least 1 dmg stays. When considering armor always think about the complete set being worn and not about simgle pieces. Decide which armor class fits.
 
 #+ATTR_LATEX: :align l|c
 | *Armor Class* | *DR* |
-|-------------+----|
-| none        |  0 |
-| light       |  1 |
-| medium      |  2 |
-| heavy       |  3 |
+|---------------+------|
+| none          |    0 |
+| light         |    1 |
+| medium        |    2 |
+| heavy         |    3 |
 
 ** Range
 There are 3 different ranges. It takes one round and half your dice for this round to move one range class. You can however move within a range class unrestricted (within reason). While moving you can still use your action.
@@ -243,33 +244,26 @@ A metal fabric that protects your torso and arms from being cut or stabbed prett
 #+end_quote
 
 To create an item first give it a short description. It should make clear on what what kind of actions it may give advantages or what kind of effects may be created with it. Second you determine its RV (ressource value).
-# - 0: Basically free: Everyone can aquire it if they want to (example: a club)
-# - 1: Cheap: Even people with the lowest income will typically be able to affort this. (example: simple clothes, a fridge, a set of tools) 
-# - 2: Affordable: (example: An appartment)
-# - 3: Costly; (example: a regular house)
-# - 4: Expensive: (example: Sportscar)
-# - 5: Very expensive (example: a small airplane)
-# - 6: Luxourious: This is something that only the very rich can affort (example: private jet)
 
 #+ATTR_LATEX: :align c|l|l
-| *RV* | *Description*  | *Example*                           |
-|----+----------------+-------------------------------------|
-|  0 | Free           | a club                              |
-|  1 | Cheap          | simple clothes, basic tools         |
-|  2 | Affordable     | regular car, appartment             |
-|  3 | Costly         | regular house                       |
-|  4 | Expensive      | sportscar                           |
-|  5 | Very Expensive | small airplane                      |
-|  6 | Luxourious     | private jet                         |
+| *RV* | *Description*  | *Example*                   |
+|------+----------------+-----------------------------|
+|    0 | Free           | a club                      |
+|    1 | Cheap          | simple clothes, basic tools |
+|    2 | Affordable     | regular car, appartment     |
+|    3 | Costly         | regular house               |
+|    4 | Expensive      | sportscar                   |
+|    5 | Very Expensive | small airplane              |
+|    6 | Luxourious     | private jet                 |
 
 
 *** Equipment
-Characters can have gear with a value of up to the attribute resources / 2 in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normaly furnished home. Apply reason as necessary.
+Characters can have gear with a value of up to half the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normaly furnished home. Apply reason as necessary.
 
-When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a resources check against the RV of what they would like to have in the moment to see if they do. The check is risky and if they fail they get the difference in damage to their resources attribute until the end of the mission.
+When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check against the RV of what they would like to have in the moment to see if they do. The check is risky and if they fail they get the difference in damage to their Gear attribute until the end of the mission.
 
 *** Buying
-Characters can buy new stuff with a finances check against the RV of what they want to buy. The check is risky and they get the difference in damage on their finances until the end of the mission if they fail. The GM does not have to let you retry on a fail.
+Characters can buy new stuff with a Finances check against the RV of what they want to buy. The check is risky and they get the difference in damage on their finances until the end of the mission if they fail. The GM does not have to let you retry on a fail.
 
 *** Crafting
 Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought for the RV-1 of the item to be build. To build the item the character needs to make a check with RV difficulty. If that fails the resoruces might be lost, depending on what they are.
@@ -282,13 +276,12 @@ To Bribe someone you need to give them more than they can normally compfortably 
 
 #+LATEX: \newpage
 * Lists
+None of the following lists is exhaustive. They should be taken as examples. You are invited to design your own with your group.
 
 ** List of Traits
 :PROPERTIES:
 :CUSTOM_ID: sec:lotraits
 :END:
-
-The list is not exaustive. It should only be taken as a list of examples.
 
 #+begin_quote
 *Friend of Nature* (7): You can talk to the forces of nature and have a chance to convince them to help you. This can be asking, a bird what he has seen, letting youself be concealed by a bush or calling a wild bear to aid you in combat.
@@ -336,8 +329,6 @@ The list is not exaustive. It should only be taken as a list of examples.
 :CUSTOM_ID: sec:loskills
 :END:
 
-The list is not exaustive. It should only be taken as a list of examples. The CP costs are per level.
-
 #+begin_quote
 *Professional Chef* (7 CP): You have learned not only to cook but also to plan the foodstuffs on storage, to store propperly, to calucalte profitability, to motivate and coordinate a team of people.
 #+end_quote
@@ -367,8 +358,6 @@ The list is not exaustive. It should only be taken as a list of examples. The CP
 :PROPERTIES:
 :CUSTOM_ID: sec:loitems
 :END:
-
-The list is not exaustive. It should only be taken as a list of examples.
 
 #+begin_quote
 *Club of the great Bear* (RV 4): A mystical club made from the thigh bone of the great bear that terrorized the inokwa people. It still contains the strength of the mighty beast. When using this club you gain 1 additional skill level in strength checks.
@@ -468,11 +457,14 @@ The list is not exaustive. It should only be taken as a list of examples.
 #+end_quote
 
 #+begin_quote
-*Influence:* 
+*Influence:* You may make your victim do something they dont want to do. The game master decides how many successes you need. As orientation you can use the following examples.
+- Make your enemy drop his weapon (1 success)
+- Make a wild bird deliver a message (2 successes)
+- make your victim jump from the bridge (3 successes)
 #+end_quote
 
 #+begin_quote
-*Shape Reality:* 
+*Shape Reality:*  The game master decides how many successes you need. As orientation you can use the following examples.
 #+end_quote
 
 #+begin_quote
@@ -488,20 +480,32 @@ The list is not exaustive. It should only be taken as a list of examples.
 #+end_quote
 
 #+begin_quote
-*Insight:* 
+*Insight:* per success you can gain insight with 1 sense for an additional success per distance class.
 #+end_quote
 
 #+begin_quote
-*Stop:* 
+*Stop:* For 2 successes the victim can be stoped from movement.
 #+end_quote
 
 #+begin_quote
-*:* 
+*Trigger:* All other effects are triggered once a specific event happens. Costs 1 success. 
 #+end_quote
 
 #+begin_quote
-*:* 
+*Shape Memory:* You may shape the memory of the victim. The game master decides how many successes you need. As orientation you can use the following examples.
+- Make the immigrations officer believe you have already shown him your passport (1 success). 
+- Let your victim forget what happens during the duration of your spell (2 success).
 #+end_quote
+
+#+begin_quote
+*Consume Resource:* Different than other effects this one gives you additional successes for the value of 1 success / 2 RV. It is always up to the Gm if he allows this effect to be used. In order to consume a resoruce it most often needs to be preparated in some way (carving runes into it or manufactoring).
+#+end_quote
+
+#+begin_quote
+*Block Area:* To block some kind of thing from happening in an area (of a size like close range) you need to invest 3 successes. Add a block to this and the blocks successes will be used to reduce any attempt to achieve the thing in this area.
+Example: Anti magic field.
+#+end_quote
+
 
 
 ** List of NPCs
@@ -520,7 +524,7 @@ P:3, M:1, S:2, R:0, Packhunter 3
 #+end_quote
 
 #+begin_quote
-*Guard* (76 CP)
+*Guard* (78 CP)
 P:4, M:4, S:4, R:4, Cityguard 3
 #+end_quote
 
@@ -536,8 +540,20 @@ S:16, D:8, W:6, I:2, E:2 ,C:2, G:1, F:1, Ogre Stuff: 3
 
 #+begin_quote
 *Zombie* (31 CP)
-P:3, M:1, S:1, R:1, Infectious Bite
+Ph:3, Me:1, So:1, Re:1, Infectious Bite
 #+end_quote
+
+#+begin_quote
+*Bandit* (73 CP)
+Ph: 5, Me: 3, So: 3, Re: 2, Banditry 2, Previous Profession 3
+#+end_quote
+
+#+begin_quote
+*Combat Drone* (34 CP)
+Ph: 3, Me: 1, So: 1, Re: 1, Shooting 4, Nightvision
+#+end_quote
+
+
 
 #+LATEX: \newpage
 * Optional Rules
@@ -548,11 +564,11 @@ Instead of using the Attributes as listed you can use only the Categories. Learn
 ** No Abstraction for Money
 To remove the resources category from the attributes just raise the price of learning a level of the other attributes by 33%. The costs for goods and services depend on the kampaign setting.
 
+** Fixed spells
+If you dont want PCs to be able to create situation specific spells then you can disallow it. Instead you need to define for every spell what effects they cause. Look at the rules for contests for guidance. The difficulty of the spell should be half the ammount of successes you would have needed to cause those effects. To learn a spell the player has to aquire it as a trait. Such a trait can be comparatively cheap though (1-5 CP depending on how many spells you want to exist). All spell checks are risky checks.
+
 ** Fixed spells with optional free casting of magic
 If you want spells in general to be predefined but still allow for free casting from time to time you can use the fixed spells optional rules and add the following. When free casting magic you dont need to have the trait for the spell and can even create the spell on the fly, but all effects cost double the successes on a roll. All magic checks stay risky.
-
-** Fixed spells
-If you dont want PCs to be able to create situation specific spells then you can disallow it. Instead you need to define for every spell what effects they cause. Look at the rules for contests for guidance. The difficulty of the spell should be the ammount of successes you would have needed to cause those effects. To learn a spell the player has to aquire it as a trait. Such a trait can be comparatively cheap though (1-5 CP depending on how many spells you want to exist). All spell checks are risky checks.
 
 ** Retroactive Actions
 The DM may allow players retroactively having performed some action. For example having placed a trap beforehand. To balance this any check on such an action should be a risky check.
@@ -561,13 +577,112 @@ The DM may allow players retroactively having performed some action. For example
 It can happen that you have to roll to many dice at once. If that happens your can instead divide the number of dice by a number (2,3,4) and multiply the number of successes by that number. If the dice are not evenly divisible just roll the rest regularly. It is advisable to use this method if the number of dice exeeds 12.
 
 ** Exhausting Combat
-To limit the duration of a combat scene apply this rule. If in one round no party takes any damage, then apply 1s damage to each combatant. 
+To limit the duration of a combat scene apply this rule. If in one round no party takes any damage, then apply 1s damage to each combatant from the exhaustion of combat. 
+
+#+LATEX: \newpage
+* Gameplay Examples
+
+** Ambushed by Goblins
+
+*GM* is the Game Master Mathew controlling the 3 goblins (P: 2, M; 1, S: 1, Bandit 2)
+
+*A* is the player Anna with her character Amy (P: 3,M: 6,S: 4, Alchemist 3)
+
+*B* is the player Ben with his character Boris (P: 6,M: 4,S: 3, Babarian 3)
+
+*GM:* As you walk along the forrest trail please roll for perception with your will.
+- GM Rolls 3*2d|2 = 3 for the 3 goblins trying to ambush
+- A Rolls 6d|1 =  3
+- B Rolls 4d|3 =  3
+
+*GM:* You notice a shuffling in the bushes before you reach the chokepoint. You exchange a quick look with one another and know that the Goblins must be here. 
+
+*B:* I try to intimidate the goblins in order to prevent them from attacking us. I step forward as if there was nothing there and say to Amy "Remember the Wyvern we killed last week. Turns out it ate one of the royal knights. What total weaklings they must have been. I mean we ripped that lizards fucking head of without breaking a sweat."
+
+*GM:* roll for intimitation with charisma, you can use your babarian skill for it. The story sounds very much like what a babarian would do.
+*B:* 3d1|3 = 1
+
+*GM:* Blocks wiht the goblins empathy 3d|1 = 1. Sorry Ben, the goblins are not convinced. They jump out of the bushes.
+*A:* Can i have prepared a smokebomb?
+
+*GM:* Sure make a retroactive check for your alchemy.
+
+*A:* 6d|3 = 3 It can cause 3 disadvantage to an enemy or how about 1 disadvantage to 3.
+
+*GM:* Sure. As i said the goblins jump out of the bushes and attack, still thinking that you dont expact them. They use all 6 dice to attack Ben since he is the biggest 6d|2 = 1.
+
+*A:* I throw the bomb and try to attack one of the goblins with one die.
+
+*GM:* Roll on dexterity to see if you throw well. Once success is enough.
+
+*A:* 2d|3 = 2 and 1d|1 = 1 full success on everything. 
+
+*GM:* congrats starting with next round all goblins have 1 disadvantage and you will hit one of them immediately. Ben?
+
+*B:* I defend of corse, but take 1 die to kill one of the goblins. 5d|3=4 and 1d|3=0 so 4 do block and 0 to hit.
+
+*GM:* Ok as the goblins jump out Amy stabs one with her rapier (2dmg) killing it and Boris not only jumps out of the way of their attacks but also cleaves one of them in two and injures the last. Next round: The remaining Goblin trys to flee and block whatever it can.
+
+*A:* "Let him run"
+
+*B:* Not so fast. I try to give him one. 6d|3 = 3
+
+*GM:* There is no way it can block that. You give the goblin the final blow. Not only is there no more noice in the bushes now but the street is also painted red.
+
+** Hacker duel
+
+*GM* is the Game Master Mathew controlling the Automatic Security System of Evilcorp (P:-, M:8, S:1, R: 8, Computer Security 3, Military Tactics 3)
+
+*A* is the player Andy controlling the hacker Atom (P:3, M:10, S:6, R:4, Netrunner 4, Social Engineering 3, Mercenary Tactics 3)
+
+*GM* your team just called in. They are about 1 hour away from the target. Do you have any last minute preparations to do?
+
+*A* I want to gain access to the power station.
+
+*GM* Make a check. Difficulty is 3.
+
+*A* 10d|4 = 4 That works. I would like to prepare a power shutoff, just in case.
+
+*GM* All right. You have some time left. Anything else you want to do?
+
+*A* Start a drone to get a better overview.
+
+*GM* All right. The team has now reached the perimeter. They breach the fence and move forward through the container yard. From your eyes in the sky you can see multiple guards moving in that area.
+
+*A* I guide my team through the guards.
+
+*GM* Make a check against 8d|3 = 4
+
+*A* doesn't my team help me with that? And can i use my social engineering to maybe help out?
+
+*GM* Ok lets see, you get 5d|3 = 1 from you your team on the ground and the social engineering would take a retroactive check.
+
+*A* Ok then i have called in before ordering some pizza to that place. I use my sozial engineering 6d|3 = 1. That worked. And now for the tactics 10d|3 = 5 plus the help from the team and the pizza makes 7 against the 4 means 3 points left. Can i create some effect?
+
+*GM* Ok, what do you want to achieve?
+
+*A* Lets blind those fuckers. I want to plant some emps on their equipment.
+
+*GM* Wouldn't that alarm them that something is up?
+
+*A* Not if we add a trigger. The effect "blinding" and "trigger" should add up to 3. Does that work.
+
+*GM* sounds good to me. Alright your team has reached the back entrance and is about to break into the building. They call in "Overwatch, we have a proplem. There is a combination lock that was not in the schematics. Please advice."
+
+*A* "Give me a sec." Hmm, their security system is state of the art. It might be easier to manipulate the people there. Can i find out who installed the system? "Hey guys, is there any manufactorer branding on the lock. Send me a recording."
+
+*GM* "Roger" Shortly after you get a complete video recording of the locking system. It indeed includes the manufactorer branding.
+
+*A* Can i find out who isntalled it?
+
+*GM* This is a public institution. For transparency reasons they need to make reports on their expenses. So yea. But it will take some time.
+
+*A* 
+
+** Court Case
+
+
+
 
 #+LATEX: \end{multicols}
 
-* COMMENT Playtest questions
-Should you be able to move and act in a single round?
-
-For initative should all move at once or should we use group initiative?
-
-Does the money and item system feel good?
