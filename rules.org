@@ -2,6 +2,7 @@
 #+date:       [2022-10-03 Mo 13:19]
 
 #+OPTIONS: toc:nil H:10 tex:t author:nil date:nil num:3
+# #+LaTeX_HEADER: \usepackage[a5paper, total={128mm, 190mm}]{geometry}
 #+LaTeX_HEADER: \usepackage[a4paper, total={7in, 11in}]{geometry}
 #+LaTeX_HEADER: \pagenumbering{gobble}
 #+LATEX_HEADER: \usepackage{multicol}
@@ -58,17 +59,18 @@
 #+HTML_HEAD: </style>
 
 
+#+LATEX: \begin{multicols}{2}[]
+
+
 * COMMENT TODOs
 - replace kampagnie for another name that works both in german and english
 
 * COMMENT Play test questions
 Does the money and item system feel good?
   
-* Rules
 
-#+LATEX: \begin{multicols}{2}[]
-** Character Values
-*** Attributes
+* Character Values
+** Attributes
 Attributes describe a characters potential. The higher the value the greater things a character can achieve. There are the following 8 Attributes belonging to the 4 categories.
 
 | *Category* | *Attribute* | *Description*             |
@@ -97,7 +99,7 @@ Attributes describe a characters potential. The higher the value the greater thi
 
 They determine the amount of dice you can use for [[#sec:checks][checks]]. 
 
-*** Skill
+** Skill
 
 Skills measure the mastery of a skill. They are expressed as a background description and a level (number between 1 and 6). The skill levels are comparable to how much time a typical person has to spend to reach the same expertise in this area if it were his dayjob. This does however not mean that a character needs to have taken that time to reach his skill level. Level 1 for any skill is free. Not all skills cost the same, the price depends on how specific it is.
 
@@ -120,13 +122,13 @@ See chapter [[#sec:loskills][List of Skills]] for examples.
 *Merge Skills*
 It might happen that you have a lot of very specific skills. If that is the case you can combine them to a more general skill. The total CP cost has to stay the same. The merging of skills needs the approval of the GM.
 
-*** Traits
+** Traits
 Traits are distinguishing things about the character. They can be bought for character points. This is possible both at character creation and later in the game.
 They might be extraordinary strength or the ability to cast certain magic. Some traits (like all magic) should come with a risk (all checks that can only be made with this trait are risky checks).
 
 See the chapter [[#sec:lotraits][List of Traits]] for examples
 
-*** Character Creation
+** Character Creation
 Distribute 100 CP on your Attributes, Skills and Traits
 
 Use the Rules under Equipment to limit your starting gear.
@@ -577,6 +579,17 @@ It can happen that you have to roll to many dice at once. If that happens your c
 ** Exhausting Combat
 To limit the duration of a combat scene apply this rule. If in one round no party takes any damage, then apply 1s damage to each combatant from the exhaustion of combat. 
 
+** TODO Effects of Scale
+
+Feel free to use this rule also in other scenarios where it might make sense. It does not have to be about size and strength.
+
+If you want to represent huge differences in scale like the strength of a giant compared to that of a human then you can mutliply the successes of the checks they make by some faktor. This is the scaling faktor. Normally you should scale by factor of 4 per dubling of the size (quadratic in relation to the height). Not all effects are scalable. If they are not just scale their cost with the same factor. You should only scale for checks and attributes where it makes sense.
+Things scale differently
+- Strength and damage done scale by n^2
+- Dexterity scales by 1/n
+- damage taken scales by 1/n^2
+
+
 #+LATEX: \newpage
 * Game-play Examples
 
@@ -629,53 +642,55 @@ To limit the duration of a combat scene apply this rule. If in one round no part
 
 ** Hacker duel
 
-*GM* is the Game Master Mathew controlling the Automatic Security System of Evilcorp (P:-, M:8, S:1, R: 8, Computer Security 3, Military Tactics 3)
+*GM:* is the Game Master Mathew controlling the Automatic Security System of Evilcorp (P:-, M:8, S:1, R: 8, Computer Security 3, Military Tactics 3)
 
-*A* is the player Andy controlling the hacker Atom (P:3, M:10, S:6, R:4, Netrunner 4, Social Engineering 3, Mercenary Tactics 3)
+*A:* is the player Andy controlling the hacker Atom (P:3, M:10, S:6, R:4, Netrunner 4, Social Engineering 3, Mercenary Tactics 3)
 
-*GM* your team just called in. They are about 1 hour away from the target. Do you have any last minute preparations to do?
+*GM:* your team just called in. They are about 1 hour away from the target. Do you have any last minute preparations to do?
 
-*A* I want to gain access to the power station.
+*A:* I want to gain access to the power station.
 
-*GM* Make a check. Difficulty is 3.
+*GM:* Make a check. Difficulty is 3.
 
-*A* 10d|4 = 4 That works. I would like to prepare a power shutoff, just in case.
+*A:* 10d|4 = 4 That works. I would like to prepare a power shutoff, just in case.
 
-*GM* All right. You have some time left. Anything else you want to do?
+*GM:* All right. You have some time left. Anything else you want to do?
 
-*A* Start a drone to get a better overview.
+*A:* Start a drone to get a better overview.
 
-*GM* All right. The team has now reached the perimeter. They breach the fence and move forward through the container yard. From your eyes in the sky you can see multiple guards moving in that area.
+*GM:* All right. The team has now reached the perimeter. They breach the fence and move forward through the container yard. From your eyes in the sky you can see multiple guards moving in that area.
 
-*A* I guide my team through the guards.
+*A:* I guide my team through the guards.
 
-*GM* Make a check against 8d|3 = 4
+*GM:* Make a check against 8d|3 = 4
 
-*A* doesn't my team help me with that? And can i use my social engineering to maybe help out?
+*A:* doesn't my team help me with that? And can i use my social engineering to maybe help out?
 
-*GM* Okay lets see, you get 5d|3 = 1 from you your team on the ground and the social engineering would take a retroactive check.
+*GM:* Okay lets see, you get 5d|3 = 1 from you your team on the ground and the social engineering would take a retroactive check.
 
-*A* Okay then i have called in before ordering some pizza to that place. I use my social engineering 6d|3 = 1. That worked. And now for the tactics 10d|3 = 5 plus the help from the team and the pizza makes 7 against the 4 means 3 points left. Can i create some effect?
+*A:* Okay then i have called in before ordering some pizza to that place, hopefully keeping some of the guards in the office. I use my social engineering 6d|3 = 1. That worked. And now for the tactics 10d|3 = 5 plus the help from the team and the pizza makes 7 against the 4 means 3 points left. Can i create some effect?
 
-*GM* Okay, what do you want to achieve?
+*GM:* Okay, what do you want to achieve?
 
-*A* Lets blind those fuckers. I want to plant some EMPs on their equipment.
+*A:* Lets blind those fuckers. I want to plant some EMPs on their equipment.
 
-*GM* Wouldn't that alarm them that something is up?
+*GM:* Wouldn't that alarm them that something is up?
 
-*A* Not if we add a trigger. The effect "blinding" and "trigger" should add up to 3. Does that work.
+*A:* Not if we add a trigger. The effect "blinding" and "trigger" should add up to 3. Does that work?
 
-*GM* sounds good to me. Alright your team has reached the back entrance and is about to break into the building. They call in "Over-watch, we have a problem. There is a combination lock that was not in the schematics. Please advice."
+*GM:* Sounds good to me. Alright your team has reached the back entrance and is about to break into the building. They call in "Over-watch, we have a problem. There is a combination lock that was not in the schematics. Please advice."
 
 *A* "Give me a sec." Hmm, their security system is state of the art. It might be easier to manipulate the people there. Can i find out who installed the system? "Hey guys, is there any manufacturer branding on the lock. Send me a recording."
 
-*GM* "Roger" Shortly after you get a complete video recording of the locking system. It indeed includes the manufacturer branding.
+*GM:* "Roger" Shortly after you get a complete video recording of the locking system. It indeed includes the manufacturer branding.
 
 *A* Can i find out who installed it?
 
-*GM* This is a public institution. For transparency reasons they need to make reports on their expenses. So yea. But it will take some time.
+*GM:* This is a public institution. For transparency reasons they need to make reports on their expenses. So yea. But it will take some time.
 
-*A* 
+*A* "Guys, try to hide. This will take a few minutes.". Once i find the manufacturer i want to call them "Hello, i am Steve from Evilcorp. You installed this door lock here last month. This fucking piece of crap does not work any more. .." i want to get them to tell me the code or a way to overwrite it. Social engineering check 6d|3 = 3
+
+*GM:* Lets see how helpfull they are 4d|3 = 1. You get them to repeat the default code to you. Once your team trys it they call "You are a wizzard. That code worked. We are in.". On your screen you see how they enter the building. For the next few minutes there is silence, then the alarm goes off. ...
 
 ** Court Case
 
