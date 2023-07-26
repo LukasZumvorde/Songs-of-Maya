@@ -4,6 +4,7 @@ import random
 import math
 import operator
 import ai
+import logging
 
 
 def nd6(n):
@@ -12,6 +13,11 @@ def nd6(n):
 def check(attribute, skill):
     return sum(map(lambda x: operator.le(x, skill), nd6(attribute)))
 
+def cancelOut(n, m):
+    h = min(n, m)
+    n -= h
+    m -= h
+    return n, m
 
 class Rule:
     def __init__(self, name):
@@ -122,6 +128,7 @@ class Check:
         self.successes = sum(map(lambda x: operator.le(x, skill), nd6(dice)))
         self.successes = min( self.successes, self.dice )
         self.successes -= self.difficulty
+        self.successes = max(0, self.successes)
         return self.successes
 
     def isSuccessfull(self):
@@ -137,30 +144,85 @@ class Game:
         self.rules = rules
         self.players = []
         self.enemies = []
+        self.round = 0
 
     def simulateCombatRound(self):
+        self.round += 1
+        logging.info("Simulate Combat Round %s" % self.round)
         player_atks = []
         player_blks = []
-        enemie_atks = []
-        enemie_blks = []
-        for p in players:
+        enemy_atks = []
+        enemy_blks = []
+        for p in self.players:
             checks = p.getCombatChecks()
             for c in checks:
                 if c.effect.name == "damage_physical":
                     player_atks.append(c)
-                if c.effect.name == "block":
+                elif c.effect.name == "block":
                     player_blks.append(c)
-        for p in enemies:
+                else:
+                    logging.error('Unknown Effect %s by player %s' % (c.effect.name, p.name))
+        for p in self.enemies:
             checks = p.getCombatChecks()
             for c in checks:
                 if c.effect.name == "damage_physical":
-                    enemie_atks.append(c)
-                if c.effect.name == "block":
-                    enemie_blks.append(c)
-        
+                    enemy_atks.append(c)
+                elif c.effect.name == "block":
+                    enemy_blks.append(c)
+                else:
+                    logging.error('Unknown Effect %s by enemy %s' % (c.effect.name, p.name))
+        player_total_atks = 0
+        for c in player_atks:
+            player_total_atks += c.roll()
+        player_total_blks = 0
+        for c in player_blks:
+            player_total_blks += c.roll()
+        enemy_total_atks = 0
+        for c in enemy_atks:
+            enemy_total_atks += c.roll()
+        enemy_total_blks = 0
+        for c in enemy_blks:
+            enemy_total_blks += c.roll()
+        player_total_atks, enemy_total_blks = cancelOut(player_total_atks, enemy_total_blks)
+        enemy_total_atks, player_total_blks = cancelOut(enemy_total_atks, player_total_blks)
+        player_total_blks, enemy_total_blks = cancelOut(player_total_blks, enemy_total_blks)
+        player_dmg = player_total_atks*2+player_total_blks
+        enemy_dmg = enemy_total_atks*2+enemy_total_blks
+        logging.debug("Character %s\ttakes %s damage" % (self.players[0].name, enemy_dmg))
+        self.players[0].takeDmg(enemy_dmg)
+        logging.debug("Character %s\ttakes %s damage" % (self.enemies[0].name, player_dmg))
+        self.enemies[0].takeDmg(player_dmg)
+        for c in self.players + self.enemies:
+            if c.isDead():
+                logging.debug("Character %s died" % (c.name))
+
+    def removeDead(self):
+        ret = False
+        for c in self.players:
+            if c.isDead():
+                self.players.remove(c)
+                ret = True
+        for c in self.enemies:
+            if c.isDead():
+                self.enemies.remove(c)
+                ret = True
+        return ret
+
+    def endOfScene(self):
+        for c in self.players + self.enemies:
+            c.endOfScene()
+
+    def endOfMission(self):
+        for c in self.players + self.enemies:
+            c.endOfMission()
+
+    def endOfKampaign(self):
+        for c in self.players + self.enemies:
+            c.endOfKampaign()
 
 class Player:
-    def __init__(self, attributes=[5,5,5,5,5,5,5,5], atk_strat=None, armor=0):
+    def __init__(self, attributes=[5,5,5,5,5,5,5,5], atk_strat=None, armor=0, name=""):
+        self.name = name
         self.physical  = AttributeCategory("Physical")
         self.mental    = AttributeCategory("Mental")
         self.social    = AttributeCategory("Social")
@@ -212,12 +274,12 @@ class Player:
     def takeDmg(self, n):
         attr = self.fightingAttr()
         cat = attr.category
-        val = attr1.effectiveDice()
+        val = attr.effectiveDice()
         cat.wounds_s += min(self.armor, n)
         cat.wounds_m += max(0, n - min(self.armor, n))
 
-    def getCombatChecks(self, game):
-        return [ self.offensiveCheck(), self.defensiveCheck(self) ]
+    def getCombatChecks(self):
+        return [ self.offensiveCheck(), self.defensiveCheck() ]
 
     def offensiveCheck(self):
         return Check(self.offensiveDice(), self.skills[0], effect=effect_damage_physical)
@@ -236,3 +298,30 @@ class Player:
     def endOfKampaign(self):
         for cat in self.categories:
             cat.endOfKampaign()
+
+# Script
+logging.basicConfig(filename='game.log',
+                    encoding='utf-8',
+                    filemode='w',
+                    level=logging.DEBUG,
+                    format='%(levelname)s:\t%(message)s')
+g = Game("Game1")
+g.players.append( Player(name="Player 1", attributes=[6,6,6,6,6,6,6,6], atk_strat=None, armor=2) )
+g.players.append( Player(name="Player 2", attributes=[6,6,6,6,6,6,6,6], atk_strat=None, armor=2) )
+g.enemies.append( Player(name="Enemy 1",  attributes=[4,4,4,4,4,4,4,4], atk_strat=None, armor=0) )
+g.enemies.append( Player(name="Enemy 2",  attributes=[4,4,4,4,4,4,4,4], atk_strat=None, armor=0) )
+g.enemies.append( Player(name="Enemy 3",  attributes=[4,4,4,4,4,4,4,4], atk_strat=None, armor=0) )
+
+for i in range(1,99):
+    g.simulateCombatRound()
+    if g.removeDead():
+        g.endOfScene()
+    if len(g.players) == 0 or len(g.enemies) == 0:
+        break
+if len(g.players) > 0:
+    print("Players win")
+elif len(g.enemies) > 0:
+    print("Enemies win")
+else:
+    print("Draw")
+
