@@ -75,7 +75,8 @@
 		grid-template-areas:
 			"general attributes"
 			"skills skills"
-			"traits traits";
+			"traits traits"
+			"effects effects";
 		flex-grow: 1;
 		container-type: inline-size;
 		container-name: container;
@@ -109,6 +110,12 @@
 
 	.divtraits {
 		grid-area: traits;
+		column-span: 2;
+		width: 100%;
+	}
+
+	.diveffects {
+		grid-area: effects;
 		column-span: 2;
 		padding-bottom: 75px;
 		width: 100%;
@@ -144,7 +151,8 @@
 				"general"
 				"attributes"
 				"skills"
-				"traits"
+	            "traits"
+	            "effects"
 				"roll"
 				"check";
 		}
@@ -398,6 +406,220 @@
 			</table>
 			<button type="button" id="addtrait" class="addrow">+</button>
 		  </div> <!-- divtraits -->
+
+		  <div class="diveffects">
+			<table id="effectstable" style="width:100%">
+			  <tr>
+				<th style="width:25em">Effect</th>
+				<th style="width:100%">Description</th>
+				<th>EP</th>
+				<th>Num</th>
+				<th></th>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Damage" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>Each success is used to cause 2 damage to an enemy. </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Block" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>Each success is used to remove one success from an enemies attack on you or one of your colleagues. If you win a contest with a block you can deal 1 damage per success (type appropriate to the weapon used). If an enemies block would deal damage to you it can also be blocked.</textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Disarm" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>For 2 successes disarm one enemy.</textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Push" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>For 1 success you can force your enemy to move slightly. Pushing an enemy off a cliff still gives them a check to prevent them from falling. </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Disable" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You can force an enemy into an unfavorable position. For each 2 successes the enemy is denied to use one level of his applicable skill. The enemy can recover from this with a check. The DM decides if this recovery can be blocked. Example: Putting the enemy into an ankle lock. </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Gain Advantage" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>For 1 success each you can make your position more advantageous. This allows you to reroll 1 die on applicable checks until the end of the scene. Examples: Gaining the high ground, flanking the enemy. </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Cause Disadvantage" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>For 1 success each you can make the enemies position more disadvantageous. This means he has to reroll 1 die that would otherwise be a success until the end of the scene. Example: Forcing the enemy into a tight corner. </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Blind" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>For 2 successes. Take an enemies sense. Examples: Throw sand into eyes, Shatter eardrums with a loud noise.</textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Summon" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>Per success the summoned being has 10 CP. The summon holds until the end of the scene or until the end of the concentration. </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Obfuscate" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>Per 4 successes you can obfuscate an area with regards to one sense. For example by causing total darkness or stopping all sound. The effect holds until the end of the scene or until the end of the concentration. </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="4"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Purify Thing" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>Per success you can purify one unit of a non sentient thing. For example remove poisons from one days worth of food, or remove the daemonic blight from a couple trees in the forest.</textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Amplify Aspect" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>Per 2 successes you increase an inherent aspect of a thing by 1 level. An example is increasing the protection of an armor by 1 or increasing the weight of a stone.</textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Buff" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>For 1 success increase an attribute by 1. The effect holds until the end of the scene or until the end of the concentration.</textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Shape-shift" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>Take the form of another being. The new forms max CP depends on the successes. Per success get 15 CP (max is the characters total CP). The effect holds until the end of the scene or until the end of the concentration.</textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Illusion" readonly/></td>
+				<td><textarea rows="1" class="description" readonly></textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Deceive" readonly/></td>
+				<td><textarea rows="1" class="description" readonly></textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Influence" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You may make your victim do something they don't want to do. The game master decides how many successes you need. As orientation you can use the following examples.
+
+    Make your enemy drop his weapon (1 success)
+    Make a wild bird deliver a message (2 successes)
+    make your victim jump from the bridge (3 successes)
+</textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Shape Reality" readonly/></td>
+				<td><textarea rows="1" class="description" readonly></textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Move" readonly/></td>
+				<td><textarea rows="1" class="description" readonly></textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Heal" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>Per success turn 1m damage to 1s damage.</textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Counter/Break" readonly/></td>
+				<td><textarea rows="1" class="description" readonly></textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Insight" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>per success you can gain insight with 1 sense for an additional success per distance class. </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Stop" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>For 1 succes can the victim be stopped from movement. </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Trigger" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>All other effects are triggered once a specific event happens. Costs 1 success. </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Shape Memory" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>You may shape the memory of the victim. The game master decides how many successes you need. As orientation you can use the following examples.
+
+    Make the immigrations officer believe you have already shown him your passport (1 success).
+    Let your victim forget what happens during the duration of your spell (2 success).
+</textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Consume Resource" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>Different than other effects this one gives you additional successes for the value of 1 success / 2 RV. It is always up to the Gm if he allows this effect to be used. In order to consume a resource it most often needs to be prepared in some way (carving runes into it or manufacturing). </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="-99" max="0" value="-1"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+			  <tr>
+				<td><input type="text" name="name" size="25" class="name" value="Block Area" readonly/></td>
+				<td><textarea rows="1" class="description" readonly>To block some kind of thing from happening in an area (of a size like close range) you need to invest 3 successes. Add a block to this and the blocks successes will be used to reduce any attempt to achieve the thing in this area. Example: Anti magic field. </textarea></td>
+				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="3"/></td>
+				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
+				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
+			  </tr>
+
+			</table>
+			<button type="button" id="addeffect" class="addrow">+</button>
+			<label><b>EP:</b></label>
+			<label id="effectstotal">10</label>
+		  </div> <!-- diveffects -->
 		</div> <!-- container -->
 
 		<div class="footer">
@@ -469,9 +691,17 @@
 		  }
 
 		  document.getElementById("cp").innerHTML = attributes*2 + skills + traits || 0;
+
+		  effects = 0;
+		  effectrows = document.getElementById("effectstable").rows;
+		  for ( var i = 1; i < effectrows.length; i++ ) {
+			  effects += effectrows[i].querySelector('.ep').valueAsNumber * effectrows[i].querySelector('.count').valueAsNumber || 0;
+		  }
+		  document.getElementById("effectstotal").innerHTML = effects || 0;
+
 	  }
 
-	  function addSkillorTrait(table, read_only=false, levelable=false, name="", description="", cost="") {
+	  function addSkillorTrait(table, layout, defaults={}, read_only=false) {
 		  row = document.createElement("tr");
 		  table.appendChild(row);
 		  cell_name = document.createElement("td");
@@ -489,19 +719,46 @@
 		  textarea_description.setAttribute("rows","1");
 		  cell_description.appendChild(textarea_description);
 
-		  cell_cost = document.createElement("td");
-		  row.appendChild(cell_cost);
-		  input_cost = document.createElement("input");
-		  input_cost.setAttribute("type","number");
-		  input_cost.setAttribute("class","cost");
-		  input_cost.setAttribute("name","cost");
-		  input_cost.setAttribute("size","3");
-		  input_cost.setAttribute("min","0");
-		  input_cost.setAttribute("max","999");
-		  input_cost.setAttribute("value","1");
-		  cell_cost.appendChild(input_cost);
-
-		  if(levelable){
+		  if(layout.cost){
+			  cell_cost = document.createElement("td");
+			  row.appendChild(cell_cost);
+			  input_cost = document.createElement("input");
+			  input_cost.setAttribute("type","number");
+			  input_cost.setAttribute("class","cost");
+			  input_cost.setAttribute("name","cost");
+			  input_cost.setAttribute("size","3");
+			  input_cost.setAttribute("min","0");
+			  input_cost.setAttribute("max","999");
+			  input_cost.setAttribute("value","1");
+			  cell_cost.appendChild(input_cost);
+		  }
+		  if(layout.ep){
+			  cell_ep = document.createElement("td");
+			  row.appendChild(cell_ep);
+			  input_ep = document.createElement("input");
+			  input_ep.setAttribute("type","number");
+			  input_ep.setAttribute("class","ep");
+			  input_ep.setAttribute("name","ep");
+			  input_ep.setAttribute("size","3");
+			  input_ep.setAttribute("min","0");
+			  input_ep.setAttribute("max","999");
+			  input_ep.setAttribute("value","1");
+			  cell_ep.appendChild(input_ep);
+		  }
+		  if(layout.count){
+			  cell_count = document.createElement("td");
+			  row.appendChild(cell_count);
+			  input_count = document.createElement("input");
+			  input_count.setAttribute("type","number");
+			  input_count.setAttribute("class","count");
+			  input_count.setAttribute("name","count");
+			  input_count.setAttribute("size","3");
+			  input_count.setAttribute("min","0");
+			  input_count.setAttribute("max","999");
+			  input_count.setAttribute("value","0");
+			  cell_count.appendChild(input_count);
+		  }
+		  if(layout.level){
 			  cell_level = document.createElement("td");
 			  row.appendChild(cell_level);
 			  input_level = document.createElement("input");
@@ -517,14 +774,15 @@
 			  row.setAttribute("onmouseout","removeresulthighlight()");
 			  row.setAttribute("onclick","highlightresult(this.querySelector('.level').value)");
 		  }
-
-		  cell_checkbox = document.createElement("td");
-		  row.appendChild(cell_checkbox);
-		  input_checkbox = document.createElement("input");
-		  input_checkbox.setAttribute("type","checkbox");
-		  input_checkbox.setAttribute("class","use");
-		  input_checkbox.setAttribute("name","use");
-		  cell_checkbox.appendChild(input_checkbox);
+		  if(layout.checkbox){
+			  cell_checkbox = document.createElement("td");
+			  row.appendChild(cell_checkbox);
+			  input_checkbox = document.createElement("input");
+			  input_checkbox.setAttribute("type","checkbox");
+			  input_checkbox.setAttribute("class","use");
+			  input_checkbox.setAttribute("name","use");
+			  cell_checkbox.appendChild(input_checkbox);
+		  }
 		  cell_deletebutton = document.createElement("td");
 		  row.appendChild(cell_deletebutton);
 		  button_deleterow = document.createElement("button");
@@ -539,38 +797,89 @@
 			  input_description.setAttribute("readonly",true);
 			  input_cost.setAttribute("readonly",true);
 		  }
-		  if(name){
+		  if(defaults.name){
 			  input_name.setAttribute("value", name);
 		  }
-		  if(description){
+		  if(defaults.description){
 			  input_description.setAttribute("value", description);
 		  }
-		  if(cost){
+		  if(defaults.cost){
 			  input_cost.setAttribute("value", cost);
 		  }
 	  }
 
 	  function addPredefinedSkill(name,desc,cost) {
 		  table = document.getElementById("skillstable");
-		  addSkillorTrait(table, read_only=true, levelable=true, name=name, description=desc, cost=cost);
+		  layout = {
+			  level: true,
+			  cost: true,
+			  ep: false,
+			  count: false,
+			  checkbox: false
+		  };
+		  defaults = {
+			  name: name,
+			  description: desc,
+			  cost: cost
+		  };
+		  addSkillorTrait(table, layout, defaults, read_only=true);
 	  }
 	  function addPredefinedTrait(name,desc,cost) {
+		  layout = {
+			  level: false,
+			  cost: true,
+			  ep: false,
+			  count: false,
+			  checkbox: true
+		  };
+		  defaults = {
+			  name: name,
+			  description: desc,
+			  cost: cost
+		  };
 		  table = document.getElementById("traitstable");
-		  addSkillorTrait(table, read_only=true, levelable=false, name=name, description=desc, cost=cost);
+		  addSkillorTrait(table, layout, defaults, read_only=true);
 	  }
 
 	  function addSkill() {
 		  skillstable = document.getElementById("skillstable");
-		  addSkillorTrait(skillstable, read_only=false, levelable=true);
+		  layout = {
+			  level: true,
+			  cost: true,
+			  ep: false,
+			  count: false,
+			  checkbox: true
+		  };
+		  addSkillorTrait(skillstable, layout, read_only=false);
 	  }
 
 	  function addTrait() {
 		  traitstable = document.getElementById("traitstable");
-		  addSkillorTrait(traitstable);
+		  layout = {
+			  level: false,
+			  cost: true,
+			  ep: false,
+			  count: false,
+			  checkbox: true
+		  };
+		  addSkillorTrait(traitstable, layout);
+	  }
+
+	  function addEffect() {
+		  effectstable = document.getElementById("effectstable");
+		  layout = {
+			  level: false,
+			  cost: false,
+			  ep: true,
+			  count: true,
+			  checkbox: false
+		  };
+		  addSkillorTrait(effectstable, layout);
 	  }
 
 	  document.getElementById("addskill").onclick = addSkill;
 	  document.getElementById("addtrait").onclick = addTrait;
+	  document.getElementById("addeffect").onclick = addEffect;
 	  document.addEventListener("change", calcTotalCP);
 	  calcTotalCP();
 
