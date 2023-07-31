@@ -178,6 +178,9 @@ You can learn to achieve a certain combination of effects very effectively. You 
 *Concentration:*
 Some effects have to be kept up. In those cases the successes needed to achieve the effect block the attribute points (dice) from being used for anything else, as long as the concentration lasts. 
 
+*Advantage and Disadvantage* 
+For each point of advantage you can reroll one die (or roll one more die and remove the worst). For each point of disadvantage you have to reroll one success (or roll one more die and remove the best). A point of advantage and a point of disadvantage cancel each other out.
+
 *Difficulty:*
 This table gives an overview of what a good difficulty for checks is by average CP investment into attribute and skill, and what level of experience such a person would be described as having. For an easy check select the difficulty 1 lower. For a hard check select a difficulty 1 higher.
 
@@ -229,33 +232,7 @@ Far: Quite a distance away. You might be able to shoot a rifle or a bow at this 
 
 ** Items and Equipment
 
-Items have a RV (Resource Value) this determines how expensive or hard to get it is. Apart from that they have a description and maybe special effects. Let your fantasy go wild. A few examples can be found below.
-
-An item can be found or bought. To buy an item you need to be somewhere where it is possible to be bought. Roll on Resources. If you get at least the RV successes you have bought the item.
-
-#+begin_quote
-Sword (RV 2):
-Its a stabby piece of metal. Especially good at harming unarmored enemies. Not so great at slicing though armor. 
-#+end_quote
-
-#+begin_quote
-Mail shirt (RV 3):
-A metal fabric that protects your torso and arms from being cut or stabbed pretty well. 
-#+end_quote
-
-To create an item first give it a short description. It should make clear on what kind of actions it may give advantages or what kind of effects may be created with it. Second you determine its RV (resource value).
-
-#+ATTR_LATEX: :align c|l|l
-| *RV* | *Description*  | *Example*                   |
-|------+----------------+-----------------------------|
-|    0 | Free           | a club                      |
-|    1 | Cheap          | simple clothes, basic tools |
-|    2 | Affordable     | regular car, apartment      |
-|    3 | Costly         | regular house               |
-|    4 | Expensive      | sports car                  |
-|    5 | Very Expensive | small airplane              |
-|    6 | Luxurious      | private jet                 |
-
+Items have a RV (Resource Value) this determines how expensive or hard to get it is. Apart from that they have a description and maybe special effects. Let your fantasy go wild. A few examples can be found in the section [[#sec:loitems][List of Items]].
 
 *** Equipment
 Characters can have gear with a value of up to half the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
@@ -273,6 +250,21 @@ Resources can be gathered with a check and their RV as difficulty.
 
 *** Bribing
 To Bribe someone you need to give them more than they can normally comfortably afford. This means you need more than half their finances value in successes to bribe them.
+
+*** Creating
+To create an item first give it a short description. It should make clear on what kind of actions it may give advantages or what kind of effects may be created with it. Second you determine its RV (resource value).
+
+#+ATTR_LATEX: :align c|l|l
+| *RV* | *Description*  | *Example*                   |
+|------+----------------+-----------------------------|
+|    0 | Free           | a club                      |
+|    1 | Cheap          | simple clothes, basic tools |
+|    2 | Affordable     | regular car, apartment      |
+|    3 | Costly         | regular house               |
+|    4 | Expensive      | sports car                  |
+|    5 | Very Expensive | small airplane              |
+|    6 | Luxurious      | private jet                 |
+
 
 #+LATEX: \newpage
 * Lists
@@ -292,7 +284,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Speedster* (14): You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks and you always have at least 1 success in them.
+*Speedster* (14): You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks and you always have at least 1 success in them. It takes you half the dice to move on a round.
 #+end_quote
 
 #+begin_quote
@@ -321,6 +313,10 @@ None of the following lists is exhaustive. They should be taken as examples. You
 
 #+begin_quote
 *Plot Armor* (1): Each scene you can discard a point of damage you would take. The plot armor only allies to one of the categories (Physical, Mental, Social) This trait can be taken multiple times.
+#+end_quote
+
+#+begin_quote
+*Short Weapon Fighting* (1): You can not get disadvantage because your weapons are to short compared to your opponent.
 #+end_quote
 
 
@@ -358,6 +354,15 @@ None of the following lists is exhaustive. They should be taken as examples. You
 :PROPERTIES:
 :CUSTOM_ID: sec:loitems
 :END:
+
+
+#+begin_quote
+*Sword* (RV 2): Its a stabby piece of metal. Especially good at harming unarmored enemies. Not so great at slicing though armor. 
+#+end_quote
+
+#+begin_quote
+*Mail shirt* (RV 3): A metal fabric that protects your torso and arms from being cut or stabbed pretty well. 
+#+end_quote
 
 #+begin_quote
 *Club of the great Bear* (RV 4): A mystical club made from the thigh bone of the great bear that terrorized the inokwa people. It still contains the strength of the mighty beast. When using this club you gain 1 additional skill level in strength checks.
@@ -484,7 +489,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Stop:* For 2 successes the victim can be stopped from movement.
+*Stop:* For 1 successes can the victim be stopped from movement.
 #+end_quote
 
 #+begin_quote
@@ -553,7 +558,10 @@ Ph: 5, Me: 3, So: 3, Re: 2, Banditry 2, Previous Profession 3
 Ph: 3, Me: 1, So: 1, Re: 1, Shooting 4, Night-vision
 #+end_quote
 
-
+#+begin_quote
+*Orc* (90 CP)
+Ph: 7,Me: 4,So: 3,Re: 3, Hunter 3, Nightvision, Maneuver Reckless Attack (4 damage, 2 difficulty)
+#+end_quote
 
 #+LATEX: \newpage
 * Optional Rules
