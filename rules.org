@@ -1,4 +1,5 @@
 #+title:      Primordial Waters
+#+author:     Lukas Zumvorde
 #+date:       [2022-10-03 Mo 13:19]
 
 #+OPTIONS: toc:nil H:10 tex:t author:nil date:nil num:3
@@ -11,7 +12,9 @@
 #+LATEX_HEADER: \usepackage{enumitem}
 #+LATEX_HEADER: \setlist[itemize]{noitemsep}
 #+LATEX_HEADER: \usepackage[table]{xcolor}
+#+LATEX_HEADER: \usepackage[type={CC},modifier={by-sa}, version={4.0}, imagewidth=5em]{doclicense}
 
+#+LATEX_CLASS: article
 #+LATEX: {\rowcolors{1}{grey!20}{grey!10}
 
 #+HTML_HEAD: <style type="text/css">
@@ -59,6 +62,10 @@
 #+HTML_HEAD: </style>
 
 
+
+#+LATEX: \begin{tiny}\doclicenseThis\end{tiny}
+#+HTML: <font size=0.5><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</font>
+
 #+LATEX: \begin{multicols}{2}[]
 
 
@@ -90,12 +97,12 @@ Attributes describe a characters potential. The higher the value the greater thi
 #+ATTR_LATEX: :align c|l
 | *Attribute* | *Grade*     |
 |-------------+-------------|
-|           3 | Unskilled   |
-|           5 | Beginner    |
-|           7 | Experienced |
-|           9 | Master      |
-|          11 | Grandmaster |
-|          13 | Legend      |
+|           2 | Unskilled   |
+|           4 | Beginner    |
+|           6 | Experienced |
+|           8 | Master      |
+|          10 | Grandmaster |
+|          12 | Legend      |
 
 They determine the amount of dice you can use for [[#sec:checks][checks]]. 
 
@@ -121,6 +128,9 @@ See chapter [[#sec:loskills][List of Skills]] for examples.
 
 *Merge Skills*
 It might happen that you have a lot of very specific skills. If that is the case you can combine them to a more general skill. The total CP cost has to stay the same. The merging of skills needs the approval of the GM.
+
+*Deduce Skills*
+If a skill is not quite applicable, but still close enough, the GM can decide to let you only use half the skill level. 
 
 ** Traits
 Traits are distinguishing things about the character. They can be bought for character points. This is possible both at character creation and later in the game.
@@ -157,14 +167,11 @@ A Contest is when parties have opposing goals:
 - Results of the checks are described. 
 
 *Effects:*
-- Effects can be bought with successes after a check is made.
-- Every action has a default effect. For example in a fight it is wounding an enemy.
-- Different effects can also be declared by the player. (e.g. disarming the enemy).
-- Combinations are also possible.
-- An Effect might cost more than one success.
-
+- Effects can be bought with effect points (EP) after a check is made
+- Per success on the check you get 1 EP
+- An Effect might cost more than 1 EP
+- You can only spend EP on effects you have declared for this check.
 For a list of effects see the section [[#sec:loeffects][List of Effects]]
-
 
 *Collaborative checks:*
 Everyone rolls individually and then sum together all successes.
@@ -173,7 +180,7 @@ Everyone rolls individually and then sum together all successes.
 If a check is risky the character might incur something bad if the check fails. If the check fails the negative successes are used to incur effects to the characters disadvantage, the minimum is 1. 
 
 *Predefined Effects:*
-You can learn to achieve a certain combination of effects very effectively. You have to learn this as a trait. You can increase the difficulty of the check. Double the difficulty can be used to declare the predefined effects. The check automatically becomes risky. This allows you to use the same dice to achieve multiple effects. Such a trait costs 1 CP per different effect.
+You can learn to achieve a certain combination of effects very effectively. You have to learn this as a trait. You can increase the difficulty of the check. For this you get double the difficulty in EP. The check automatically becomes risky. This allows you to use the same dice to achieve multiple effects. Such a trait costs 1 CP per different effect.
 
 *Concentration:*
 Some effects have to be kept up. In those cases the successes needed to achieve the effect block the attribute points (dice) from being used for anything else, as long as the concentration lasts. 
@@ -196,21 +203,21 @@ This table gives an overview of what a good difficulty for checks is by average 
 
 
 ** Damage
-Damage is taken on attribute categories and reduces the attribute points (points) you can use for all attributes in the category.  Once your attribute effectively falls below 0 you are out of commission with regards to this attribute. The way in which you are taken out depends on the attribute and what caused the damage.
+Damage is taken on attribute categories and reduces the attribute points (points) you can use for all attributes in the category. Once your attribute effectively falls below 0 you are out of commission with regards to this attribute. The way in which you are taken out depends on the attribute and what caused the damage.
 
 #+begin_quote
-Bob the Barbarian got hit in combat multiple times. He has 4 Physical but 3 physical wounds. Now he additionally got confused by a spell and thinks his Comrades are enemys. His compatriot Roger the Rogue tries to nonlethaly take him out by hitting him with his blackjack over the head. He succeeds and makes another 2 damage. Bob goes down, bleeding from his old wounds but still alive.
+Bob the Barbarian got hit in combat multiple times. He has 4 Physical but 3 physical wounds. Now he additionally got confused by a spell and thinks his comrades are enemys. His compatriot Roger the rogue tries to nonlethaly take him out by hitting him with his blackjack over the head. He succeeds and makes another 2 damage. Bob goes down, bleeding from his old wounds but still alive.
 #+end_quote
 
 #+begin_quote
-Silvia the Spy finds herself in a fierce debate with the Diplomat. She trys to convince him to go with her plan. Over the time she makes 3 social damage which is enough to convince him, as his social position is severely damaged by the documents she leaked a week ago.
+Silvia the spy finds herself in a fierce debate with the diplomat. She trys to convince him to go with her plan. Over the time she makes 3 social damage which is enough to convince him, as his social position is already severely damaged by the documents she leaked a week ago.
 #+end_quote
 
-Depending on the source of the damage it might heal after each scene, mission or kampagnie.
+Depending on the source of the damage it might heal after each scene, mission or campagnie.
 - Scene: A thematically connected time frame like a fight. (example: unarmed, blackjack, nets, drowning)
 - Mission: Until a milestone in the game is reached, for example until the quest is finished or story beat is reached (example; sword, fire, knife, falling great heights)
-- Kampagnie: Until a long term goal is reached. For example until the evil King is vanquished. (example: nazgul blade, daemonic poison)
-The short form to write this is 2s(/m/k) for two damage that heals by the end of the scene(/mission/kampagnie).
+- Campagnie: Until a long term goal is reached. For example until the evil King is vanquished. (example: nazgul blade, daemonic poison)
+The short form to write this is 2s(/m/k) for two damage that heals by the end of the scene(/mission/campagnie).
   
 ** Armor / Damage reduction
 Armor or damage reduction (DR) does not negate damage completely but it changes its type to one that is faster to heal. With an armor of 2 up to 2m damage per contest/round are being reduced to 2s damage. Normally damage reduction should only go down to scene level and not remove damage completely. As an optional rule however you can decide that scene damage can be reduced to nothing as long as at least 1 damage stays. When considering armor always think about the complete set being worn and not about single pieces. Decide which armor class fits.
@@ -232,7 +239,7 @@ Far: Quite a distance away. You might be able to shoot a rifle or a bow at this 
 
 ** Items and Equipment
 
-Items have a RV (Resource Value) this determines how expensive or hard to get it is. Apart from that they have a description and maybe special effects. Let your fantasy go wild. A few examples can be found in the section [[#sec:loitems][List of Items]].
+The RV (Resource Value) of an Item determines how expensive or hard to get it is. Items also have a description and maybe special effects. Let your fantasy go wild. A few examples can be found in the section [[#sec:loitems][List of Items]]. The effects an item has should not exceed its RV times two in EP.
 
 *** Equipment
 Characters can have gear with a value of up to half the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
@@ -269,6 +276,45 @@ To create an item first give it a short description. It should make clear on wha
 #+LATEX: \newpage
 * Lists
 None of the following lists is exhaustive. They should be taken as examples. You are invited to design your own with your group.
+
+** List of Skills
+:PROPERTIES:
+:CUSTOM_ID: sec:loskills
+:END:
+
+#+begin_quote
+*Professional Chef* (7 CP): You have learned not only to cook but also to plan the foodstuffs on storage, to store properly, to calculate profitability, to motivate and coordinate a team of people.
+#+end_quote
+
+#+begin_quote
+*Soldier* (7 CP): You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned discipline and coordination.
+#+end_quote
+
+#+begin_quote
+*Soothsayer* (7 CP): You have learned to peer into possible futures, read people and make inferences on what will likely happen. You have learned the art of putting on an act. 
+#+end_quote
+
+#+begin_quote
+*Ranger* (7 CP): You know how to survive in the wild. You can hunt, bushcraft and gather everything you need. You have honed your hearing and are proficient at tracking.
+#+end_quote
+
+#+begin_quote
+*College Mage* (7 CP): You have studied the art of magic. You learned them with books, astronomy and experiments. You can cast spells by pronouncing incantations, magical glyphs and potent paraphernalia. You still need the appropriate trait to cast magic from specific schools of magic.
+#+end_quote
+
+#+begin_quote
+*Survivalist* (1 CP): You have spend quite a lot of time outdoors. Consumed books about wilderness survival and so on. You know how to build shelter, find food and water, and much more. 
+#+end_quote
+
+#+begin_quote
+*Fighting* (2 CP): Be it hand to hand, with a sword or with a gun. You can fight.
+#+end_quote
+
+#+begin_quote
+*Jack of all Trades* (28 CP): You are at the pinacle of having a well rounded skillset. No matter what it is you can count on this skill.
+#+end_quote
+
+
 
 ** List of Traits
 :PROPERTIES:
@@ -320,34 +366,6 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 
-** List of Skills
-:PROPERTIES:
-:CUSTOM_ID: sec:loskills
-:END:
-
-#+begin_quote
-*Professional Chef* (7 CP): You have learned not only to cook but also to plan the foodstuffs on storage, to store properly, to calculate profitability, to motivate and coordinate a team of people.
-#+end_quote
-
-#+begin_quote
-*Soldier* (7 CP): You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned discipline and coordination.
-#+end_quote
-
-#+begin_quote
-*Soothsayer* (7 CP): You have learned to peer into possible futures, read people and make inferences on what will likely happen. You have learned the art of putting on an act. 
-#+end_quote
-
-#+begin_quote
-*Ranger* (7 CP): You know how to survive in the wild. You can hunt, bushcraft and gather everything you need. You have honed your hearing and are proficient at tracking.
-#+end_quote
-
-#+begin_quote
-*College Mage* (7 CP): You have studied the art of magic. You learned them with books, astronomy and experiments. You can cast spells by pronouncing incantations, magical glyphs and potent paraphernalia. You still need the appropriate trait to cast magic from specific schools of magic.
-#+end_quote
-
-#+begin_quote
-*Survivalist* (1 CP): You have spend quite a lot of time outdoors. Consumed books about wilderness survival and so on. You know how to build shelter, find food and water, and much more. 
-#+end_quote
 
 
 ** List of Items
@@ -597,6 +615,19 @@ Things scale differently
 - Dexterity scales by 1/n
 - damage taken scales by 1/n^2
 
+
+* Advice
+
+** Character Creation
+
+When creating a character you should adhere to the following advice:
+- No attribute above 7
+- No attribute below 3
+- Have 1 skill describing what you want to be good at
+- Have 1 skill describing what live live of
+- Have 1 skill describing what you like to do as a hobby
+- Have at least 1 trait
+Break these rules if you want.
 
 #+LATEX: \newpage
 * Game-play Examples
