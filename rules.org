@@ -187,7 +187,7 @@ Everyone rolls individually and then sum together all successes.
 If a check is risky the character might incur something bad if the check fails. If the check fails the negative successes are used to incur effects to the characters disadvantage, the minimum is 1. 
 
 *Predefined Effects:*
-You can learn to achieve a certain combination of effects very effectively. You have to learn this as a trait. You can increase the difficulty of the check. For this you get double the difficulty in EP. The check automatically becomes risky. This allows you to use the same dice to achieve multiple effects. Such a trait costs 1 CP per different effect.
+You can learn to achieve a certain combination of effects very effectively. You have to learn this as a trait. You can increase the difficulty of the check. For this you get double the difficulty in EP to spend on effects. The check automatically becomes risky. This allows you to use the same dice to achieve multiple effects. Such a trait costs 1 CP per different effect.
 
 *Concentration:*
 Some effects have to be kept up. In those cases the successes needed to achieve the effect block the attribute points (dice) from being used for anything else, as long as the concentration lasts. 
