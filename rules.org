@@ -536,7 +536,9 @@ None of the following lists is exhaustive. They should be taken as examples. You
 Example: Anti magic field.
 #+end_quote
 
-
+#+begin_quote
+*Remote Control:* For 2 EP you can establish remote control of a willing target. You can take actions as the target. You can use your own skills for this or that of the target. You can use only the attributes of the target for checks. The checks the target makes for you count to your dice used for actions this round. Takes concentration to use. 
+#+end_quote
 
 ** List of NPCs
 :PROPERTIES:
