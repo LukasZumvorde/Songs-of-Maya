@@ -588,6 +588,45 @@ Ph: 3, Me: 1, So: 1, Re: 1, Shooting 4, Night-vision
 Ph: 7,Me: 4,So: 3,Re: 3, Hunter 3, Nightvision, Maneuver Reckless Attack (4 damage, 2 difficulty)
 #+end_quote
 
+** List of Archetype Characters
+:PROPERTIES:
+:CUSTOM_ID: sec:lopcs
+:END:
+
+#+begin_quote
+*Bob the Barbarian* (90 CP)
+
+S: 6, D:5, W:4, I:3, E:3 ,C:3, G:4, F:2
+
+Skill: Nomad of the Northern Steppes 3
+
+Skill: Fighting 4
+
+Skill: Games of chance 3
+
+Trait: Plot Armor (Physical) 3
+
+Trait: Cold Resistance
+
+Maneuver: Mightly Blow (Difficulty 2, Damage 2, Gain Advantage 2)
+A heavy attack that not only cuts deep but also throws the target to the ground and stunns.
+#+end_quote
+
+#+begin_quote
+*Anna the Alchemist* (106 CP)
+
+S:3, D:3, W:4, I:6: E:4, C:5, G:5, F:6
+
+Skill: Aristocratic Upbringing 3
+
+Skill: Guild Alchemist 4
+
+Skill: Horse Riding 1
+
+Trait: Magical Alchemy
+
+#+end_quote
+
 #+LATEX: \newpage
 * Optional Rules
 
