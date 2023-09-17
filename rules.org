@@ -697,6 +697,10 @@ When creating a character you should adhere to the following advice:
 - Have at least 1 trait
 Break these rules if you want.
 
+** Encounter Design
+
+When creating combat encounters make the enemy weaker than the players. The total CP of the enemies should be about 60% of that of the players. Plan about 3-4 combat encounters per mission with this difficulty. The Damage taken by the players will make the combat step by step harder. This gives the players the oppotunity to opt out if the risk is to high. It will also ensure a good chance of survival for the first encounter. The encounters should drain the players resources. 
+
 #+LATEX: \newpage
 * Game-play Examples
 
