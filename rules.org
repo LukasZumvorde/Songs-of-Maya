@@ -423,59 +423,63 @@ None of the following lists is exhaustive. They should be taken as examples. You
 :END:
 
 #+begin_quote
-*Damage:* Each success is used to cause 2 damage to an enemy.
+*Damage:* Each EP is used to cause 2 damage to an enemy.
 #+end_quote
 
 #+begin_quote
-*Block:* Each success is used to remove one success from an enemies attack on you or one of your colleagues. If you win a contest with a block you can deal 1 damage per success (type appropriate to the weapon used). If an enemies block would deal damage to you it can also be blocked.
+*Block:* Each EP is used to remove one success from an enemies attack on you or one of your colleagues. If you win a contest with a block you can deal 1 damage per EP (type appropriate to the weapon used). If an enemies block would deal damage to you it can also be blocked.
 #+end_quote
 
 #+begin_quote
-*Disarm:* For 2 successes disarm one enemy.
+*Disarm:* For 2 EPs disarm one enemy.
 #+end_quote
 
 #+begin_quote
-*Push:* For 1 success you can force your enemy to move slightly. Pushing an enemy off a cliff still gives them a check to prevent them from falling.
+*Push:* For 1 EP you can force your enemy to move slightly. Pushing an enemy off a cliff still gives them a check to prevent them from falling.
 #+end_quote
 
 #+begin_quote
-*Disable:* You can force an enemy into an unfavorable position. For each 2 successes the enemy is denied to use one level of his applicable skill. The enemy can recover from this with a check. The DM decides if this recovery can be blocked. Example: Putting the enemy into an ankle lock.
+*Disable:* You can force an enemy into an unfavorable position. For each 2 EPs the enemy is denied to use one level of his applicable skill. The enemy can recover from this with a check. The DM decides if this recovery can be blocked. Example: Putting the enemy into an ankle lock.
 #+end_quote
 
 #+begin_quote
-*Gain Advantage:* For 1 success each you can make your position more advantageous. This allows you to reroll 1 die on applicable checks until the end of the scene. Examples: Gaining the high ground, flanking the enemy.
+*Gain Advantage:* For 1 EP each you can make your position more advantageous. This allows you to reroll 1 die on applicable checks until the end of the scene. Examples: Gaining the high ground, flanking the enemy.
 #+end_quote
 
 #+begin_quote
-*Cause Disadvantage:* For 1 success each you can make the enemies position more disadvantageous. This means he has to reroll 1 die that would otherwise be a success until the end of the scene. Example: Forcing the enemy into a tight corner. 
+*Cause Disadvantage:* For 1 EP each you can make the enemies position more disadvantageous. This means he has to reroll 1 die that would otherwise be a success until the end of the scene. Example: Forcing the enemy into a tight corner. 
 #+end_quote
 
 #+begin_quote
-*Blind:* For 2 successes. Take an enemies sense. Examples: Throw sand into eyes, Shatter eardrums with a loud noise.
+*Blind:* For 2 EPs. Take an enemies sense. Examples: Throw sand into eyes, Shatter eardrums with a loud noise.
 #+end_quote
 
 #+begin_quote
-*Summon:* Per success the summoned being has 10 CP. The summon holds until the end of the scene or until the end of the concentration.
+*Summon Being:* Per 1 EP the summoned being has 10 CP. The summon holds until the end of the scene or until the end of the concentration.
 #+end_quote
 
 #+begin_quote
-*Obfuscate Area:* Per 4 successes you can obfuscate an area with regards to one sense. For example by causing total darkness or stopping all sound. The effect holds until the end of the scene or until the end of the concentration.
+*Summon Thing:* Per 1 EP you can summon a thing of up to 1 RV. It is clearly visible that the summoned thing is not natural. The summon holds until the end of the scene or until the end of the concentration. 
 #+end_quote
 
 #+begin_quote
-*Purify Thing:* Per success you can purify one unit of a non sentient thing. For example remove poisons from one days worth of food, or remove the daemonic blight from a couple trees in the forest.
+*Obfuscate Area:* Per 4 EPs you can obfuscate an area with regards to one sense. For example by causing total darkness or stopping all sound. The effect holds until the end of the scene or until the end of the concentration.
 #+end_quote
 
 #+begin_quote
-*Amplify Aspect:* Per 2 successes you increase an inherent aspect of a thing by 1 level. An example is increasing the protection of an armor by 1 or increasing the weight of a stone.
+*Purify Thing:* Per 1 EP you can purify one unit of a non sentient thing. For example remove poisons from one days worth of food, or remove the daemonic blight from a couple trees in the forest.
 #+end_quote
 
 #+begin_quote
-*Buff:* For 1 success increase an attribute by 1. The effect holds until the end of the scene or until the end of the concentration.
+*Amplify Aspect:* Per 2 EPs you increase an inherent aspect of a thing by 1 level. An example is increasing the protection of an armor by 1 or increasing the weight of a stone.
 #+end_quote
 
 #+begin_quote
-*Shape-shift:* Take the form of another being. The new forms max CP depends on the successes. Per success get 15 CP (max is the characters total CP). The effect holds until the end of the scene or until the end of the concentration.
+*Buff:* For 1 EP increase an attribute by 1. The effect holds until the end of the scene or until the end of the concentration.
+#+end_quote
+
+#+begin_quote
+*Shape-shift:* Take the form of another being. The new forms max CP depends on the EPs. Per 1 EP get 15 CP (max is the characters total CP). The effect holds until the end of the scene or until the end of the concentration. The new forms attributes and skills overwrite those of the character for the duration of the effect.
 #+end_quote
 
 #+begin_quote
@@ -487,14 +491,14 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Influence:* You may make your victim do something they don't want to do. The game master decides how many successes you need. As orientation you can use the following examples.
-- Make your enemy drop his weapon (1 success)
-- Make a wild bird deliver a message (2 successes)
-- make your victim jump from the bridge (3 successes)
+*Influence:* You may make your victim do something they don't want to do. The game master decides how many EPs you need. As orientation you can use the following examples.
+- Make your enemy drop his weapon (1 EP)
+- Make a wild bird deliver a message (2 EPs)
+- make your victim jump from the bridge (3 EPs)
 #+end_quote
 
 #+begin_quote
-*Shape Reality:*  The game master decides how many successes you need. As orientation you can use the following examples.
+*Shape Reality:*  The game master decides how many EPs you need. As orientation you can use the following examples.
 #+end_quote
 
 #+begin_quote
@@ -502,7 +506,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Heal:* Per success turn 1m damage to 1s damage.
+*Heal:* Per EP turn 1m damage to 1s damage.
 #+end_quote
 
 #+begin_quote
@@ -510,29 +514,33 @@ None of the following lists is exhaustive. They should be taken as examples. You
 #+end_quote
 
 #+begin_quote
-*Insight:* per success you can gain insight with 1 sense for an additional success per distance class.
+*Insight:* per 1 EP you can gain insight with 1 sense for an additional 1 EP per distance class.
 #+end_quote
 
 #+begin_quote
-*Stop:* For 1 successes can the victim be stopped from movement.
+*Stop:* For 1 EPs can the victim be stopped from movement.
 #+end_quote
 
 #+begin_quote
-*Trigger:* All other effects are triggered once a specific event happens. Costs 1 success. 
+*Trigger:* All other effects are triggered once a specific event happens. Costs 1 EP. 
 #+end_quote
 
 #+begin_quote
-*Shape Memory:* You may shape the memory of the victim. The game master decides how many successes you need. As orientation you can use the following examples.
-- Make the immigrations officer believe you have already shown him your passport (1 success). 
-- Let your victim forget what happens during the duration of your spell (2 success).
+*Shape Memory:* You may shape the memory of the victim. The game master decides how many EPs you need. As orientation you can use the following examples.
+- Make the immigrations officer believe you have already shown him your passport (1 EP). 
+- Let your victim forget what happens during the duration of your spell (2 EP).
 #+end_quote
 
 #+begin_quote
-*Consume Resource:* Different than other effects this one gives you additional successes for the value of 1 success / 2 RV. It is always up to the Gm if he allows this effect to be used. In order to consume a resource it most often needs to be prepared in some way (carving runes into it or manufacturing).
+*Consume Resource:* Different than other effects this one gives you additional EPs for the value of 1 EP / 2 RV. It is always up to the GM if he allows this effect to be used. In order to consume a resource it most often needs to be prepared in some way (carving runes into it or manufacturing).
 #+end_quote
 
 #+begin_quote
-*Block Area:* To block some kind of thing from happening in an area (of a size like close range) you need to invest 3 successes. Add a block to this and the blocks successes will be used to reduce any attempt to achieve the thing in this area.
+*Need Resoruce:* For each 3 RV of the needed resource create an effect worth 1 EP. The user needs to use the resource to use its effect. The effect only happens if the check is passed.
+#+end_quote
+
+#+begin_quote
+*Block Area:* To block some kind of thing from happening in an area (of a size like close range) you need to invest 3 EPs. Add a block to this and the blocks successes will be used to reduce any attempt to achieve the thing in this area.
 Example: Anti magic field.
 #+end_quote
 
