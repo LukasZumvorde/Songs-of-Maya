@@ -321,6 +321,9 @@ None of the following lists is exhaustive. They should be taken as examples. You
 *Jack of all Trades* (28 CP): You are at the pinacle of having a well rounded skillset. No matter what it is you can count on this skill.
 #+end_quote
 
+#+begin_quote
+*Alchemist* (7 CP): You know how to combine different ingredience like plants, minerals and animal parts to create wondrous potions and the like. You also know how to identify or gather those ingredience. You have knowledge about several tools of your trade. Lasty you know how to buy the ingredience and sell your products. A bit of fire savety is also a necessary part.
+#+end_quote
 
 
 ** List of Traits
@@ -372,8 +375,17 @@ None of the following lists is exhaustive. They should be taken as examples. You
 *Short Weapon Fighting* (1): You can not get disadvantage because your weapons are to short compared to your opponent.
 #+end_quote
 
+#+begin_quote
+*Alchemist* (7): You can brew potions, salves and other things which create wondrous effects.
+#+end_quote
 
+#+begin_quote
+*Shape Shifter* (7): You can alter the physiscal form of either yourself or that of others.
+#+end_quote
 
+#+begin_quote
+*Seeer* (7): You have to ability to see glimses of future, past and present. Both at your current position and over great distances. 
+#+end_quote
 
 ** List of Items
 :PROPERTIES:
