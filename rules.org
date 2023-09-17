@@ -688,6 +688,61 @@ Break these rules if you want.
 #+LATEX: \newpage
 * Game-play Examples
 
+** Character Build: Generic Citizen
+
+Strength: 2
+Dexterity: 2
+Will: 2
+Intelect: 2
+Empathy: 2
+Charisma: 2
+Gear: 2
+Finances: 2
+
+Traits:
+none
+
+Skills:
+Jack of all Trades (28) 2
+
+
+** Character Build: Shapeshifting Durid
+
+Strength: 3
+Dexterity: 3
+Will: 4
+Intelect: 3
+Empathy: 3
+Charisma: 4
+Gear: 2
+Finances: 1
+
+Traits:
+- Friend of Nature (7)
+- Shape shifter (7)
+- Alchemist (7)
+- Seeer (7)
+
+Skills:
+- Alchemy (7) 3
+- Survivalist (1) 4
+- Seeer (2) 2
+- Druidcraft (7) 4
+
+Maneuvers:
+- Health Potion (Dif: 1):
+  Heal 3, Consume Resource 2RV
+- Summon Animal (Dif: 2):
+  Summon 4
+- Shapeshift into Bear (Dif: 3):
+  Shapeshift 6
+  P: 9
+  M: 4
+  S: 3
+  R: 1
+  Traits: Great Nose (5)
+  
+  
 ** Ambushed by Goblins
 
 *GM* is the Game Master Mathew controlling the 3 goblins (P: 2, M; 1, S: 1, Bandit 2)
