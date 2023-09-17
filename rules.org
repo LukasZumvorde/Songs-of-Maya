@@ -673,6 +673,9 @@ It can happen that you have to roll to many dice at once. If that happens your c
 ** Exhausting Combat
 To limit the duration of a combat scene apply this rule. If in one round no party takes any damage, then apply 1s damage to each combatant from the exhaustion of combat. 
 
+** Overexertion
+The DM can allow players after a check is rolled to take damage (M). For each damage taken one extra success can be counted for the check. The type of damage should fit to the check.
+
 ** TODO Effects of Scale
 
 Feel free to use this rule also in other scenarios where it might make sense. It does not have to be about size and strength.
