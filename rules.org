@@ -613,6 +613,18 @@ Ph: 3, Me: 1, So: 1, Re: 1, Shooting 4, Night-vision
 Ph: 7,Me: 4,So: 3,Re: 3, Hunter 3, Nightvision, Maneuver Reckless Attack (4 damage, 2 difficulty)
 #+end_quote
 
+#+begin_quote
+*Giant Spider* (56 CP)
+S: 2, D: 4, W:2, I:2, E:1, C:1, G:2, F:1, Ambush Predator 3,
+
+Trait: Nightvision
+
+Trait: Spider Webs
+Can create spider webs. These can trap prey. The spider can feel vibrations in the net. The Spider can climb the net.
+
+Maneuver: Cast Net (2 disable, 2 difficulty)
+#+end_quote
+
 ** List of Archetype Characters
 :PROPERTIES:
 :CUSTOM_ID: sec:lopcs
