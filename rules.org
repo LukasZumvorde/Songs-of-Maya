@@ -189,6 +189,9 @@ If a check is risky the character might incur something bad if the check fails. 
 *Predefined Effects:*
 You can learn to achieve a certain combination of effects very effectively. You have to learn this as a trait. You can increase the difficulty of the check. For this you get double the difficulty in EP to spend on effects. The check automatically becomes risky. This allows you to use the same dice to achieve multiple effects. Such a trait costs 1 CP per different effect.
 
+*Stacking Effects:*
+You can declare an effect multiple times, If it has a difficulty then you have to beat the combined difficulty.
+
 *Concentration:*
 Some effects have to be kept up. In those cases the successes needed to achieve the effect block the attribute points (dice) from being used for anything else, as long as the concentration lasts. 
 
