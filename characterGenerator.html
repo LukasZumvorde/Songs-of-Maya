@@ -285,7 +285,7 @@
 				<td><input type="text" name="name" size="25" class="name" value="Soldier" readonly/></td>
 				<td><textarea rows="1" class="description" readonly>You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned dicipline and coordination.</textarea></td>
 				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="1"/></td>
+				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/></td>
 				<td><input type="checkbox" class="use" name="use"/></td>
 				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
 			  </tr>
@@ -293,7 +293,7 @@
 				<td><input type="text" name="name" size="25" class="name" value="Trouthsayer" readonly/></td>
 				<td><textarea rows="1" class="description" readonly>You have learned to peer into possible futures, read people and make inferences on what will likely happen. You have learned the art of putting on an act. </textarea></td>
 				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="1"/></td>
+				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/></td>
 				<td><input type="checkbox" class="use" name="use"/></td>
 				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
 			  </tr>
@@ -301,7 +301,7 @@
 				<td><input type="text" name="name" size="25" class="name" value="Ranger" readonly/></td>
 				<td><textarea rows="1" class="description" readonly>You know how to survive in the wild. You can hunt, bushcraft and gather everything you need. You have honed your hearing and are proficient at tracking.</textarea></td>
 				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="1"/></td>
+				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/></td>
 				<td><input type="checkbox" class="use" name="use"/></td>
 				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
 			  </tr>
@@ -309,7 +309,7 @@
 				<td><input type="text" name="name" size="25" class="name" value="College Mage" readonly/></td>
 				<td><textarea rows="1" class="description" readonly>You have studied the art of magic. You learned them with books, astronomy and experiments. You can cast spells by pronouncing incantations, magical glyphs and potent periphinalia. You still need the appropriate trait to cast magic from specific schools of magic.</textarea></td>
 				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="1"/></td>
+				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/></td>
 				<td><input type="checkbox" class="use" name="use"/></td>
 				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
 			  </tr>
@@ -317,7 +317,7 @@
 				<td><input type="text" name="name" size="25" class="name" value="Survivalist" readonly/></td>
 				<td><textarea rows="1" class="description" readonly>You have spend quite a lot of time outdoors. Consumed books about wilderness survival and so on. You know how to build shelter, find food and water, and much more. </textarea></td>
 				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="1" readonly/></td>
-				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="1"/></td>
+				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/></td>
 				<td><input type="checkbox" class="use" name="use"/></td>
 				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
 			  </tr>
@@ -680,7 +680,7 @@
 		  skillrows = document.getElementById("skillstable").rows;
 		  for ( var i = 1; i < skillrows.length; i++ ) {
 			  if(skillrows[i].querySelector('.use').checked)
-				  skills += (skillrows[i].querySelector('.level').valueAsNumber - 1) * (skillrows[i].querySelector('.cost').valueAsNumber || 0)
+				  skills += (Math.max(skillrows[i].querySelector('.level').valueAsNumber - 2, 0)) * (skillrows[i].querySelector('.cost').valueAsNumber || 0)
 		  }
 
 		  traits = 0;
@@ -768,7 +768,7 @@
 			  input_level.setAttribute("size","2");
 			  input_level.setAttribute("min","1");
 			  input_level.setAttribute("max","6");
-			  input_level.setAttribute("value","1");
+			  input_level.setAttribute("value","2");
 			  cell_level.appendChild(input_level);
 			  row.setAttribute("onmouseover","highlightresult(this.querySelector('.level').value)");
 			  row.setAttribute("onmouseout","removeresulthighlight()");

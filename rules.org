@@ -115,7 +115,7 @@ They determine the amount of dice you can use for [[#sec:checks][checks]].
 
 ** Skill
 
-Skills measure the mastery of a skill. They are expressed as a background description and a level (number between 1 and 6). The skill levels are comparable to how much time a typical person has to spend to reach the same expertise in this area if it were his dayjob. This does however not mean that a character needs to have taken that time to reach his skill level. Level 1 for any skill is free. Not all skills cost the same, the price depends on how specific it is.
+Skills measure the mastery of a skill. They are expressed as a background description and a level (number between 1 and 6). The skill levels are comparable to how much time a typical person has to spend to reach the same expertise in this area if it were his dayjob. This does however not mean that a character needs to have taken that time to reach his skill level. Level 1 and 2 for any skill is free. Not all skills cost the same, the price depends on how specific it is.
 
 The skill determines the likelihood of a success on a roll. A roll during a [[#sec:checks][checks]] is counted as a success if the dice shows less or equal eyes than the skill.
 
