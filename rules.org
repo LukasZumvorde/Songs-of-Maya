@@ -196,7 +196,7 @@ You can declare an effect multiple times, If it has a difficulty then you have t
 Some effects have to be kept up. In those cases the successes needed to achieve the effect block the attribute points (dice) from being used for anything else, as long as the concentration lasts. 
 
 *Advantage and Disadvantage* 
-For each point of advantage you can reroll one die (or roll one more die and remove the worst). For each point of disadvantage you have to reroll one success (or roll one more die and remove the best). A point of advantage and a point of disadvantage cancel each other out.
+For each point of advantage you can reroll one die per round (or roll one more die and remove the worst). For each point of disadvantage you have to reroll one success (or roll one more die and remove the best). A point of advantage and a point of disadvantage cancel each other out.
 
 *Difficulty:*
 This table gives an overview of what a good difficulty for checks is by average CP investment into attribute and skill, and what level of experience such a person would be described as having. For an easy check select the difficulty 1 lower. For a hard check select a difficulty 1 higher.
