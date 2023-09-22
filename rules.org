@@ -438,11 +438,11 @@ None of the following lists is exhaustive. They should be taken as examples. You
 :END:
 
 #+begin_quote
-*Damage:* Each EP is used to cause 2 damage to an enemy.
+*Damage:* Each EP is used to cause 1 damage to an enemy.
 #+end_quote
 
 #+begin_quote
-*Block:* Each EP is used to remove one success from an enemies attack on you or one of your colleagues. If you win a contest with a block you can deal 1 damage per EP (type appropriate to the weapon used). If an enemies block would deal damage to you it can also be blocked.
+*Block:* Each EP is used to remove one EP worth of effects from an enemies attack on you or one of your colleagues. If you win a contest with a block you can deal 1 damage per 2 EP (type appropriate to the weapon used) if you havent used them before. If an enemies block would deal damage to you it can also be blocked.
 #+end_quote
 
 #+begin_quote
