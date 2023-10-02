@@ -290,7 +290,7 @@
 		grid-area: delete;
 		text-align: center;
 	}
-	
+
 	@media only screen and (max-width:1100px) {
 		.divskill {
 			grid-template-columns: 1fr 0fr 0fr 0fr 0fr;
@@ -311,6 +311,12 @@
 			    "description description description description";
 		}
 	}
+
+	@media only screen and (max-width:470px) {
+		.rolldiebutton {
+			display: none;
+		}
+	}
   </style>
 
   <body>
@@ -324,11 +330,11 @@
 		  <table>
 			<tr>
 			  <th><label for="name">Name: </label></th>
-			  <td><input type="text" id="name" name="name" size="60"/></td>
+			  <td><input type="text" id="name" name="name" size="33"/></td>
 			</tr>
 			<tr>
 			  <th><label for="name">Notes: </label></th>
-			  <td><textarea class="characterdescription" rows="10" cols="60"></textarea></td>
+			  <td><textarea class="characterdescription" rows="10" cols="33"></textarea></td>
 			</tr>
 			<tr>
 			  <th><label for="CP">CP: </label></th>
@@ -1224,18 +1230,18 @@
 
 		<div class="footer">
 		  <div class="divroll">
-			<button type="button" onclick="updateRollResults( 1 );">1 &#127922;</button>
-			<button type="button" onclick="updateRollResults( 2 );">2 &#127922;</button>
-			<button type="button" onclick="updateRollResults( 3 );">3 &#127922;</button>
-			<button type="button" onclick="updateRollResults( 4 );">4 &#127922;</button>
-			<button type="button" onclick="updateRollResults( 5 );">5 &#127922;</button>
-			<button type="button" onclick="updateRollResults( 6 );">6 &#127922;</button>
-			<button type="button" onclick="updateRollResults( 7 );">7 &#127922;</button>
-			<button type="button" onclick="updateRollResults( 8 );">8 &#127922;</button>
-			<button type="button" onclick="updateRollResults( 9 );">9 &#127922;</button>
-			<button type="button" onclick="updateRollResults( 10 );">10 &#127922;</button>
-			<button type="button" onclick="updateRollResults( 11 );">11 &#127922;</button>
-			<button type="button" onclick="updateRollResults( 12 );">12 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 1 );">1 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 2 );">2 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 3 );">3 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 4 );">4 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 5 );">5 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 6 );">6 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 7 );">7 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 8 );">8 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 9 );">9 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 10 );">10 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 11 );">11 &#127922;</button>
+			<button class="rolldiebutton" type="button" onclick="updateRollResults( 12 );">12 &#127922;</button>
 			<input type="number" class="numberofdies" size="2" min="0" max="99" value="1"/>
 			<button type="button" id="rolldies" onclick="updateRollResults( this.closest('div').querySelector('input').valueAsNumber || 0 );">roll</button>
 		  </div>
@@ -1560,6 +1566,7 @@
 	  document.getElementById("name").onchange = changeTabName;
 
 	  document.getElementById("inputportrait").onchange = changePortrait;
+	  OnInput();
 	</script>
   </html>
 
