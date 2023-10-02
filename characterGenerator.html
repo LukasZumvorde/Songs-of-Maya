@@ -53,6 +53,10 @@
 		width: 99%;
 	}
 
+	input.name {
+		width: 99.25%;
+	}
+
 	textarea {
 		background-color: #D9E9FF;
 		border: 1px solid #000;
@@ -62,6 +66,7 @@
 		cursor: pointer;
 		font-family: "Roboto","Arial",sans-serif;
 		font-size: 14px;
+		resize: none;
 	}
 
 	textarea.description {
@@ -97,10 +102,10 @@
 		display:none;
 	}
 
-	.portrait > img{
-		max-width:33vw;
-		max-height:300px;
-	}
+	/* .portrait > img{   */
+	/*	max-width:33vw;   */
+	/*	max-height:300px; */
+	/* }                  */
 
 	.divskills {
 		grid-area: skills;
@@ -155,6 +160,8 @@
 	            "effects"
 				"roll"
 				"check";
+			margin-left: 0vw;
+			margin-right: 0vw;
 		}
 	}
 
@@ -175,7 +182,134 @@
 
 	.resultnormal {
 		color: #000;
-	  transition: color 500ms linear;
+		transition: color 500ms linear;
+	}
+
+	.divskill {
+		display: grid;
+		grid-template-columns: 1fr 3fr 0fr 0fr 0fr 0fr;
+		grid-template-areas:
+			"name description cost level use delete";
+		grid-column-gap: 5px;
+		margin-bottom: 5px;
+	}
+	.skill-grid-item-name {
+		grid-area: name;
+		text-align: center;
+		padding-top: 1px;
+		padding-right: 4px;
+		padding-left: 4px;
+	}
+	.skill-grid-item-description {
+		grid-area: description;
+		text-align: center;
+		padding-right: 4px;
+		padding-left: 4px;
+	}
+	.skill-grid-item-cost {
+		grid-area: cost;
+		text-align: center;
+	}
+	.skill-grid-item-level {
+		grid-area: level;
+		text-align: center;
+	}
+	.skill-grid-item-use {
+		grid-area: use;
+		text-align: center;
+	}
+	.skill-grid-item-deleterow {
+		grid-area: delete;
+		text-align: center;
+	}
+
+	.divtrait {
+		display: grid;
+		grid-template-columns: 1fr 3fr 0fr 0fr 0fr;
+		grid-template-areas:
+			"name description cost use delete";
+		grid-column-gap: 5px;
+		margin-bottom: 5px;
+	}
+	.trait-grid-item-name {
+		grid-area: name;
+		text-align: center;
+		padding-top: 1px;
+		padding-right: 4px;
+		padding-left: 4px;
+	}
+	.trait-grid-item-description {
+		grid-area: description;
+		text-align: center;
+		padding-right: 4px;
+		padding-left: 4px;
+	}
+	.trait-grid-item-cost {
+		grid-area: cost;
+		text-align: center;
+	}
+	.trait-grid-item-use {
+		grid-area: use;
+		text-align: center;
+	}
+	.trait-grid-item-deleterow {
+		grid-area: delete;
+		text-align: center;
+	}
+
+	.diveffect {
+		display: grid;
+		grid-template-columns: 1fr 3fr 0fr 0fr 0fr;
+		grid-template-areas:
+			"name description ep num delete";
+		grid-column-gap: 5px;
+		margin-bottom: 5px;
+	}
+	.effect-grid-item-name {
+		grid-area: name;
+		text-align: center;
+		padding-top: 1px;
+		padding-right: 4px;
+		padding-left: 4px;
+	}
+	.effect-grid-item-description {
+		grid-area: description;
+		text-align: center;
+		padding-right: 4px;
+		padding-left: 4px;
+	}
+	.effect-grid-item-ep {
+		grid-area: ep;
+		text-align: center;
+	}
+	.effect-grid-item-num {
+		grid-area: num;
+		text-align: center;
+	}
+	.effect-grid-item-deleterow {
+		grid-area: delete;
+		text-align: center;
+	}
+	
+	@media only screen and (max-width:1100px) {
+		.divskill {
+			grid-template-columns: 1fr 0fr 0fr 0fr 0fr;
+			grid-template-areas:
+				"name cost level use delete"
+			    "description description description description description";
+		}
+		.divtrait {
+			grid-template-columns: 1fr 0fr 0fr 0fr;
+			grid-template-areas:
+				"name cost use delete"
+			    "description description description description";
+		}
+		.diveffect {
+			grid-template-columns: 1fr 0fr 0fr 0fr;
+			grid-template-areas:
+				"name ep num delete"
+			    "description description description description";
+		}
 	}
   </style>
 
@@ -273,354 +407,820 @@
 		  </div> <!-- divattributes -->
 
 		  <div class="divskills">
-			<table id="skillstable" style="width:100%">
-			  <tr>
-				<th>Skill</th>
-				<th style="width:100%">Description</th>
-				<th>Cost</th>
-				<th>Lvl</th>
-				<th>Use</th>
-			  </tr>
-			  <tr onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
-				<td><input type="text" name="name" size="25" class="name" value="Soldier" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned dicipline and coordination.</textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
-				<td><input type="text" name="name" size="25" class="name" value="Trouthsayer" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You have learned to peer into possible futures, read people and make inferences on what will likely happen. You have learned the art of putting on an act. </textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
-				<td><input type="text" name="name" size="25" class="name" value="Ranger" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You know how to survive in the wild. You can hunt, bushcraft and gather everything you need. You have honed your hearing and are proficient at tracking.</textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
-				<td><input type="text" name="name" size="25" class="name" value="College Mage" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You have studied the art of magic. You learned them with books, astronomy and experiments. You can cast spells by pronouncing incantations, magical glyphs and potent periphinalia. You still need the appropriate trait to cast magic from specific schools of magic.</textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
-				<td><input type="text" name="name" size="25" class="name" value="Survivalist" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You have spend quite a lot of time outdoors. Consumed books about wilderness survival and so on. You know how to build shelter, find food and water, and much more. </textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="1" readonly/></td>
-				<td><input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			</table>
+			<div class="divskill">
+			  <div class="skill-grid-item-name">
+				<b>Skill</b>
+			  </div>
+			  <div class="skill-grid-item-description">
+			  </div>
+			  <div class="skill-grid-item-cost">
+				<b>Cost</b>
+			  </div>
+			  <div class="skill-grid-item-level">
+				<b>Level</b>
+			  </div>
+			  <div class="skill-grid-item-use">
+				<b>Use</b>
+			  </div>
+			  <div class="skill-grid-item-deleterow">
+				<b>Del</b>
+			  </div>
+			</div> <!-- divskill -->
+			<div class="divskill" onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
+			  <div class="skill-grid-item-name">
+				<input type="text" name="name" class="name" value="A skill with a very very very very long name" readonly/>
+			  </div>
+			  <div class="skill-grid-item-description">
+				<textarea rows="1" class="description" readonly>You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned dicipline and coordination.</textarea>
+			  </div>
+			  <div class="skill-grid-item-cost">
+				<input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/>
+			  </div>
+			  <div class="skill-grid-item-level">
+				<input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/>
+			  </div>
+			  <div class="skill-grid-item-use">
+				<input type="checkbox" class="use" name="use"/>
+			  </div>
+			  <div class="skill-grid-item-deleterow">
+				<button type="button" id="deleterow" class="delrow" onclick="this.closest('.divskill').remove()">x</button>
+			  </div>
+			</div> <!-- divskill -->
+			<div class="divskill" onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
+			  <div class="skill-grid-item-name">
+				<input type="text" name="name" size="25" class="name" value="Soldier" readonly/>
+			  </div>
+			  <div class="skill-grid-item-description">
+				<textarea rows="1" class="description" readonly>You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned dicipline and coordination.</textarea>
+			  </div>
+			  <div class="skill-grid-item-cost">
+				<input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/>
+			  </div>
+			  <div class="skill-grid-item-level">
+				<input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/>
+			  </div>
+			  <div class="skill-grid-item-use">
+				<input type="checkbox" class="use" name="use"/>
+			  </div>
+			  <div class="skill-grid-item-deleterow">
+				<button type="button" id="deleterow" class="delrow" onclick="this.closest('.divskill').remove()">x</button>
+			  </div>
+			</div> <!-- divskill -->
+			<div class="divskill" onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
+			  <div class="skill-grid-item-name">
+				<input type="text" name="name" size="25" class="name" value="Trouthsayer" readonly/></div>
+			  <div class="skill-grid-item-description">
+				<textarea rows="1" class="description" readonly>You have learned to peer into possible futures, read people and make inferences on what will likely happen. You have learned the art of putting on an act. </textarea>
+			  </div>
+			  <div class="skill-grid-item-cost">
+				<input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/>
+			  </div>
+			  <div class="skill-grid-item-level">
+				<input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/>
+			  </div>
+			  <div class="skill-grid-item-use">
+				<input type="checkbox" class="use" name="use"/>
+			  </div>
+			  <div class="skill-grid-item-deleterow">
+				<button type="button" id="deleterow" class="delrow" onclick="this.closest('.divskill').remove()">x</button>
+			  </div>
+			</div> <!-- divskill -->
+			<div class="divskill" onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
+			  <div class="skill-grid-item-name">
+				<input type="text" name="name" size="25" class="name" value="Ranger" readonly/>
+			  </div>
+			  <div class="skill-grid-item-description">
+				<textarea rows="1" class="description" readonly>You know how to survive in the wild. You can hunt, bushcraft and gather everything you need. You have honed your hearing and are proficient at tracking.</textarea>
+			  </div>
+			  <div class="skill-grid-item-cost">
+				<input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/>
+			  </div>
+			  <div class="skill-grid-item-level">
+				<input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/>
+			  </div>
+			  <div class="skill-grid-item-use">
+				<input type="checkbox" class="use" name="use"/>
+			  </div>
+			  <div class="skill-grid-item-deleterow">
+				<button type="button" id="deleterow" class="delrow" onclick="this.closest('.divskill').remove()">x</button>
+			  </div>
+			</div> <!-- divskill -->
+			<div class="divskill" onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
+			  <div class="skill-grid-item-name">
+				<input type="text" name="name" size="25" class="name" value="College Mage" readonly/>
+			  </div>
+			  <div class="skill-grid-item-description">
+				<textarea rows="1" class="description" readonly>You have studied the art of magic. You learned them with books, astronomy and experiments. You can cast spells by pronouncing incantations, magical glyphs and potent periphinalia. You still need the appropriate trait to cast magic from specific schools of magic.</textarea>
+			  </div>
+			  <div class="skill-grid-item-cost">
+				<input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/>
+			  </div>
+			  <div class="skill-grid-item-level">
+				<input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/>
+			  </div>
+			  <div class="skill-grid-item-use">
+				<input type="checkbox" class="use" name="use"/>
+			  </div>
+			  <div class="skill-grid-item-deleterow">
+				<button type="button" id="deleterow" class="delrow" onclick="this.closest('.divskill').remove()">x</button>
+			  </div>
+			</div> <!-- divskill -->
+			<div class="divskill" onmouseover="highlightresult(this.querySelector('.level').value)" onmouseout="removeresulthighlight()" onclick="highlightresult(this.querySelector('.level').value)">
+			  <div class="skill-grid-item-name">
+				<input type="text" name="name" size="25" class="name" value="Survivalist" readonly/>
+			  </div>
+			  <div class="skill-grid-item-description">
+				<textarea rows="1" class="description" readonly>You have spend quite a lot of time outdoors. Consumed books about wilderness survival and so on. You know how to build shelter, find food and water, and much more. </textarea>
+			  </div>
+			  <div class="skill-grid-item-cost">
+				<input type="number" class="cost" name="cost" size="3" min="0" max="999" value="1" readonly/>
+			  </div>
+			  <div class="skill-grid-item-level">
+				<input type="number" class="level" name="level" size="2" min="1" max="6" value="2"/>
+			  </div>
+			  <div class="skill-grid-item-use">
+				<input type="checkbox" class="use" name="use"/>
+			  </div>
+			  <div class="skill-grid-item-deleterow">
+				<button type="button" id="deleterow" class="delrow" onclick="this.closest('.divskill').remove()">x</button>
+			  </div>
+			</div> <!-- divskill -->
 			<button type="button" id="addskill" class="addrow">+</button>
 		  </div> <!-- divskills -->
 
-		  <div class="divtraits">
-			<table id="traitstable" style="width:100%">
-			  <tr>
-				<th style="width:25em">Trait</th>
-				<th style="width:100%">Description</th>
-				<th>Cost</th>
-				<th>Use</th>
-			  </tr>
-			  <tr>
-				<td><input type="text" class="name" size="25" value="Friend of Nature" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You can talk to the forces of nature and have a chance to convince them to help you. This can be asking, a bird what he has seen, letting youself be concealed by a bush or calling a wild bear to aid you in combat.</textarea></td>
-				<td><input type="number" class="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="checkbox" class="use"/></td>
-				<td><button type="button" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" class="name" size="25" value="Illusionist" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You are adapt at creating illusions. The bigger and more complex they get the harder this is.</textarea></td>
-				<td><input type="number" class="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="checkbox" class="use"/></td>
-				<td><button type="button" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Speedster" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks and you always have at least 1 success in them.</textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="14" readonly/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Medium" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You can commune with ghosts and spirits. You have no control over them, but you can gain their attention.</textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Nightvision" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You can see in darkness as if it were light.</textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Sleepless" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You dont need sleep. This means you have a lot more time in a day, but you still need to rest from to much physical or mental excertion.</textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Flight" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You can fly. Be it with wings or otherwise. Your speed in flight is no different from your speed on land.</textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="16" readonly/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Tinkerer" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You can build wonderous mechanikal marvels. From clocks up to steam powered automata.</textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Hacker" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You are not only proficient in computer science but you can even achieve movie worthy feats like stoping another car with only your laptop during a car chase. Tools not included.</textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Plot Armor"/></td>
-				<td><textarea rows="1" class="description" readonly>Each scene you can discard a point of damage you would take. The plot armor only allies to one of the categories (Physical, Mental, Sozial) This trait can be taken multiple times.</textarea></td>
-				<td><input type="number" class="cost" name="cost" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="checkbox" class="use" name="use"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			</table>
-			<button type="button" id="addtrait" class="addrow">+</button>
-		  </div> <!-- divtraits -->
-
-		  <div class="diveffects">
-			<table id="effectstable" style="width:100%">
-			  <tr>
-				<th style="width:25em">Effect</th>
-				<th style="width:100%">Description</th>
-				<th>EP</th>
-				<th>Num</th>
-				<th></th>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Damage" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>Each success is used to cause 2 damage to an enemy. </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Block" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>Each success is used to remove one success from an enemies attack on you or one of your colleagues. If you win a contest with a block you can deal 1 damage per success (type appropriate to the weapon used). If an enemies block would deal damage to you it can also be blocked.</textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Disarm" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>For 2 successes disarm one enemy.</textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Push" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>For 1 success you can force your enemy to move slightly. Pushing an enemy off a cliff still gives them a check to prevent them from falling. </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Disable" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You can force an enemy into an unfavorable position. For each 2 successes the enemy is denied to use one level of his applicable skill. The enemy can recover from this with a check. The DM decides if this recovery can be blocked. Example: Putting the enemy into an ankle lock. </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Gain Advantage" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>For 1 success each you can make your position more advantageous. This allows you to reroll 1 die on applicable checks until the end of the scene. Examples: Gaining the high ground, flanking the enemy. </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Cause Disadvantage" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>For 1 success each you can make the enemies position more disadvantageous. This means he has to reroll 1 die that would otherwise be a success until the end of the scene. Example: Forcing the enemy into a tight corner. </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Blind" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>For 2 successes. Take an enemies sense. Examples: Throw sand into eyes, Shatter eardrums with a loud noise.</textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Summon" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>Per success the summoned being has 10 CP. The summon holds until the end of the scene or until the end of the concentration. </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Obfuscate" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>Per 4 successes you can obfuscate an area with regards to one sense. For example by causing total darkness or stopping all sound. The effect holds until the end of the scene or until the end of the concentration. </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="4"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Purify Thing" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>Per success you can purify one unit of a non sentient thing. For example remove poisons from one days worth of food, or remove the daemonic blight from a couple trees in the forest.</textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Amplify Aspect" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>Per 2 successes you increase an inherent aspect of a thing by 1 level. An example is increasing the protection of an armor by 1 or increasing the weight of a stone.</textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Buff" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>For 1 success increase an attribute by 1. The effect holds until the end of the scene or until the end of the concentration.</textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Shape-shift" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>Take the form of another being. The new forms max CP depends on the successes. Per success get 15 CP (max is the characters total CP). The effect holds until the end of the scene or until the end of the concentration.</textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Illusion" readonly/></td>
-				<td><textarea rows="1" class="description" readonly></textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Deceive" readonly/></td>
-				<td><textarea rows="1" class="description" readonly></textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Influence" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You may make your victim do something they don't want to do. The game master decides how many successes you need. As orientation you can use the following examples.
-
-    Make your enemy drop his weapon (1 success)
-    Make a wild bird deliver a message (2 successes)
-    make your victim jump from the bridge (3 successes)
-</textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Shape Reality" readonly/></td>
-				<td><textarea rows="1" class="description" readonly></textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Move" readonly/></td>
-				<td><textarea rows="1" class="description" readonly></textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Heal" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>Per success turn 1m damage to 1s damage.</textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Counter/Break" readonly/></td>
-				<td><textarea rows="1" class="description" readonly></textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Insight" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>per success you can gain insight with 1 sense for an additional success per distance class. </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Stop" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>For 1 succes can the victim be stopped from movement. </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Trigger" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>All other effects are triggered once a specific event happens. Costs 1 success. </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Shape Memory" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>You may shape the memory of the victim. The game master decides how many successes you need. As orientation you can use the following examples.
-
-    Make the immigrations officer believe you have already shown him your passport (1 success).
-    Let your victim forget what happens during the duration of your spell (2 success).
-</textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Consume Resource" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>Different than other effects this one gives you additional successes for the value of 1 success / 2 RV. It is always up to the Gm if he allows this effect to be used. In order to consume a resource it most often needs to be prepared in some way (carving runes into it or manufacturing). </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="-99" max="0" value="-1"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-			  <tr>
-				<td><input type="text" name="name" size="25" class="name" value="Block Area" readonly/></td>
-				<td><textarea rows="1" class="description" readonly>To block some kind of thing from happening in an area (of a size like close range) you need to invest 3 successes. Add a block to this and the blocks successes will be used to reduce any attempt to achieve the thing in this area. Example: Anti magic field. </textarea></td>
-				<td><input type="number" class="ep" name="ep" size="3" min="0" max="999" value="3"/></td>
-				<td><input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/></td>
-				<td><button type="button" id="deleterow" class="delrow" onclick="this.closest('tr').remove()">x</button></td>
-			  </tr>
-
-			</table>
-			<button type="button" id="addeffect" class="addrow">+</button>
-			<label><b>EP:</b></label>
-			<label id="effectstotal">10</label>
-		  </div> <!-- diveffects -->
-		</div> <!-- container -->
+		<div class="divtraits">
+		  <div class="divtrait">
+			<div class="trait-grid-item-name">
+			  <b>Trait</b>
+			</div>
+			<div class="trait-grid-item-description">
+			</div>
+			<div class="trait-grid-item-cost">
+			  <b>Cost</b>
+			</div>
+			<div class="trait-grid-item-use">
+			  <b>Use</b>
+			</div>
+			<div class="trait-grid-item-deleterow">
+			  <b>Del</b>
+			</div>
+		  </div> <!-- divtrait -->
+		  <div class="divtrait">
+			<div class="trait-grid-item-name">
+			  <input type="text" class="name" size="25" value="Friend of Nature" readonly/>
+			</div>
+			<div class="trait-grid-item-description">
+			  <textarea rows="1" class="description" readonly>You can talk to the forces of nature and have a chance to convince them to help you. This can be asking, a bird what he has seen, letting youself be concealed by a bush or calling a wild bear to aid you in combat.</textarea>
+			</div>
+			<div class="trait-grid-item-cost">
+			  <input type="number" class="cost" size="3" min="0" max="999" value="7" readonly/>
+			</div>
+			<div class="trait-grid-item-use">
+			  <input type="checkbox" class="use"/>
+			</div>
+			<div class="trait-grid-item-deleterow">
+			  <button type="button" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+			</div>
+		  </div> <!-- divtrait -->
+		  <div class="divtrait">
+			<div class="trait-grid-item-name">
+			  <input type="text" class="name" size="25" value="Illusionist" readonly/>
+			</div>
+			<div class="trait-grid-item-description">
+			  <textarea rows="1" class="description" readonly>You are adapt at creating illusions. The bigger and more complex they get the harder this is.</textarea>
+			</div>
+			<div class="trait-grid-item-cost">
+			  <input type="number" class="cost" size="3" min="0" max="999" value="7" readonly/>
+			</div>
+			<div class="trait-grid-item-use">
+			  <input type="checkbox" class="use"/>
+			</div>
+			<div class="trait-grid-item-deleterow">
+			  <button type="button" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+			</div>
+		  </div> <!-- divtrait -->
+		  <div class="divtrait">
+			<div class="trait-grid-item-name">
+			  <input type="text" name="name" size="25" class="name" value="Speedster" readonly/>
+			</div>
+			<div class="trait-grid-item-description">
+			  <textarea rows="1" class="description" readonly>You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks and you always have at least 1 success in them.</textarea>
+			</div>
+			<div class="trait-grid-item-cost">
+			  <input type="number" class="cost" name="cost" size="3" min="0" max="999" value="14" readonly/>
+			</div>
+			<div class="trait-grid-item-use">
+			  <input type="checkbox" class="use" name="use"/>
+			</div>
+			<div class="trait-grid-item-deleterow">
+			  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+			</div>
+		  </div> <!-- divtrait -->
+		  <div class="divtrait">
+			<div class="trait-grid-item-name">
+			  <input type="text" name="name" size="25" class="name" value="Medium" readonly/>
+			</div>
+			<div class="trait-grid-item-description">
+			  <textarea rows="1" class="description" readonly>You can commune with ghosts and spirits. You have no control over them, but you can gain their attention.</textarea>
+			</div>
+			<div class="trait-grid-item-cost">
+			  <input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/>
+			</div>
+			<div class="trait-grid-item-use">
+			  <input type="checkbox" class="use" name="use"/>
+			</div>
+			<div class="trait-grid-item-deleterow">
+			  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+			</div>
+		  </div> <!-- divtrait -->
+		  <div class="divtrait">
+			<div class="trait-grid-item-name">
+			  <input type="text" name="name" size="25" class="name" value="Nightvision" readonly/>
+			</div>
+			<div class="trait-grid-item-description">
+			  <textarea rows="1" class="description" readonly>You can see in darkness as if it were light.</textarea>
+			</div>
+			<div class="trait-grid-item-cost">
+			  <input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/>
+			</div>
+			<div class="trait-grid-item-use">
+			  <input type="checkbox" class="use" name="use"/>
+			</div>
+			<div class="trait-grid-item-deleterow">
+			  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+			</div>
+		  </div> <!-- divtrait -->
+		  <div class="divtrait">
+			<div class="trait-grid-item-name">
+			  <input type="text" name="name" size="25" class="name" value="Sleepless" readonly/>
+			</div>
+			<div class="trait-grid-item-description">
+			  <textarea rows="1" class="description" readonly>You dont need sleep. This means you have a lot more time in a day, but you still need to rest from to much physical or mental excertion.</textarea>
+			</div>
+			<div class="trait-grid-item-cost">
+			  <input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/>
+			</div>
+			<div class="trait-grid-item-use">
+			  <input type="checkbox" class="use" name="use"/>
+			</div>
+			<div class="trait-grid-item-deleterow">
+			  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+			</div>
+		  </div> <!-- divtrait -->
+		  <div class="divtrait">
+			<div class="trait-grid-item-name">
+			  <input type="text" name="name" size="25" class="name" value="Flight" readonly/>
+			</div>
+			<div class="trait-grid-item-description">
+			  <textarea rows="1" class="description" readonly>You can fly. Be it with wings or otherwise. Your speed in flight is no different from your speed on land.</textarea>
+			</div>
+			<div class="trait-grid-item-cost">
+			  <input type="number" class="cost" name="cost" size="3" min="0" max="999" value="16" readonly/>
+			</div>
+			<div class="trait-grid-item-use">
+			  <input type="checkbox" class="use" name="use"/>
+			</div>
+			<div class="trait-grid-item-deleterow">
+			  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+			</div>
+		  </div> <!-- divtrait -->
+		  <div class="divtrait">
+			<div class="trait-grid-item-name">
+			  <input type="text" name="name" size="25" class="name" value="Tinkerer" readonly/>
+			</div>
+			<div class="trait-grid-item-description">
+			  <textarea rows="1" class="description" readonly>You can build wonderous mechanikal marvels. From clocks up to steam powered automata.</textarea>
+			</div>
+			<div class="trait-grid-item-cost">
+			  <input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/>
+			</div>
+			<div class="trait-grid-item-use">
+			  <input type="checkbox" class="use" name="use"/>
+			</div>
+			<div class="trait-grid-item-deleterow">
+			  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+			</div>
+		  </div> <!-- divtrait -->
+		  <div class="divtrait">
+			<div class="trait-grid-item-name">
+			  <input type="text" name="name" size="25" class="name" value="Hacker" readonly/>
+			</div>
+			<div class="trait-grid-item-description">
+			  <textarea rows="1" class="description" readonly>You are not only proficient in computer science but you can even achieve movie worthy feats like stoping another car with only your laptop during a car chase. Tools not included.</textarea>
+			</div>
+			<div class="trait-grid-item-cost">
+			  <input type="number" class="cost" name="cost" size="3" min="0" max="999" value="7" readonly/>
+			</div>
+			<div class="trait-grid-item-use">
+			  <input type="checkbox" class="use" name="use"/>
+			</div>
+			<div class="trait-grid-item-deleterow">
+			  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+			</div>
+		  </div> <!-- divtrait -->
+		  <div class="divtrait">
+			<div class="trait-grid-item-name">
+			  <input type="text" name="name" size="25" class="name" value="Plot Armor"/>
+			</div>
+			<div class="trait-grid-item-description">
+			  <textarea rows="1" class="description" readonly>Each scene you can discard a point of damage you would take. The plot armor only allies to one of the categories (Physical, Mental, Sozial) This trait can be taken multiple times.</textarea>
+			</div>
+			<div class="trait-grid-item-cost">
+			  <input type="number" class="cost" name="cost" size="3" min="0" max="999" value="1"/>
+			</div>
+			<div class="trait-grid-item-use">
+			  <input type="checkbox" class="use" name="use"/>
+			</div>
+			<div class="trait-grid-item-deleterow">
+			  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+			</div>
+		  </div> <!-- divtrait -->
+		<button type="button" id="addtrait" class="addrow">+</button>
+		</div> <!-- divtraits -->
+		
+		<div class="diveffects">
+		  	  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <b>Effect</b>
+				</div>
+				<div class="effect-grid-item-description">
+				</div>
+				<div class="effect-grid-item-ep">
+				  <b>EP</b>
+				</div>
+				<div class="effect-grid-item-number">
+				  <b>Num</b>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <b>Del</b>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Damage" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>Each success is used to cause 2 damage to an enemy. </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Block" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>Each success is used to remove one success from an enemies attack on you or one of your colleagues. If you win a contest with a block you can deal 1 damage per success (type appropriate to the weapon used). If an enemies block would deal damage to you it can also be blocked.</textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Disarm" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>For 2 successes disarm one enemy.</textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Push" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>For 1 success you can force your enemy to move slightly. Pushing an enemy off a cliff still gives them a check to prevent them from falling. </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Disable" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>You can force an enemy into an unfavorable position. For each 2 successes the enemy is denied to use one level of his applicable skill. The enemy can recover from this with a check. The DM decides if this recovery can be blocked. Example: Putting the enemy into an ankle lock. </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Gain Advantage" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>For 1 success each you can make your position more advantageous. This allows you to reroll 1 die on applicable checks until the end of the scene. Examples: Gaining the high ground, flanking the enemy. </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Cause Disadvantage" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>For 1 success each you can make the enemies position more disadvantageous. This means he has to reroll 1 die that would otherwise be a success until the end of the scene. Example: Forcing the enemy into a tight corner. </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Blind" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>For 2 successes. Take an enemies sense. Examples: Throw sand into eyes, Shatter eardrums with a loud noise.</textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Summon" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>Per success the summoned being has 10 CP. The summon holds until the end of the scene or until the end of the concentration. </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Obfuscate" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>Per 4 successes you can obfuscate an area with regards to one sense. For example by causing total darkness or stopping all sound. The effect holds until the end of the scene or until the end of the concentration. </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="4"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Purify Thing" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>Per success you can purify one unit of a non sentient thing. For example remove poisons from one days worth of food, or remove the daemonic blight from a couple trees in the forest.</textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Amplify Aspect" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>Per 2 successes you increase an inherent aspect of a thing by 1 level. An example is increasing the protection of an armor by 1 or increasing the weight of a stone.</textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="2"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Buff" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>For 1 success increase an attribute by 1. The effect holds until the end of the scene or until the end of the concentration.</textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Shape-shift" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>Take the form of another being. The new forms max CP depends on the successes. Per success get 15 CP (max is the characters total CP). The effect holds until the end of the scene or until the end of the concentration.</textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Illusion" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly></textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Deceive" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly></textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Influence" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>You may make your victim do something they don't want to do. The game master decides how many successes you need. As orientation you can use the following examples.\n    Make your enemy drop his weapon (1 success)\n    Make a wild bird deliver a message (2 successes)\n    make your victim jump from the bridge (3 successes)</textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Shape Reality" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly></textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Move" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly></textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Heal" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>Per success turn 1m damage to 1s damage.</textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Counter/Break" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly></textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Insight" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>per success you can gain insight with 1 sense for an additional success per distance class. </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Stop" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>For 1 succes can the victim be stopped from movement. </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Trigger" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>All other effects are triggered once a specific event happens. Costs 1 success. </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Shape Memory" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>You may shape the memory of the victim. The game master decides how many successes you need. As orientation you can use the following examples.\n\n    Make the immigrations officer believe you have already shown him your passport (1 success).\n    Let your victim forget what happens during the duration of your spell (2 success).</textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Consume Resource" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>Different than other effects this one gives you additional successes for the value of 1 success / 2 RV. It is always up to the Gm if he allows this effect to be used. In order to consume a resource it most often needs to be prepared in some way (carving runes into it or manufacturing). </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="-99" max="0" value="-1"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div class="diveffect">
+				<div class="effect-grid-item-name">
+				  <input type="text" name="name" size="25" class="name" value="Block Area" readonly/>
+				</div>
+				<div class="effect-grid-item-description">
+				  <textarea rows="1" class="description" readonly>To block some kind of thing from happening in an area (of a size like close range) you need to invest 3 successes. Add a block to this and the blocks successes will be used to reduce any attempt to achieve the thing in this area. Example: Anti magic field. </textarea>
+				</div>
+				<div class="effect-grid-item-ep">
+				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="3"/>
+				</div>
+				<div class="effect-grid-item-number">
+				  <input type="number" class="count" name="count" size="3" min="0" max="999" value="0"/>
+				</div>
+				<div class="effect-grid-item-deleterow">
+				  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divtrait').remove()">x</button>
+				</div>
+			  </div> <!-- diveffect -->
+			  <div>
+				<button type="button" id="addeffect" class="addrow">+</button>
+				<label><b>EP:</b></label>
+				<label id="effectstotal">10</label>
+			  </div>
+		</div> <!-- diveffects -->
+	  </div> <!-- container -->
 
 		<div class="footer">
 		  <div class="divroll">
@@ -665,6 +1265,18 @@
 	  </div> <!-- footer -->
 	</body>
 	<script type="text/javascript">
+	  const tx = document.getElementsByTagName("textarea");
+	  for (let i = 0; i < tx.length; i++) {
+		  tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;");
+		  tx[i].addEventListener("input", OnInput, false);
+		  tx[i].addEventListener("resize", OnInput, false);
+	  }
+
+	  function OnInput() {
+		  this.style.height = 0;
+		  this.style.height = (this.scrollHeight) + "px";
+	  }
+
 	  function calcTotalCP() {
 		  attributes = 0;
 		  attributes += document.getElementById("strength").valueAsNumber || 0;
@@ -677,14 +1289,14 @@
 		  attributes += document.getElementById("finances").valueAsNumber || 0;
 
 		  skills = 0;
-		  skillrows = document.getElementById("skillstable").rows;
+		  skillrows = document.querySelectorAll(".divskill");
 		  for ( var i = 1; i < skillrows.length; i++ ) {
 			  if(skillrows[i].querySelector('.use').checked)
 				  skills += (Math.max(skillrows[i].querySelector('.level').valueAsNumber - 2, 0)) * (skillrows[i].querySelector('.cost').valueAsNumber || 0)
 		  }
 
 		  traits = 0;
-		  traitrows = document.getElementById("traitstable").rows;
+		  traitrows = document.querySelectorAll(".divtrait");
 		  for ( var i = 1; i < traitrows.length; i++ ) {
 			  if(traitrows[i].querySelector('.use').checked)
 				  traits += traitrows[i].querySelector('.cost').valueAsNumber || 0;
@@ -693,7 +1305,7 @@
 		  document.getElementById("cp").innerHTML = attributes*2 + skills + traits || 0;
 
 		  effects = 0;
-		  effectrows = document.getElementById("effectstable").rows;
+		  effectrows = document.querySelectorAll(".diveffect");
 		  for ( var i = 1; i < effectrows.length; i++ ) {
 			  effects += effectrows[i].querySelector('.ep').valueAsNumber * effectrows[i].querySelector('.count').valueAsNumber || 0;
 		  }
@@ -701,10 +1313,13 @@
 
 	  }
 
-	  function addSkillorTrait(table, layout, defaults={}, read_only=false) {
-		  row = document.createElement("tr");
-		  table.appendChild(row);
-		  cell_name = document.createElement("td");
+	  function addSkillorTrait(table, layout, defaults={}, read_only=false, entryclass="") {
+		  row = document.createElement("div");
+		  row.setAttribute("class", "div" + entryclass);
+		  // table.appendChild(row);
+		  table.insertBefore(row, table.lastElementChild);
+		  cell_name = document.createElement("div");
+		  cell_name.setAttribute("class", entryclass + "-grid-item-name");
 		  row.appendChild(cell_name);
 		  input_name = document.createElement("input");
 		  cell_name.appendChild(input_name);
@@ -712,15 +1327,18 @@
 		  input_name.setAttribute("name","name");
 		  input_name.setAttribute("size","25");
 		  input_name.setAttribute("class","name");
-		  cell_description = document.createElement("td");
+		  cell_description = document.createElement("div");
+		  cell_description.setAttribute("class", entryclass + "-grid-item-description");
 		  row.appendChild(cell_description);
 		  textarea_description = document.createElement("textarea");
 		  textarea_description.setAttribute("class", "description");
 		  textarea_description.setAttribute("rows","1");
+		  textarea_description.addEventListener("input", OnInput, false);
 		  cell_description.appendChild(textarea_description);
 
 		  if(layout.cost){
-			  cell_cost = document.createElement("td");
+			  cell_cost = document.createElement("div");
+			  cell_cost.setAttribute("class", entryclass + "-grid-item-cost");
 			  row.appendChild(cell_cost);
 			  input_cost = document.createElement("input");
 			  input_cost.setAttribute("type","number");
@@ -733,7 +1351,8 @@
 			  cell_cost.appendChild(input_cost);
 		  }
 		  if(layout.ep){
-			  cell_ep = document.createElement("td");
+			  cell_ep = document.createElement("div");
+			  cell_ep.setAttribute("class", entryclass + "-grid-item-ep");
 			  row.appendChild(cell_ep);
 			  input_ep = document.createElement("input");
 			  input_ep.setAttribute("type","number");
@@ -746,7 +1365,8 @@
 			  cell_ep.appendChild(input_ep);
 		  }
 		  if(layout.count){
-			  cell_count = document.createElement("td");
+			  cell_count = document.createElement("div");
+			  cell_count.setAttribute("class", entryclass + "-grid-item-count");
 			  row.appendChild(cell_count);
 			  input_count = document.createElement("input");
 			  input_count.setAttribute("type","number");
@@ -759,7 +1379,8 @@
 			  cell_count.appendChild(input_count);
 		  }
 		  if(layout.level){
-			  cell_level = document.createElement("td");
+			  cell_level = document.createElement("div");
+			  cell_level.setAttribute("class", entryclass + "-grid-item-level");
 			  row.appendChild(cell_level);
 			  input_level = document.createElement("input");
 			  input_level.setAttribute("type","number");
@@ -775,7 +1396,8 @@
 			  row.setAttribute("onclick","highlightresult(this.querySelector('.level').value)");
 		  }
 		  if(layout.checkbox){
-			  cell_checkbox = document.createElement("td");
+			  cell_checkbox = document.createElement("div");
+			  cell_checkbox.setAttribute("class", entryclass + "-grid-item-use");
 			  row.appendChild(cell_checkbox);
 			  input_checkbox = document.createElement("input");
 			  input_checkbox.setAttribute("type","checkbox");
@@ -783,13 +1405,14 @@
 			  input_checkbox.setAttribute("name","use");
 			  cell_checkbox.appendChild(input_checkbox);
 		  }
-		  cell_deletebutton = document.createElement("td");
+		  cell_deletebutton = document.createElement("div");
+		  cell_deletebutton.setAttribute("class", entryclass + "-grid-item-deleterow");
 		  row.appendChild(cell_deletebutton);
 		  button_deleterow = document.createElement("button");
 		  button_deleterow.setAttribute("type","button");
 		  button_deleterow.setAttribute("id","deleterow");
 		  button_deleterow.setAttribute("class","delrow");
-		  button_deleterow.setAttribute("onclick","this.closest('tr').remove()");
+		  button_deleterow.setAttribute("onclick","this.closest('.div"+entryclass+"').remove()");
 		  button_deleterow.textContent = "x";
 		  cell_deletebutton.appendChild(button_deleterow);
 		  if(read_only){
@@ -809,7 +1432,7 @@
 	  }
 
 	  function addPredefinedSkill(name,desc,cost) {
-		  table = document.getElementById("skillstable");
+		  table = document.querySelector(".divskills");
 		  layout = {
 			  level: true,
 			  cost: true,
@@ -837,12 +1460,12 @@
 			  description: desc,
 			  cost: cost
 		  };
-		  table = document.getElementById("traitstable");
-		  addSkillorTrait(table, layout, defaults, read_only=true);
+		  table = document.querySelector(".divtraits");
+		  addSkillorTrait(table, layout, defaults, read_only=true, entryclass="trait");
 	  }
 
 	  function addSkill() {
-		  skillstable = document.getElementById("skillstable");
+		  skillstable = document.querySelector(".divskills");
 		  layout = {
 			  level: true,
 			  cost: true,
@@ -850,11 +1473,11 @@
 			  count: false,
 			  checkbox: true
 		  };
-		  addSkillorTrait(skillstable, layout, read_only=false);
+		  addSkillorTrait(skillstable, layout, defaults={}, read_only=false, entryclass="skill");
 	  }
 
 	  function addTrait() {
-		  traitstable = document.getElementById("traitstable");
+		  traitstable = document.querySelector(".divtraits");
 		  layout = {
 			  level: false,
 			  cost: true,
@@ -862,11 +1485,11 @@
 			  count: false,
 			  checkbox: true
 		  };
-		  addSkillorTrait(traitstable, layout);
+		  addSkillorTrait(traitstable, layout, defaults={}, read_only=false, entryclass="trait");
 	  }
 
 	  function addEffect() {
-		  effectstable = document.getElementById("effectstable");
+		  effectstable = document.querySelector(".diveffects");
 		  layout = {
 			  level: false,
 			  cost: false,
@@ -874,7 +1497,7 @@
 			  count: true,
 			  checkbox: false
 		  };
-		  addSkillorTrait(effectstable, layout);
+		  addSkillorTrait(effectstable, layout, defaults={}, read_only=false, entryclass="effect");
 	  }
 
 	  document.getElementById("addskill").onclick = addSkill;
@@ -930,6 +1553,11 @@
 		  var f = document.getElementById("inputportrait").files[0];
 		  document.getElementById("portrait").src = URL.createObjectURL( f );
 	  }
+
+	  function changeTabName() {
+		document.title = document.getElementById("name").value
+	  }
+	  document.getElementById("name").onchange = changeTabName;
 
 	  document.getElementById("inputportrait").onchange = changePortrait;
 	</script>
