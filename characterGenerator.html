@@ -27,6 +27,16 @@
 		cursor: pointer;
 	}
 
+	button.savemaneuver {
+		background-color: #0460CD;
+		border: none;
+		color: white;
+		padding: 8px 12px;
+		text-decoration: none;
+		margin: 4px 4px;
+		cursor: pointer;
+	}
+
 	input {
 		font-family: "Roboto","Arial",sans-serif;
 		font-size: 14px;
@@ -77,16 +87,17 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		justify-items: center;
-		grid-template-areas:
-			"general attributes"
-			"skills skills"
-			"traits traits"
-			"effects effects";
 		flex-grow: 1;
 		container-type: inline-size;
 		container-name: container;
 		margin-left: 10vw;
 		margin-right: 10vw;
+		grid-template-areas:
+			"general attributes"
+			"skills skills"
+	        "traits traits"
+	        "maneuvers maneuvers"
+			"effects effects";
 	}
 
 	.divgeneral {
@@ -102,11 +113,6 @@
 		display:none;
 	}
 
-	/* .portrait > img{   */
-	/*	max-width:33vw;   */
-	/*	max-height:300px; */
-	/* }                  */
-
 	.divskills {
 		grid-area: skills;
 		column-span: 2;
@@ -117,6 +123,12 @@
 		grid-area: traits;
 		column-span: 2;
 		width: 100%;
+	}
+
+	.divmaneuvers {
+		grid-area: maneuvers;
+		column-span: 2;
+		width: 100%
 	}
 
 	.diveffects {
@@ -157,6 +169,7 @@
 				"attributes"
 				"skills"
 	            "traits"
+	            "maneuvers"
 	            "effects"
 				"roll"
 				"check";
@@ -257,6 +270,41 @@
 		text-align: center;
 	}
 
+	.divmaneuver {
+		display: grid;
+		grid-template-columns: 1fr 3fr 0fr 0fr 0fr;
+		grid-template-areas:
+			"name description difficulty cost delete";
+		grid-column-gap: 5px;
+		margin-bottom: 5px;
+	}
+	.maneuver-grid-item-name {
+		grid-area: name;
+		text-align: center;
+		padding-top: 1px;
+		padding-right: 4px;
+		padding-left: 4px;
+	}
+	.maneuver-grid-item-description {
+		grid-area: description;
+		text-align: center;
+		padding-top: 1px;
+		padding-right: 4px;
+		padding-left: 4px;
+	}
+	.maneuver-grid-item-difficulty {
+		grid-area: difficulty;
+		text-align: center;
+	}
+	.maneuver-grid-item-cost {
+		grid-area: cost;
+		text-align: center;
+	}
+	.maneuver-grid-item-deleterow {
+		grid-area: delete;
+		text-align: center;
+	}
+
 	.diveffect {
 		display: grid;
 		grid-template-columns: 1fr 3fr 0fr 0fr 0fr;
@@ -316,6 +364,9 @@
 		.rolldiebutton {
 			display: none;
 		}
+		.attributedescription {
+			display: none;
+		}
 	}
   </style>
 
@@ -352,7 +403,7 @@
 				<th>Attribute</th>
 				<th>Value</th>
 				<th></th>
-				<th>Description</th>
+				<th><div class="attributedescription">Description</div></th>
 			  </tr>
 			</thead>
 			<tbody>
@@ -361,52 +412,52 @@
 				<td>Strength</td>
 				<td><input type="number" min="0" max="999" id="strength" name="strength" size="3"/></td>
 				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
-				<td>strength and hardyness</td>
+				<td><div class="attributedescription">strength and hardyness</div></td>
 			  </tr>
 			  <tr>
 				<td>Dexterity</td>
 				<td><input type="number" min="0" max="999" id="dexterity" name="dexterity" size="3"/></td>
 				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
-				<td>agility, speed, precision</td>
+				<td><div class="attributedescription">agility, speed, precision</div></td>
 			  </tr>
 			  <tr>
 				<th rowspan="2">Mental</th>
 				<td>Will</td>
 				<td><input type="number" min="0" max="999" id="will" name="will" size="3"/></td>
 				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
-				<td>percevirance, attention</td>
+				<td><div class="attributedescription">percevirance, attention</div></td>
 			  </tr>
 			  <tr>
 				<td>Intelect</td>
 				<td><input type="number" min="0" max="999" id="intelect" name="intelect" size="3"/></td>
 				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
-				<td>intellegence, knowledge</td>
+				<td><div class="attributedescription">intellegence, knowledge</div></td>
 			  </tr>
 			  <tr>
 				<th rowspan="2">Sozial</th>
 				<td>Empathy</td>
 				<td><input type="number" min="0" max="999" id="empathy" name="empathy" size="3"/></td>
 				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
-				<td>understanding people</td>
+				<td><div class="attributedescription">understanding people</div></td>
 			  </tr>
 			  <tr>
 				<td>Charisma</td>
 				<td><input type="number" min="0" max="999" id="charisma" name="charisma" size="3"/></td>
 				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
-				<td>interacting with people</td>
+				<td><div class="attributedescription">interacting with people</div></td>
 			  </tr>
 			  <tr>
 				<th rowspan="2">Resources</th>
 				<td>Gear</td>
 				<td><input type="number" min="0" max="999" id="gear" name="gear" size="3"></td>
 				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
-				<td>Gear you have prepared</td>
+				<td><div class="attributedescription">Gear you have prepared</div></td>
 				</tr>
 			  <tr>
 				<td>Finances</td>
 				<td><input type="number" min="0" max="999" id="finances" name="finances" size="3"/></td>
 				<td><button type="button" id="rolldies" onclick="updateRollResults( this.closest('tr').querySelector('input').valueAsNumber || 0 );">&#127922;</button></td>
-				<td>Money and investments </td>
+				<td><div class="attributedescription">Money and investments</div></td>
 			  </tr>
 			  </tbody>
 			</table>
@@ -743,7 +794,43 @@
 		  </div> <!-- divtrait -->
 		<button type="button" id="addtrait" class="addrow">+</button>
 		</div> <!-- divtraits -->
-		
+
+		<div class="divmaneuvers">
+		  <div class="divmaneuver">
+			<div class="maneuver-grid-item-name">
+			  <b>Maneuver</b>
+			</div>
+			<div class="maneuver-grid-item-description">
+			</div>
+			<div class="maneuver-grid-item-difficulty">
+			  <b>Dif</b>
+			</div>
+			<div class="maneuver-grid-item-cost">
+			  <b>Cost</b>
+			</div>
+			<div class="maneuver-grid-item-deleterow">
+			  <b>Del</b>
+			</div>
+		  </div> <!-- divmaneuver -->
+		  <div class="divmaneuver">
+			<div class="maneuver-grid-item-name">
+			  <input type="text" name="name" size="25" class="name" value=""/>
+			</div>
+			<div class="maneuver-grid-item-description">
+			  <textarea rows="1" class="description" readonly></textarea>
+			</div>
+			<div class="maneuver-grid-item-difficulty">
+			  <input type="number" class="difficulty" name="difficulty" size="3" min="0" max="999" value="1" readonly/>
+			</div>
+			<div class="maneuver-grid-item-cost">
+			  <input type="number" class="cost" name="cost" size="3" min="0" max="999" value="1" readonly/>
+			</div>
+			<div class="maneuver-grid-item-deleterow">
+			  <button type="button" id="deleterow" class="delrow" onclick="this.closest('.divmaneuver').remove()">x</button>
+			</div>
+		  </div> <!-- divmaneuver -->
+		</div> <!-- divmaneuvers -->
+
 		<div class="diveffects">
 		  	  <div class="diveffect">
 				<div class="effect-grid-item-name">
@@ -1038,7 +1125,7 @@
 				  <input type="text" name="name" size="25" class="name" value="Influence" readonly/>
 				</div>
 				<div class="effect-grid-item-description">
-				  <textarea rows="1" class="description" readonly>You may make your victim do something they don't want to do. The game master decides how many successes you need. As orientation you can use the following examples.\n    Make your enemy drop his weapon (1 success)\n    Make a wild bird deliver a message (2 successes)\n    make your victim jump from the bridge (3 successes)</textarea>
+				  <textarea rows="1" class="description" readonly>You may make your victim do something they dont want to do. The game master decides how many successes you need. As orientation you can use the following examples.\n    Make your enemy drop his weapon (1 success)\n    Make a wild bird deliver a message (2 successes)\n    make your victim jump from the bridge (3 successes)</textarea>
 				</div>
 				<div class="effect-grid-item-ep">
 				  <input type="number" class="ep" name="ep" size="3" min="0" max="999" value="1"/>
@@ -1224,6 +1311,7 @@
 				<button type="button" id="addeffect" class="addrow">+</button>
 				<label><b>EP:</b></label>
 				<label id="effectstotal">10</label>
+				<button type="button" id="savemaneuver" class="savemaneuver">Save</button>
 			  </div>
 		</div> <!-- diveffects -->
 	  </div> <!-- container -->
@@ -1316,13 +1404,12 @@
 			  effects += effectrows[i].querySelector('.ep').valueAsNumber * effectrows[i].querySelector('.count').valueAsNumber || 0;
 		  }
 		  document.getElementById("effectstotal").innerHTML = effects || 0;
-
+		  // OnInput();
 	  }
 
 	  function addSkillorTrait(table, layout, defaults={}, read_only=false, entryclass="") {
 		  row = document.createElement("div");
 		  row.setAttribute("class", "div" + entryclass);
-		  // table.appendChild(row);
 		  table.insertBefore(row, table.lastElementChild);
 		  cell_name = document.createElement("div");
 		  cell_name.setAttribute("class", entryclass + "-grid-item-name");
@@ -1342,6 +1429,21 @@
 		  textarea_description.addEventListener("input", OnInput, false);
 		  cell_description.appendChild(textarea_description);
 
+		  if(layout.difficulty){
+			  cell_difficulty = document.createElement("div");
+			  cell_difficulty.setAttribute("class", entryclass + "-grid-item-difficulty");
+			  row.appendChild(cell_difficulty);
+			  input_difficulty = document.createElement("input");
+			  input_difficulty.setAttribute("type","number");
+			  input_difficulty.setAttribute("class","difficulty");
+			  input_difficulty.setAttribute("name","difficulty");
+			  input_difficulty.setAttribute("size","3");
+			  input_difficulty.setAttribute("min","0");
+			  input_difficulty.setAttribute("max","999");
+			  input_difficulty.setAttribute("value","1");
+			  input_difficulty.setAttribute("readonly", true);
+			  cell_difficulty.appendChild(input_difficulty);
+		  }
 		  if(layout.cost){
 			  cell_cost = document.createElement("div");
 			  cell_cost.setAttribute("class", entryclass + "-grid-item-cost");
@@ -1481,6 +1583,7 @@
 		  };
 		  addSkillorTrait(skillstable, layout, defaults={}, read_only=false, entryclass="skill");
 	  }
+	  document.getElementById("addskill").onclick = addSkill;
 
 	  function addTrait() {
 		  traitstable = document.querySelector(".divtraits");
@@ -1493,6 +1596,7 @@
 		  };
 		  addSkillorTrait(traitstable, layout, defaults={}, read_only=false, entryclass="trait");
 	  }
+	  document.getElementById("addtrait").onclick = addTrait;
 
 	  function addEffect() {
 		  effectstable = document.querySelector(".diveffects");
@@ -1505,10 +1609,21 @@
 		  };
 		  addSkillorTrait(effectstable, layout, defaults={}, read_only=false, entryclass="effect");
 	  }
-
-	  document.getElementById("addskill").onclick = addSkill;
-	  document.getElementById("addtrait").onclick = addTrait;
 	  document.getElementById("addeffect").onclick = addEffect;
+
+
+	  function saveManeuver() {
+		  maneuverstable = document.querySelector(".divmaneuvers");
+		  layout = {
+		      level: false,
+		      cost: true,
+		      count: false,
+		      checkbox: false,
+		      difficulty: true
+		  };
+		  addSkillorTrait(maneuverstable, layout, defaults={}, read_only=false, entryclass="maneuver");
+	  }
+	  document.getElementById("savemaneuver").onclick = saveManeuver;
 	  document.addEventListener("change", calcTotalCP);
 	  calcTotalCP();
 
@@ -1566,7 +1681,6 @@
 	  document.getElementById("name").onchange = changeTabName;
 
 	  document.getElementById("inputportrait").onchange = changePortrait;
-	  OnInput();
 	</script>
   </html>
 

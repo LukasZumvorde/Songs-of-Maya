@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-08-05 Sa 18:34 -->
+<!-- 2023-12-21 Do 18:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Primordial Waters</title>
@@ -52,23 +52,400 @@ width: 20vw;
 background-image: linear-gradient(to right, rgba(4,96,205,1), rgba(4,96,205,0));
 }
 </style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">Primordial Waters</h1>
-<font size=0.5>This product is licensed under the ORC License held in the License of Congress at TX000 [number tbd] and available online at various locations including www.chaosium.com/orclicense, www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein. This product is the original work of Lukas Zumvorde. If you use my ORC Content, please also credit me.</font>
-
-
-
-
-
-<div id="outline-container-org266bbc3" class="outline-2">
-<h2 id="org266bbc3"><span class="section-number-2">1.</span> Character Values</h2>
-<div class="outline-text-2" id="text-1">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org25eab32">1. Introduction</a>
+<ul>
+<li><a href="#org065fd07">1.1. Goals</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org2d2a103">Rules Light</a></li>
+<li><a href="#orgebe1992">Easy to Modify</a></li>
+<li><a href="#orgab517a9">World Agnostic</a></li>
+<li><a href="#orgb74cde9">Scalable characters</a></li>
+<li><a href="#org940e976">No action economy</a></li>
+<li><a href="#org7806d2f">Constistent propability distribution</a></li>
+<li><a href="#org95bb39d">Easy Preparation</a></li>
+<li><a href="#orge756f0c">Creative Character Build</a></li>
+<li><a href="#org9f9f7d2">Support interesting storys</a></li>
+<li><a href="#org595a6a5">Keep Game Balance</a></li>
+<li><a href="#org59d3e61">Rules Out of your way</a></li>
+<li><a href="#org9fcc64e">No extensive Bookkeeping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6466bab">1.2. Inspirations</a></li>
+<li><a href="#orgfbf5150">1.3. How to use the game</a></li>
+<li><a href="#org8b6ebbc">1.4. Conventions</a></li>
+<li><a href="#sec:dice">1.5. What dice to roll</a></li>
+</ul>
+</li>
+<li><a href="#org142603b">2. Rules</a>
+<ul>
+<li><a href="#sec:attributes">2.1. Attributes</a></li>
+<li><a href="#sec:aspects">2.2. Aspects</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org19a0218">Creating an Aspect</a></li>
+<li><a href="#orgf68fa2c">Using Aspects</a></li>
+<li><a href="#orgbd69892">Area Aspects</a></li>
+<li><a href="#org95e88f6">Multiple Targets</a></li>
+<li><a href="#org4da8b6d">Duration of Aspects</a></li>
+<li><a href="#orgb017c3a">Acting Aspects</a></li>
+<li><a href="#org8007126">Resistant Aspects</a></li>
+<li><a href="#orgd0e2793">Character Aspects</a></li>
+<li><a href="#orgdd5d6b6">Damage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec:checks">2.3. Checks</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org721643d">Difficulty</a></li>
+<li><a href="#orgaa516f7">Collaborative checks</a></li>
+<li><a href="#orge81d852">Risky checks</a></li>
+<li><a href="#org3791adc">Taking Time</a></li>
+<li><a href="#org58d5aaf">Unexpected Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec:contest">2.4. Contest</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org606f0ba">Actions</a></li>
+<li><a href="#org6976f99">Reactions</a></li>
+<li><a href="#org0cdbda5">Turn Order</a></li>
+<li><a href="#orgdaa14c2">Multiple (re)actions</a></li>
+<li><a href="#org2af1141">Acting together</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec:karma">2.5. Karma</a></li>
+<li><a href="#sec:traits">2.6. Traits</a></li>
+<li><a href="#sec:charactercreation">2.7. Character Creation</a></li>
+<li><a href="#sec:movement">2.8. Movement and Range</a></li>
+<li><a href="#sec:items">2.9. Items and Equipment</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org6814f04">Armor / Damage Reduction</a></li>
+<li><a href="#org713ae48">Equipment</a></li>
+<li><a href="#orgc702b54">Buying</a></li>
+<li><a href="#org73f9bfe">Crafting</a></li>
+<li><a href="#org6f6b385">Gathering</a></li>
+<li><a href="#orgcc6c789">Creating</a></li>
+<li><a href="#org32b753e">Bribing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec:optionalrules">3. Optional Rules</a>
+<ul>
+<li><a href="#org8c346d7">3.1. Magic</a></li>
+<li><a href="#orgf722643">3.2. Less precise Attributes</a></li>
+<li><a href="#orgc4e339a">3.3. No Abstraction for Wealth</a></li>
+<li><a href="#orgabc9495">3.4. Retroactive Actions</a></li>
+<li><a href="#org1e02a20">3.5. Quicker Battles</a></li>
+<li><a href="#orge1357fa">3.6. Stress in Contests</a></li>
+<li><a href="#org3b95e58">3.7. Only Players Roll</a></li>
+</ul>
+</li>
+<li><a href="#org80946cd">4. Lists</a>
+<ul>
+<li><a href="#sec:lotraits">4.1. List of Traits</a></li>
+<li><a href="#sec:loitems">4.2. List of Items</a></li>
+<li><a href="#sec:lonpcs">4.3. List of NPCs</a></li>
+</ul>
+</li>
+<li><a href="#sec:advice">5. Advice</a>
+<ul>
+<li><a href="#org47c54c2">5.1. Gameplay Notes</a></li>
+<li><a href="#org7d20018">5.2. Character Creation</a></li>
+<li><a href="#orga6e616c">5.3. Encounter Design</a></li>
+</ul>
+</li>
+<li><a href="#sec:examples">6. Game-play Examples</a>
+<ul>
+<li><a href="#orgf52261a">6.1. Character Build: Alchemist</a></li>
+<li><a href="#org0b3ec13">6.2. Character Build: Babarian</a></li>
+<li><a href="#orga287c5a">6.3. Character Build: Generic Citizen</a></li>
+<li><a href="#org67bdb3d">6.4. Character Build: Shapeshifting Durid</a></li>
+<li><a href="#org9e2858a">6.5. Character Build: Space Pirate</a></li>
+<li><a href="#org8cdb3ba">6.6. Character Build:</a></li>
+<li><a href="#org0c00b18">6.7. Example: Ambushed by Goblins</a></li>
+<li><a href="#orgb0f3aa3">6.8. Example: Hacker duel</a></li>
+<li><a href="#orgec7ad4a">6.9. Example: Court Case</a></li>
+</ul>
+</li>
+<li><a href="#org308bc93">7. Short form rules</a>
+<ul>
+<li><a href="#org7c7f746">7.1. Attributes</a></li>
+<li><a href="#org5eff9e1">7.2. Aspects</a></li>
+<li><a href="#orgfffe3ea">7.3. Checks</a></li>
+<li><a href="#org613f675">7.4. Contest</a></li>
+<li><a href="#org788d86c">7.5. Karma</a></li>
+<li><a href="#org3875d69">7.6. Traits</a></li>
+<li><a href="#org19fdad5">7.7. Character Creation</a></li>
+<li><a href="#org7e8e921">7.8. Movement and Range</a></li>
+<li><a href="#orgbe46105">7.9. Items and Equipment</a></li>
+</ul>
+</li>
+<li><a href="#orgfad808f">8. Scenario: The Endless Underground</a></li>
+</ul>
 </div>
-<div id="outline-container-orgb440a8c" class="outline-3">
-<h3 id="orgb440a8c"><span class="section-number-3">1.1.</span> Attributes</h3>
+</div>
+
+
+<div id="outline-container-org25eab32" class="outline-2">
+<h2 id="org25eab32"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Primordial waters is a generic, light, and abstract role playing rule set with a focus on keeping the game balanced while maintaining and even promoting creative story telling. It leans towards a cinematic play style.
+</p>
+</div>
+
+<div id="outline-container-org065fd07" class="outline-3">
+<h3 id="org065fd07"><span class="section-number-3">1.1.</span> Goals</h3>
 <div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org2d2a103" class="outline-5">
+<h5 id="org2d2a103">Rules Light</h5>
+<div class="outline-text-5" id="text-org2d2a103">
+<p>
+The intend is for the rules to be as small as possible given the other goals. It should be easy to get into the game and easy to check the rules if you are not sure how a situation should be handled.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgebe1992" class="outline-5">
+<h5 id="orgebe1992">Easy to Modify</h5>
+<div class="outline-text-5" id="text-orgebe1992">
+<p>
+It should be easy to create useful house rules to make the game fit your campaign.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgab517a9" class="outline-5">
+<h5 id="orgab517a9">World Agnostic</h5>
+<div class="outline-text-5" id="text-orgab517a9">
+<p>
+The game should work with any game world or type of story reasonably well.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb74cde9" class="outline-5">
+<h5 id="orgb74cde9">Scalable characters</h5>
+<div class="outline-text-5" id="text-orgb74cde9">
+<p>
+It should be possible to play both super-humans and commoners. It should also be possible to use the same rules to display rats vs humans or humans vs. giant spaceships. Imagine a giant space battle taking place outside and the group of players running around as mere humans performing acts of sabotage to tip the battle in their sides favor. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org940e976" class="outline-5">
+<h5 id="org940e976">No action economy</h5>
+<div class="outline-text-5" id="text-org940e976">
+<p>
+It should be possible to do multiple things simultaneously in a round. It should be a trade off. This adds a new dimension of interesting decision making to the game.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7806d2f" class="outline-5">
+<h5 id="org7806d2f">Constistent propability distribution</h5>
+<div class="outline-text-5" id="text-org7806d2f">
+<p>
+No matter how powerful a character is, The probability distribution for his die rolls should be consistent and allow for interesting scenarios to occur. It should still feel fair.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org95bb39d" class="outline-5">
+<h5 id="org95bb39d">Easy Preparation</h5>
+<div class="outline-text-5" id="text-org95bb39d">
+<p>
+The game should allow GMs to prepare new characters and challenges easily and quickly. It should get out of his way, but still support him in keeping the games balance.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge756f0c" class="outline-5">
+<h5 id="orge756f0c">Creative Character Build</h5>
+<div class="outline-text-5" id="text-orge756f0c">
+<p>
+Players should be able to create nearly any character they like. It should also be possible to change the character at any point in the campaign to reflect the characters development. In this the rules should invite creativity and just ensure the games balance.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9f9f7d2" class="outline-5">
+<h5 id="org9f9f7d2">Support interesting storys</h5>
+<div class="outline-text-5" id="text-org9f9f7d2">
+<p>
+The rules should support the creation of interesting and consistent storys by providing anker points for unexpected results.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org595a6a5" class="outline-5">
+<h5 id="org595a6a5">Keep Game Balance</h5>
+<div class="outline-text-5" id="text-org595a6a5">
+<p>
+In order for all to enjoy the game it must feel fair. Player characters need to feel similarly useful and encounters with NPCs or challenges must feel beatable but challenging.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org59d3e61" class="outline-5">
+<h5 id="org59d3e61">Rules Out of your way</h5>
+<div class="outline-text-5" id="text-org59d3e61">
+<p>
+The rules should be there to help you keep the games balance, but they should not prevent you from creating the story you want to create.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9fcc64e" class="outline-5">
+<h5 id="org9fcc64e">No extensive Bookkeeping</h5>
+<div class="outline-text-5" id="text-org9fcc64e">
+<p>
+The game should be playable without extensive bookkeeping. IT should not be necessary to fill out a multiple pages long character sheet. During the game it should not be necessary to calculate or evaluate many values.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6466bab" class="outline-3">
+<h3 id="org6466bab"><span class="section-number-3">1.2.</span> Inspirations</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+This game did not come from nothing. Many other games had an impact on its creation. Some of the most impact full ones are the following.
+</p>
+
+<p>
+This games systems for aspects and movement were heavily inspired from the Fate Core system.
+Karma was originally inspired by Fate Cores Fate Points, but EZD6 had the better name for the concept.
+The distribution of attributes into categories was inspired by the AERA RPG.
+The fate die to create unexpected events was inspired by the One Page Solo RPG Engine.
+The optional rule "Only Players Roll" is taken from the Cypher System.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfbf5150" class="outline-3">
+<h3 id="orgfbf5150"><span class="section-number-3">1.3.</span> How to use the game</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+First rule of Gaming: Have fun. If the rules hinder you from having fun then screw the rules.
+</p>
+
+<p>
+Second rule of Gaming: When in doubt use common sense. The rules will never be perfect. If something is illogical when using the rules or if no rules exists for the situation then feel free to find your own ruling. 
+</p>
+
+<p>
+Third rule of Gaming: Use the aspects value as a guideline and be creative with what it could mean. Does a flame wall having a value of 4 mean that it has a difficulty of 4 to jump over it or does it attack anyone jumping over with 4 dice? Do what fits your story. 
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org8b6ebbc" class="outline-3">
+<h3 id="org8b6ebbc"><span class="section-number-3">1.4.</span> Conventions</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+In the book we use the following shorthands.
+</p>
+
+<p>
+A \(N d_0 X\) means rolling dice with 0 to X as possible results N times and adding the results. Since there are very few dice that that have a 0 as a possible result you can use other methods to get the result. I suggest to draw a playing card.
+</p>
+
+<p>
+To use Playing cards instead of dice you can do the following. Take a standard 54 card deck of playing cards. Remove the 2 Jokers from it. Shuffle and pick a card. If it is a number then take the number as a result. Aces count as 1. Jacks count as 11, Kings count as 12. Queens count as 0 since Q looks most like a 0.
+</p>
+
+<p>
+The rules often mention a dice pool. This pool is hypothetical. It means if you always used a number of  \(d_0 2\) to perform any check this would be your dice pool. A \(d_0 2\) has an average result of \(1\). Therefore the dice in the dice pool is always exactly the average result of a check. This does not mean you have to roll your checks in that way.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec:dice" class="outline-3">
+<h3 id="sec:dice"><span class="section-number-3">1.5.</span> What dice to roll</h3>
+<div class="outline-text-3" id="text-sec:dice">
+<ul class="org-ul">
+<li>\(1 d_0 2\) is worth exactly 1 dice from the pool (this is the default)</li>
+<li>\(1 d_0 N\) is worth \(\frac{N}{2}\) dice from the pool</li>
+<li>\(1 d N\) is worth \(\frac{N+1}{2}\) dice from the pool</li>
+<li>Take the average: \(N\) constant points is worth \(N\) dice from the pool</li>
+<li>Any dice multiplied by a factor \(F\) is worth the price of a single dice multiplied by this factor \(F\)</li>
+</ul>
+
+<p>
+The default is to use \(F \times 3 d_0 2 + c\). This means that the factor \(F\) is the dice pool divided by 3 with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice pool.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org142603b" class="outline-2">
+<h2 id="org142603b"><span class="section-number-2">2.</span> Rules</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-sec:attributes" class="outline-3">
+<h3 id="sec:attributes"><span class="section-number-3">2.1.</span> Attributes</h3>
+<div class="outline-text-3" id="text-sec:attributes">
 <p>
 Attributes describe a characters potential. The higher the value the greater things a character can achieve. There are the following 8 Attributes belonging to the 4 categories.
 </p>
@@ -144,162 +521,287 @@ Attributes describe a characters potential. The higher the value the greater thi
 </tbody>
 </table>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right"><b>Attribute</b></th>
-<th scope="col" class="org-left"><b>Grade</b></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">2</td>
-<td class="org-left">Unskilled</td>
-</tr>
-
-<tr>
-<td class="org-right">4</td>
-<td class="org-left">Beginner</td>
-</tr>
-
-<tr>
-<td class="org-right">6</td>
-<td class="org-left">Experienced</td>
-</tr>
-
-<tr>
-<td class="org-right">8</td>
-<td class="org-left">Master</td>
-</tr>
-
-<tr>
-<td class="org-right">10</td>
-<td class="org-left">Grandmaster</td>
-</tr>
-
-<tr>
-<td class="org-right">12</td>
-<td class="org-left">Legend</td>
-</tr>
-</tbody>
-</table>
-
 <p>
-They determine the amount of dice you can use for <a href="#sec:checks">checks</a>. 
+The attributes value is the basis for the dice pool one has available for <a href="#sec:checks">checks</a>. 
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0d4c8fb" class="outline-3">
-<h3 id="org0d4c8fb"><span class="section-number-3">1.2.</span> Skill</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-sec:aspects" class="outline-3">
+<h3 id="sec:aspects"><span class="section-number-3">2.2.</span> Aspects</h3>
+<div class="outline-text-3" id="text-sec:aspects">
 <p>
-Skills measure the mastery of a skill. They are expressed as a background description and a level (number between 1 and 6). The skill levels are comparable to how much time a typical person has to spend to reach the same expertise in this area if it were his dayjob. This does however not mean that a character needs to have taken that time to reach his skill level. Level 1 for any skill is free. Not all skills cost the same, the price depends on how specific it is.
+Aspects are a combination of a descriptors and a value. When invoked the aspects value is added or subtracted from the number of dice rolled for <a href="#sec:checks">checks</a>. An aspect is always bound to something. Be it a player, a NPC, an object or even a zone. Be creative with aspects. Try to bind their effects to the value and they should stay balanced enough.
+</p>
+</div>
+
+<div id="outline-container-org19a0218" class="outline-5">
+<h5 id="org19a0218">Creating an Aspect</h5>
+<div class="outline-text-5" id="text-org19a0218">
+<p>
+An aspect can be created at any time by the GM. It can also be created by any player, NPC or even object. To create an aspect all but the GM need to make a check. The aspect points (AP) from this check can be used to create an aspect. Increasing an aspects value by 1 costs 1 point. The description of the aspect can be decided freely. 
 </p>
 
+<pre class="example" id="org749e7c1">
+Arthur the mage wants to enflame the gras around him to channel the enemies into a one on one battle with his Companions. The GM likes this idea and creates the aspect "Dry Grass 1" that Arthur can use. Arthur decides to cast his spell, succeeds with 3 AP, and creates the aspect "Wall of Fire 3". Now any enemy has to either go around the wall or get burned. If an enemy tires to jump through, they have to roll on it against the Fires 3 dice. If the fire succeeds they get burned.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf68fa2c" class="outline-5">
+<h5 id="orgf68fa2c">Using Aspects</h5>
+<div class="outline-text-5" id="text-orgf68fa2c">
 <p>
-The skill determines the likelihood of a success on a roll. A roll during a <a href="#sec:checks">checks</a> is counted as a success if the dice shows less or equal eyes than the skill.
-</p>
-
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right"><b>Skill</b></th>
-<th scope="col" class="org-left"><b>Equivalent</b></th>
-</tr>
-
-<tr>
-<th scope="col" class="org-right"><b>Level</b></th>
-<th scope="col" class="org-left"><b>experience</b></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1</td>
-<td class="org-left">0 years</td>
-</tr>
-
-<tr>
-<td class="org-right">2</td>
-<td class="org-left">2 years</td>
-</tr>
-
-<tr>
-<td class="org-right">3</td>
-<td class="org-left">5 years</td>
-</tr>
-
-<tr>
-<td class="org-right">4</td>
-<td class="org-left">10 years</td>
-</tr>
-
-<tr>
-<td class="org-right">5</td>
-<td class="org-left">15 years</td>
-</tr>
-
-<tr>
-<td class="org-right">6</td>
-<td class="org-left">20 years</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-See chapter <a href="#sec:loskills">List of Skills</a> for examples.
-</p>
-
-<p>
-<b>Merge Skills</b>
-It might happen that you have a lot of very specific skills. If that is the case you can combine them to a more general skill. The total CP cost has to stay the same. The merging of skills needs the approval of the GM.
-</p>
-
-<p>
-<b>Deduce Skills</b>
-If a skill is not quite applicable, but still close enough, the GM can decide to let you only use half the skill level. 
+Whenever it makes narrative sense an aspect can be used. When used an aspect adds its value to the number of points that can be used for a check. It is also possible to call out an aspect to be used to hinder a check. Then the value is subtracted from the points instead. An aspect can both be used for actions and reactions but never at the same time. If you use aspects in a contest make sure that aspects are not used more than once per round by a character or their points are distributed over different actions.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge7eea52" class="outline-3">
-<h3 id="orge7eea52"><span class="section-number-3">1.3.</span> Traits</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-orgbd69892" class="outline-5">
+<h5 id="orgbd69892">Area Aspects</h5>
+<div class="outline-text-5" id="text-orgbd69892">
 <p>
-Traits are distinguishing things about the character. They can be bought for character points. This is possible both at character creation and later in the game.
-They might be extraordinary strength or the ability to cast certain magic. Some traits (like all magic) should come with a risk (all checks that can only be made with this trait are risky checks).
-</p>
-
-<p>
-See the chapter <a href="#sec:lotraits">List of Traits</a> for examples
+An aspect can affect a zone. This means it can be invoked for all in the zone. To create such an aspect costs double the points. Exceptions may be made by the GM. 
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgc3053a2" class="outline-3">
-<h3 id="orgc3053a2"><span class="section-number-3">1.4.</span> Character Creation</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-org95e88f6" class="outline-5">
+<h5 id="org95e88f6">Multiple Targets</h5>
+<div class="outline-text-5" id="text-org95e88f6">
 <p>
-Distribute 100 CP on your Attributes, Skills and Traits
+If an aspect impacts multiple targets it costs double. Exceptions may be made by the GM.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4da8b6d" class="outline-5">
+<h5 id="org4da8b6d">Duration of Aspects</h5>
+<div class="outline-text-5" id="text-org4da8b6d">
+<p>
+An aspect can be over within a round or it can last longer. Normally aspects last at least a scene long. If your aspect should last longer it should cost double. If it should only last for a round the costs half. Exceptions may be made by the GM. In general it can be said, that an aspect lasts as long as it makes sense.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb017c3a" class="outline-5">
+<h5 id="orgb017c3a">Acting Aspects</h5>
+<div class="outline-text-5" id="text-orgb017c3a">
+<p>
+Sometimes an aspect should perform actions on its own. Each round they can act like any other player or NPC. They use their value for their actions.
+</p>
+
+<pre class="example" id="org795b671">
+Poison Cloud 2: Each round it tries to use 2 dice to poison any inside. Since it impacts a zone it can do this for everyone inside the zone every round.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8007126" class="outline-5">
+<h5 id="org8007126">Resistant Aspects</h5>
+<div class="outline-text-5" id="text-org8007126">
+<p>
+An aspect can have resistance to being removed. The resistance is subtracted from any attempt to removing this aspect. For each point of resistance costs 1. The effective resistance can never be more than the aspects value. Be creative when invoking a resistant aspect. For example armor could be implemented as an aspect with resistance.
+</p>
+
+<pre class="example" id="orge1dfc4b">
+A heavy door blocks the way. The GM creates the aspect "Fortified Door 5[2]". This means the aspect has a value of 5 with a resistance of 2. The players try to break through with pure strength. On their first try they get 4 AP. 2 get absorbed by the doors resistance and the rest weakens the door. The door s aspect is now "Fortified Door 3[2]". On their second try the players get 6 AP and break throgh.
+If the players had decided to pick the lock the GM may had ignored the restistance value.
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgd0e2793" class="outline-5">
+<h5 id="orgd0e2793">Character Aspects</h5>
+<div class="outline-text-5" id="text-orgd0e2793">
+<p>
+Aspects can also be bound to a character and be bought with CP. If an aspect is mostly negative in nature it may give you points instead. Character aspects can be invoked by the GM to make the character do something. The player can always decline this, but this costs one karma.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdd5d6b6" class="outline-5">
+<h5 id="orgdd5d6b6">Damage</h5>
+<div class="outline-text-5" id="text-orgdd5d6b6">
+<p>
+Aspects are also used to represent damage a character or object has taken. If a character is unable to act in a scene because too many aspects hinder him, it is a good idea to narrate them out of the scene. It is also a good time to create a fitting negative character aspect representing this loss (like "lost an arm" or "fear of water" or "hateful of orcs").
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec:checks" class="outline-3">
+<h3 id="sec:checks"><span class="section-number-3">2.3.</span> Checks</h3>
+<div class="outline-text-3" id="text-sec:checks">
+<p>
+Checks are rolled when the outcome of an action is not certain. Each check is bound to an <a href="#sec:attributes">attribute</a>.
 </p>
 
 <p>
-Use the Rules under Equipment to limit your starting gear.
+Add the points in the relevant attribute and all applicable aspects together. This is your dice pool. Use the rules in <a href="#sec:dice">What dice to roll</a> to determine what dice to roll. You get the result of the roll in aspect points (AP).
+</p>
+
+<p>
+If the aspect points are zero or negative the check fails.
+</p>
+</div>
+
+<div id="outline-container-org721643d" class="outline-5">
+<h5 id="org721643d">Difficulty</h5>
+<div class="outline-text-5" id="text-org721643d">
+<p>
+The checks difficulty is the sum of all aspects that are to be overcome or created.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgaa516f7" class="outline-5">
+<h5 id="orgaa516f7">Collaborative checks</h5>
+<div class="outline-text-5" id="text-orgaa516f7">
+<p>
+Everyone rolls individually and then sum together all AP.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge81d852" class="outline-5">
+<h5 id="orge81d852">Risky checks</h5>
+<div class="outline-text-5" id="text-orge81d852">
+<p>
+If a check is risky the character might incur something bad if the check fails. If the check fails a negative aspect is created worth the difficulty in points. The minimum is 1. You can not take the average on a risky check.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3791adc" class="outline-5">
+<h5 id="org3791adc">Taking Time</h5>
+<div class="outline-text-5" id="text-org3791adc">
+<p>
+Sometimes a check is to difficult to achieve something within 1 check. Then it may be possible to do multiple checks over a longer time to accumulate the points needed. However, you must decide beforehand how many checks you want to take. The AP of all checks are accumulated after considering the difficulty. The GM has a veto right.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org58d5aaf" class="outline-5">
+<h5 id="org58d5aaf">Unexpected Results</h5>
+<div class="outline-text-5" id="text-org58d5aaf">
+<p>
+You roll an additional d6, called the fate die. On a 1 you add a "but .." and create an additional aspect worth the factor F in points that counteracts the result somewhat. On a 6 you add a "and .." and create an additional aspect worth the factor F in points that enhances the result somewhat. The extra die can also be rerolled with a fate point or advantage on the check.
+</p>
+
+<blockquote>
+<p>
+"Success and" during a fight against a goblin. You decapitate the goblin in an intimidating display, Not only does the goblin die but the display also weakens the goblins resolve. Likely they will try to flee after seeing this.
+Aspect: Intimidating display 2.
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+"Success but" during a fight against a goblin. You kill the goblin but are now covered in his blood, This has no effect on the fight itself but it may hinder any piece negotiation or help you when intimidating the remaining enemies.
+Aspect: Covered in Blood 2.
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec:contest" class="outline-3">
+<h3 id="sec:contest"><span class="section-number-3">2.4.</span> Contest</h3>
+<div class="outline-text-3" id="text-sec:contest">
+<p>
+The prototypical contest is combat, but the same rules can be used any scenario where multiple parties act in opposition to each other. Be it a diplomatic debate or the hostile takeover of a company. 
+</p>
+
+<p>
+A contest is divided into rounds. Each participant in the contest can make one or more actions each round. When it is a participants turn or on any later point in the round they can perform an action.
+</p>
+</div>
+
+<div id="outline-container-org606f0ba" class="outline-5">
+<h5 id="org606f0ba">Actions</h5>
+<div class="outline-text-5" id="text-org606f0ba">
+<p>
+An action is a check that tries to create an aspect. Any kind of aspect can be created, based on what fits the scene. You can try to gain an advantageous position, or start a big fire.
+</p>
+
+<p>
+If in combat the aspect that is created it is by default <code>stress</code>. If a character has more <code>stress</code> than he has points in an attribute, then  he can not use this attribute any more. Once the scene ends the stress is converted to one or multiple negative aspects like wounds or exhaustion. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6976f99" class="outline-5">
+<h5 id="org6976f99">Reactions</h5>
+<div class="outline-text-5" id="text-org6976f99">
+<p>
+Whenever someone takes an action and has rolled his dice anyone else can immediately try to perform a reaction to prevent it. A reaction does not by its nature create an aspect. If you announce this before the action is rolled you can take the average on a reaction. You have to announce the number of dice invested. The points from the reaction are then subtracted from the points of the action to lessen its effect.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0cdbda5" class="outline-5">
+<h5 id="org0cdbda5">Turn Order</h5>
+<div class="outline-text-5" id="text-org0cdbda5">
+<p>
+The participants take turn from the one with the highest relevant attribute (+ aspects) to the lowest. On your turn you don't have to act. You can act at any point after you turn in the turn order. Even multiple times. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdaa14c2" class="outline-5">
+<h5 id="orgdaa14c2">Multiple (re)actions</h5>
+<div class="outline-text-5" id="text-orgdaa14c2">
+<p>
+Each round you can take multiple actions and reactions. The total number of points gained from the attributes is the largest attribute value of the checks. From each attribute you can use at most its value in points in total. Each Aspect can only be used once or their AP (attribute points) have to be distributed to the (re)actions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2af1141" class="outline-5">
+<h5 id="org2af1141">Acting together</h5>
+<div class="outline-text-5" id="text-org2af1141">
+<p>
+When acting together all values are combined and a single combined check is made or alternatively only the AP are combined. To act together all have to act at the same time in the turn order, so effectively at the earliest when the slowest has his turn.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec:karma" class="outline-3">
+<h3 id="sec:karma"><span class="section-number-3">2.5.</span> Karma</h3>
+<div class="outline-text-3" id="text-sec:karma">
+<p>
+Each player can have up to 3 karma. They can be used at any point in time to change a single die roll (not just your own) to any specific value or to add an interesting aspect to a scene (GM has veto rights). Karma can be recovered by a characters aspect being used against them or as a reward for good role play (anything that brings joy to all players and the GM). Players should start a session with 2 karma.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec:traits" class="outline-3">
+<h3 id="sec:traits"><span class="section-number-3">2.6.</span> Traits</h3>
+<div class="outline-text-3" id="text-sec:traits">
+<p>
+Traits are distinguishing things about the character that allow him to break a rule of the world or the game in some way. For example with the Trait Night Vision you can just see in the dark. No rolls required. Some traits (like all magic) should come with a risk, meaning all checks that can only be made with this trait are risky checks. They can be bought for character points, this is possible both at character creation and later in the game.
+</p>
+
+<p>
+See the chapter <a href="#sec:lotraits">List of Traits</a> for examples.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec:charactercreation" class="outline-3">
+<h3 id="sec:charactercreation"><span class="section-number-3">2.7.</span> Character Creation</h3>
+<div class="outline-text-3" id="text-sec:charactercreation">
+<p>
+Distribute 100 CP on your Attributes, Aspects and Traits.
+</p>
+
+<p>
+Use the rules under equipment to limit your starting gear.
 </p>
 
 <p>
@@ -308,291 +810,41 @@ You may reward your players with CP (character points) for reaching milestones i
 </p>
 
 <ul class="org-ul">
-<li>A skill point typically costs 7 CP but can vary based on how specific they are.</li>
-<li>An attribute point costs 2 CP.</li>
-<li>A Trait typically costs 7 CP but can vary widely. Negative traits can even have a negative price.</li>
+<li>An attribute point costs 4 CP.</li>
+<li>An Aspect point typically costs 4 CP but can vary based on how specific they are.</li>
+<li>A Trait typically costs 10 CP but can vary widely. Negative traits can even have a negative price.</li>
 </ul>
-</div>
-</div>
-
-<div id="outline-container-sec:checks" class="outline-3">
-<h3 id="sec:checks"><span class="section-number-3">1.5.</span> Checks and Contests</h3>
-<div class="outline-text-3" id="text-sec:checks">
-<p>
-<b>Check:</b>
-Checks are rolled when the outcome of an action is not certain. Each check is bound to an attribute and a skill. One rolls a number of six sided dice and counts each die showing the skills level or less eyes, subtract the difficulty (default is 0) of the check. The result are your successes. If the successes are negative or 0 the check fails. For a check you can use at most your attribute value in dice.
-Each round you can make multiple checks. The total number of dice used is the largest attribute value of the checks. 
-</p>
 
 <p>
-<b>Contest:</b>
-A Contest is when parties have opposing goals:
+A typical player character will have:
 </p>
 <ul class="org-ul">
-<li>Parties describe what they indent to do</li>
-<li>Parties decide (secretly) how many dice they want to use for each action (check)</li>
-<li>Everybody rolls their dice</li>
-<li>Results of the checks are described.</li>
+<li>all attributes with value 2 on average</li>
+<li>3 aspects with value 2</li>
+<li>1 trait</li>
 </ul>
-
-<p>
-<b>Effects:</b>
-</p>
-<ul class="org-ul">
-<li>Effects can be bought with effect points (EP) after a check is made</li>
-<li>Per success on the check you get 1 EP</li>
-<li>An Effect might cost more than 1 EP</li>
-<li>You can only spend EP on effects you have declared for this check.</li>
-</ul>
-<p>
-For a list of effects see the section <a href="#sec:loeffects">List of Effects</a>
-</p>
-
-<p>
-<b>Collaborative checks:</b>
-Everyone rolls individually and then sum together all successes.
-</p>
-
-<p>
-<b>Risky checks:</b>
-If a check is risky the character might incur something bad if the check fails. If the check fails the negative successes are used to incur effects to the characters disadvantage, the minimum is 1. 
-</p>
-
-<p>
-<b>Predefined Effects:</b>
-You can learn to achieve a certain combination of effects very effectively. You have to learn this as a trait. You can increase the difficulty of the check. For this you get double the difficulty in EP to spend on effects. The check automatically becomes risky. This allows you to use the same dice to achieve multiple effects. Such a trait costs 1 CP per different effect.
-</p>
-
-<p>
-<b>Concentration:</b>
-Some effects have to be kept up. In those cases the successes needed to achieve the effect block the attribute points (dice) from being used for anything else, as long as the concentration lasts. 
-</p>
-
-<p>
-<b>Advantage and Disadvantage</b> 
-For each point of advantage you can reroll one die (or roll one more die and remove the worst). For each point of disadvantage you have to reroll one success (or roll one more die and remove the best). A point of advantage and a point of disadvantage cancel each other out.
-</p>
-
-<p>
-<b>Difficulty:</b>
-This table gives an overview of what a good difficulty for checks is by average CP investment into attribute and skill, and what level of experience such a person would be described as having. For an easy check select the difficulty 1 lower. For a hard check select a difficulty 1 higher.
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-right" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right"><b>Dif</b></th>
-<th scope="col" class="org-right"><b>CP</b></th>
-<th scope="col" class="org-left"><b>Good for ..</b></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">0</td>
-<td class="org-right">15</td>
-<td class="org-left">unskilled</td>
-</tr>
-
-<tr>
-<td class="org-right">1</td>
-<td class="org-right">25</td>
-<td class="org-left">beginner</td>
-</tr>
-
-<tr>
-<td class="org-right">2</td>
-<td class="org-right">30</td>
-<td class="org-left">experienced</td>
-</tr>
-
-<tr>
-<td class="org-right">3</td>
-<td class="org-right">35</td>
-<td class="org-left">master</td>
-</tr>
-
-<tr>
-<td class="org-right">4</td>
-<td class="org-right">40</td>
-<td class="org-left">grand master</td>
-</tr>
-
-<tr>
-<td class="org-right">5</td>
-<td class="org-right">45</td>
-<td class="org-left">legend</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 
-
-<div id="outline-container-orgd13f53b" class="outline-3">
-<h3 id="orgd13f53b"><span class="section-number-3">1.6.</span> Damage</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-sec:movement" class="outline-3">
+<h3 id="sec:movement"><span class="section-number-3">2.8.</span> Movement and Range</h3>
+<div class="outline-text-3" id="text-sec:movement">
 <p>
-Damage is taken on attribute categories and reduces the attribute points (points) you can use for all attributes in the category. Once your attribute effectively falls below 0 you are out of commission with regards to this attribute. The way in which you are taken out depends on the attribute and what caused the damage.
-</p>
-
-<blockquote>
-<p>
-Bob the Barbarian got hit in combat multiple times. He has 4 Physical but 3 physical wounds. Now he additionally got confused by a spell and thinks his comrades are enemys. His compatriot Roger the rogue tries to nonlethaly take him out by hitting him with his blackjack over the head. He succeeds and makes another 2 damage. Bob goes down, bleeding from his old wounds but still alive.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-Silvia the spy finds herself in a fierce debate with the diplomat. She trys to convince him to go with her plan. Over the time she makes 3 social damage which is enough to convince him, as his social position is already severely damaged by the documents she leaked a week ago.
-</p>
-</blockquote>
-
-<p>
-Depending on the source of the damage it might heal after each scene, mission or campagnie.
-</p>
-<ul class="org-ul">
-<li>Scene: A thematically connected time frame like a fight. (example: unarmed, blackjack, nets, drowning)</li>
-<li>Mission: Until a milestone in the game is reached, for example until the quest is finished or story beat is reached (example; sword, fire, knife, falling great heights)</li>
-<li>Campagnie: Until a long term goal is reached. For example until the evil King is vanquished. (example: nazgul blade, daemonic poison)</li>
-</ul>
-<p>
-The short form to write this is 2s(/m/k) for two damage that heals by the end of the scene(/mission/campagnie).
+Sometimes it is useful to draw maps and define distances. In a contest split the area into roughly 3-5 zones. A character can move from one zone to another each round. If one can act at a range like for example when shooting a bow one can act 1-2 zones far. During the round a character is moving he can be considered to be in both zones at once.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org3fecc4e" class="outline-3">
-<h3 id="org3fecc4e"><span class="section-number-3">1.7.</span> Armor / Damage reduction</h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-sec:items" class="outline-3">
+<h3 id="sec:items"><span class="section-number-3">2.9.</span> Items and Equipment</h3>
+<div class="outline-text-3" id="text-sec:items">
 <p>
-Armor or damage reduction (DR) does not negate damage completely but it changes its type to one that is faster to heal. With an armor of 2 up to 2m damage per contest/round are being reduced to 2s damage. Normally damage reduction should only go down to scene level and not remove damage completely. As an optional rule however you can decide that scene damage can be reduced to nothing as long as at least 1 damage stays. When considering armor always think about the complete set being worn and not about single pieces. Decide which armor class fits.
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-right" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left"><b>Armor Class</b></th>
-<th scope="col" class="org-right"><b>DR</b></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">none</td>
-<td class="org-right">0</td>
-</tr>
-
-<tr>
-<td class="org-left">light</td>
-<td class="org-right">1</td>
-</tr>
-
-<tr>
-<td class="org-left">medium</td>
-<td class="org-right">2</td>
-</tr>
-
-<tr>
-<td class="org-left">heavy</td>
-<td class="org-right">3</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org55f62d1" class="outline-3">
-<h3 id="org55f62d1"><span class="section-number-3">1.8.</span> Range</h3>
-<div class="outline-text-3" id="text-1-8">
-<p>
-There are 3 different ranges. It takes one round and half your dice for this round to move one range class. You can however move within a range class unrestricted (within reason). While moving you can still use your action.
+Items have a description and a resource value (RV). The RV is an abstraction for the items price or usefulness. 
+Items may have an aspect associated with them. If you want items to have any specific effects you may add aspects. At any time the GM can choose to give an item an aspect. Normally it will have the resource value of the item in AP. You don't have to write down the obvious aspects an item has. For example you dont need to specify that the sword is good for slicing stuff.
 </p>
 
 <p>
-Close: Normal close quarters fighting distance.
-Near: A distance you can throw something at.
-Far: Quite a distance away. You might be able to shoot a rifle or a bow at this distance but it takes a while to run this distance.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org93e676d" class="outline-3">
-<h3 id="org93e676d"><span class="section-number-3">1.9.</span> Items and Equipment</h3>
-<div class="outline-text-3" id="text-1-9">
-<p>
-The RV (Resource Value) of an Item determines how expensive or hard to get it is. Items also have a description and maybe special effects. Let your fantasy go wild. A few examples can be found in the section <a href="#sec:loitems">List of Items</a>. The effects an item has should not exceed its RV times two in EP.
-</p>
-</div>
-
-<div id="outline-container-orgb70ec27" class="outline-4">
-<h4 id="orgb70ec27"><span class="section-number-4">1.9.1.</span> Equipment</h4>
-<div class="outline-text-4" id="text-1-9-1">
-<p>
-Characters can have gear with a value of up to half the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
-</p>
-
-<p>
-When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check against the RV of what they would like to have in the moment to see if they do. The check is risky and if they fail they get the difference in damage to their Gear attribute until the end of the mission.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgea10141" class="outline-4">
-<h4 id="orgea10141"><span class="section-number-4">1.9.2.</span> Buying</h4>
-<div class="outline-text-4" id="text-1-9-2">
-<p>
-Characters can buy new stuff with a Finances check against the RV of what they want to buy. The check is risky and they get the difference in damage on their finances until the end of the mission if they fail. The GM does not have to let you retry on a fail.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org4c5e304" class="outline-4">
-<h4 id="org4c5e304"><span class="section-number-4">1.9.3.</span> Crafting</h4>
-<div class="outline-text-4" id="text-1-9-3">
-<p>
-Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought for the RV-1 of the item to be build. To build the item the character needs to make a check with RV difficulty. If that fails the resources might be lost, depending on what they are.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org57ec8d7" class="outline-4">
-<h4 id="org57ec8d7"><span class="section-number-4">1.9.4.</span> Gathering</h4>
-<div class="outline-text-4" id="text-1-9-4">
-<p>
-Resources can be gathered with a check and their RV as difficulty.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org08b84d0" class="outline-4">
-<h4 id="org08b84d0"><span class="section-number-4">1.9.5.</span> Bribing</h4>
-<div class="outline-text-4" id="text-1-9-5">
-<p>
-To Bribe someone you need to give them more than they can normally comfortably afford. This means you need more than half their finances value in successes to bribe them.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org4aca399" class="outline-4">
-<h4 id="org4aca399"><span class="section-number-4">1.9.6.</span> Creating</h4>
-<div class="outline-text-4" id="text-1-9-6">
-<p>
-To create an item first give it a short description. It should make clear on what kind of actions it may give advantages or what kind of effects may be created with it. Second you determine its RV (resource value).
+A few examples can be found in the section <a href="#sec:loitems">List of Items</a>.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -657,74 +909,155 @@ To create an item first give it a short description. It should make clear on wha
 </tbody>
 </table>
 </div>
+
+<div id="outline-container-org6814f04" class="outline-5">
+<h5 id="org6814f04">Armor / Damage Reduction</h5>
+<div class="outline-text-5" id="text-org6814f04">
+<p>
+There is no Armor but some aspects can act as such. If an aspect can be used in a defensive (re)action, this effectively reduces the amount of AP of the attack. Thus they act like armor. Think of armor items as having the protective aspect on them. If an aspect can be used is up to the GM. So he can decide that the very expensive ballgown can not be used to defend against a bullet.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org713ae48" class="outline-5">
+<h5 id="org713ae48">Equipment</h5>
+<div class="outline-text-5" id="text-org713ae48">
+<p>
+Characters can have gear with a value of up to the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
+</p>
+
+<p>
+When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check against the RV of what they would like to have in the moment to see if they do. The check is risky and if they fail they get the difference in damage to their Gear attribute until the end of the mission.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc702b54" class="outline-5">
+<h5 id="orgc702b54">Buying</h5>
+<div class="outline-text-5" id="text-orgc702b54">
+<p>
+Characters can buy new items with a Finances check. The check is risky. The bought item can be treated like an aspect that is created with this check. The GM does not have to let you retry on a fail. If you use items with aspects to do this like the "Treasure" you found during your last adventure you may lose them if you succeed on the check.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org73f9bfe" class="outline-5">
+<h5 id="org73f9bfe">Crafting</h5>
+<div class="outline-text-5" id="text-org73f9bfe">
+<p>
+Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought and have a RV of the item to be build minus 1. To build the item the character needs to make a check with the items RV as difficulty. If that fails the resources might be lost, depending on what they are.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6f6b385" class="outline-5">
+<h5 id="org6f6b385">Gathering</h5>
+<div class="outline-text-5" id="text-org6f6b385">
+<p>
+Resources can be gathered with a check and their RV as difficulty.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcc6c789" class="outline-5">
+<h5 id="orgcc6c789">Creating</h5>
+<div class="outline-text-5" id="text-orgcc6c789">
+<p>
+To create an item first give it a short description. Second you determine its value if applicable. Add aspects if applicable. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org32b753e" class="outline-5">
+<h5 id="org32b753e">Bribing</h5>
+<div class="outline-text-5" id="text-org32b753e">
+<p>
+To Bribe someone you need to give them more than they can normally comfortably afford. This means you need more than their finances value in RV to bribe them.
+</p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgdec51bd" class="outline-2">
-<h2 id="orgdec51bd"><span class="section-number-2">2.</span> Lists</h2>
-<div class="outline-text-2" id="text-2">
+</div>
+
+<div id="outline-container-sec:optionalrules" class="outline-2">
+<h2 id="sec:optionalrules"><span class="section-number-2">3.</span> Optional Rules</h2>
+<div class="outline-text-2" id="text-sec:optionalrules">
+</div>
+
+<div id="outline-container-org8c346d7" class="outline-3">
+<h3 id="org8c346d7"><span class="section-number-3">3.1.</span> Magic</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Magic gives a huge narrative flexibility to explain aspects. To balance this out any checks made using magic should be considered risky. This means the value of the created aspects has to be defined beforehand. This is taken as the difficulty of the check. If the check fails the magician creates an unwanted likely negative aspect at the value of the difficulty. If he succeeds the created aspect has exactly the predefined value. Depending on the setting a trait might be necessary to cast magic or even a specific kind of magic.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf722643" class="outline-3">
+<h3 id="orgf722643"><span class="section-number-3">3.2.</span> Less precise Attributes</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Instead of using the Attributes as listed you can use only the Categories. Learning a level in one of the categories costs double of what a level in an attribute would cost.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc4e339a" class="outline-3">
+<h3 id="orgc4e339a"><span class="section-number-3">3.3.</span> No Abstraction for Wealth</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+To remove the resources category from the attributes just raise the price of learning a level of the other attributes by 33%. The costs for goods and services
+depend on the campaign setting.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgabc9495" class="outline-3">
+<h3 id="orgabc9495"><span class="section-number-3">3.4.</span> Retroactive Actions</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+The GM may allow players retroactively having performed some action. For example having placed a trap beforehand. To balance this any check on such an action should be a risky check.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1e02a20" class="outline-3">
+<h3 id="org1e02a20"><span class="section-number-3">3.5.</span> Quicker Battles</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Instead of differentiating between attacking and blocking you can speed up combat by handling it all as generic combat. If someone initiates combat with his action, others may react with combat in return. Whoever wins the contest makes the difference as a damaging aspect.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge1357fa" class="outline-3">
+<h3 id="orge1357fa"><span class="section-number-3">3.6.</span> Stress in Contests</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+To speed up and simplify contests you can always create an abstract Aspect called "Stress". Stress does not hinder you in a contest but once it reaches the same value as your attribute you lose the contest. After combat stress converts into an appropriate aspect of equal size.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3b95e58" class="outline-3">
+<h3 id="org3b95e58"><span class="section-number-3">3.7.</span> Only Players Roll</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+If you like you can generally let only players roll the dice. Everyone else will take the average result. This means that in combat only players will roll to hit or roll to block.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org80946cd" class="outline-2">
+<h2 id="org80946cd"><span class="section-number-2">4.</span> Lists</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 None of the following lists is exhaustive. They should be taken as examples. You are invited to design your own with your group.
 </p>
 </div>
 
-<div id="outline-container-sec:loskills" class="outline-3">
-<h3 id="sec:loskills"><span class="section-number-3">2.1.</span> List of Skills</h3>
-<div class="outline-text-3" id="text-sec:loskills">
-<blockquote>
-<p>
-<b>Professional Chef</b> (7 CP): You have learned not only to cook but also to plan the foodstuffs on storage, to store properly, to calculate profitability, to motivate and coordinate a team of people.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Soldier</b> (7 CP): You have learned to bear harsh weather, climb over obstacles, run, dodge and shoot. You have learned discipline and coordination.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Soothsayer</b> (7 CP): You have learned to peer into possible futures, read people and make inferences on what will likely happen. You have learned the art of putting on an act. 
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Ranger</b> (7 CP): You know how to survive in the wild. You can hunt, bushcraft and gather everything you need. You have honed your hearing and are proficient at tracking.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>College Mage</b> (7 CP): You have studied the art of magic. You learned them with books, astronomy and experiments. You can cast spells by pronouncing incantations, magical glyphs and potent paraphernalia. You still need the appropriate trait to cast magic from specific schools of magic.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Survivalist</b> (1 CP): You have spend quite a lot of time outdoors. Consumed books about wilderness survival and so on. You know how to build shelter, find food and water, and much more. 
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Fighting</b> (2 CP): Be it hand to hand, with a sword or with a gun. You can fight.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Jack of all Trades</b> (28 CP): You are at the pinacle of having a well rounded skillset. No matter what it is you can count on this skill.
-</p>
-</blockquote>
-</div>
-</div>
-
-
-
 <div id="outline-container-sec:lotraits" class="outline-3">
-<h3 id="sec:lotraits"><span class="section-number-3">2.2.</span> List of Traits</h3>
+<h3 id="sec:lotraits"><span class="section-number-3">4.1.</span> List of Traits</h3>
 <div class="outline-text-3" id="text-sec:lotraits">
 <blockquote>
 <p>
@@ -782,7 +1115,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 
 <blockquote>
 <p>
-<b>Plot Armor</b> (1): Each scene you can discard a point of damage you would take. The plot armor only allies to one of the categories (Physical, Mental, Social) This trait can be taken multiple times.
+<b>Plot Armor</b> (3): Each scene you can disregards an aspect representing damage. 
 </p>
 </blockquote>
 
@@ -791,526 +1124,473 @@ None of the following lists is exhaustive. They should be taken as examples. You
 <b>Short Weapon Fighting</b> (1): You can not get disadvantage because your weapons are to short compared to your opponent.
 </p>
 </blockquote>
+
+<blockquote>
+<p>
+<b>Unarmed vs. Armed</b> (2): You can fight against armed opponents even when you have no weapon without disadvantage.
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Alchemist</b> (7): You can brew potions, salves and other things which create wondrous effects.
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Shape Shifter</b> (7): You can alter the physical form of either yourself or that of others.
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Seeer</b> (7): You have to ability to see glimpses of future, past and present. Both at your current position and over great distances. 
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Amphibious</b> (7): You can live both underwater and on land.
+</p>
+</blockquote>
 </div>
 </div>
-
-
 
 
 <div id="outline-container-sec:loitems" class="outline-3">
-<h3 id="sec:loitems"><span class="section-number-3">2.3.</span> List of Items</h3>
+<h3 id="sec:loitems"><span class="section-number-3">4.2.</span> List of Items</h3>
 <div class="outline-text-3" id="text-sec:loitems">
 <blockquote>
 <p>
-<b>Sword</b> (RV 2): Its a stabby piece of metal. Especially good at harming unarmored enemies. Not so great at slicing though armor. 
+<b>Sword</b> (2): Its a stabby piece of metal. Especially good at harming unarmored enemies. Not so great at slicing though armor. 
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Mail shirt</b> (RV 3): A metal fabric that protects your torso and arms from being cut or stabbed pretty well. 
+<b>Mail shirt</b> (3): A metal fabric that protects your torso and arms from being cut or stabbed pretty well. However it helps little against blunt force trauma.
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Club of the great Bear</b> (RV 4): A mystical club made from the thigh bone of the great bear that terrorized the inokwa people. It still contains the strength of the mighty beast. When using this club you gain 1 additional skill level in strength checks.
+<b>Club of the great Bear</b> (4): A mystical club made from the thigh bone of the great bear that terrorized the inokwa people. It still contains the strength of the mighty beast. When using this club you gain 1 in strength checks.
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Knightly Armor</b> (RV 4): A good example of heavy armor that protects from physical damage from most weapons.
+<b>Knightly Armor</b> (4): A good example of heavy armor that protects from physical damage from most weapons.
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Protective Amulet</b> (RV 2): This amulet made from magically potent elder wood protects lightly (1 damage reduction) from mental damage coming from magic.
+<b>Protective Amulet</b> (2): This amulet made from magically potent elder wood protects lightly (1 damage reduction) from mental damage coming from magic.
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Pentagram Amulet</b> (RV 2): This amulet was made to prevent possession and influence of otherworldly forces. Allows you to reroll 1 die against attacks against your mental state when coming from ghosts, magic, or similar forces.
+<b>Pentagram Amulet</b> (2): This amulet was made to prevent possession and influence of otherworldly forces. Allows you to reroll 1 die against attacks against your mental state when coming from ghosts, magic, or similar forces.
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Potion of Healing</b> (RV 3): When being drunk it allows you to reduce the healing time of up to 3 physical damage from M to S
+<b>Potion of Healing</b> (3): When being drunk it allows you to reduce the healing time of up to 3 physical damage from M to S
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Shield</b> (RV 2): Gives the reroll of 1 die when blocking with the shield.
+<b>Shield</b> (2): Gives the reroll of 1 die when blocking with the shield.
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Sword</b> (RV 2): This stabby piece of steel typically makes class M damage. Its also good at slicing.
+<b>Sword</b> (2): This stabby piece of steel typically makes class M damage. Its also good at slicing.
 </p>
 </blockquote>
 </div>
 </div>
 
-<div id="outline-container-sec:loeffects" class="outline-3">
-<h3 id="sec:loeffects"><span class="section-number-3">2.4.</span> List of Effects</h3>
-<div class="outline-text-3" id="text-sec:loeffects">
-<blockquote>
-<p>
-<b>Damage:</b> Each success is used to cause 2 damage to an enemy.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Block:</b> Each success is used to remove one success from an enemies attack on you or one of your colleagues. If you win a contest with a block you can deal 1 damage per success (type appropriate to the weapon used). If an enemies block would deal damage to you it can also be blocked.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Disarm:</b> For 2 successes disarm one enemy.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Push:</b> For 1 success you can force your enemy to move slightly. Pushing an enemy off a cliff still gives them a check to prevent them from falling.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Disable:</b> You can force an enemy into an unfavorable position. For each 2 successes the enemy is denied to use one level of his applicable skill. The enemy can recover from this with a check. The DM decides if this recovery can be blocked. Example: Putting the enemy into an ankle lock.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Gain Advantage:</b> For 1 success each you can make your position more advantageous. This allows you to reroll 1 die on applicable checks until the end of the scene. Examples: Gaining the high ground, flanking the enemy.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Cause Disadvantage:</b> For 1 success each you can make the enemies position more disadvantageous. This means he has to reroll 1 die that would otherwise be a success until the end of the scene. Example: Forcing the enemy into a tight corner. 
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Blind:</b> For 2 successes. Take an enemies sense. Examples: Throw sand into eyes, Shatter eardrums with a loud noise.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Summon:</b> Per success the summoned being has 10 CP. The summon holds until the end of the scene or until the end of the concentration.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Obfuscate Area:</b> Per 4 successes you can obfuscate an area with regards to one sense. For example by causing total darkness or stopping all sound. The effect holds until the end of the scene or until the end of the concentration.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Purify Thing:</b> Per success you can purify one unit of a non sentient thing. For example remove poisons from one days worth of food, or remove the daemonic blight from a couple trees in the forest.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Amplify Aspect:</b> Per 2 successes you increase an inherent aspect of a thing by 1 level. An example is increasing the protection of an armor by 1 or increasing the weight of a stone.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Buff:</b> For 1 success increase an attribute by 1. The effect holds until the end of the scene or until the end of the concentration.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Shape-shift:</b> Take the form of another being. The new forms max CP depends on the successes. Per success get 15 CP (max is the characters total CP). The effect holds until the end of the scene or until the end of the concentration.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Illusion:</b>
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Deceive:</b> 
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Influence:</b> You may make your victim do something they don't want to do. The game master decides how many successes you need. As orientation you can use the following examples.
-</p>
-<ul class="org-ul">
-<li>Make your enemy drop his weapon (1 success)</li>
-<li>Make a wild bird deliver a message (2 successes)</li>
-<li>make your victim jump from the bridge (3 successes)</li>
-</ul>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Shape Reality:</b>  The game master decides how many successes you need. As orientation you can use the following examples.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Move:</b> Be it teleportation or a magic portal. 
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Heal:</b> Per success turn 1m damage to 1s damage.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Counter/Break:</b> Counter or break a spell or technique.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Insight:</b> per success you can gain insight with 1 sense for an additional success per distance class.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Stop:</b> For 1 successes can the victim be stopped from movement.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Trigger:</b> All other effects are triggered once a specific event happens. Costs 1 success. 
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Shape Memory:</b> You may shape the memory of the victim. The game master decides how many successes you need. As orientation you can use the following examples.
-</p>
-<ul class="org-ul">
-<li>Make the immigrations officer believe you have already shown him your passport (1 success).</li>
-<li>Let your victim forget what happens during the duration of your spell (2 success).</li>
-</ul>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Consume Resource:</b> Different than other effects this one gives you additional successes for the value of 1 success / 2 RV. It is always up to the Gm if he allows this effect to be used. In order to consume a resource it most often needs to be prepared in some way (carving runes into it or manufacturing).
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Block Area:</b> To block some kind of thing from happening in an area (of a size like close range) you need to invest 3 successes. Add a block to this and the blocks successes will be used to reduce any attempt to achieve the thing in this area.
-Example: Anti magic field.
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-<b>Remote Control:</b> For 2 EP you can establish remote control of a willing target. You can take actions as the target. You can use your own skills for this or that of the target. You can use only the attributes of the target for checks. The checks the target makes for you count to your dice used for actions this round. Takes concentration to use. 
-</p>
-</blockquote>
-</div>
-</div>
 
 <div id="outline-container-sec:lonpcs" class="outline-3">
-<h3 id="sec:lonpcs"><span class="section-number-3">2.5.</span> List of NPCs</h3>
+<h3 id="sec:lonpcs"><span class="section-number-3">4.3.</span> List of NPCs</h3>
 <div class="outline-text-3" id="text-sec:lonpcs">
 <blockquote>
 <p>
-<b>Goblin</b> (34 CP)
-P:2, M:1, S:1, R:1, Bandit 2, Night-vision
+<b>Average Citizen</b> ( CP)
+Ph:3, Me:3, So:3, Re:3
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Wolf</b> (38 CP)
-P:3, M:1, S:2, R:0, Pack-hunter 3
+<b>Goblin</b> ( CP)
+Ph:2, Me:1, So:1, Re:1, Night Vision
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Guard</b> (78 CP)
-P:4, M:4, S:4, R:4, City-guard 3
+<b>Ratling</b> ( CP)
+Ph:1, Me:1, So:1, Re:1, Strength in numbers 1
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Dark Mage</b> (125 CP)
-P:3, M:8, S:4, R:6, Necromancer 3, Telepathic Link to undead servants
+<b>Wolf</b> ( CP)
+Ph:3, Me:1, So:2, Re:0, Endless endurance 1
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Ogre</b> (90 CP)
-S:16, D:8, W:6, I:2, E:2 ,C:2, G:1, F:1, Ogre Stuff: 3
+<b>Guard</b> ( CP)
+Ph:4, Me:3, So:3, Re:3
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Zombie</b> (31 CP)
-Ph:3, Me:1, So:1, Re:1, Infectious Bite
+<b>Dark Mage</b> ( CP)
+Ph:3, Me:8, So:4, Re:6, Necromancer 3, Telepathic Link to undead servants
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Bandit</b> (73 CP)
-Ph: 5, Me: 3, So: 3, Re: 2, Banditry 2, Previous Profession 3
+<b>Ogre</b> ( CP)
+S:16, D:8, W:6, I:2, E:2 ,C:2, G:1, F:1
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Combat Drone</b> (34 CP)
+<b>Zombie</b> ( CP)
+Ph:2, Me:1, So:1, Re:1, Infectious Bite
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Bandit</b> ( CP)
+Ph: 4, Me: 3, So: 2, Re: 2
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Combat Drone</b> ( CP)
 Ph: 3, Me: 1, So: 1, Re: 1, Shooting 4, Night-vision
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Orc</b> (90 CP)
-Ph: 7,Me: 4,So: 3,Re: 3, Hunter 3, Nightvision, Maneuver Reckless Attack (4 damage, 2 difficulty)
-</p>
-</blockquote>
-</div>
-</div>
-
-<div id="outline-container-sec:lopcs" class="outline-3">
-<h3 id="sec:lopcs"><span class="section-number-3">2.6.</span> List of Archetype Characters</h3>
-<div class="outline-text-3" id="text-sec:lopcs">
-<blockquote>
-<p>
-<b>Bob the Barbarian</b> (90 CP)
-</p>
-
-<p>
-S: 6, D:5, W:4, I:3, E:3 ,C:3, G:4, F:2
-</p>
-
-<p>
-Skill: Nomad of the Northern Steppes 3
-</p>
-
-<p>
-Skill: Fighting 4
-</p>
-
-<p>
-Skill: Games of chance 3
-</p>
-
-<p>
-Trait: Plot Armor (Physical) 3
-</p>
-
-<p>
-Trait: Cold Resistance
-</p>
-
-<p>
-Maneuver: Mightly Blow (Difficulty 2, Damage 2, Gain Advantage 2)
-A heavy attack that not only cuts deep but also throws the target to the ground and stunns.
+<b>Orc Veteran</b> ( CP)
+Ph: 6, Me: 4, So: 3, Re: 3, Night Vision, Reckless and Bold 2
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-<b>Anna the Alchemist</b> (106 CP)
+<b>Orc Warrior</b> ( CP)
+Ph: 4, Me: 2, So: 1, Re: 2, Night Vision, Reckless and Bold 1
 </p>
+</blockquote>
 
+<blockquote>
 <p>
-S:3, D:3, W:4, I:6: E:4, C:5, G:5, F:6
-</p>
-
-<p>
-Skill: Aristocratic Upbringing 3
-</p>
-
-<p>
-Skill: Guild Alchemist 4
-</p>
-
-<p>
-Skill: Horse Riding 1
-</p>
-
-<p>
-Trait: Magical Alchemy
+<b>Giant Spider</b> ( CP)
+S: 2, D: 4, W:2, I:2, E:1, C:1, G:2, F:1, Night Vision, Spider Webs 2
 </p>
 </blockquote>
 </div>
 </div>
 </div>
-<div id="outline-container-orga1dfb8f" class="outline-2">
-<h2 id="orga1dfb8f"><span class="section-number-2">3.</span> Optional Rules</h2>
-<div class="outline-text-2" id="text-3">
+
+<div id="outline-container-sec:advice" class="outline-2">
+<h2 id="sec:advice"><span class="section-number-2">5.</span> Advice</h2>
+<div class="outline-text-2" id="text-sec:advice">
 </div>
-<div id="outline-container-orgb829765" class="outline-3">
-<h3 id="orgb829765"><span class="section-number-3">3.1.</span> Less precise Attributes</h3>
-<div class="outline-text-3" id="text-3-1">
+
+<div id="outline-container-org47c54c2" class="outline-3">
+<h3 id="org47c54c2"><span class="section-number-3">5.1.</span> Gameplay Notes</h3>
+<div class="outline-text-3" id="text-5-1">
 <p>
-Instead of using the Attributes as listed you can use only the Categories. Learning a level in one of the categories costs double of what a level in an attribute would cost.
+Since aspects can appear, disappear and change frequently during play, it is good to write them down and show them to your players. For this i suggest to use post-it notes. This has the nice effect that you can give your players something physical that represents the advantages they created or can use.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgbefdc38" class="outline-3">
-<h3 id="orgbefdc38"><span class="section-number-3">3.2.</span> No Abstraction for Money</h3>
-<div class="outline-text-3" id="text-3-2">
-<p>
-To remove the resources category from the attributes just raise the price of learning a level of the other attributes by 33%. The costs for goods and services depend on the kampaign setting.
-</p>
-</div>
-</div>
 
-<div id="outline-container-org265f517" class="outline-3">
-<h3 id="org265f517"><span class="section-number-3">3.3.</span> Fixed spells</h3>
-<div class="outline-text-3" id="text-3-3">
-<p>
-If you don't want PCs to be able to create situation specific spells then you can disallow it. Instead you need to define for every spell what effects they cause. Look at the rules for contests for guidance. The difficulty of the spell should be half the amount of successes you would have needed to cause those effects. To learn a spell the player has to acquire it as a trait. Such a trait can be comparatively cheap though (1-5 CP depending on how many spells you want to exist). All spell checks are risky checks.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org3c8f733" class="outline-3">
-<h3 id="org3c8f733"><span class="section-number-3">3.4.</span> Fixed spells with optional free casting of magic</h3>
-<div class="outline-text-3" id="text-3-4">
-<p>
-If you want spells in general to be predefined but still allow for free casting from time to time you can use the fixed spells optional rules and add the following. When free casting magic you don't need to have the trait for the spell and can even create the spell on the fly, but all effects cost double the successes on a roll. All magic checks stay risky.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org981fc80" class="outline-3">
-<h3 id="org981fc80"><span class="section-number-3">3.5.</span> Retroactive Actions</h3>
-<div class="outline-text-3" id="text-3-5">
-<p>
-The DM may allow players retroactively having performed some action. For example having placed a trap beforehand. To balance this any check on such an action should be a risky check.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgd9c5e89" class="outline-3">
-<h3 id="orgd9c5e89"><span class="section-number-3">3.6.</span> Too Many Dice</h3>
-<div class="outline-text-3" id="text-3-6">
-<p>
-It can happen that you have to roll to many dice at once. If that happens your can instead divide the number of dice by a number (2,3,4) and multiply the number of successes by that number. If the dice are not evenly divisible just roll the rest regularly. It is advisable to use this method if the number of dice exceeds 12.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgfc6aa9a" class="outline-3">
-<h3 id="orgfc6aa9a"><span class="section-number-3">3.7.</span> Exhausting Combat</h3>
-<div class="outline-text-3" id="text-3-7">
-<p>
-To limit the duration of a combat scene apply this rule. If in one round no party takes any damage, then apply 1s damage to each combatant from the exhaustion of combat. 
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgfc3dd07" class="outline-3">
-<h3 id="orgfc3dd07"><span class="section-number-3">3.8.</span> <span class="todo TODO">TODO</span> Effects of Scale</h3>
-<div class="outline-text-3" id="text-3-8">
-<p>
-Feel free to use this rule also in other scenarios where it might make sense. It does not have to be about size and strength.
-</p>
-
-<p>
-If you want to represent huge differences in scale like the strength of a giant compared to that of a human then you can mutliply the successes of the checks they make by some faktor. This is the scaling faktor. Normally you should scale by factor of 4 per dubling of the size (quadratic in relation to the height). Not all effects are scalable. If they are not just scale their cost with the same factor. You should only scale for checks and attributes where it makes sense.
-Things scale differently
-</p>
-<ul class="org-ul">
-<li>Strength and damage done scale by n^2</li>
-<li>Dexterity scales by 1/n</li>
-<li>damage taken scales by 1/n^2</li>
-</ul>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgc9987e7" class="outline-2">
-<h2 id="orgc9987e7"><span class="section-number-2">4.</span> Advice</h2>
-<div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-orgb6685c4" class="outline-3">
-<h3 id="orgb6685c4"><span class="section-number-3">4.1.</span> Character Creation</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-org7d20018" class="outline-3">
+<h3 id="org7d20018"><span class="section-number-3">5.2.</span> Character Creation</h3>
+<div class="outline-text-3" id="text-5-2">
 <p>
 When creating a character you should adhere to the following advice:
 </p>
 <ul class="org-ul">
-<li>No attribute above 7</li>
-<li>No attribute below 3</li>
-<li>Have 1 skill describing what you want to be good at</li>
-<li>Have 1 skill describing what live live of</li>
-<li>Have 1 skill describing what you like to do as a hobby</li>
+<li>No attribute above 6</li>
+<li>No attribute below 2</li>
+<li>Have 1 aspect describing what you want to be good at</li>
+<li>Have 1 aspect describing how you make your living</li>
+<li>Have 1 aspect describing what you like to do as a hubby</li>
+<li>Forumlate your traits such that they can be interpreted as a vulnerability</li>
 <li>Have at least 1 trait</li>
 </ul>
 <p>
-Break these rules if you want.
+Break these rules as you like.
 </p>
 </div>
 </div>
-</div>
-<div id="outline-container-orgc5ce13f" class="outline-2">
-<h2 id="orgc5ce13f"><span class="section-number-2">5.</span> Game-play Examples</h2>
-<div class="outline-text-2" id="text-5">
-</div>
-<div id="outline-container-org3197df6" class="outline-3">
-<h3 id="org3197df6"><span class="section-number-3">5.1.</span> Ambushed by Goblins</h3>
-<div class="outline-text-3" id="text-5-1">
+
+
+<div id="outline-container-orga6e616c" class="outline-3">
+<h3 id="orga6e616c"><span class="section-number-3">5.3.</span> Encounter Design</h3>
+<div class="outline-text-3" id="text-5-3">
 <p>
-<b>GM</b> is the Game Master Mathew controlling the 3 goblins (P: 2, M; 1, S: 1, Bandit 2)
+To design a good challenge count the total of attributes and aspects the players could bring to the fight and match this with those of the opponents roughly 1:1.
+</p>
+
+<ul class="org-ul">
+<li>Sum the CP of your player characters</li>
+<li>divide the sum by 100</li>
+<li>multiply this with 3</li>
+<li>The result is a good estimate for how hard a challenge should be.</li>
+</ul>
+
+<p>
+A rough estimate can be to divide the sum of all your players CP by 100 and multiply this by 3.
 </p>
 
 <p>
-<b>A</b> is the player Anna with her character Amy (P: 3,M: 6,S: 4, Alchemist 3)
+Let your players become creative and create aspects to help them better their odds.
 </p>
 
 <p>
-<b>B</b> is the player Ben with his character Boris (P: 6,M: 4,S: 3, Barbarian 3)
+Try to give any noteworthy opponent an advantageous and a disadvantageous aspect.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec:examples" class="outline-2">
+<h2 id="sec:examples"><span class="section-number-2">6.</span> Game-play Examples</h2>
+<div class="outline-text-2" id="text-sec:examples">
+</div>
+
+<div id="outline-container-orgf52261a" class="outline-3">
+<h3 id="orgf52261a"><span class="section-number-3">6.1.</span> Character Build: Alchemist</h3>
+<div class="outline-text-3" id="text-6-1">
+<blockquote>
+<p>
+<b>Anna the Alchemist</b>
+</p>
+
+<p>
+Strength: 3
+Dexterity: 3
+Will: 4
+Intelect: 6
+Empathy: 4
+Charisma: 3
+Gear: 6
+Finances: 6
+</p>
+
+<p>
+Traits:
+</p>
+<ul class="org-ul">
+<li>Magical Alchemy</li>
+</ul>
+
+<p>
+Aspects:
+</p>
+<ul class="org-ul">
+<li>Third daughter of an Aristocratic Family 2</li>
+<li>Proud member of the Alchemists Guild of Mistwater 3</li>
+<li>Hobby Horse Rider and Trainer 1</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org0b3ec13" class="outline-3">
+<h3 id="org0b3ec13"><span class="section-number-3">6.2.</span> Character Build: Babarian</h3>
+<div class="outline-text-3" id="text-6-2">
+<blockquote>
+<p>
+<b>Bob the Barbarian</b>
+</p>
+
+<p>
+Strength: 6
+Dexterity: 5
+Will: 4
+Intelect: 3
+Empathy: 2
+Charisma: 4
+Gear: 2
+Finances: 2
+</p>
+
+<p>
+Traits:
+</p>
+<ul class="org-ul">
+<li>Cold Resistance</li>
+<li>Plot Armor: Can prevent getting a damaging aspect up to one time per scene.</li>
+</ul>
+
+<p>
+Aspects:
+</p>
+<ul class="org-ul">
+<li>Member of the isolated Nomads of the eastern steppes 2</li>
+<li>Best Fighter of his tribe and wrestling champion 3</li>
+<li>Gambler 1</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orga287c5a" class="outline-3">
+<h3 id="orga287c5a"><span class="section-number-3">6.3.</span> Character Build: Generic Citizen</h3>
+<div class="outline-text-3" id="text-6-3">
+<blockquote>
+<p>
+Strength: 3
+Dexterity: 3
+Will: 3
+Intellect: 3
+Empathy: 3
+Charisma: 3
+Gear: 3
+Finances: 3
+</p>
+
+<p>
+Traits:
+none
+</p>
+
+<p>
+Aspects:
+none
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org67bdb3d" class="outline-3">
+<h3 id="org67bdb3d"><span class="section-number-3">6.4.</span> Character Build: Shapeshifting Durid</h3>
+<div class="outline-text-3" id="text-6-4">
+<blockquote>
+<p>
+Strength: 4
+Dexterity: 4
+Will: 5
+Intellect: 3
+Empathy: 3
+Charisma: 4
+Gear: 3
+Finances: 2
+</p>
+
+<p>
+Traits:
+</p>
+<ul class="org-ul">
+<li>druidic magic</li>
+<li>Magical alchemy</li>
+<li>Shapeshifting</li>
+<li>Seer</li>
+</ul>
+
+<p>
+Aspects:
+</p>
+<ul class="org-ul">
+<li>Shapeshifting Druid 4</li>
+<li>Protector of the Ancient Grove 3</li>
+<li>Knowledgeable in the alchemy of the gifts of nature 2</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org9e2858a" class="outline-3">
+<h3 id="org9e2858a"><span class="section-number-3">6.5.</span> Character Build: Space Pirate</h3>
+<div class="outline-text-3" id="text-6-5">
+<blockquote>
+<p>
+Strength: 3
+Dexterity: 3
+Will: 4
+Intellect: 5
+Empathy: 3
+Charisma: 4
+Gear: 3
+Finances: 4
+</p>
+
+<p>
+Traits:
+</p>
+<ul class="org-ul">
+<li>Bionic Eye with super zoom level and infrared vision. (7 CP)</li>
+<li>Bionic Leg (1 CP)</li>
+</ul>
+
+<p>
+Aspects:
+</p>
+<ul class="org-ul">
+<li>Has lift in space all his life 2</li>
+<li>If the captain ordered it it has to be done 2</li>
+<li>Space engineer 1</li>
+<li>Gambler 2</li>
+<li>Really good with the needle 1</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org8cdb3ba" class="outline-3">
+<h3 id="org8cdb3ba"><span class="section-number-3">6.6.</span> Character Build:</h3>
+</div>
+
+<div id="outline-container-org0c00b18" class="outline-3">
+<h3 id="org0c00b18"><span class="section-number-3">6.7.</span> Example: Ambushed by Goblins</h3>
+<div class="outline-text-3" id="text-6-7">
+<p>
+<b>GM</b> is the Game Master Mathew controlling the 3 goblins (P: 2, M; 1, S: 1, Life of Banditry 1)
+</p>
+
+<p>
+<b>A</b> is the player Anna with her character Amy (P: 3,M: 6,S: 4, Proud member of the Alchemists Guild of Mistwater 3)
+</p>
+
+<p>
+<b>B</b> is the player Ben with his character Boris (P: 6,M: 4,S: 3, Best Fighter of his tribe and wrestling champion 3, Member of the isolated Nomads of the eastern steppes 2)
 </p>
 
 <p>
 <b>GM:</b> As you walk along the forest trail please roll for perception with your will.
 </p>
 <ul class="org-ul">
-<li>GM Rolls 3*2d|2 = 3 for the 3 goblins trying to ambush</li>
-<li>A Rolls 6d|1 =  3</li>
-<li>B Rolls 4d|3 =  3</li>
+<li>GM rolls 6d = 4 for the 3 goblins trying to ambush</li>
+<li>A rolls 4d =  4</li>
+<li>B rolls 6d = 10</li>
 </ul>
 
 <p>
@@ -1322,49 +1602,94 @@ Break these rules if you want.
 </p>
 
 <p>
-<b>GM:</b> roll for intimidation with charisma, you can use your barbarian skill for it. The story sounds very much like what a barbarian would do.
-<b>B:</b> 3d1|3 = 1
+<b>GM:</b> roll for intimidation with charisma, you can use your barbarian aspect for it. The story sounds very much like what a barbarian would do.
+</p>
+<ul class="org-ul">
+<li>B rolls 6d = 2</li>
+<li>GM rolls 3d = 5</li>
+</ul>
+
+<p>
+<b>GM:</b> They block with their empathy. Sorry Ben, the goblins are not convinced. They jump out of the bushes.
 </p>
 
 <p>
-<b>GM:</b> Blocks with the goblins empathy 3d|1 = 1. Sorry Ben, the goblins are not convinced. They jump out of the bushes.
 <b>A:</b> Can i have prepared a smoke bomb?
 </p>
 
 <p>
-<b>GM:</b> Sure make a retroactive check for your alchemy.
+<b>GM:</b> Ok, make a retroactive check for your alchemy.
+</p>
+<ul class="org-ul">
+<li>A rolls 9d = 6 with an "and"</li>
+</ul>
+
+<p>
+<b>A:</b> It should cover an area with smoke. For the and, how about it also causes coughing.
 </p>
 
 <p>
-<b>A:</b> 6d|3 = 3 It can cause 3 disadvantage to an enemy or how about 1 disadvantage to 3.
+<b>GM:</b> Sounds good. As i said the goblins jump out of the bushes and attack, still thinking that you don't expect them. Lets start the turn order. Anna, Ben you go first. Since you have equal values decide among yourself who begins.
 </p>
 
 <p>
-<b>GM:</b> Sure. As i said the goblins jump out of the bushes and attack, still thinking that you don't expect them. They use all 6 dice to attack Ben since he is the biggest 6d|2 = 1.
+<b>A:</b> I throw the bomb at them. I use 1d and the smoke bomb. I want it to cover a zone.
+</p>
+<ul class="org-ul">
+<li>A rolls 7d = 5 =&gt; the smoke aspect has strength 5/2 = 2</li>
+</ul>
+
+<p>
+<b>GM:</b> The goblins dont expect this and dont try to defend. I will add "covered in irritating smoke 2" to them.
 </p>
 
 <p>
-<b>A:</b> I throw the bomb and try to attack one of the goblins with one die.
+<b>B:</b> I attack with my axe. I use 3 of my strength dice and my fighting aspect.
+</p>
+<ul class="org-ul">
+<li>B rolls 6d = 0 "and"</li>
+</ul>
+
+<p>
+<b>GM:</b> During the attack you step partially into the smoke and breathe in some of it. I give you the aspect "coughing 2". The goblins attack. They rolled 5 please defend ben.
+</p>
+<ul class="org-ul">
+<li>GM rolls 9d-2d = 7d = 5</li>
+</ul>
+
+<p>
+<b>A:</b> I want to assist in bens defense.
+</p>
+<ul class="org-ul">
+<li>A rolls 2d = 3</li>
+<li>B rolls 6d-2d = 4d = 3</li>
+</ul>
+
+<p>
+<b>GM:</b> Together you manage to defend with 6 against 5. Next round. It is your turn.
 </p>
 
 <p>
-<b>GM:</b> Roll on dexterity to see if you throw well. Once success is enough.
+<b>B:</b> I attack
+</p>
+<ul class="org-ul">
+<li>B rolls 4d + 3 = 9</li>
+<li>GM rolls 7d = 4</li>
+</ul>
+
+<p>
+<b>GM:</b> You kill two of them outright.
 </p>
 
 <p>
-<b>A:</b> 2d|3 = 2 and 1d|1 = 1 full success on everything. 
+<b>A:</b> I attack the remaining one.
 </p>
+<ul class="org-ul">
+<li>A rolls 3d = 1</li>
+</ul>
 
 <p>
-<b>GM:</b> congrats starting with next round all goblins have 1 disadvantage and you will hit one of them immediately. Ben?
-</p>
-
-<p>
-<b>B:</b> I defend of corse, but take 1 die to kill one of the goblins. 5d|3=4 and 1d|3=0 so 4 do block and 0 to hit.
-</p>
-
-<p>
-<b>GM:</b> Ok as the goblins jump out Amy stabs one with her rapier (2m) killing it and Boris not only jumps out of the way of their attacks but also cleaves one of them in two and injures the last. Next round: The remaining Goblin tries to flee and block whatever it can.
+<b>GM:</b> After this. He will try to flee.
 </p>
 
 <p>
@@ -1372,124 +1697,266 @@ Break these rules if you want.
 </p>
 
 <p>
-<b>B:</b> Not so fast. I try to give him one. 6d|3 = 3
-</p>
-
-<p>
-<b>GM:</b> There is no way it can block that. You give the goblin the final blow. Not only is there no more noise in the bushes now but the street is also painted red.
+<b>GM:</b> The goblin runs away and soon the smoke dissipates and the street is silent once more.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org17351ff" class="outline-3">
-<h3 id="org17351ff"><span class="section-number-3">5.2.</span> Hacker duel</h3>
-<div class="outline-text-3" id="text-5-2">
-<p>
-<b>GM:</b> is the Game Master Mathew controlling the Automatic Security System of Evilcorp (P:-, M:8, S:1, R: 8, Computer Security 3, Military Tactics 3)
-</p>
 
-<p>
-<b>A:</b> is the player Andy controlling the hacker Atom (P:3, M:10, S:6, R:4, Netrunner 4, Social Engineering 3, Mercenary Tactics 3)
-</p>
 
-<p>
-<b>GM:</b> your team just called in. They are about 1 hour away from the target. Do you have any last minute preparations to do?
-</p>
+<div id="outline-container-orgb0f3aa3" class="outline-3">
+<h3 id="orgb0f3aa3"><span class="section-number-3">6.8.</span> Example: Hacker duel</h3>
+</div>
 
-<p>
-<b>A:</b> I want to gain access to the power station.
-</p>
-
-<p>
-<b>GM:</b> Make a check. Difficulty is 3.
-</p>
-
-<p>
-<b>A:</b> 10d|4 = 4 That works. I would like to prepare a power shutoff, just in case.
-</p>
-
-<p>
-<b>GM:</b> All right. You have some time left. Anything else you want to do?
-</p>
-
-<p>
-<b>A:</b> Start a drone to get a better overview.
-</p>
-
-<p>
-<b>GM:</b> All right. The team has now reached the perimeter. They breach the fence and move forward through the container yard. From your eyes in the sky you can see multiple guards moving in that area.
-</p>
-
-<p>
-<b>A:</b> I guide my team through the guards.
-</p>
-
-<p>
-<b>GM:</b> Make a check against 8d|3 = 4
-</p>
-
-<p>
-<b>A:</b> doesn't my team help me with that? And can i use my social engineering to maybe help out?
-</p>
-
-<p>
-<b>GM:</b> Okay lets see, you get 5d|3 = 1 from you your team on the ground and the social engineering would take a retroactive check.
-</p>
-
-<p>
-<b>A:</b> Okay then i have called in before ordering some pizza to that place, hopefully keeping some of the guards in the office. I use my social engineering 6d|3 = 1. That worked. And now for the tactics 10d|3 = 5 plus the help from the team and the pizza makes 7 against the 4 means 3 points left. Can i create some effect?
-</p>
-
-<p>
-<b>GM:</b> Okay, what do you want to achieve?
-</p>
-
-<p>
-<b>A:</b> Lets blind those fuckers. I want to plant some EMPs on their equipment.
-</p>
-
-<p>
-<b>GM:</b> Wouldn't that alarm them that something is up?
-</p>
-
-<p>
-<b>A:</b> Not if we add a trigger. The effect "blinding" and "trigger" should add up to 3. Does that work?
-</p>
-
-<p>
-<b>GM:</b> Sounds good to me. Alright your team has reached the back entrance and is about to break into the building. They call in "Over-watch, we have a problem. There is a combination lock that was not in the schematics. Please advice."
-</p>
-
-<p>
-<b>A</b> "Give me a sec." Hmm, their security system is state of the art. It might be easier to manipulate the people there. Can i find out who installed the system? "Hey guys, is there any manufacturer branding on the lock. Send me a recording."
-</p>
-
-<p>
-<b>GM:</b> "Roger" Shortly after you get a complete video recording of the locking system. It indeed includes the manufacturer branding.
-</p>
-
-<p>
-<b>A</b> Can i find out who installed it?
-</p>
-
-<p>
-<b>GM:</b> This is a public institution. For transparency reasons they need to make reports on their expenses. So yea. But it will take some time.
-</p>
-
-<p>
-<b>A</b> "Guys, try to hide. This will take a few minutes.". Once i find the manufacturer i want to call them "Hello, i am Steve from Evilcorp. You installed this door lock here last month. This fucking piece of crap does not work any more. .." i want to get them to tell me the code or a way to overwrite it. Social engineering check 6d|3 = 3
-</p>
-
-<p>
-<b>GM:</b> Lets see how helpfull they are 4d|3 = 1. You get them to repeat the default code to you. Once your team trys it they call "You are a wizzard. That code worked. We are in.". On your screen you see how they enter the building. For the next few minutes there is silence, then the alarm goes off. &#x2026;
-</p>
+<div id="outline-container-orgec7ad4a" class="outline-3">
+<h3 id="orgec7ad4a"><span class="section-number-3">6.9.</span> Example: Court Case</h3>
+<div class="outline-text-3" id="text-6-9">
+</div>
 </div>
 </div>
 
-<div id="outline-container-org1a5b5c2" class="outline-3">
-<h3 id="org1a5b5c2"><span class="section-number-3">5.3.</span> Court Case</h3>
-<div class="outline-text-3" id="text-5-3">
+<div id="outline-container-org308bc93" class="outline-2">
+<h2 id="org308bc93"><span class="section-number-2">7.</span> Short form rules</h2>
+<div class="outline-text-2" id="text-7">
 </div>
+<div id="outline-container-org7c7f746" class="outline-3">
+<h3 id="org7c7f746"><span class="section-number-3">7.1.</span> Attributes</h3>
+<div class="outline-text-3" id="text-7-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Category</b></th>
+<th scope="col" class="org-left"><b>Attribute</b></th>
+<th scope="col" class="org-left"><b>Description</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Physical</td>
+<td class="org-left">Strength</td>
+<td class="org-left">strength and hardiness</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Dexterity</td>
+<td class="org-left">agility, speed, precision</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Mental</td>
+<td class="org-left">Will</td>
+<td class="org-left">perseverance, attention</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Intellect</td>
+<td class="org-left">intelligence, knowledge</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Social</td>
+<td class="org-left">Empathy</td>
+<td class="org-left">understanding people</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Charisma</td>
+<td class="org-left">interacting with people</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Resources</td>
+<td class="org-left">Gear</td>
+<td class="org-left">Gear you have prepared</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Finances</td>
+<td class="org-left">Money and investments</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org5eff9e1" class="outline-3">
+<h3 id="org5eff9e1"><span class="section-number-3">7.2.</span> Aspects</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li>Description: Free form text</li>
+<li>Value: Positive whole number. Is the size of the dice pool of the aspect.</li>
+<li>Resistance: Positive whole number or zero, can not be higher than the value.</li>
+<li>Cost in aspect points (AP):
+<ul class="org-ul">
+<li>Aspects value in AP</li>
+<li>+1 AP for each point of resistance</li>
+<li>costs double if it affects an entire zone or group</li>
+<li>costs half if it lasts only 1 round</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfffe3ea" class="outline-3">
+<h3 id="orgfffe3ea"><span class="section-number-3">7.3.</span> Checks</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li>The pool size P is the sum of an attribute and all applicable helping aspects minus all applicable hindering aspects.</li>
+<li>The factor F is P / 3 with the remainder being R</li>
+<li>Roll 3d{0,1,2} or pull one card (values 0-6)</li>
+<li>Multiply by the factor F</li>
+<li>Add the remainder R</li>
+<li>Subtract the difficulty</li>
+<li>The result are the AP of your check. Spend them on an aspect.</li>
+<li>Roll 1 additional d6.
+<ul class="org-ul">
+<li>on 1 add "but ..". Create an aspect worth the factor F in AP</li>
+<li>on 6 add "and ..". Create an aspect worth the factor F in AP</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org613f675" class="outline-3">
+<h3 id="org613f675"><span class="section-number-3">7.4.</span> Contest</h3>
+<div class="outline-text-3" id="text-7-4">
+<ul class="org-ul">
+<li>Turn order: the one with the highest pool size begins. He can make actions immediately or at any later point in the turn.</li>
+<li>Actions are checks that try to create an aspect.</li>
+<li>Reactions are checks that try to prevent an aspect. Reactions can be taken at any time but must deal with an action.</li>
+<li>If you take multiple (re)actions the sum of all used attribute dice can not exceed the highest used attribute value. For each individual attribute the sum can not exceed the attributes value.</li>
+<li>To act together you can sum either the AP or the dice pools.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org788d86c" class="outline-3">
+<h3 id="org788d86c"><span class="section-number-3">7.5.</span> Karma</h3>
+<div class="outline-text-3" id="text-7-5">
+<ul class="org-ul">
+<li>Maximum 3 Karma per player</li>
+<li>Start each session with 2</li>
+<li>Spend 1 karma to ..
+<ul class="org-ul">
+<li>set any checks roll to the desired value</li>
+<li>set the fate die to the desired value</li>
+<li>add an aspect to a scene</li>
+<li>ignore an aspect being used</li>
+</ul></li>
+<li>Gain 1 karma by ..
+<ul class="org-ul">
+<li>having a character aspect used against you</li>
+<li>failing a check and having the fate die show "and .."</li>
+<li>begin compelled to do something because of an aspect</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3875d69" class="outline-3">
+<h3 id="org3875d69"><span class="section-number-3">7.6.</span> Traits</h3>
+<div class="outline-text-3" id="text-7-6">
+<ul class="org-ul">
+<li>Break or bend the rules of the game world or the game in some way. Pay an appropriate price in character points (typically 7) one to gain a trait.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org19fdad5" class="outline-3">
+<h3 id="org19fdad5"><span class="section-number-3">7.7.</span> Character Creation</h3>
+<div class="outline-text-3" id="text-7-7">
+<ul class="org-ul">
+<li>Spend 100 character points (CP)</li>
+<li>an attribute point costs 2 CP</li>
+<li>An aspect point (AP) costs 2 CP</li>
+<li>A Trait typically costs 7 CP</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7e8e921" class="outline-3">
+<h3 id="org7e8e921"><span class="section-number-3">7.8.</span> Movement and Range</h3>
+<div class="outline-text-3" id="text-7-8">
+<ul class="org-ul">
+<li>Split the area into roughly 3-5 zones.</li>
+<li>Characters can move 1 zone each round.</li>
+<li>Ranged actions can reach 1-2 zones far.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbe46105" class="outline-3">
+<h3 id="orgbe46105"><span class="section-number-3">7.9.</span> Items and Equipment</h3>
+<div class="outline-text-3" id="text-7-9">
+<ul class="org-ul">
+<li>Items have a description</li>
+<li>The resource value (RV) is an abstraction for the price or usefulness.
+<ul class="org-ul">
+<li>If the item has an aspect then the RV is at least AP.</li>
+</ul></li>
+<li>Equipment:
+<ul class="org-ul">
+<li>Character have as many items on them as they can reasonably carry or keep in their household</li>
+<li>The RV of the items does not exceed the attribute gear</li>
+</ul></li>
+<li>Buying: Make a risky finances check on the RV of the item</li>
+<li>Crafting:
+<ul class="org-ul">
+<li>Needs tools and resources (worth RV-1)</li>
+<li>Make a check with the items RV as difficulty</li>
+<li>On a fail the resources may be lost</li>
+</ul></li>
+<li>Gathering: Make a check with RV of the gathered items as difficulty</li>
+<li>Bribing: You need their finances value in RV to bribe someone.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfad808f" class="outline-2">
+<h2 id="orgfad808f"><span class="section-number-2">8.</span> Scenario: The Endless Underground</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>An endless underground city.</li>
+<li>Older than known history</li>
+<li>Endless to the best knowledge of any known inhabitant</li>
+<li>Myths about a place called overground. A place without a ceiling</li>
+<li>countless factions live in the city.#</li>
+<li>Some build new rooms and tunnels but most just reuse the existing ones.</li>
+<li>Some plants (and mushrooms) can gain energy from heat, water and minerals.</li>
+<li>Some plants give light</li>
+<li>Many plants produce oxigen (just like overground)</li>
+<li>Underground denisens
+<ul class="org-ul">
+<li>Dwarfs</li>
+<li>Orks</li>
+<li>Goblins</li>
+<li>Drow</li>
+<li>Spiders</li>
+<li>Bugs</li>
+<li>Reptiles</li>
+<li></li>
+</ul></li>
+</ul>
+
+
+<font size=0.5>This product is licensed under the ORC License held in the License of Congress at TX000 [number tbd] and available online at various locations including www.chaosium.com/orclicense, www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein. This product is the original work of Lukas Zumvorde. If you use my ORC Content, please also credit me.</font>
 </div>
 </div>
 </div>
