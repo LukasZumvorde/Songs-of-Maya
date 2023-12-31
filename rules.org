@@ -104,6 +104,11 @@
 #+LATEX_CLASS: article
 #+LATEX: {\rowcolors{1}{grey!20}{grey!10}
 # #+LATEX: \begin{multicols}{2}[]
+#+LATEX_HEADER: \let\oldtableofcontents\tableofcontents
+#+LATEX_HEADER: \renewcommand\tableofcontents{
+#+LATEX_HEADER:   \oldtableofcontents
+#+LATEX_HEADER:   \clearpage
+#+LATEX_HEADER: }
 
 
 * COMMENT TODOs
@@ -112,63 +117,72 @@
 * COMMENT Play test questions
 Does the money and item system feel good?
 
+
+#+LATEX: \newpage
 * Introduction
 
 Primordial waters is a generic, light, and abstract role playing rule set with a focus on keeping the game balanced while maintaining and even promoting creative story telling. It leans towards a cinematic play style.
 
 ** Goals
 
-**** Rules Light
+- Rules Light
+- Flexible
+- World Agnostic
+- Consistent Probability distribution
+- Easy Preparation
+- Little Bookkeeping
+
+**** COMMENT Rules Light
 
 The intend is for the rules to be as small as possible given the other goals. It should be easy to get into the game and easy to check the rules if you are not sure how a situation should be handled.
 
-**** Easy to Modify
+**** COMMENT Easy to Modify
 
 It should be easy to create useful house rules to make the game fit your campaign.
 
-**** World Agnostic
+**** COMMENT World Agnostic
 
 The game should work with any game world or type of story reasonably well.
 
-**** Scalable characters
+**** COMMENT Scalable characters
 
 It should be possible to play both super-humans and commoners. It should also be possible to use the same rules to display rats vs humans or humans vs. giant spaceships. Imagine a giant space battle taking place outside and the group of players running around as mere humans performing acts of sabotage to tip the battle in their sides favor. 
 
-**** No action economy
+**** COMMENT No action economy
 
 It should be possible to do multiple things simultaneously in a round. It should be a trade off. This adds a new dimension of interesting decision making to the game.
 
-**** Constistent propability distribution
+**** COMMENT Constistent propability distribution
 
 No matter how powerful a character is, The probability distribution for his die rolls should be consistent and allow for interesting scenarios to occur. It should still feel fair.
 
-**** Easy Preparation
+**** COMMENT Easy Preparation
 
 The game should allow GMs to prepare new characters and challenges easily and quickly. It should get out of his way, but still support him in keeping the games balance.
 
-**** Creative Character Build
+**** COMMENT Creative Character Build
 
 Players should be able to create nearly any character they like. It should also be possible to change the character at any point in the campaign to reflect the characters development. In this the rules should invite creativity and just ensure the games balance.
 
-**** Support interesting storys
+**** COMMENT Support interesting storys
 
 The rules should support the creation of interesting and consistent storys by providing anker points for unexpected results.
 
-**** Keep Game Balance
+**** COMMENT Keep Game Balance
 
 In order for all to enjoy the game it must feel fair. Player characters need to feel similarly useful and encounters with NPCs or challenges must feel beatable but challenging.
 
-**** Rules Out of your way
+**** COMMENT Rules Out of your way
 
 The rules should be there to help you keep the games balance, but they should not prevent you from creating the story you want to create.
 
-**** No extensive Bookkeeping
+**** COMMENT No extensive Bookkeeping
 
-The game should be playable without extensive bookkeeping. IT should not be necessary to fill out a multiple pages long character sheet. During the game it should not be necessary to calculate or evaluate many values.
+The game should be playable without extensive bookkeeping. It should not be necessary to fill out a multiple pages long character sheet. During the game it should not be necessary to calculate or evaluate many values.
 
 ** Inspirations
 
-This game did not come from nothing. Many other games had an impact on its creation. Some of the most impact full ones are the following.
+This game did not come from nothing. Many other games had an impact on its creation. Some of the most impactfull ones are the following.:
 
 This games systems for aspects and movement were heavily inspired from the Fate Core system.
 Karma was originally inspired by Fate Cores Fate Points, but EZD6 had the better name for the concept.
@@ -180,20 +194,16 @@ The optional rule "Only Players Roll" is taken from the Cypher System.
 
 First rule of Gaming: Have fun. If the rules hinder you from having fun then screw the rules.
 
-Second rule of Gaming: When in doubt use common sense. The rules will never be perfect. If something is illogical when using the rules or if no rules exists for the situation then feel free to find your own ruling. 
+Second rule of Gaming: When in doubt use common sense. The rules will never be perfect. If something is illogical when using the rules or if no rules exists for the situation then feel free to find your own. 
 
 Third rule of Gaming: Use the aspects value as a guideline and be creative with what it could mean. Does a flame wall having a value of 4 mean that it has a difficulty of 4 to jump over it or does it attack anyone jumping over with 4 dice? Do what fits your story. 
 
 
 ** Conventions
+:PROPERTIES:
+:CUSTOM_ID: sec:conventions
+:END:
 
-In the book we use the following shorthands.
-
-A $N d_0 X$ means rolling dice with 0 to X as possible results N times and adding the results. Since there are very few dice that that have a 0 as a possible result you can use other methods to get the result. I suggest to draw a playing card.
-
-To use Playing cards instead of dice you can do the following. Take a standard 54 card deck of playing cards. Remove the 2 Jokers from it. Shuffle and pick a card. If it is a number then take the number as a result. Aces count as 1. Jacks count as 11, Kings count as 12. Queens count as 0 since Q looks most like a 0.
-
-The rules often mention a dice pool. This pool is hypothetical. It means if you always used a number of  $d_0 2$ to perform any check this would be your dice pool. A $d_0 2$ has an average result of $1$. Therefore the dice in the dice pool is always exactly the average result of a check. This does not mean you have to roll your checks in that way.
 
 
 ** What dice to roll
@@ -201,13 +211,16 @@ The rules often mention a dice pool. This pool is hypothetical. It means if you 
 :CUSTOM_ID: sec:dice
 :END:
 
-- $1 d_0 2$ is worth exactly 1 dice from the pool (this is the default)
-- $1 d_0 N$ is worth $\frac{N}{2}$ dice from the pool
-- $1 d N$ is worth $\frac{N+1}{2}$ dice from the pool
-- Take the average: $N$ constant points is worth $N$ dice from the pool
-- Any dice multiplied by a factor $F$ is worth the price of a single dice multiplied by this factor $F$
+We use a pool of $d_0 2$ to roll, although optional rules for [[#sec:alternativedicemechanics][alternative dice mechanics]] exist and are recommended once you get the hang of things. Since it is hard to find dice with the sides 0, 1, and 2 I recommend 2 alternatives.
 
-The default is to use $F \times 3 d_0 2 + c$. This means that the factor $F$ is the dice pool divided by 3 with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice pool.
+Option 1: Use a $d6$.
+- 1 or 2 get interpreted as a 0
+- 3 or 4 get interpreted as a 1
+- 5 or 6 get interpreted as a 2
+
+Option 2: Use Fate dice. Fate dice have 3 different kinds of sides. $+$, $-$ and nothing. Just count the number of lines. This means a $+$ becomes a 2, a $-$ becomes a 1 and an empty side becomes a $0$.
+
+Sometimes it makes no sense to roll dice, but we want a constant value. Then we can =take the average=. This means instead of rolling dice we just take the dice pool as if it were the result of a roll. This is fair since it is also the average result of a roll.
 
 #+LATEX: \newpage
 * Rules
@@ -240,32 +253,32 @@ The attributes value is the basis for the dice pool one has available for [[#sec
 :CUSTOM_ID: sec:aspects
 :END:
 
-Aspects are a combination of a descriptors and a value. When invoked the aspects value is added or subtracted from the number of dice rolled for [[#sec:checks][checks]]. An aspect is always bound to something. Be it a player, a NPC, an object or even a zone. Be creative with aspects. Try to bind their effects to the value and they should stay balanced enough.
+Aspects are a combination of a descriptors and a value. When invoked the aspects value is added or subtracted from the dice pool  for [[#sec:checks][checks]]. An aspect is always bound to something. Be it a player, a NPC, an object or even a zone. Be creative with aspects. Try to bind their effects to the value and they should stay balanced enough.
 
 **** Creating an Aspect
 
-An aspect can be created at any time by the GM. It can also be created by any player, NPC or even object. To create an aspect all but the GM need to make a check. The aspect points (AP) from this check can be used to create an aspect. Increasing an aspects value by 1 costs 1 point. The description of the aspect can be decided freely. 
+An aspect can be created at any time by the GM. It can also be created by any player, NPC or even object. To create an aspect all but the GM need to make a check. The aspect points (AP) from this check can be used to create an aspect. Increasing or decreasing an aspects value by 1 costs 1 AP (aspect point). The description of the aspect can be decided freely. 
 
 #+ATTR_LATEX: :environment quote
 #+begin_example
-Arthur the mage wants to enflame the gras around him to channel the enemies into a one on one battle with his Companions. The GM likes this idea and creates the aspect "Dry Grass 1" that Arthur can use. Arthur decides to cast his spell, succeeds with 3 AP, and creates the aspect "Wall of Fire 3". Now any enemy has to either go around the wall or get burned. If an enemy tires to jump through, they have to roll on it against the Fires 3 dice. If the fire succeeds they get burned.
+Arthur the mage wants to inflame the grass around him to channel the enemies into a one on one battle with his Companions. The GM likes this idea and creates the aspect "Dry Grass 1" that Arthur can use. Arthur decides to cast his spell, succeeds with 3 AP, and creates the aspect "Wall of Fire 3". Now any enemy has to either go around the wall or get burned. If an enemy tires to jump through, they have to roll on it against the Fires 3 dice. If the fire succeeds they get burned.
 #+end_example
 
 **** Using Aspects
 
-Whenever it makes narrative sense an aspect can be used. When used an aspect adds its value to the number of points that can be used for a check. It is also possible to call out an aspect to be used to hinder a check. Then the value is subtracted from the points instead. An aspect can both be used for actions and reactions but never at the same time. If you use aspects in a contest make sure that aspects are not used more than once per round by a character or their points are distributed over different actions.
+Whenever it makes narrative sense an aspect can be used (also called invoked). When used an aspect adds its value to the number of points that can be used for a check. It is also possible to call out an aspect to be used to hinder a check. Then the value is subtracted from the points instead. An aspect can both be used for actions and reactions but never at the same time. If you use aspects in a contest make sure that aspects are not used more than once per round by a character or their points are distributed over different actions.
 
 **** Area Aspects
 
-An aspect can affect a zone. This means it can be invoked for all in the zone. To create such an aspect costs double the points. Exceptions may be made by the GM. 
+An aspect can affect a zone. This means it can be invoked for all in the zone. To create such an aspect costs double the AP (aspect points). Exceptions may be made by the GM. 
 
 **** Multiple Targets
 
-If an aspect impacts multiple targets it costs double. Exceptions may be made by the GM.
+If an aspect impacts multiple targets it costs double the AP (aspect points). Exceptions may be made by the GM.
 
 **** Duration of Aspects
 
-An aspect can be over within a round or it can last longer. Normally aspects last at least a scene long. If your aspect should last longer it should cost double. If it should only last for a round the costs half. Exceptions may be made by the GM. In general it can be said, that an aspect lasts as long as it makes sense.
+An aspect can be over within a round or it can last longer. Normally aspects last at least a scene long. If your aspect should last longer it should cost double the AP (aspect points). If it should only last for a round the costs half. Exceptions may be made by the GM. In general it can be said, that an aspect lasts as long as it makes sense.
 
 **** Acting Aspects
 
@@ -282,14 +295,14 @@ An aspect can have resistance to being removed. The resistance is subtracted fro
 
 #+ATTR_LATEX: :environment quote
 #+begin_example
-A heavy door blocks the way. The GM creates the aspect "Fortified Door 5[2]". This means the aspect has a value of 5 with a resistance of 2. The players try to break through with pure strength. On their first try they get 4 AP. 2 get absorbed by the doors resistance and the rest weakens the door. The door s aspect is now "Fortified Door 3[2]". On their second try the players get 6 AP and break throgh.
-If the players had decided to pick the lock the GM may had ignored the restistance value.
+A heavy door blocks the way. The GM creates the aspect "Fortified Door 5[2]". This means the aspect has a value of 5 with a resistance of 2. The players try to break through with pure strength. On their first try they get 4 AP. 2 get absorbed by the doors resistance and the rest weakens the door. The doors aspect is now "Fortified Door 3[2]". On their second try the players get 6 AP and break through.
+If the players had decided to pick the lock the GM may had ignored the resistance value.
 #+end_example
 
 
 **** Character Aspects
 
-Aspects can also be bound to a character and be bought with CP. If an aspect is mostly negative in nature it may give you points instead. Character aspects can be invoked by the GM to make the character do something. The player can always decline this, but this costs one karma.
+Aspects can also be bound to a character and be bought with CP (character points). If an aspect is mostly negative in nature it may give you CP instead. Character aspects can be invoked by the GM to make the character do something. 
 
 **** Damage
 
@@ -308,17 +321,16 @@ Checks are rolled when the outcome of an action is not certain. Each check is bo
 # - If you have less than 3 points then roll 1 dice for each point.
 # - Divide the number of points by 3 with a rest. The result is called the factor F and the rest of the division is called R.
 # - Roll 3 six sided dice. Count a 1 and 2 as 0, count a 3 and 4 as 1 and count a 5 and 6 as 2. Alternatively roll fudge dice instead of d6, and count the number of lines.
-# - Multiply the sum of the dice witht the factor F and add the rest R. The result it your checks attribute points value (AP).
+# - Multiply the sum of the dice with the factor F and add the rest R. The result it your checks attribute points value (AP).
 
-Add the points in the relevant attribute and all applicable aspects together. This is your dice pool. Use the rules in [[#sec:dice][What dice to roll]] to determine what dice to roll. You get the result of the roll in aspect points (AP).
+Add the points in the relevant attribute and all applicable [[#sec:aspects][aspects]] together. This is your dice pool. You get the result of the roll in aspect points (AP).
 # If the check had a difficulty subtract it from the AP.
 If the aspect points are zero or negative the check fails.
 # If the aspect points are exactly 0 the check succeeds at a cost. Create a negative aspect worth the factor F in AP.
 
 **** Difficulty
 # Difficulty reduces the number of aspect points. A good difficulty for a check is the sice of the dice pool P a player has. Reduce this by the factor F for easy checks and increase it by the factor F for hard checks.
-The checks difficulty is the sum of all aspects that are to be overcome or created.
-
+The checks difficulty is the sum of all aspects that are to be overcome or created. This means that a door having the difficulty 3 to be opened is the same thing as the door having the aspect "Closed 3" on it. 
 
 **** Collaborative checks
 Everyone rolls individually and then sum together all AP.
@@ -327,20 +339,7 @@ Everyone rolls individually and then sum together all AP.
 If a check is risky the character might incur something bad if the check fails. If the check fails a negative aspect is created worth the difficulty in points. The minimum is 1. You can not take the average on a risky check.
 
 **** Taking Time
-Sometimes a check is to difficult to achieve something within 1 check. Then it may be possible to do multiple checks over a longer time to accumulate the points needed. However, you must decide beforehand how many checks you want to take. The AP of all checks are accumulated after considering the difficulty. The GM has a veto right.
-
-**** Unexpected Results
-You roll an additional d6, called the fate die. On a 1 you add a "but .." and create an additional aspect worth the factor F in points that counteracts the result somewhat. On a 6 you add a "and .." and create an additional aspect worth the factor F in points that enhances the result somewhat. The extra die can also be rerolled with a fate point or advantage on the check.
-
-#+begin_quote
-"Success and" during a fight against a goblin. You decapitate the goblin in an intimidating display, Not only does the goblin die but the display also weakens the goblins resolve. Likely they will try to flee after seeing this.
-Aspect: Intimidating display 2.
-#+end_quote
-
-#+begin_quote
-"Success but" during a fight against a goblin. You kill the goblin but are now covered in his blood, This has no effect on the fight itself but it may hinder any piece negotiation or help you when intimidating the remaining enemies.
-Aspect: Covered in Blood 2.
-#+end_quote
+Sometimes a check is to difficult to achieve something within 1 check. Then it may be possible to do multiple checks over a longer time to accumulate the points needed. However, you must decide beforehand how many checks you want to take. The AP of all checks are accumulated after considering the difficulty. The GM has a veto right and can limit the amount of checks.
 
 ** Contest
 :PROPERTIES:
@@ -349,7 +348,7 @@ Aspect: Covered in Blood 2.
 
 The prototypical contest is combat, but the same rules can be used any scenario where multiple parties act in opposition to each other. Be it a diplomatic debate or the hostile takeover of a company. 
 
-A contest is divided into rounds. Each participant in the contest can make one or more actions each round. When it is a participants turn or on any later point in the round they can perform an action.
+A contest is divided into rounds. Each participant in the contest can make one or more checks each round. When it is a participants turn or on any later point in the round they can perform an action.
 
 **** Actions
 An action is a check that tries to create an aspect. Any kind of aspect can be created, based on what fits the scene. You can try to gain an advantageous position, or start a big fire.
@@ -368,14 +367,6 @@ Each round you can take multiple actions and reactions. The total number of poin
 **** Acting together
 When acting together all values are combined and a single combined check is made or alternatively only the AP are combined. To act together all have to act at the same time in the turn order, so effectively at the earliest when the slowest has his turn.
 
-** Karma
-:PROPERTIES:
-:CUSTOM_ID: sec:karma
-:END:
-
-Each player can have up to 3 karma. They can be used at any point in time to change a single die roll (not just your own) to any specific value or to add an interesting aspect to a scene (GM has veto rights). Karma can be recovered by a characters aspect being used against them or as a reward for good role play (anything that brings joy to all players and the GM). Players should start a session with 2 karma.
-
-
 ** Traits
 :PROPERTIES:
 :CUSTOM_ID: sec:traits
@@ -385,21 +376,29 @@ Traits are distinguishing things about the character that allow him to break a r
 
 See the chapter [[#sec:lotraits][List of Traits]] for examples.
 
+** Karma
+:PROPERTIES:
+:CUSTOM_ID: sec:karma
+:END:
+
+Each player can have up to 3 karma. They can be used at any point in time to repeat a single die roll (not just your own) or to add an interesting aspect to a scene (GM has veto rights). Karma can be recovered by a characters aspect or trait being used against them or as a reward for good role play (anything that brings joy to all players and the GM). 
+
+
 ** Character Creation
 :PROPERTIES:
 :CUSTOM_ID: sec:charactercreation
 :END:
 
-Distribute 100 CP on your Attributes, Aspects and Traits.
+Distribute 150 CP on your Attributes, Aspects and Traits.
 
 Use the rules under equipment to limit your starting gear.
 
 Character Advancement:
 You may reward your players with CP (character points) for reaching milestones in the story or simply surviving the session.
 
-- An attribute point costs 4 CP.
-- An Aspect point typically costs 4 CP but can vary based on how specific they are.
-- A Trait typically costs 10 CP but can vary widely. Negative traits can even have a negative price.
+- An attribute point costs 6 CP.
+- An Aspect point typically costs 6 CP but can vary based on how specific they are.
+- A Trait typically costs 15 CP but can vary widely. Negative traits can even have a negative price.
 
 A typical player character will have:
 - all attributes with value 2 on average
@@ -427,15 +426,15 @@ Items may have an aspect associated with them. If you want items to have any spe
 A few examples can be found in the section [[#sec:loitems][List of Items]].
 
 #+ATTR_LATEX: :align c|l|l
-| *RV* | *Description*  | *Example*                   |
-|------+----------------+-----------------------------|
-|    0 | Free           | a club                      |
-|    1 | Cheap          | simple clothes, basic tools |
-|    2 | Affordable     | regular car, apartment      |
-|    3 | Costly         | regular house               |
-|    4 | Expensive      | sports car                  |
-|    5 | Very Expensive | small airplane              |
-|    6 | Luxurious      | private jet                 |
+| *RV* | *Description*    | *Example*                     |
+|----+----------------+-----------------------------|
+|  0 | Free           | a club                      |
+|  2 | Cheap          | simple clothes, basic tools |
+|  4 | Affordable     | regular car, apartment      |
+|  6 | Costly         | regular house               |
+|  8 | Expensive      | sports car                  |
+| 10 | Very Expensive | small airplane              |
+| 12 | Luxurious      | private jet                 |
 
 **** Armor / Damage Reduction
 There is no Armor but some aspects can act as such. If an aspect can be used in a defensive (re)action, this effectively reduces the amount of AP of the attack. Thus they act like armor. Think of armor items as having the protective aspect on them. If an aspect can be used is up to the GM. So he can decide that the very expensive ballgown can not be used to defend against a bullet.
@@ -443,7 +442,7 @@ There is no Armor but some aspects can act as such. If an aspect can be used in 
 **** Equipment
 Characters can have gear with a value of up to the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
 
-When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check against the RV of what they would like to have in the moment to see if they do. The check is risky and if they fail they get the difference in damage to their Gear attribute until the end of the mission.
+When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check against the RV of what they would like to have in the moment to see if they do. The check is risky and if they fail they get the negative aspect "Packed the wrong stuff" until the end of the mission or until they resupply. 
 
 **** Buying
 Characters can buy new items with a Finances check. The check is risky. The bought item can be treated like an aspect that is created with this check. The GM does not have to let you retry on a fail. If you use items with aspects to do this like the "Treasure" you found during your last adventure you may lose them if you succeed on the check.
@@ -455,7 +454,7 @@ Characters can also build their own items. For that they need the appropriate to
 Resources can be gathered with a check and their RV as difficulty.
 
 **** Creating
-To create an item first give it a short description. Second you determine its value if applicable. Add aspects if applicable. 
+To create an item first give it a short description. Second you determine its value if applicable. Add aspects if applicable. The sum of the aspects AP should not exceed the RV.
 
 **** Bribing
 To Bribe someone you need to give them more than they can normally comfortably afford. This means you need more than their finances value in RV to bribe them.
@@ -469,9 +468,12 @@ To Bribe someone you need to give them more than they can normally comfortably a
 
 Magic gives a huge narrative flexibility to explain aspects. To balance this out any checks made using magic should be considered risky. This means the value of the created aspects has to be defined beforehand. This is taken as the difficulty of the check. If the check fails the magician creates an unwanted likely negative aspect at the value of the difficulty. If he succeeds the created aspect has exactly the predefined value. Depending on the setting a trait might be necessary to cast magic or even a specific kind of magic.
 
+With this magic can still become quite powerful, since one can create several aspects and combine them for bigger spells. For example a mage might make special conjuration candles, draw a pentagram with magic symbols and then use those two aspect to assist in his conjuration spell.
+
 ** Less precise Attributes
 
-Instead of using the Attributes as listed you can use only the Categories. Learning a level in one of the categories costs double of what a level in an attribute would cost.
+Instead of using the attributes as listed you can use only the categories (Physical, Mental, Social, Resources). Learning a level in one of the categories costs double of what a level in an attribute would cost.
+For GMs it might even be useful to combine all attributes into a single value called the CB (capability) for some NPCs. In this case the costs are 8 times that of what a level in an attribute would cost.
 
 ** No Abstraction for Wealth
 
@@ -516,6 +518,100 @@ If you reach bigger dice pools then the calculations may become bothersome. One 
 
 ** Only Players Roll
 If you like you can generally let only players roll the dice. Everyone else will take the average result. This means that in combat only players will roll to hit or roll to block.
+
+** Unexpected Results
+:PROPERTIES:
+:CUSTOM_ID: sec:unexpectedresults
+:END:
+
+Assuming you play with a set of cards. Add the two jokers to the deck. If a joker is drawn then draw again and resolve the check normally. Afterwards, if the joker was red create an aspect worth the difficulty of the check in AP to the characters disadvantage. If the joker was black create create an advantageous aspect instead. The new aspect does not have to be related to the check.
+If a complication has appeared in the scene already you may ignore a joker (GMs choice).
+
+#+begin_quote
+A negative aspect during a mountaineering expedition may be that it starts to rain
+Aspect: heavy rain
+#+end_quote
+
+#+begin_quote
+A positive aspect during a fight against goblins may be that you decapitate the goblin in an intimidating display, Not only does the goblin die but the display also weakens the goblins resolve. Likely they will try to flee after seeing this.
+Aspect: Intimidatin display
+#+end_quote
+
+# You roll an additional d6, called the fate die. On a 1 you add a "but .." and create an additional aspect worth the factor F in points that counteracts the result somewhat. On a 6 you add a "and .." and create an additional aspect worth the factor F in points that enhances the result somewhat. The extra die can also be rerolled with a fate point or advantage on the check.
+
+# #+begin_quote
+# "Success and" during a fight against a goblin. You decapitate the goblin in an intimidating display, Not only does the goblin die but the display also weakens the goblins resolve. Likely they will try to flee after seeing this.
+# Aspect: Intimidating display 2.
+# #+end_quote
+
+# #+begin_quote
+# "Success but" during a fight against a goblin. You kill the goblin but are now covered in his blood, This has no effect on the fight itself but it may hinder any piece negotiation or help you when intimidating the remaining enemies.
+# Aspect: Covered in Blood 2.
+# #+end_quote
+
+** Alternative Dice Mechanics
+:PROPERTIES:
+:CUSTOM_ID: sec:alternativedicemechanics
+:END:
+
+The rules often mention a dice pool. This pool is hypothetical. It means if you always used a number of  $d_0 2$ to perform any check this would be your dice pool. A $d_0 2$ has an average result of $1$. Therefore the dice in the dice pool is always exactly the average result of a check. This does not mean you have to roll your checks in that way. See the following for alternatives.
+
+*** Shorthand notation
+
+A $F \cdot N d_0 X$ means rolling dice with $0$ to $X$ as possible results $N$ times, and adding the results, multiplying the result with $F$. Since there are very few dice that that have a 0 as a possible result you can use other methods to get the result. I suggest to draw a playing card.
+
+*** Playing cards instead of dice
+
+To use Playing cards instead of dice you can do the following. Take a standard 54 card deck of playing cards. Remove the 2 Jokers from it. Shuffle and pick a card. If it is a number then take the number as a result. Aces count as 1. Jacks count as 11, Kings count as 12. Queens count as 0 since Q looks most like a 0.
+
+
+*** Alternative Dice
+
+- $1 d_0 2$ is worth exactly 1 dice from the pool (this is the default)
+- $1 d_0 N$ is worth $\frac{N}{2}$ dice from the pool
+- $1 d N$ is worth $\frac{N+1}{2}$ dice from the pool
+- Take the average: $N$ constant points is worth $N$ dice from the pool
+- Any dice multiplied by a factor $F$ is worth the price of a single dice multiplied by this factor $F$
+
+The default is to use $F \cdot 1 d_0 6 + c$. This means that the factor $F$ is the dice pool divided by $\frac{6}{2} = 3$ with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice pool.
+
+Another alternative is to use a d10 die. Most of them start are actually a $d_0 9$. You can use it as a $d_0 8$ by ignoring any 9 that is rolled or if you use the [[#sec:unexpectedresults][Unexpected Results]] optional rules, treat a 9 as if it were a joker.
+
+If you don't =take the average= then it is advisable to keep the constant points between $-\frac{N}{2}$ and $+\frac{N}{2}$, to keep the window of possible results wide.
+
+# You can use the following tables if you find calculating this bothersome.
+# #+LATEX: \begin{multicols}{2}[]
+# | AP | Normal                | Risky                 |
+# |----+-----------------------+-----------------------|
+# |  1 | $1 \cdot 1 d_0 6 - 2$ | $1 \cdot 1 d_0 6 - 2$ |
+# |  2 | $1 \cdot 1 d_0 6 - 1$ | $1 \cdot 1 d_0 6 - 1$ |
+# |  3 | $1 \cdot 1 d_0 6$     | $1 \cdot 1 d_0 6$     |
+# |  4 | $1 \cdot 1 d_0 6 + 1$ | $2 \cdot 1 d_0 6 - 2$ |
+# |  5 | $1 \cdot 1 d_0 6 + 2$ | $2 \cdot 1 d_0 6 - 1$ |
+# |  6 | $2 \cdot 1 d_0 6$     | $2 \cdot 1 d_0 6$     |
+# |  7 | $2 \cdot 1 d_0 6 + 1$ | $3 \cdot 1 d_0 6 - 2$ |
+# |  8 | $2 \cdot 1 d_0 6 + 2$ | $3 \cdot 1 d_0 6 - 1$ |
+# |  9 | $3 \cdot 1 d_0 6$     | $3 \cdot 1 d_0 6$     |
+# | 10 | $3 \cdot 1 d_0 6 + 1$ | $4 \cdot 1 d_0 6 - 2$ |
+# | 11 | $3 \cdot 1 d_0 6 + 2$ | $4 \cdot 1 d_0 6 - 1$ |
+# | 12 | $4 \cdot 1 d_0 6$     | $4 \cdot 1 d_0 6$     |
+
+# | AP | Normal                | Risky                 |
+# |----+-----------------------+-----------------------|
+# | 13 | $4 \cdot 1 d_0 6 + 1$ | $5 \cdot 1 d_0 6 - 2$ |
+# | 14 | $4 \cdot 1 d_0 6 + 2$ | $5 \cdot 1 d_0 6 - 1$ |
+# | 15 | $5 \cdot 1 d_0 6$     | $5 \cdot 1 d_0 6$     |
+# | 16 | $5 \cdot 1 d_0 6 + 1$ | $6 \cdot 1 d_0 6 - 2$ |
+# | 17 | $5 \cdot 1 d_0 6 + 2$ | $6 \cdot 1 d_0 6 - 1$ |
+# | 18 | $6 \cdot 1 d_0 6$     | $6 \cdot 1 d_0 6$     |
+# | 19 | $6 \cdot 1 d_0 6 + 1$ | $7 \cdot 1 d_0 6 - 2$ |
+# | 20 | $6 \cdot 1 d_0 6 + 2$ | $7 \cdot 1 d_0 6 - 1$ |
+# | 21 | $7 \cdot 1 d_0 6$     | $7 \cdot 1 d_0 6$     |
+# | 22 | $7 \cdot 1 d_0 6 + 1$ | $8 \cdot 1 d_0 6 - 2$ |
+# | 23 | $7 \cdot 1 d_0 6 + 2$ | $8 \cdot 1 d_0 6 - 1$ |
+# | 24 | $8 \cdot 1 d_0 6$     | $8 \cdot 1 d_0 6$     |
+# #+LATEX: \end{multicols}
+
 
 #+LATEX: \newpage
 * Lists
@@ -638,68 +734,70 @@ None of the following lists is exhaustive. They should be taken as examples. You
 :CUSTOM_ID: sec:lonpcs
 :END:
 
+The following are examples of NPCs and monsters. They are all created using the rules for [[#sec:charactercreation][Character Creation]]. 
+
 #+begin_quote
-*Average Citizen* ( CP)
-Ph:3, Me:3, So:3, Re:3
+*Average Citizen* (96 CP)
+Ph:2, Me:2, So:2, Re:2
 #+end_quote
 
 #+begin_quote
-*Goblin* ( CP)
+*Goblin* (75 CP)
 Ph:2, Me:1, So:1, Re:1, Night Vision
 #+end_quote
 
 #+begin_quote
-*Ratling* ( CP)
+*Ratling* (54 CP)
 Ph:1, Me:1, So:1, Re:1, Strength in numbers 1
 #+end_quote
 
 #+begin_quote
-*Wolf* ( CP)
+*Wolf* (78 CP)
 Ph:3, Me:1, So:2, Re:0, Endless endurance 1
 #+end_quote
 
 #+begin_quote
-*Guard* ( CP)
-Ph:4, Me:3, So:3, Re:3
+*Guard* (108 CP)
+Ph:3, Me:2, So:2, Re:2
 #+end_quote
 
 #+begin_quote
-*Dark Mage* ( CP)
-Ph:3, Me:8, So:4, Re:6, Necromancer 3, Telepathic Link to undead servants
+*Dark Mage* (237 CP)
+Ph:2, Me:7, So:3, Re:5, Necromancer 3, Telepathic Link to undead servants
 #+end_quote
 
 #+begin_quote
-*Ogre* ( CP)
-S:16, D:8, W:6, I:2, E:2 ,C:2, G:1, F:1
+*Ogre* (192 CP)
+S:15, D:7, W:5, I:1, E:1 ,C:1, G:1, F:1
 #+end_quote
 
 #+begin_quote
-*Zombie* ( CP)
+*Zombie* (75 CP)
 Ph:2, Me:1, So:1, Re:1, Infectious Bite
 #+end_quote
 
 #+begin_quote
-*Bandit* ( CP)
-Ph: 4, Me: 3, So: 2, Re: 2
+*Bandit* (108 CP)
+Ph: 3, Me: 2, So: 2, Re: 2
 #+end_quote
 
 #+begin_quote
-*Combat Drone* ( CP)
-Ph: 3, Me: 1, So: 1, Re: 1, Shooting 4, Night-vision
+*Combat Drone* (105 CP)
+Ph: 3, Me: 1, So: 1, Re: 1, Shooting 3, Night-vision
 #+end_quote
 
 #+begin_quote
-*Orc Veteran* ( CP)
-Ph: 6, Me: 4, So: 3, Re: 3, Night Vision, Reckless and Bold 2
+*Orc Veteran* (171 CP)
+Ph: 5, Me: 3, So: 2, Re: 2, Night Vision, Reckless and Bold 2
 #+end_quote
 
 #+begin_quote
-*Orc Warrior* ( CP)
-Ph: 4, Me: 2, So: 1, Re: 2, Night Vision, Reckless and Bold 1
+*Orc Warrior* (105 CP)
+Ph: 3, Me: 2, So: 1, Re: 1, Night Vision, Reckless and Bold 1
 #+end_quote
 
 #+begin_quote
-*Giant Spider* ( CP)
+*Giant Spider* (117 CP)
 S: 2, D: 4, W:2, I:2, E:1, C:1, G:2, F:1, Night Vision, Spider Webs 2
 #+end_quote
 
@@ -715,7 +813,6 @@ S: 2, D: 4, W:2, I:2, E:1, C:1, G:2, F:1, Night Vision, Spider Webs 2
 
 Since aspects can appear, disappear and change frequently during play, it is good to write them down and show them to your players. For this i suggest to use post-it notes. This has the nice effect that you can give your players something physical that represents the advantages they created or can use.
 
-
 ** Character Creation
 
 When creating a character you should adhere to the following advice:
@@ -724,25 +821,17 @@ When creating a character you should adhere to the following advice:
 - Have 1 aspect describing what you want to be good at
 - Have 1 aspect describing how you make your living
 - Have 1 aspect describing what you like to do as a hubby
-- Forumlate your traits such that they can be interpreted as a vulnerability
+- Forumlate your traits and aspects such that they can be interpreted as a vulnerability
 - Have at least 1 trait
 Break these rules as you like.
 
-
 ** Encounter Design
 
-To design a good challenge count the total of attributes and aspects the players could bring to the fight and match this with those of the opponents roughly 1:1.
-
-- Sum the CP of your player characters
-- divide the sum by 100
-- multiply this with 3
-- The result is a good estimate for how hard a challenge should be.
-
-A rough estimate can be to divide the sum of all your players CP by 100 and multiply this by 3.
-
-Let your players become creative and create aspects to help them better their odds.
-
-Try to give any noteworthy opponent an advantageous and a disadvantageous aspect.
+- For static challenges, the players CP divided by 25 is a good challenge value.
+- For group challenges, the sum of all players CP dividec by 25 is a good challenge value.
+- For contests match the enemies total CP with that of the players.
+- Let your players become creative and create aspects to help them better their odds.
+- Try to give any noteworthy opponent an advantageous and a disadvantageous aspect. Give the players a chance to find out about those.
 
 * Game-play Examples
 :PROPERTIES:
@@ -799,14 +888,14 @@ Aspects:
 ** Character Build: Generic Citizen
 
 #+begin_quote
-Strength: 3
-Dexterity: 3
-Will: 3
-Intellect: 3
-Empathy: 3
-Charisma: 3
-Gear: 3
-Finances: 3
+Strength: 2
+Dexterity: 2
+Will: 2
+Intellect: 2
+Empathy: 2
+Charisma: 2
+Gear: 2
+Finances: 2
 
 Traits:
 none
@@ -852,18 +941,16 @@ Gear: 3
 Finances: 4
 
 Traits:
-- Bionic Eye with super zoom level and infrared vision. (7 CP)
-- Bionic Leg (1 CP)
+- Bionic Eye with super zoom level and infrared vision.
+- Bionic Leg
 
 Aspects:
-- Has lift in space all his life 2
-- If the captain ordered it it has to be done 2
+- Has lived in space all his life 2
+- If the captain ordered it, it has to be done 2
 - Space engineer 1
 - Gambler 2
 - Really good with the needle 1
 #+end_quote
-
-** Character Build: 
 
 ** Example: Ambushed by Goblins
 
@@ -929,17 +1016,13 @@ Aspects:
 
 *GM:* The goblin runs away and soon the smoke dissipates and the street is silent once more.
 
+** COMMENT Example: Hacker duel
 
-
-** Example: Hacker duel
-
-** Example: Court Case
-
-
+** COMMENT Example: Court Case
 
 #+LATEX: \newpage
 
-* Short form rules
+* COMMENT Short form rules
 
 ** Attributes
 | *Category* | *Attribute* | *Description*             |
@@ -1093,7 +1176,7 @@ Desire: Spread religion to the youth
 Vice: Very old fashioned
 
 
-* Scenario: The Endless Underground
+* COMMENT Scenario: The Endless Underground
 - An endless underground city.
 - Older than known history
 - Endless to the best knowledge of any known inhabitant
@@ -1113,7 +1196,150 @@ Vice: Very old fashioned
   - Reptiles
   - 
 
-	
+
+* Scenario: X-Files meets cold war
+
+** Rules
+
+Players can access the resources of their respective Organisation. When they do this they can invoke the aspects of the organisation. The organisation can also act on its own.
+
+Since the players may only have a limited influence to access the resources of the organisation they can only get a limited ammount of help per mission. The value of the abstract =authority in <organisation>=  is this limiting factor. This value is not bought but earned. The GM may award a point to this aspect at the end of a session. The aspect is not bound to a single player character but the entire group. The aspect starts at the value 2. 
+
+
+
+Sometimes the characters will encounter the mystical. The mythstical can be experienced by everyone but the world has a strong tendency to obfuscate it. Anyone who hinders it in doing so will be cursed with evil things. Those who aid it will sometimes be blessed, but only while in the pursuit of obfuscation. No one knows why this is.
+
+Aspect: Cursed
+A cursed person may be befallen with disease, bad luck or find himself disliked and not believed by others. The curse tends to disappear as less and less people believe in what ever was revealed.
+
+Apsect: Blessed
+A blessed person may use the AP from the blessing (once per point) to aid in his actions. 
+
+This is also the reason why all organisations dealing with the supernatural tend to be very secretive, small and compartmentalised. Often operators and soldiers know only the bear minimum they need to. 
+
+The supernatural creatures are also impacted by this. The universe itself is fighting against these invaders, which bring its internal logic into question. However the supernatural exists and tries to stay alive or even in some cases bring ruin to the universe itself (for example eldrich gods)
+
+** Organisations
+Have aspects and traits.
+
+=MI13=
+#+begin_quote
+Observation: 
+Assault: 
+Human Intelligence: 
+Interrigation: 
+Investigation:
+Okkultismus: 
+
+The MI13 is a secret branch of the British secret services. It deals with the supernatural. Because of the British colonial history, they have access to ancient artifacts from all over the world. These artifacts are mostly stored in vaults, but in some cases used to further the British agenda.
+
+Trait: A whole lot of artifacts
+#+end_quote
+
+
+=KGB department Neob"jasnimyj=
+#+begin_quote
+These department of the KGB is both an espionage and research agency. Since they know about the danger of knowledge they tend to use brainwashing techniques to make others perform some of the more dangerous tasks.
+
+Trait: Brainwashing techniques 
+#+end_quote
+
+=FBI / CIA joined taskforce M= 
+#+begin_quote
+Trait: Memory erasure technology
+#+end_quote
+
+=Illuminati=
+#+begin_quote
+Trait: Occult Obfuscation Rituals
+#+end_quote
+
+=Order of Montessa=
+#+begin_quote
+Nachfolgeorden der Tempelritter
+- Streng christlich
+- 
+
+Trait: Banishing the Unnatural
+#+end_quote
+
+=Ordo Templi Orientis=
+#+begin_quote
+Okkulte Organisation
+Verbindung zu Theodor Reuß und Aleister Crowley
+
+Trait: Sexual magic rituals for the divination of the occult
+#+end_quote
+
+** Other Groups
+=Alien Conspiracy Theorists=
+
+=Ghost Hunters=
+
+=Whitch Covens=
+Mostly consisting of 3-5 Individuals.
+
+** Monsters and the Supernatural
+
+** Anventure Hooks
+*** Spy in a cult
+
+The players are send to retrieve documents from a spy that hides in a cult. The spy was caught on film wearing the cults garb. 
+
+- A cult is in possession of a supernatural artifact.
+- This artifact is used by the cult to prove the prophets power
+  - He uses it to make plants grow
+  - It can be used to speed up time in terms of growth
+  - He also uses it to age children into adulthood and thus getting untraceable members (secret of the inner circle)
+- The cult manages a shelter for the homeless with special accommodation for children.
+  - From there some children are transferred to another compound for brainwashing and indoctrination
+  - After this they are aged and brought into the main community.
+- A spy is hiding within this cult since they give members new names and isolate themselves in an isolated compound
+- The spy tires to smuggle some documents out of the country. Neither your side nor theirs knows the contents.
+
+Aspects:
+- Isolated Compound 3
+- Indoctrinated Members 2
+- Communal Ownership 1
+
+
+*** The escape plan
+
+The players are tasked with exfiltrating a turncoat from eastern Germany into the west.
+
+Aspects:
+- Police State 2
+- Oppressed Public 1
+- True believers of Communism 1
+- The Wall 6
+
+*** An involuntary source
+
+The players must establish observation of a high ranking official. This can be done by turning him, observing him or extracing information through a honeypot. Let the group figure out how they could achieve this. The goal is to get a steady stream of information from the source.
+
+Aspects:
+- Loves Power more than Money 2
+- Pride 1
+- Strong routine 2
+- Hard to work with 1
+
+* Scenario: WW1 in Fantasy
+
+The world is inhabitat by all the typical races you find in fantasy. They are all races of Humanity, meaning that crossbreeding is possible, albeit in some cases may be rare. Magic is a comparatively rare thing. In ancient times it was more prominent but over the centuries the weave of magic became thinner and thinner. All the big nations and kingdoms are mostly homogenous with respect to the race of their citizens. 
+
+Technologically the world is comparable to the time of the first world war. 
+
+Recently the world has become very tumultuous. Most nations are at war with one another. Alliances are fleeting and the tides of war are constantly shifting
+
+World Aspects:
+- Thin magic weave 3
+- The tides of war are constantly shifting 2
+
+
+** Adventure Hooks
+
+*** 
+
 #+LATEX: \newpage
 
 
@@ -1280,3 +1506,6 @@ print(r)
 
 #+LATEX: \begin{small} This product is licensed under the ORC License held in the License of Congress at TX000 [number tbd] and available online at various locations including www.chaosium.com/orclicense, www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein. This product is the original work of Lukas Zumvorde. If you use my ORC Content, please also credit me. \end{small}
 #+HTML: <font size=0.5>This product is licensed under the ORC License held in the License of Congress at TX000 [number tbd] and available online at various locations including www.chaosium.com/orclicense, www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein. This product is the original work of Lukas Zumvorde. If you use my ORC Content, please also credit me.</font>
+
+
+
