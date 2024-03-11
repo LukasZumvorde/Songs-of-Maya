@@ -110,6 +110,72 @@
 #+LATEX_HEADER:   \clearpage
 #+LATEX_HEADER: }
 
+#+LATEX_HEADER: \usepackage{tcolorbox}
+#+LATEX_HEADER: \newtcolorbox{shortrules}[1]{colback=black!5!white,colframe=black!50!white,fonttitle=\bfseries,title=#1}
+#+LATEX_HEADER: \newenvironment{short}{\begin{shortrules}{Quick Reference:}}{\end{shortrules}}
+# #+LATEX_HEADER: \newenvironment{short}{}{}
+# #+LATEX_HEADER: \newenvironment{short}{\begin{tcolorbox}}{\end{tcolorbox}}
+
+#+LATEX_HEADER: \usepackage{pgfkeys}
+#+LATEX_HEADER: \usepackage{listofitems}
+
+#+LATEX_HEADER: \newcommand\characterpoints[3]{%
+#+LATEX_HEADER:   \setsepchar{ }%
+#+LATEX_HEADER:   \readlist\arg{#2}%
+#+LATEX_HEADER:   \IfStrEqCase{#1}{%
+#+LATEX_HEADER:     {at}{%
+#+LATEX_HEADER:       \the\numexpr (\arg[1]+\arg[2]+\arg[3]+\arg[4]+\arg[5]+\arg[6]+\arg[7]+\arg[8])*6 + #3 \relax %
+#+LATEX_HEADER:     }%
+#+LATEX_HEADER:     {ca}{%
+#+LATEX_HEADER:       \the\numexpr (\arg[1]+\arg[2]+\arg[3]+\arg[4])*12 + #3 \relax %
+#+LATEX_HEADER:     }%
+#+LATEX_HEADER:     {co}{%
+#+LATEX_HEADER:       \the\numexpr (\arg[1])*48 + #3 \relax %
+#+LATEX_HEADER:     }%
+#+LATEX_HEADER:   }%
+#+LATEX_HEADER: }
+
+#+LATEX_HEADER: \newcommand\attributestable[2]{%
+#+LATEX_HEADER:   \begin{center}%
+#+LATEX_HEADER:   \setsepchar{ }%
+#+LATEX_HEADER:   \readlist\arg{#2}%
+#+LATEX_HEADER:   \IfStrEqCase{#1}{%
+#+LATEX_HEADER:     {at}{%
+#+LATEX_HEADER:       \begin{tabular}{| c | c | c | c | c | c | c | c |}%
+#+LATEX_HEADER:       \hline%
+#+LATEX_HEADER:       \multicolumn{2}{| c |}{Physical} &%
+#+LATEX_HEADER:       \multicolumn{2}{| c |}{Mental} &%
+#+LATEX_HEADER:       \multicolumn{2}{| c |}{Social} &%
+#+LATEX_HEADER:       \multicolumn{2}{| c |}{Resources} \\%
+#+LATEX_HEADER:       \hline%
+#+LATEX_HEADER:       Str & Dex & Wil & Int & Emp & Cha & Gea & Fin \\%
+#+LATEX_HEADER:       \hline%
+#+LATEX_HEADER:       \arg[1] & \arg[2] & \arg[3] & \arg[4] & \arg[5] & \arg[6] & \arg[7] & \arg[8] \\%
+#+LATEX_HEADER:       \hline%
+#+LATEX_HEADER:       \end{tabular}%
+#+LATEX_HEADER:     }%
+#+LATEX_HEADER:     {ca}{%
+#+LATEX_HEADER:       \begin{tabular}{ | c | c | c | c |}%
+#+LATEX_HEADER:       \hline%
+#+LATEX_HEADER:       Physical & Mental & Social & Resources \\%
+#+LATEX_HEADER:       \hline%
+#+LATEX_HEADER:       \arg[1] & \arg[2] & \arg[3] & \arg[4] \\%
+#+LATEX_HEADER:       \hline%
+#+LATEX_HEADER:       \end{tabular}%
+#+LATEX_HEADER:     }%
+#+LATEX_HEADER:     {co}{%
+#+LATEX_HEADER:       \begin{tabular}{ | c | c |}%
+#+LATEX_HEADER:       \hline%
+#+LATEX_HEADER:       Competency & \arg[1] \\%
+#+LATEX_HEADER:       \hline%
+#+LATEX_HEADER:       \end{tabular}%
+#+LATEX_HEADER:     }%
+#+LATEX_HEADER:   }%
+#+LATEX_HEADER:   \end{center}%
+#+LATEX_HEADER: }
+
+#+LATEX_HEADER: \newenvironment{npc}[4]{\begin{shortrules}{#1 (\characterpoints{#2}{#3}{#4}  CP)}\attributestable{#2}{#3}}{\end{shortrules}}
+
 
 * COMMENT TODOs
 - replace campaign for another name that works both in german and english
@@ -125,12 +191,12 @@ Primordial waters is a generic, light, and abstract role playing rule set with a
 
 ** Goals
 
-- Rules Light
+- Rules light
 - Flexible
-- World Agnostic
-- Consistent Probability distribution
-- Easy Preparation
-- Little Bookkeeping
+- World agnostic
+- Consistent probability distribution
+- Easy preparation
+- Little bookkeeping
 
 **** COMMENT Rules Light
 
@@ -204,8 +270,6 @@ Third rule of Gaming: Use the aspects value as a guideline and be creative with 
 :CUSTOM_ID: sec:conventions
 :END:
 
-
-
 ** What dice to roll
 :PROPERTIES:
 :CUSTOM_ID: sec:dice
@@ -222,6 +286,8 @@ Option 2: Use Fate dice. Fate dice have 3 different kinds of sides. $+$, $-$ and
 
 Sometimes it makes no sense to roll dice, but we want a constant value. Then we can =take the average=. This means instead of rolling dice we just take the dice pool as if it were the result of a roll. This is fair since it is also the average result of a roll.
 
+
+
 #+LATEX: \newpage
 * Rules
 
@@ -229,6 +295,10 @@ Sometimes it makes no sense to roll dice, but we want a constant value. Then we 
 :PROPERTIES:
 :CUSTOM_ID: sec:attributes
 :END:
+
+#+begin_short
+There are the 8 attributes Strength, Dexterity, Will, Intellect, Empathy, Charisma, Gear, and Finances. Each attribute gets a whole number value.
+#+end_short
 
 Attributes describe a characters potential. The higher the value the greater things a character can achieve. There are the following 8 Attributes belonging to the 4 categories.
 
@@ -252,6 +322,18 @@ The attributes value is the basis for the dice pool one has available for [[#sec
 :PROPERTIES:
 :CUSTOM_ID: sec:aspects
 :END:
+
+#+begin_short
+Aspects have a descriptive name and a whole number value calles its aspect points (AP).
+- Create: Make a check. The resulting AP are the AP of the new aspect.
+- Use: Add the AP of the aspect to the check. Any AP can only be used once per round. 
+- Multiple Targets: To create an aspect that effects an area or multiple targets half the AP.
+- Duration: By default an aspect can be used once. To make it apply every round until the duration is over half the AP.
+- Acting: Aspects can perform actions on their own. For this use the AP as the dice pool.
+- Remove: To remove an aspect you need to make a check. Reduce the AP of the aspect by the AP of the check.
+- Resistance: Aspects can resist being removed. To reduce the AP of the check for removal by 1 for each resistance point. A point of resistance costs 1 AP.  
+#+end_short
+
 
 Aspects are a combination of a descriptors and a value. When invoked the aspects value is added or subtracted from the dice pool  for [[#sec:checks][checks]]. An aspect is always bound to something. Be it a player, a NPC, an object or even a zone. Be creative with aspects. Try to bind their effects to the value and they should stay balanced enough.
 
@@ -313,6 +395,14 @@ Aspects are also used to represent damage a character or object has taken. If a 
 :CUSTOM_ID: sec:checks
 :END:
 
+#+begin_short
+Add points of attribute and aspects to get the dice pool. Roll one or multiple dice that are equvalent to the dice pool in value. The result of the roll are the aspect points (AP) of the check.
+- Difficulty: Some aspects hinder a check. For them consider the AP to be negative instead. 
+- Collaboration: Add either the dice pool for the checks or the AP of all checks made together.
+- Risky: Roll an additional $d6$. If it shows a $6$ then use the result of the check to create a negative aspect instead.
+- Take Time: Make multiple checks and add the AP.
+#+end_short
+
 Checks are rolled when the outcome of an action is not certain. Each check is bound to an [[#sec:attributes][attribute]].
 
 # The dice are rolled according to a modified dice pool system. Instead of rolling a number of dice directly we take the number and use the rules below to break it down to just 3 dice, that have to be rolled. The average result stays exactly the same but the propability distribution is more uniform this way.
@@ -336,15 +426,37 @@ The checks difficulty is the sum of all aspects that are to be overcome or creat
 Everyone rolls individually and then sum together all AP.
 
 **** Risky checks
-If a check is risky the character might incur something bad if the check fails. If the check fails a negative aspect is created worth the difficulty in points. The minimum is 1. You can not take the average on a risky check.
+:PROPERTIES:
+:CUSTOM_ID: sec:risky
+:END:
+
+# If a check is risky the character might incur something bad if the check fails. If the check fails a negative aspect is created worth the difficulty in points. The minimum is 1. You can not take the average on a risky check.
+
+# If the lowest possible value (die shows 0) is rolled on a risky check, then you reroll the check. This result is then used to create a negative aspect. 
+ 
+Roll an additional d6, called the risk die. If the risk die shows a 6 then the result of the check is used to create a negative aspect.
+
+Alternatively you can forego rolling a risky check all together, including the risk die, but then the result is always half of your dice pool.
 
 **** Taking Time
 Sometimes a check is to difficult to achieve something within 1 check. Then it may be possible to do multiple checks over a longer time to accumulate the points needed. However, you must decide beforehand how many checks you want to take. The AP of all checks are accumulated after considering the difficulty. The GM has a veto right and can limit the amount of checks.
+
+**** Limited Aspects
+To prevent players from stacking up aspects endlessly it may be good to limit the ammount of points one can use. The dice pool should be limited to double the sum of the relevant attribute and all used aspect points from chracter inherent aspects. Feel free to disregard this rule however if it does not fit well with the story.
+
 
 ** Contest
 :PROPERTIES:
 :CUSTOM_ID: sec:contest
 :END:
+
+#+begin_short
+Each participant can make one or more checks each round.
+- Action: A check to create an aspect
+- Reaction: A check to prevent an aspect from being created.
+- Turn Order: From the one with the highest dice pool to the one with the lowest. You can act on your turn or on any later point in the round.
+- Multiple (re)actions: Total number of points (dice pool) gained from the attributes is the largest attribute value of the checks. From each attribute (and aspect) you can use at most its value in points.
+#+end_short
 
 The prototypical contest is combat, but the same rules can be used any scenario where multiple parties act in opposition to each other. Be it a diplomatic debate or the hostile takeover of a company. 
 
@@ -365,7 +477,7 @@ The participants take turn from the one with the highest relevant attribute (+ a
 Each round you can take multiple actions and reactions. The total number of points gained from the attributes is the largest attribute value of the checks. From each attribute you can use at most its value in points in total. Each Aspect can only be used once or their AP (attribute points) have to be distributed to the (re)actions.
 
 **** Acting together
-When acting together all values are combined and a single combined check is made or alternatively only the AP are combined. To act together all have to act at the same time in the turn order, so effectively at the earliest when the slowest has his turn.
+When acting together all values are combined and a single combined check is made or alternatively everyone rolls seperately and only the AP are combined. To act together all have to act at the same time in the turn order, so effectively at the earliest when the slowest has his turn.
 
 ** Traits
 :PROPERTIES:
@@ -381,7 +493,7 @@ See the chapter [[#sec:lotraits][List of Traits]] for examples.
 :CUSTOM_ID: sec:karma
 :END:
 
-Each player can have up to 3 karma. They can be used at any point in time to repeat a single die roll (not just your own) or to add an interesting aspect to a scene (GM has veto rights). Karma can be recovered by a characters aspect or trait being used against them or as a reward for good role play (anything that brings joy to all players and the GM). 
+Each player can have up to 3 karma. They can be used at any point in time to repeat a single die roll (not just your own) or to add an interesting aspect to a scene. The GM has veto rights. Karma can be recovered by a characters aspect or trait being used against them or by objectively failing in a scene or as a reward for good role play (anything that brings joy to all players and the GM). 
 
 
 ** Character Creation
@@ -410,7 +522,7 @@ A typical player character will have:
 :CUSTOM_ID: sec:movement
 :END:
 
-Sometimes it is useful to draw maps and define distances. In a contest split the area into roughly 3-5 zones. A character can move from one zone to another each round. If one can act at a range like for example when shooting a bow one can act 1-2 zones far. During the round a character is moving he can be considered to be in both zones at once.
+Sometimes it is useful to draw maps and define distances. In a contest split the area into roughly 3-5 zones. A character can move from one zone to another each round. If one can act at a range, like for example when shooting a bow, one can act 1-2 zones far. During the round a character is moving he can be considered to be in both zones at once.
 
 ** Items and Equipment
 :PROPERTIES:
@@ -426,15 +538,15 @@ Items may have an aspect associated with them. If you want items to have any spe
 A few examples can be found in the section [[#sec:loitems][List of Items]].
 
 #+ATTR_LATEX: :align c|l|l
-| *RV* | *Description*    | *Example*                     |
-|----+----------------+-----------------------------|
-|  0 | Free           | a club                      |
-|  2 | Cheap          | simple clothes, basic tools |
-|  4 | Affordable     | regular car, apartment      |
-|  6 | Costly         | regular house               |
-|  8 | Expensive      | sports car                  |
-| 10 | Very Expensive | small airplane              |
-| 12 | Luxurious      | private jet                 |
+| *RV* | *Description*    | *Example*                      |
+|----+----------------+------------------------------|
+|  0 | Free           | a club                       |
+|  2 | Cheap          | simple clothes, basic tools  |
+|  4 | Affordable     | regular car, apartment       |
+|  6 | Costly         | regular house                |
+|  8 | Expensive      | sports car, designer clothes |
+| 10 | Very Expensive | small airplane               |
+| 12 | Luxurious      | private jet                  |
 
 **** Armor / Damage Reduction
 There is no Armor but some aspects can act as such. If an aspect can be used in a defensive (re)action, this effectively reduces the amount of AP of the attack. Thus they act like armor. Think of armor items as having the protective aspect on them. If an aspect can be used is up to the GM. So he can decide that the very expensive ballgown can not be used to defend against a bullet.
@@ -445,15 +557,17 @@ Characters can have gear with a value of up to the attribute Gear in RV on them.
 When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check against the RV of what they would like to have in the moment to see if they do. The check is risky and if they fail they get the negative aspect "Packed the wrong stuff" until the end of the mission or until they resupply. 
 
 **** Buying
-Characters can buy new items with a Finances check. The check is risky. The bought item can be treated like an aspect that is created with this check. The GM does not have to let you retry on a fail. If you use items with aspects to do this like the "Treasure" you found during your last adventure you may lose them if you succeed on the check.
+
+Characters can buy new items with a Finances check. It works just like crafting an aspect with the resource value (RV) in aspect points (AP). If you succeed in buying the item then you take a negative aspect on your finances for some time. The GM does not have to let you retry on a fail. If you use items with aspects to do this like the "Treasure" you found during your last adventure you may lose them if you succeed on the check.
+# Characters can buy new items with a Finances check. The check is risky. The bought item can be treated like an aspect that is created with this check. The GM does not have to let you retry on a fail. If you use items with aspects to do this like the "Treasure" you found during your last adventure you may lose them if you succeed on the check.
 
 **** Crafting
-Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought and have a RV of the item to be build minus 1. To build the item the character needs to make a check with the items RV as difficulty. If that fails the resources might be lost, depending on what they are.
+Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought and have a RV of the item to be build minus 1. To build the item the character needs to make a check and achieve at least the items RV in AP. If that fails the resources might be lost, depending on what they are.
 
 **** Gathering
 Resources can be gathered with a check and their RV as difficulty.
 
-**** Creating
+**** Describe
 To create an item first give it a short description. Second you determine its value if applicable. Add aspects if applicable. The sum of the aspects AP should not exceed the RV.
 
 **** Bribing
@@ -466,23 +580,27 @@ To Bribe someone you need to give them more than they can normally comfortably a
 
 ** Magic
 
-Magic gives a huge narrative flexibility to explain aspects. To balance this out any checks made using magic should be considered risky. This means the value of the created aspects has to be defined beforehand. This is taken as the difficulty of the check. If the check fails the magician creates an unwanted likely negative aspect at the value of the difficulty. If he succeeds the created aspect has exactly the predefined value. Depending on the setting a trait might be necessary to cast magic or even a specific kind of magic.
+Magic gives a huge narrative flexibility to explain aspects. To balance this out any checks made using magic should be [[#sec:risky][risky checks]].
+# This means the value of the created aspects has to be defined beforehand. This is taken as the difficulty of the check. If the check fails the magician creates an unwanted likely negative aspect at the value of the difficulty. If he succeeds the created aspect has exactly the predefined value.
+Depending on the setting, a trait might be necessary to cast magic or even a specific kind of magic.
 
 With this magic can still become quite powerful, since one can create several aspects and combine them for bigger spells. For example a mage might make special conjuration candles, draw a pentagram with magic symbols and then use those two aspect to assist in his conjuration spell.
+
+It is up to the individual games setting to define how magic works. By themselves the rules above give a very soft magic system, but by defining how magic works in your world, you can make it a hard magic system. 
 
 ** Less precise Attributes
 
 Instead of using the attributes as listed you can use only the categories (Physical, Mental, Social, Resources). Learning a level in one of the categories costs double of what a level in an attribute would cost.
-For GMs it might even be useful to combine all attributes into a single value called the CB (capability) for some NPCs. In this case the costs are 8 times that of what a level in an attribute would cost.
+For GMs it might even be useful to combine all attributes into a single value called the capability (CB) for some NPCs. In this case the costs are 8 times that of what a level in an attribute would cost.
 
 ** No Abstraction for Wealth
 
-To remove the resources category from the attributes just raise the price of learning a level of the other attributes by 33%. The costs for goods and services
+To remove the resources category from the attributes just raise the price of learning a level of the other attributes by $\ + #3frac{1}{3}$ (from 6 to 8). The costs for goods and services
 depend on the campaign setting.
 
 ** Retroactive Actions
 
-The GM may allow players retroactively having performed some action. For example having placed a trap beforehand. To balance this any check on such an action should be a risky check.
+The GM may allow players retroactively having performed some action. For example having placed a trap beforehand. To balance this any check on such an action should be a [[#sec:risky][risky check]].
 
 ** Quicker Battles
 
@@ -573,45 +691,11 @@ To use Playing cards instead of dice you can do the following. Take a standard 5
 - Take the average: $N$ constant points is worth $N$ dice from the pool
 - Any dice multiplied by a factor $F$ is worth the price of a single dice multiplied by this factor $F$
 
-The default is to use $F \cdot 1 d_0 6 + c$. This means that the factor $F$ is the dice pool divided by $\frac{6}{2} = 3$ with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice pool.
+The default is to use $F \cdot 1 d_0 8 + c$. This means that the factor $F$ is the dice pool divided by $\frac{8}{2} = 4$ with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice pool. Note that the more dice you roll the more predictable the results will be.
 
-Another alternative is to use a d10 die. Most of them start are actually a $d_0 9$. You can use it as a $d_0 8$ by ignoring any 9 that is rolled or if you use the [[#sec:unexpectedresults][Unexpected Results]] optional rules, treat a 9 as if it were a joker.
+One way to do this is to use a d10 die. Most of them start are actually a $d_0 9$. You can use it as a $d_0 8$ by ignoring any 9 that is rolled or if you use the [[#sec:unexpectedresults][Unexpected Results]] optional rules, treat a 9 as if it were a joker.
 
-If you don't =take the average= then it is advisable to keep the constant points between $-\frac{N}{2}$ and $+\frac{N}{2}$, to keep the window of possible results wide.
-
-# You can use the following tables if you find calculating this bothersome.
-# #+LATEX: \begin{multicols}{2}[]
-# | AP | Normal                | Risky                 |
-# |----+-----------------------+-----------------------|
-# |  1 | $1 \cdot 1 d_0 6 - 2$ | $1 \cdot 1 d_0 6 - 2$ |
-# |  2 | $1 \cdot 1 d_0 6 - 1$ | $1 \cdot 1 d_0 6 - 1$ |
-# |  3 | $1 \cdot 1 d_0 6$     | $1 \cdot 1 d_0 6$     |
-# |  4 | $1 \cdot 1 d_0 6 + 1$ | $2 \cdot 1 d_0 6 - 2$ |
-# |  5 | $1 \cdot 1 d_0 6 + 2$ | $2 \cdot 1 d_0 6 - 1$ |
-# |  6 | $2 \cdot 1 d_0 6$     | $2 \cdot 1 d_0 6$     |
-# |  7 | $2 \cdot 1 d_0 6 + 1$ | $3 \cdot 1 d_0 6 - 2$ |
-# |  8 | $2 \cdot 1 d_0 6 + 2$ | $3 \cdot 1 d_0 6 - 1$ |
-# |  9 | $3 \cdot 1 d_0 6$     | $3 \cdot 1 d_0 6$     |
-# | 10 | $3 \cdot 1 d_0 6 + 1$ | $4 \cdot 1 d_0 6 - 2$ |
-# | 11 | $3 \cdot 1 d_0 6 + 2$ | $4 \cdot 1 d_0 6 - 1$ |
-# | 12 | $4 \cdot 1 d_0 6$     | $4 \cdot 1 d_0 6$     |
-
-# | AP | Normal                | Risky                 |
-# |----+-----------------------+-----------------------|
-# | 13 | $4 \cdot 1 d_0 6 + 1$ | $5 \cdot 1 d_0 6 - 2$ |
-# | 14 | $4 \cdot 1 d_0 6 + 2$ | $5 \cdot 1 d_0 6 - 1$ |
-# | 15 | $5 \cdot 1 d_0 6$     | $5 \cdot 1 d_0 6$     |
-# | 16 | $5 \cdot 1 d_0 6 + 1$ | $6 \cdot 1 d_0 6 - 2$ |
-# | 17 | $5 \cdot 1 d_0 6 + 2$ | $6 \cdot 1 d_0 6 - 1$ |
-# | 18 | $6 \cdot 1 d_0 6$     | $6 \cdot 1 d_0 6$     |
-# | 19 | $6 \cdot 1 d_0 6 + 1$ | $7 \cdot 1 d_0 6 - 2$ |
-# | 20 | $6 \cdot 1 d_0 6 + 2$ | $7 \cdot 1 d_0 6 - 1$ |
-# | 21 | $7 \cdot 1 d_0 6$     | $7 \cdot 1 d_0 6$     |
-# | 22 | $7 \cdot 1 d_0 6 + 1$ | $8 \cdot 1 d_0 6 - 2$ |
-# | 23 | $7 \cdot 1 d_0 6 + 2$ | $8 \cdot 1 d_0 6 - 1$ |
-# | 24 | $8 \cdot 1 d_0 6$     | $8 \cdot 1 d_0 6$     |
-# #+LATEX: \end{multicols}
-
+If you don't =take the average= then it is advisable to keep the constant points between $-\frac{N}{2}$ and $+\frac{N}{2}$, to keep the window of possible results wide. 
 
 #+LATEX: \newpage
 * Lists
@@ -827,11 +911,18 @@ Break these rules as you like.
 
 ** Encounter Design
 
+The challenge value (CV) is a number servig as a quick reference for how hard aspects to overcome should be or how strog enemies should be, When creating aspects that the players must overcome use the CV as the AP (aspect points). Then creating enemies that the players must fight set their Competence or attribute to the CV.
 - For static challenges, the players CP divided by 25 is a good challenge value.
 - For group challenges, the sum of all players CP dividec by 25 is a good challenge value.
 - For contests match the enemies total CP with that of the players.
 - Let your players become creative and create aspects to help them better their odds.
 - Try to give any noteworthy opponent an advantageous and a disadvantageous aspect. Give the players a chance to find out about those.
+
+** How to Rule: Stealth as a Group
+
+Only roll the checks for the players and take the average for everyone else. Compare the sneaking of each from the one party to the perception of each from the other party. If any perception is higher than any of the sneaking values then they get spotted.
+Often times the characters in each party may help each other. Let them distribute some points within the group after they rolled their checks. This represents something like the best scout sneaking ahead and finding the best route for the others, or distracting a guard such that the more obvious members of the party can pass unnoticed.
+
 
 * Game-play Examples
 :PROPERTIES:
@@ -840,18 +931,8 @@ Break these rules as you like.
 
 ** Character Build: Alchemist
 
-#+begin_quote
-*Anna the Alchemist*
-
-Strength: 3
-Dexterity: 3
-Will: 4
-Intelect: 6
-Empathy: 4
-Charisma: 3
-Gear: 6
-Finances: 6
-
+#+ATTR_LATEX: :options {Anna the Alchemist}{at}{3 3 4 6 4 3 6 6}{51}
+#+begin_npc
 Traits:
 - Magical Alchemy
 
@@ -859,22 +940,12 @@ Aspects:
 - Third daughter of an Aristocratic Family 2
 - Proud member of the Alchemists Guild of Mistwater 3
 - Hobby Horse Rider and Trainer 1
-#+end_quote
+#+end_npc
 
 ** Character Build: Babarian
 
-#+begin_quote
-*Bob the Barbarian*
-
-Strength: 6
-Dexterity: 5
-Will: 4
-Intelect: 3
-Empathy: 2
-Charisma: 4
-Gear: 2
-Finances: 2
-
+#+ATTR_LATEX: :options {Bob the Barbarian}{at}{6 5 4 3 2 4 2 2}{66}
+#+begin_npc
 Traits:
 - Cold Resistance
 - Plot Armor: Can prevent getting a damaging aspect up to one time per scene.
@@ -883,39 +954,22 @@ Aspects:
 - Member of the isolated Nomads of the eastern steppes 2
 - Best Fighter of his tribe and wrestling champion 3
 - Gambler 1
-#+end_quote
+#+end_npc
 
 ** Character Build: Generic Citizen
 
-#+begin_quote
-Strength: 2
-Dexterity: 2
-Will: 2
-Intellect: 2
-Empathy: 2
-Charisma: 2
-Gear: 2
-Finances: 2
-
+#+ATTR_LATEX: :options {Generic Citizen}{co}{2}{0}
+#+begin_npc
 Traits:
-none
-
+- None
 Aspects:
-none
-#+end_quote
+- None
+#+end_npc
 
 ** Character Build: Shapeshifting Durid
 
-#+begin_quote
-Strength: 4
-Dexterity: 4
-Will: 5
-Intellect: 3
-Empathy: 3
-Charisma: 4
-Gear: 3
-Finances: 2
-
+#+ATTR_LATEX: :options {Shapeshifting Druid}{at}{4 4 5 3 3 4 3 2}{110}
+#+begin_npc
 Traits:
 - druidic magic
 - Magical alchemy
@@ -926,20 +980,12 @@ Aspects:
 - Shapeshifting Druid 4
 - Protector of the Ancient Grove 3
 - Knowledgeable in the alchemy of the gifts of nature 2  
-#+end_quote
+#+end_npc
 
 ** Character Build: Space Pirate
 
-#+begin_quote
-Strength: 3
-Dexterity: 3
-Will: 4
-Intellect: 5
-Empathy: 3
-Charisma: 4
-Gear: 3
-Finances: 4
-
+#+ATTR_LATEX: :options {Space Pirate}{at}{3 3 4 5 3 4 3 4}{78}
+#+begin_npc
 Traits:
 - Bionic Eye with super zoom level and infrared vision.
 - Bionic Leg
@@ -950,7 +996,28 @@ Aspects:
 - Space engineer 1
 - Gambler 2
 - Really good with the needle 1
-#+end_quote
+#+end_npc
+
+
+** Character Build: Cowboy
+
+#+ATTR_LATEX: :options {Cody the Cowboy}{at}{2 2 2 2 2 2 2 2}{78}
+#+begin_npc
+Traits:
+- 
+
+Aspects:
+- True frontiersman 2
+- Gambler 1
+- Horse Whisperer 2
+- 
+- Has lived in space all his life 2
+- If the captain ordered it, it has to be done 2
+- Space engineer 1
+- Gambler 2
+- Really good with the needle 1
+#+end_npc
+
 
 ** Example: Ambushed by Goblins
 
@@ -1019,6 +1086,106 @@ Aspects:
 ** COMMENT Example: Hacker duel
 
 ** COMMENT Example: Court Case
+
+** Example: The Ambush
+
+The players are preparing an ambush on a patrol. The GM describes the scene
+
+*GM:* You know that the patrol is going to pass through this area, using the small forrest path. It is barely wide enough for a single cart and shallow ruts in the road indicate that the path is only used ocasionally. The unterbrush is thick in some parts, but there are also stretches of dark pine forrest. Because of the recent rains there are mud puddles everywhere.
+
+He creates some aspects
+- shallow ruts 1
+- narrow path 1
+- thick underbrush 1
+- dark shadows under the pines 1
+- muddy ground 1
+
+The players will prepare the ambush. For this they can make as many checks to create aspects as they have time to do.
+
+*R:* As a ranger i am good in nature and will select the best spot for the ambush. It should be especially narrow such that they can not maneuver well. The ground should be muddy and i want particularly dark shadows to cover us, but not the enemy.
+
+*GM:* So no shallow ruts and no thick underbush?
+
+*R:* The ruts are fine, but i dont want us to be hindered by the underbrush.
+
+*GM:* Yes, that is possible. You can use the dark shadows and muddy ground to prepare the spot. Make the intelect check.
+
+*R:* I have 3 from my attribute and 3 from being a ranger. [rolls $1 d_0 8 + 2 = 6 + 2$ on the check] I have 8AP. I would like the aspect to last the entire scene [AP / 2] and apply to all of us [AP / 2].
+
+He writes the aspect on a postit and places it on the table
+- Well prepared Ambush 2
+The GM takes the unused aspects back of the table. What is left are
+- shallow ruts 1
+- narrow path 1
+- dark shadows under the pines 1
+- muddy ground 1
+
+*A:* As an Alchemist i would like to prepare a fire bomb at the spot of the ambush. As we establishes last time i should have all the ingredients.
+
+*GM:* With the muddy ground it will be hard to ignite the bomb.
+
+*A:* Fine. I can still do it. 4 from my intelect and 3 from being an alchemist.
+
+*GM:* Dont forget to hide the thing.
+
+*T:* As a reformed thief i will help him with that. 2 from intelect and 3 from thievery [rolls $1 d_0 8 + 1 = 6$].
+
+*A:* [rolls $2 d_8 - 1 = 2*7 -1 = 13$] Oh, that is going to hurt. I want all of them to be affected [AP / 2].
+
+The players create the aspects
+- Fire bomb 6
+- Well hidden 6
+As they see the numbers fitting so well they replace the aspects with
+- Well hidden fire bomb 6
+
+*D:* My druidic circle specialises in the bear for fighting. So i will shape shift and lie in wait. 4 will and 2 druidry plus 1 from my speciality in shape shifting [rolls $2 d_0 - 1 = 2 - 1 = 1$]. That is not going to be convincing.
+
+*GM:* You dont quite turn into a bear. Instead you become much more hary and a bit stronger.
+
+*D*: Can i at least hide?
+
+*GM:* No need. We will roll that check collectively later.
+
+The druid gets the aspect
+- Bear'ish form 1
+
+The preparations are done, and the GM narates how the patrol comes down the road.
+
+*GM:* Lets see if they can spot you. Is a collective check for all of you ok?
+
+*All*: Yes
+
+*A*: I have only 3 points, but 2 more from the well prepared ambush makes 5 in total.
+
+*T*: 6 from me.
+
+*D:* I can contribute 5. Does my fur help with hiding?
+
+*GM:* yes, it helps.
+
+*D*: Then 6 from me as well.
+
+*R*: I contribute 7. That makes 24 in total. [rolls $6 d_0 8 = 24$]
+
+*GM*: That makes 6 on average. The 5 soldiers have 4 each so they are surprised 2 (6 - 4 = 2) by your attack. You are still unnoticed as they reach the trap.
+
+The GM creates the aspect
+- Surprised 2
+
+*GM*: Let the combat scene begin.
+
+*A:* Kaboom
+
+*GM:* Indeed. The bomb explodes. Lets see if any one notices [rolls $1 d_0 8 - 1$ each with the results 3,2,7,7,6 and compares this to the bomb being hidden]. Just two notice the smell of sulphur and try to evade [rolls $1 d_0 8 - 3$ for both with results 2,1 and compares this to the bomb damage]. They all take a lot of damage. Three of them go down immediately. Two try to stand up.
+
+*R:* I shoot one of them [rolls $1 d_0 8 + 3 = 10$].
+
+*T:* And i the other [rolls $1 d_0 8 + 1 = 4$]
+
+*GM:* They are both dead. Congratulations it all worked perfectly. Lets hope the others did not hear the explosion.
+
+*All*: Oh no.
+
 
 #+LATEX: \newpage
 
@@ -1175,6 +1342,47 @@ Personality: A Kind person
 Desire: Spread religion to the youth
 Vice: Very old fashioned
 
+* COMMENT Solo Rules v2
+
+** Descriptors
+Roll up to 3 times. Chain the results together to get a better idea on what it might be.
+If you have consecutive scenes then i advise to roll only 1 new descriptor and remove only the first of the previous scene. This will make your encounters more connected to one another.
+
+|  1 | decay                 |
+|  2 | growth                |
+|  3 | liquid / fluid        |
+|  4 | solid                 |
+|  5 | strong                |
+|  6 | weak                  |
+|  7 | light / clear         |
+|  8 | dark / obscure        |
+|  9 | natural               |
+| 10 | unnatural / technical |
+
+** Scene
+|   |   |
+|   |   |
+
+|   | Environmental |
+|   | Social        |
+|   | Combat        |
+|   | -             |
+|   |               |
+
+** Ammount
+|   1 | very little |
+| 2-4 | less        |
+| 5-6 | expected    |
+| 7-9 | more        |
+|  10 | very much   |
+
+** Oracle
+1d10
+|   1 | Very No  |
+| 2-4 | No       |
+| 5-6 | Abiguous |
+| 7-9 | Yes      |
+|  10 | Very yes |
 
 * COMMENT Scenario: The Endless Underground
 - An endless underground city.
@@ -1325,181 +1533,37 @@ Aspects:
 
 * Scenario: WW1 in Fantasy
 
-The world is inhabitat by all the typical races you find in fantasy. They are all races of Humanity, meaning that crossbreeding is possible, albeit in some cases may be rare. Magic is a comparatively rare thing. In ancient times it was more prominent but over the centuries the weave of magic became thinner and thinner. All the big nations and kingdoms are mostly homogenous with respect to the race of their citizens. 
+The world is inhabitated by all the typical races you find in fantasy. They are all races of Humanity, meaning that crossbreeding is possible, albeit in some cases may be rare. Magic is a comparatively rare thing. In ancient times it was more prominent but over the centuries the weave of magic became thinner and thinner. All the big nations and kingdoms are mostly homogenous with respect to the race of their citizens. 
 
-Technologically the world is comparable to the time of the first world war. 
+Technologically the world is comparable to the time of the first world war with a bit of steampunk.
 
-Recently the world has become very tumultuous. Most nations are at war with one another. Alliances are fleeting and the tides of war are constantly shifting
+Recently the world has become very tumultuous. Most nations are at war with one another. Alliances are fleeting and the tides of war are constantly shifting. The Nations of the world are not striktly separated by race. So a typical mixed group of players could be from anywhere. 
+
+The following assumes the group to play spies or gangsters.
 
 World Aspects:
 - Thin magic weave 3
 - The tides of war are constantly shifting 2
 
+** Rules
 
+Organisation Influence:
+
+  
 ** Adventure Hooks
 
-*** 
+*** Missing Orphans
+
+The city is full of orphans because of the ongoing war. The players hear rumors that several orphans have gone missing.
+
+- The institute of archane studies sits in a network of buildings litteres throughout the city.
+- The institute provides weapons to the military and uses the Orphans to build some of them. The brains of the children are extracted and used as guidance systems for bombs.
+- 
+
 
 #+LATEX: \newpage
 
-
-
 # #+LATEX: \end{multicols}
-
-
-#+begin_src python :results output :exports none
-import math
-import random
-from collections import Counter
-
-def pwCheck(pool):
-    if pool < 3:
-        F, d, c = 1, pool, 0
-    else:
-        F = math.floor(pool / 3)
-        d = 3
-        c = pool % 3
-    #return F * sum( [ random.randint(0,2) for i in range(d)] ) + c
-    return F * random.randint(0,6) + c
-
-def sym_duel(atr1,asp1,atr2,asp2):
-    r = 0
-    w1 = 0
-    w2 = 0
-    while(True):
-        r += 1
-        p1 = pwCheck(atr1+asp1)
-        p2 = pwCheck(atr2+asp2)
-        w1 += max(p2 - p1, 0)
-        w2 += max(p1 - p2, 0)
-        p1_is_dead = atr1 <= w1
-        p2_is_dead = atr2 <= w2
-        if p1_is_dead and p2_is_dead:
-            return 0
-        elif p1_is_dead:
-            return 2
-        elif p2_is_dead:
-            return 1
-
-N = 1000
-a = 0
-b = 0
-for i in range(N):
-    r = sym_duel(9,0,6,0)
-    if r == 1:
-        a += 1
-    elif r == 2:
-        b += 1
-    elif r == 0:
-        pass
-    else:
-        pass
-print(" A vs B \n{:.0%}  {:.0%}".format(a/N, b/N))
-#+end_src
-
-#+RESULTS:
-:  A vs B 
-: 79%  21%
-
-
-
-
-#+begin_src python :results output :exports none
-import math
-import random
-from collections import Counter
-
-def pwAltCheck(pool):
-    if pool < 3:
-        F, d, c = 1, pool, 0
-    else:
-        F = math.floor(pool / 3)
-        d = 3
-        c = pool % 3
-    return F * random.randint(0,6) + c
-    #return F * sum( [ random.randint(0,2) for i in range(d)] ) + c
-
-def pwCheck(attribute, aspects):
-    # distribute points
-    points = attribute + aspects
-    if points <= 0:
-        return 0
-    dice = min(points, 3)
-    N = math.floor(points / dice)
-    adv = points % dice
-    # roll
-    AP = min( sum( [random.randint(0,1) for i in range(dice+adv)] ), dice ) * N
-    return AP
-
-
-def pwRollReroll(dice, advantage):
-    rolls = [random.randint(1,6) for i in range(dice+advantage)]
-    successes = [ 1 for eyes in rolls if eyes >= 4 ]
-    return min( sum( successes ), dice )
-
-def pwRollShift(dice, shift):
-    rolls = [random.randint(1,6) for i in range(dice)]
-    sortedRolls = reversed(sorted(rolls))
-    shiftedRolls = []
-    for e in sortedRolls:
-        if e == 3 and shift >= 1:
-            shiftedRolls.append(e+1)
-            shift -= 1
-        elif e == 2 and shift >= 2:
-            shiftedRolls.append(e+2)
-            shift -= 2
-        elif e == 1 and shift >= 3:
-            shiftedRolls.append(e+3)
-            shift -= 3
-        else:
-            shiftedRolls.append(e)
-            successes = [ 1 for eyes in shiftedRolls if eyes >= 4 ]
-    return sum( successes )
-
-#print("P: %s => %s|%sx%s = %s" % (points, dice, adv, N, AP))
-
-
-def sym_duel(atr1,asp1,atr2,asp2):
-    r = 0
-    w1 = 0
-    w2 = 0
-    while(True):
-        r += 1
-        p1 = pwCheck(atr1, asp1 - w1)
-        p2 = pwCheck(atr2, asp2 - w2)
-        w1 += max(p2 - p1, 0)
-        w2 += max(p1 - p2, 0)
-        p1_is_dead = atr1 <= w1
-        p2_is_dead = atr2 <= w2
-        if p1_is_dead and p2_is_dead:
-            return 0
-        elif p1_is_dead:
-            return 2
-        elif p2_is_dead:
-            return 1
-
-# count = Counter( [sym_duel(8,8,16,0) for i in range(10000)] )
-# print( "Wins for P1 vs P2: %s vs %s" % (count[1], count[2]) )
-
-print(sum([  pwRollReroll(3,2) for i in range(1000) ]))
-print(sum([  pwRollShift(3,2) for i in range(1000) ]))
-
-
-r = []
-for p in range(1,60):
-    s = 0
-    for i in range(1000):
-        a, b = pwAltCheck(p), pwAltCheck(p)
-        s += abs(a-p)
-    r.append(p/(s/1000))
-print(r)
-#+end_src
-
-#+RESULTS:
-: 2259
-: 1916
-: [0.44228217602830605, 1.0764262648008611, 1.7921146953405018, 2.3543260741612713, 2.9411764705882355, 1.749271137026239, 2.0870602265951104, 2.288329519450801, 1.7761989342806395, 1.9654088050314464, 2.1492770613520906, 1.7361111111111112, 1.9310754604872251, 2.050380785002929, 1.7709563164108617, 1.8497109826589595, 1.9540229885057472, 1.7878426698450538, 1.8346852066434918, 1.9290123456790123, 1.806140878988561, 1.8596787827557058, 1.9327731092436975, 1.7391304347826086, 1.823220536756126, 1.8465909090909092, 1.728110599078341, 1.8889563516157322, 1.8788467768059605, 1.786777843954735, 1.861861861861862, 1.926550270921132, 1.7321016166281755, 1.7907932160539344, 1.844532279314888, 1.7502917152858808, 1.7895144128458118, 1.901901901901902, 1.711351968054763, 1.8217424966980917, 1.8497631400857208, 1.7201834862385321, 1.784676682991616, 1.8114450391107453, 1.740139211136891, 1.806046329014527, 1.820646910710827, 1.7595307917888563, 1.8089190785587714, 1.8210955710955712, 1.6891891891891893, 1.783570571085577, 1.7663722712881187, 1.7142857142857142, 1.8231238398302838, 1.839805506275051, 1.7421602787456445, 1.784121320249777, 1.7643540669856461]
-
 
 # #+LATEX: \begin{small}\doclicenseThis\end{small}
 # #+HTML: <font size=0.5><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</font>
@@ -1508,4 +1572,135 @@ print(r)
 #+HTML: <font size=0.5>This product is licensed under the ORC License held in the License of Congress at TX000 [number tbd] and available online at various locations including www.chaosium.com/orclicense, www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein. This product is the original work of Lukas Zumvorde. If you use my ORC Content, please also credit me.</font>
 
 
+
+* COMMENT Toki Pona as an Orancle
+Lists of all words in Toki Pona Core, ordered.
+
+Entity
+-
+
+Action
+-
+
+Ammount
+- 
+
+[Oject] li [Predicate] e ([Subject] ([en]))
+
+
+Roll 1d100 + 1d20 => 
+
+
+Who
+| mi   | I, me, we, us     | 
+| sina | you               | 
+| ona  | he, she, it, they | 
+| ni   | that, this        | 
+
+Nouns
+| akesi   | reptile, amphibian                                                             | 
+| esun    | market, shop, fair, bazaar, business transaction                               | 
+| ijo     | thing, phenomenon, object, matter                                              | 
+| ilo     | tool, implement, machine, device                                               | 
+| insa    | centre, content, inside, between: internal organ, stomach                      | 
+| jan     | human being, person, somebody                                                  | 
+| kala    | fish, marine animal, sea creature                                              | 
+| kasi    | plant, vegetation: herb, leaf                                                  | 
+| kili    | fruit, vegetable, mushroom                                                     | 
+| kiwen   | hard object, metal, rock, stone                                                | 
+| ko      | clay, clinging form, dough, semi-solid, paste, powder                          | 
+| kon     | air, breath: essence, spirit: hidden reality, unseen agent                     | 
+| kulupu  | community, company, group, nation, society, tribe                              | 
+| kute    | ear: to hear, listen: pay attention to, obey                                   | 
+| lawa    | head, mind: to control, direct, guide, lead, own, plan, regulate, rule         | 
+| len     | cloth, clothing, fabric, textile: cover, layer of privacy                      | 
+| linja   | long and flexible thing: cord, hair, rope, thread, yarn ALT line, connection   | 
+| lipu    | flat object: book, document, card, paper, record, website                      | 
+| luka    | arm, hand, tactile organ: five ALT touch/feel physically, interact, press      | 
+| lukin   | eye: look at, see, examine, observe, read, watch: look for, seek: (pv.) try to | 
+| lupa    | door, hole, orifice, window                                                    | 
+| ma      | earth, land: outdoors, world: country, territory: soil                         | 
+| mama    | parent, ancestor: creator, originator: caretaker, sustainer                    | 
+| mani    | money, cash, savings, wealth: large domesticated animal                        | 
+| mu      | (animal noise or communication) ALT (non-speech vocalization)                  | 
+| mun     | moon, night sky object, star ALT glow, glowing light, light in the dark        | 
+| nasin   | way, custom, doctrine, method, path, road                                      | 
+| nena    | bump, button, hill, mountain, nose, protuberance                               | 
+| nimi    | name, word                                                                     | 
+| noka    | foot, leg, organ of locomotion: bottom, lower part                             | 
+| palisa  | long hard thing: branch, rod, stick                                            | 
+| pan     | cereal, grain: barley, corn, oat, rice, wheat: bread, pasta                    | 
+| pilin   | heart (physical or emotional): feeling (an emotion, a direct experience)       | 
+| pipi    | bug, insect, ant, spider                                                       | 
+| poka    | hip, side: next to, nearby, vicinity ALT along with (comitative), beside       | 
+| poki    | container, bag, bowl, box, cup, cupboard, drawer, vessel                       | 
+| seli    | fire: cooking element, chemical reaction, heat source                          | 
+| selo    | outer form, outer layer: bark, peel, shell, skin: boundary                     | 
+| sijelo  | body (of person or animal), physical state, torso                              | 
+| sike    | round or circular thing: ball, circle, cycle, sphere, wheel: of one year       | 
+| sinpin  | face, foremost, front, wall                                                    | 
+| sitelen | image, picture, representation, symbol, mark, writing                          | 
+| soweli  | animal, beast, land mammal                                                     | 
+| suno    | sun: light, brightness, glow, radiance, shine: light source                    | 
+| supa    | horizontal surface, thing to put or rest something on                          | 
+| telo    | water, liquid, fluid, wet substance: beverages                                 | 
+| tenpo   | time, duration, moment, occasion, period, situation                            | 
+| tomo    | indoor space: building, home, house, room                                      | 
+| uta     | mouth, lips, oral cavity, jaw                                                  | 
+| waso    | bird, flying creature, winged animal                                           | 
+
+Verbs
+| alasa   | to hunt, forage, seek ALT (pv.) try to, attempt                                                        |
+| anpa    | bowing down, downward, humble, lowly, dependent, lower part, under, below, floor, beneath, low, bottom |
+| ante    | different, altered, changed, other                                                                     |
+| awen    | enduring, kept, protected, safe, waiting, staying: (pv.) to continue to, to keep                       |
+| jo      | to have, carry, contain, hold                                                                          |
+| kalama  | to produce a sound: recite, utter aloud                                                                |
+| kama    | arriving, coming, future, summoned: (pv.) to become, manage to, succeed in                             |
+| kepeken | to use, with, by means of                                                                              |
+| lape    | sleeping, resting                                                                                      |
+| moku    | to eat, drink, consume, swallow, ingest                                                                |
+| olin    | love, have compassion for, respect, show affection to                                                  |
+| open    | begin, start: open: turn on                                                                            |
+| pali    | do, take action on, work on: build, make, prepare                                                      |
+| pana    | give, send, emit, provide, put, release                                                                |
+| sona    | know, be skilled in, be wise about, have information on: (pv.) know how to                             |
+| tawa    | going to, toward: for: from the perspective of: moving ALT (pv.) going to                              |
+| toki    | communicate, say, speak, talk, use language, think ALT hello                                           |
+| unpa    | have sexual relations with                                                                             |
+| utala   | battle, challenge, compete against, struggle against                                                   |
+
+Adjectives
+| ala    | no, not, zero: [~ ala ~] (used to form a yes-no question): nothing                                |
+| ale    | all: abundant, countless, bountiful, every, plentiful: abundance, everything, life, universe, 100 |
+| ike    | bad, negative: non-essential, irrelevant ALT complicated, complex                                 |
+| jaki   | disgusting, obscene, sickly, toxic, unclean, unsanitary                                           |
+| jelo   | yellow, yellowish                                                                                 |
+| ken    | to be able to, be allowed to, can, may: possible                                                  |
+| kule   | colorful, pigmented, painted ALT of or relating to the LGBT+ community                            |
+| laso   | blue, green                                                                                       |
+| lete   | cold, cool: uncooked, raw                                                                         |
+| lili   | little, small, short: few: a bit: young                                                           |
+| loje   | red, reddish                                                                                      |
+| lon    | located at, present at, real, true, existing ALT (affirmative response)                           |
+| moli   | dead, dying                                                                                       |
+| monsi  | back, behind, rear                                                                                |
+| musi   | artistic, entertaining, frivolous, playful, recreation                                            |
+| mute   | many, a lot, more, much, several, very: quantity ALT three (or more), 20                          |
+| nasa   | unusual, strange: silly: drunk, intoxicated                                                       |
+| pakala | botched, broken, damaged, harmed, messed up ALT (curse expletive, e.g. fuck!)                     |
+| pimeja | black, dark, unlit                                                                                |
+| pini   | ago, completed, ended, finished, past                                                             |
+| pona   | good, positive, useful: friendly, peaceful: simple                                                |
+| sama   | same, similar: each other: sibling, peer, fellow: as, like                                        |
+| sewi   | area above, highest part, something elevated: awe-inspiring, divine, sacred, supernatural         |
+| sin    | new, fresh: additional, another, extra                                                            |
+| suli   | big, heavy, large, long, tall: important: adult                                                   |
+| suwi   | sweet, fragrant: cute, innocent, adorable                                                         |
+| tu     | two ALT separate, cut                                                                             |
+| walo   | white, whitish: light-coloured, pale                                                              |
+| wan    | unique, united: one                                                                               |
+| wawa   | strong, powerful: confident, sure: energetic, intense                                             |
+| weka   | absent, away, ignored                                                                             |
+| wile   | must, need, require, should, want, wish                                                           |
 
