@@ -579,3 +579,156 @@ Simulate 100 fights with P1(2d|3) and P2(6d|2)
  m wounds for attr1  A: 3.15  |  B: 0.84
 
 :end:
+
+
+
+* experiment [2024-03-09 Sa]
+
+#+begin_src python :results output drawer
+import random
+import math
+import operator
+import logging
+
+AP_PER_LONG_DMG = 2
+
+def roll(f,n,c):
+    return ( f * random.randint(0,n) ) + c
+
+
+def diminish(a,b):
+    """ reduce B by B but not further than up to 0. Return what is left of A and what is left of B."""
+    if b <= a:
+        return a-b, 0
+    else:
+        return 0, b-a
+
+
+def fillup(a,b,m):
+    """take value from B to bring A up to M. Return the filled up A and the rest of B"""
+    if a >= m:
+        return a, b
+    if a + b < m:
+        return a+b, 0
+    else:
+        return m, b - (m-a)
+
+
+class Character:
+    def __init__(self,competency, aspects):
+        self.competency = competency
+        self.aspects = aspects
+        self.stress_short = 0
+        self.stress_long = 0
+        self.strat = self.strat_incapacitate_then_kill
+
+    def maxDicePool(self):
+        return self.competency + self.aspects
+
+    def check(self):
+        dice_pool = self.competency + self.aspects
+        effective_dice_pool = max(0, dice_pool - self.stress_short)
+        #return roll( math.floor(effective_dice_pool / 4), 8, (effective_dice_pool % 4) )
+        return roll( math.ceil(effective_dice_pool / 4), 8, -(-effective_dice_pool % 4) )
+
+    def canFight(self):
+        return self.competency + self.aspects > self.stress_long + self.stress_short
+
+    def isAlive(self):
+        return self.competency + self.aspects > self.stress_long
+
+    def strat_incapacitate_then_kill(self,  opponent, ap):
+        opponent.stress_short, r = fillup(opponent.stress_short, ap, opponent.maxDicePool())
+        opponent.stress_long += math.floor(r / AP_PER_LONG_DMG)
+
+    def strat_just_kill(self, opponent, ap):
+        opponent.stress_long += math.floor(ap / AP_PER_LONG_DMG)
+
+    def strat_kill_once_then_inpapacitate(self,  opponent, ap):
+        if opponent.stress_long == 0:
+            opponent.stress_long += math.floor(ap / AP_PER_LONG_DMG)
+        else:
+            self.strat_incapacitate_then_kill(opponent, ap)
+
+    def strat_alternate_unbalance_kill(self, opponent, ap):
+        if opponent.stress_short == 0:
+            self.strat_incapacitate_then_kill(opponent, ap)
+        else:
+            print("Hey")
+            self.strat_just_kill(opponent, ap)
+
+
+def combatround(p,e):
+    # roll checks
+    p_ap = p.check()
+    e_ap = e.check()
+    # reset stress
+    p.stress_short = 0
+    e.stress_short = 0
+    # apply stress
+    if p_ap > e_ap:
+        p.strat(e, p_ap)
+    if e_ap > p_ap:
+        e.strat(p, e_ap)
+    # check if combat is over
+    if not p.isAlive() or not p.canFight():
+        #print("Enemy wins")
+        return 2
+    elif not e.isAlive() or not e.canFight():
+        #print("Player wins")
+        return 1
+    else:
+        #print("Status: P %s ; E %s" % (p.stress_short + p.stress_long, e.stress_short + e.stress_long))
+        return 0
+
+
+stats = {"P": [], "E": []}
+stats_dmg = {"P": [], "E": []}
+for experiment in range(1,1000):
+    p = Character(4,0)
+    e = Character(3,0)
+    p.strat = p.strat_incapacitate_then_kill
+    e.strat = e.strat_incapacitate_then_kill
+    #p.strat = p.strat_just_kill
+    #e.strat = e.strat_just_kill
+    #p.strat = p.strat_kill_once_then_inpapacitate
+    #e.strat = e.strat_kill_once_then_inpapacitate
+    #p.strat = p.strat_alternate_unbalance_kill
+    #e.strat = e.strat_alternate_unbalance_kill
+    for i in range(1,10):
+        r = combatround(p,e)
+        # print( p.stress_short , p.stress_long )
+        if r==1:
+            stats["P"].append(i)
+            stats_dmg["P"].append(p.stress_long)
+            stats_dmg["E"].append(e.stress_long)
+            break
+        elif r==2:
+            stats["E"].append(i)
+            stats_dmg["P"].append(p.stress_long)
+            stats_dmg["E"].append(e.stress_long)
+            break
+
+# average combat length
+avg_rounds = sum(stats["P"] + stats["E"]) / max(1, len(stats["P"] + stats["E"]))
+# Win Rates
+prop_p_wins = len(stats["P"]) / max(1,len(stats["P"] + stats["E"]))
+prop_e_wins = len(stats["E"]) / max(1,len(stats["P"] + stats["E"]))
+# Avg Dmg
+p_dmg = sum(stats_dmg["P"]) / max(1,len(stats_dmg["P"]))
+e_dmg = sum(stats_dmg["E"]) / max(1,len(stats_dmg["E"]))
+
+# print(stats)
+print("Average Contest Length: ", avg_rounds)
+print("Win Rates;   P {:.0%}    E {:.0%}".format(prop_p_wins, prop_e_wins))
+print("Average DMG; P {:.1f}    E {:.1f}".format(p_dmg, e_dmg))
+
+
+#+end_src
+
+#+RESULTS:
+:results:
+Average Contest Length:  1.4094094094094094
+Win Rates;   P 61%    E 39%
+Average DMG; P 0.2    E 0.7
+:end:
