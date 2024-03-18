@@ -1,0 +1,182 @@
+
+\usepackage{multicol}
+\setlength{\parindent}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\itemsep}{0.mm}
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep}
+\usepackage[table]{xcolor}
+\usepackage[type={CC},modifier={by-sa}, version={4.0}, imagewidth=5em]{doclicense}
+\renewcommand{\familydefault}{\sfdefault}
+% \usepackage{verbatim}
+\usepackage{xparse}
+\usepackage{soul}
+
+
+%%%%%%%%%%%%%%%%%%%%
+% Section Headings
+%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\usepackage[explicit]{titlesec}
+\titleformat{name=\section,numbered}[block]{\normalfont\Large\bfseries}{}{0em}{\colorbox{black!100}{ {\color{white}\thesection\quad #1} }}
+\titleformat{name=\subsection}{\normalfont\large\bfseries}{}{0em}{\colorbox{black!66}{ {\color{white}\thesubsection\quad #1} }}
+\titleformat{name=\subsubsection}{\normalfont\normalsize\bfseries}{}{0em}{\colorbox{black!33}{ {\color{black}\thesubsubsection\quad #1} }}
+\makeatother
+
+%%%%%%%%%%%%%%
+% title page
+%%%%%%%%%%%%%%
+
+\renewcommand\maketitle{
+\begin{titlepage}
+	\centering
+    \includegraphics[width=0.8\textwidth]{dice_cut.png}
+	\topskip250pt\vspace{5cm}
+	\fboxsep2em\colorbox{black!100}{
+ 	  % {\color{white}\bfseries\fontsize{90pt}{108pt}\selectfont \quad Primordial Waters\quad\par}
+	  {\color{white}\bfseries\fontsize{24pt}{29pt}\selectfont \quad Primordial Waters\quad\par}
+	}
+	\vfill
+	a game by\par
+	\textsc{Lukas Zumvorde}
+	\vfill
+    % Bottom of the page
+	{\large \today\par}
+\end{titlepage}}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Table of Contents
+%%%%%%%%%%%%%%%%%%%%%
+\let\oldtableofcontents\tableofcontents
+\renewcommand\tableofcontents{
+  \oldtableofcontents
+  \clearpage
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define boxes and special babel environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[dvipsnames]{xcolor}
+\usepackage[many]{tcolorbox}
+\newtcolorbox{shortrules}[1]{
+  colback=black!5!white,
+  colframe=black!50!white,
+  fonttitle=\bfseries,
+  title=#1
+}
+\newenvironment{short}{
+  \begin{shortrules}{Quick Reference:}
+}{
+  \end{shortrules}
+}
+% \newenvironment{short}{}{}
+% \newenvironment{short}{\begin{tcolorbox}}{\end{tcolorbox}}
+
+\usepackage{pgfkeys}
+\usepackage{listofitems}
+
+\newcommand\characterpoints[3]{%
+  \setsepchar{ }%
+  \readlist\arg{#2}%
+  \IfStrEqCase{#1}{%
+    {at}{%
+      \the\numexpr (\arg[1]+\arg[2]+\arg[3]+\arg[4]+\arg[5]+\arg[6]+\arg[7]+\arg[8])*6 + #3 \relax %
+    }%
+    {ca}{%
+      \the\numexpr (\arg[1]+\arg[2]+\arg[3]+\arg[4])*12 + #3 \relax %
+    }%
+    {co}{%
+      \the\numexpr (\arg[1])*48 + #3 \relax %
+    }%
+  }%
+}
+
+\newcommand\attributestable[2]{%
+  \begin{center}%
+  \setsepchar{ }%
+  \readlist\arg{#2}%
+  \IfStrEqCase{#1}{%
+    {at}{%
+      \begin{tabular}{| c | c | c | c | c | c | c | c |}%
+      \hline%
+      \multicolumn{2}{| c |}{Physical} &%
+      \multicolumn{2}{| c |}{Mental} &%
+      \multicolumn{2}{| c |}{Social} &%
+      \multicolumn{2}{| c |}{Resources} \\%
+      \hline%
+      Str & Dex & Wil & Int & Emp & Cha & Gea & Fin \\%
+      \hline%
+      \arg[1] & \arg[2] & \arg[3] & \arg[4] & \arg[5] & \arg[6] & \arg[7] & \arg[8] \\%
+      \hline%
+      \end{tabular}%
+    }%
+    {ca}{%
+      \begin{tabular}{ | c | c | c | c |}%
+      \hline%
+      Physical & Mental & Social & Resources \\%
+      \hline%
+      \arg[1] & \arg[2] & \arg[3] & \arg[4] \\%
+      \hline%
+      \end{tabular}%
+    }%
+    {co}{%
+      \begin{tabular}{ | c | c |}%
+      \hline%
+      Competency & \arg[1] \\%
+      \hline%
+      \end{tabular}%
+    }%
+  }%
+  \end{center}%
+}
+
+%% \newtcolorbox{npcbox}[1]{
+%%   colback=black!5!white,
+%%   colframe=black!50!white,
+%%   fonttitle=\bfseries,
+%%   title=#1,
+%% }
+
+\newtcolorbox{npcbox}[1]{
+  enhanced,
+  breakable,
+  borderline west={2pt}{0pt}{black},
+  colback=black!5!white,
+  boxrule=0pt,
+  title=#1,
+  fonttitle=\bfseries,
+  % colframe=black!50!white
+  underlay={\tcbvignette{
+      fade out=blue,
+  }},
+}
+
+
+\newenvironment{npc}[4]{
+  \begin{npcbox}{
+      Character: #1 (\characterpoints{#2}{#3}{#4}  CP)
+    }
+    \attributestable{#2}{#3}
+    % \begin{multicols}{2}[]
+}{
+  % \end{multicols}
+  \end{npcbox}
+}
+
+\newtcolorbox{examplebox}{
+  enhanced,
+  breakable,
+  colback=black!5!white,
+  boxrule=0pt,
+  % borderline west={2pt}{0pt}{black},
+  width=.8\textwidth,
+  center
+}
+
+
+\newenvironment{pwexample}{
+  \begin{examplebox}
+  \itshape
+}{
+  \end{examplebox}
+}

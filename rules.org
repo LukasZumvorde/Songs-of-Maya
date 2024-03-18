@@ -54,128 +54,14 @@
 #+HTML_HEAD: </style>
 
 # LATEX export header
+#+LATEX_CLASS: article
+#+LATEX_HEADER: \usepackage{primordial_waters}
 #+LaTeX_HEADER: \usepackage[a5paper, total={128mm, 190mm}]{geometry}
 # #+LaTeX_HEADER: \usepackage[a4paper, total={7.25in, 11in}]{geometry}
 # #+LaTeX_HEADER: \pagenumbering{gobble}
-#+LATEX_HEADER: \usepackage{multicol}
-#+LATEX_HEADER: \setlength{\parindent}{0pt}
-#+LATEX_HEADER: \setlength{\itemsep}{0.mm}
-#+LATEX_HEADER: \usepackage{enumitem}
-#+LATEX_HEADER: \setlist[itemize]{noitemsep}
-#+LATEX_HEADER: \usepackage[table]{xcolor}
-#+LATEX_HEADER: \usepackage[type={CC},modifier={by-sa}, version={4.0}, imagewidth=5em]{doclicense}
-#+LATEX_HEADER: \renewcommand{\familydefault}{\sfdefault}
-# define custom section heading style with boxes
-#+LATEX_HEADER: \makeatletter
-#+LATEX_HEADER: \usepackage[explicit]{titlesec}
-#+LATEX_HEADER: \titleformat{name=\section,numbered}[block]{\normalfont\Large\bfseries}{}{0em}{\colorbox{black!100}{ {\color{white}\thesection\quad #1} }}
-#+LATEX_HEADER: \titleformat{name=\subsection}{\normalfont\large\bfseries}{}{0em}{\colorbox{black!66}{ {\color{white}\thesubsection\quad #1} }}
-#+LATEX_HEADER: \titleformat{name=\subsubsection}{\normalfont\normalsize\bfseries}{}{0em}{\colorbox{black!33}{ {\color{black}\thesubsubsection\quad #1} }}
-#+LATEX_HEADER: \makeatother
 
-# Create a custom title page
-#+LATEX_HEADER: \renewcommand\maketitle{
-#+LATEX_HEADER: \begin{titlepage}
-#+LATEX_HEADER: 	\centering
-#+LATEX_HEADER:     \includegraphics[width=0.8\textwidth]{dice_cut.png}
-#+LATEX_HEADER: 	\topskip250pt\vspace{5cm}
-#+LATEX_HEADER: 	\fboxsep2em\colorbox{black!100}{
-# #+LATEX_HEADER: 	  {\color{white}\bfseries\fontsize{90pt}{108pt}\selectfont \quad Primordial Waters\quad\par}
-#+LATEX_HEADER: 	  {\color{white}\bfseries\fontsize{24pt}{29pt}\selectfont \quad Primordial Waters\quad\par}
-#+LATEX_HEADER: 	}
-#+LATEX_HEADER: 	\vfill
-#+LATEX_HEADER: 	a game by\par
-#+LATEX_HEADER: 	\textsc{Lukas Zumvorde}
-#+LATEX_HEADER: 
-#+LATEX_HEADER: 	\vfill
-#+LATEX_HEADER: 
-#+LATEX_HEADER: % Bottom of the page
-#+LATEX_HEADER: 	{\large \today\par}
-#+LATEX_HEADER: \end{titlepage}}
-
-# #+LATEX_HEADER: \usepackage{verbatim}
-#+LATEX_HEADER: \usepackage{xparse}
-#+LATEX_HEADER: \usepackage{soul}
-# #+LATEX_HEADER: \newenvironment{pwexample}{\begin{quote}}{\end{quote}}
-# #+LATEX_HEADER: \newenvironment{pwexample}{\iffalse}{\fi}
-# #+LATEX_HEADER: \newenvironment{pwexample}{\begin{comment}}{\end{comment}}
-# #+LATEX_HEADER: \NewDocumentEnvironment{pwoptional}{b}{\fboxsep0.5em\colorbox{black!10}{\parbox{0.46\textwidth}{#1}}}
-
-#+LATEX_CLASS: article
 #+LATEX: {\rowcolors{1}{grey!20}{grey!10}
 # #+LATEX: \begin{multicols}{2}[]
-#+LATEX_HEADER: \let\oldtableofcontents\tableofcontents
-#+LATEX_HEADER: \renewcommand\tableofcontents{
-#+LATEX_HEADER:   \oldtableofcontents
-#+LATEX_HEADER:   \clearpage
-#+LATEX_HEADER: }
-
-#+LATEX_HEADER: \usepackage{tcolorbox}
-#+LATEX_HEADER: \newtcolorbox{shortrules}[1]{colback=black!5!white,colframe=black!50!white,fonttitle=\bfseries,title=#1}
-#+LATEX_HEADER: \newenvironment{short}{\begin{shortrules}{Quick Reference:}}{\end{shortrules}}
-# #+LATEX_HEADER: \newenvironment{short}{}{}
-# #+LATEX_HEADER: \newenvironment{short}{\begin{tcolorbox}}{\end{tcolorbox}}
-
-#+LATEX_HEADER: \usepackage{pgfkeys}
-#+LATEX_HEADER: \usepackage{listofitems}
-
-#+LATEX_HEADER: \newcommand\characterpoints[3]{%
-#+LATEX_HEADER:   \setsepchar{ }%
-#+LATEX_HEADER:   \readlist\arg{#2}%
-#+LATEX_HEADER:   \IfStrEqCase{#1}{%
-#+LATEX_HEADER:     {at}{%
-#+LATEX_HEADER:       \the\numexpr (\arg[1]+\arg[2]+\arg[3]+\arg[4]+\arg[5]+\arg[6]+\arg[7]+\arg[8])*6 + #3 \relax %
-#+LATEX_HEADER:     }%
-#+LATEX_HEADER:     {ca}{%
-#+LATEX_HEADER:       \the\numexpr (\arg[1]+\arg[2]+\arg[3]+\arg[4])*12 + #3 \relax %
-#+LATEX_HEADER:     }%
-#+LATEX_HEADER:     {co}{%
-#+LATEX_HEADER:       \the\numexpr (\arg[1])*48 + #3 \relax %
-#+LATEX_HEADER:     }%
-#+LATEX_HEADER:   }%
-#+LATEX_HEADER: }
-
-#+LATEX_HEADER: \newcommand\attributestable[2]{%
-#+LATEX_HEADER:   \begin{center}%
-#+LATEX_HEADER:   \setsepchar{ }%
-#+LATEX_HEADER:   \readlist\arg{#2}%
-#+LATEX_HEADER:   \IfStrEqCase{#1}{%
-#+LATEX_HEADER:     {at}{%
-#+LATEX_HEADER:       \begin{tabular}{| c | c | c | c | c | c | c | c |}%
-#+LATEX_HEADER:       \hline%
-#+LATEX_HEADER:       \multicolumn{2}{| c |}{Physical} &%
-#+LATEX_HEADER:       \multicolumn{2}{| c |}{Mental} &%
-#+LATEX_HEADER:       \multicolumn{2}{| c |}{Social} &%
-#+LATEX_HEADER:       \multicolumn{2}{| c |}{Resources} \\%
-#+LATEX_HEADER:       \hline%
-#+LATEX_HEADER:       Str & Dex & Wil & Int & Emp & Cha & Gea & Fin \\%
-#+LATEX_HEADER:       \hline%
-#+LATEX_HEADER:       \arg[1] & \arg[2] & \arg[3] & \arg[4] & \arg[5] & \arg[6] & \arg[7] & \arg[8] \\%
-#+LATEX_HEADER:       \hline%
-#+LATEX_HEADER:       \end{tabular}%
-#+LATEX_HEADER:     }%
-#+LATEX_HEADER:     {ca}{%
-#+LATEX_HEADER:       \begin{tabular}{ | c | c | c | c |}%
-#+LATEX_HEADER:       \hline%
-#+LATEX_HEADER:       Physical & Mental & Social & Resources \\%
-#+LATEX_HEADER:       \hline%
-#+LATEX_HEADER:       \arg[1] & \arg[2] & \arg[3] & \arg[4] \\%
-#+LATEX_HEADER:       \hline%
-#+LATEX_HEADER:       \end{tabular}%
-#+LATEX_HEADER:     }%
-#+LATEX_HEADER:     {co}{%
-#+LATEX_HEADER:       \begin{tabular}{ | c | c |}%
-#+LATEX_HEADER:       \hline%
-#+LATEX_HEADER:       Competency & \arg[1] \\%
-#+LATEX_HEADER:       \hline%
-#+LATEX_HEADER:       \end{tabular}%
-#+LATEX_HEADER:     }%
-#+LATEX_HEADER:   }%
-#+LATEX_HEADER:   \end{center}%
-#+LATEX_HEADER: }
-
-#+LATEX_HEADER: \newenvironment{npc}[4]{\begin{shortrules}{#1 (\characterpoints{#2}{#3}{#4}  CP)}\attributestable{#2}{#3}}{\end{shortrules}}
-
 
 * COMMENT TODOs
 - replace campaign for another name that works both in german and english
@@ -346,6 +232,10 @@ An aspect can be created at any time by the GM. It can also be created by any pl
 Arthur the mage wants to inflame the grass around him to channel the enemies into a one on one battle with his Companions. The GM likes this idea and creates the aspect "Dry Grass 1" that Arthur can use. Arthur decides to cast his spell, succeeds with 3 AP, and creates the aspect "Wall of Fire 3". Now any enemy has to either go around the wall or get burned. If an enemy tires to jump through, they have to roll on it against the Fires 3 dice. If the fire succeeds they get burned.
 #+end_example
 
+#+begin_pwexample
+Some example text may be inside here
+#+end_pwexample
+
 **** Using Aspects
 
 Whenever it makes narrative sense an aspect can be used (also called invoked). When used an aspect adds its value to the number of points that can be used for a check. It is also possible to call out an aspect to be used to hinder a check. Then the value is subtracted from the points instead. An aspect can both be used for actions and reactions but never at the same time. If you use aspects in a contest make sure that aspects are not used more than once per round by a character or their points are distributed over different actions.
@@ -358,7 +248,10 @@ An aspect can affect a zone. This means it can be invoked for all in the zone. T
 
 If an aspect impacts multiple targets it costs double the AP (aspect points). Exceptions may be made by the GM.
 
-**** Duration of Aspects
+**** Enduring Aspects
+:PROPERTIES:
+:CUSTOM_ID: sec:aspects_enduring
+:END:
 
 An aspect can be over within a round or it can last longer. Normally aspects last at least a scene long. If your aspect should last longer it should cost double the AP (aspect points). If it should only last for a round the costs half. Exceptions may be made by the GM. In general it can be said, that an aspect lasts as long as it makes sense.
 
@@ -465,7 +358,10 @@ A contest is divided into rounds. Each participant in the contest can make one o
 **** Actions
 An action is a check that tries to create an aspect. Any kind of aspect can be created, based on what fits the scene. You can try to gain an advantageous position, or start a big fire.
 
-If in combat the aspect that is created it is by default =stress=. If a character has more =stress= than he has points in an attribute, then  he can not use this attribute any more. Once the scene ends the stress is converted to one or multiple negative aspects like wounds or exhaustion. 
+If in combat, by default, the aspect that is created is =damage=. Damage is an [[#sec:aspects_enduring][enduring aspect]] thus costing 2 AP per level of the aspect. After combat =damage= gets converted to one or more fitting negative aspects like "broken leg" or "battered and bruised". 
+Alternatively the aspect can be =stress= as a non enduring alernative to damage. =Stress= only holds for 1 round but cost only 1 AP per level of the aspect.
+
+If a character has more =damage= than he has points in an applicable attribute and character aspects combined then he is considered incapacitated for the rest of combat. This may mean that he is unconcious, writhing in pain or just to demoralised to fight.
 
 **** Reactions
 Whenever someone takes an action and has rolled his dice anyone else can immediately try to perform a reaction to prevent it. A reaction does not by its nature create an aspect. If you announce this before the action is rolled you can take the average on a reaction. You have to announce the number of dice invested. The points from the reaction are then subtracted from the points of the action to lessen its effect.
