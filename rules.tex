@@ -1,4 +1,4 @@
-% Created 2023-12-24 So 22:15
+% Created 2024-03-20 Mi 22:58
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -12,45 +12,8 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage{primordial_waters}
 \usepackage[a5paper, total={128mm, 190mm}]{geometry}
-\usepackage{multicol}
-\setlength{\parindent}{0pt}
-\setlength{\itemsep}{0.mm}
-\usepackage{enumitem}
-\setlist[itemize]{noitemsep}
-\usepackage[table]{xcolor}
-\usepackage[type={CC},modifier={by-sa}, version={4.0}, imagewidth=5em]{doclicense}
-\renewcommand{\familydefault}{\sfdefault}
-\makeatletter
-\usepackage[explicit]{titlesec}
-\titleformat{name=\section,numbered}[block]{\normalfont\Large\bfseries}{}{0em}{\colorbox{black!100}{ {\color{white}\thesection\quad #1} }}
-\titleformat{name=\subsection}{\normalfont\large\bfseries}{}{0em}{\colorbox{black!66}{ {\color{white}\thesubsection\quad #1} }}
-\titleformat{name=\subsubsection}{\normalfont\normalsize\bfseries}{}{0em}{\colorbox{black!33}{ {\color{black}\thesubsubsection\quad #1} }}
-\makeatother
-\renewcommand\maketitle{
-\begin{titlepage}
-\centering
-\includegraphics[width=0.8\textwidth]{dice_cut.png}
-\topskip250pt\vspace{5cm}
-\fboxsep2em\colorbox{black!100}{
-{\color{white}\bfseries\fontsize{24pt}{29pt}\selectfont \quad Primordial Waters\quad\par}
-}
-\vfill
-a game by\par
-\textsc{Lukas Zumvorde}
-
-\vfill
-
-% Bottom of the page
-{\large \today\par}
-\end{titlepage}}
-\usepackage{xparse}
-\usepackage{soul}
-\let\oldtableofcontents\tableofcontents
-\renewcommand\tableofcontents{
-\oldtableofcontents
-\clearpage
-}
 \setcounter{secnumdepth}{3}
 \date{}
 \title{Primordial Waters}
@@ -59,7 +22,7 @@ a game by\par
  pdftitle={Primordial Waters},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 29.1 (Org mode 9.6.6)}, 
+ pdfcreator={Emacs 29.2 (Org mode 9.6.15)}, 
  pdflang={English}}
 \begin{document}
 
@@ -68,26 +31,25 @@ a game by\par
 
 {\rowcolors{1}{grey!20}{grey!10}
 
-
 \section{Introduction}
-\label{sec:org83570d7}
+\label{sec:org444877c}
 
 Primordial waters is a generic, light, and abstract role playing rule set with a focus on keeping the game balanced while maintaining and even promoting creative story telling. It leans towards a cinematic play style.
 
 \subsection{Goals}
-\label{sec:org9a99bef}
+\label{sec:orgfc38151}
 
 \begin{itemize}
-\item Rules Light
+\item Rules light
 \item Flexible
-\item World Agnostic
-\item Consistent Probability distribution
-\item Easy Preparation
-\item Little Bookkeeping
+\item World agnostic
+\item Consistent probability distribution
+\item Easy preparation
+\item Little bookkeeping
 \end{itemize}
 
 \subsection{Inspirations}
-\label{sec:orgb30c094}
+\label{sec:org5f4fca7}
 
 This game did not come from nothing. Many other games had an impact on its creation. Some of the most impactfull ones are the following.:
 
@@ -96,9 +58,10 @@ Karma was originally inspired by Fate Cores Fate Points, but EZD6 had the better
 The distribution of attributes into categories was inspired by the AERA RPG.
 The fate die to create unexpected events was inspired by the One Page Solo RPG Engine.
 The optional rule "Only Players Roll" is taken from the Cypher System.
+The alternaitve turn order was taken from Tides of Ambition.
 
 \subsection{How to use the game}
-\label{sec:org141a974}
+\label{sec:org3643a00}
 
 First rule of Gaming: Have fun. If the rules hinder you from having fun then screw the rules.
 
@@ -108,13 +71,11 @@ Third rule of Gaming: Use the aspects value as a guideline and be creative with 
 
 
 \subsection{Conventions}
-\label{sec:orgea3a404}
-
-
+\label{sec:org1f6740d}
 
 \subsection{What dice to roll}
-\label{sec:orgebdce0b}
-We use a pool of \(d_0 2\) to roll, although optional rules for \hyperref[sec:org411da3b]{alternative dice mechanics} exist and are recommended once you get the hang of things. Since it is hard to find dice with the sides 0, 1, and 2 I recommend 2 alternatives.
+\label{sec:org6a0cbf7}
+We use a pool of \(d_0 2\) to roll, although optional rules for \hyperref[sec:org13782c5]{alternative dice mechanics} exist and are recommended once you get the hang of things. Since it is hard to find dice with the sides 0, 1, and 2 I recommend 2 alternatives.
 
 Option 1: Use a \(d6\).
 \begin{itemize}
@@ -127,12 +88,18 @@ Option 2: Use Fate dice. Fate dice have 3 different kinds of sides. \(+\), \(-\)
 
 Sometimes it makes no sense to roll dice, but we want a constant value. Then we can \texttt{take the average}. This means instead of rolling dice we just take the dice pool as if it were the result of a roll. This is fair since it is also the average result of a roll.
 
+
+
 \newpage
 \section{Rules}
-\label{sec:orge5fe18a}
+\label{sec:org1eb1f1d}
 
 \subsection{Attributes}
-\label{sec:org3864d98}
+\label{sec:orgb22a034}
+\begin{short}
+There are the 8 attributes Strength, Dexterity, Will, Intellect, Empathy, Charisma, Gear, and Finances. Each attribute gets a whole number value.
+\end{short}
+
 Attributes describe a characters potential. The higher the value the greater things a character can achieve. There are the following 8 Attributes belonging to the 4 categories.
 
 \begin{center}
@@ -153,136 +120,205 @@ Resources & Gear & Gear you have prepared\\[0pt]
 \end{tabular}
 \end{center}
 
-The attributes value is the basis for the dice pool one has available for \hyperref[sec:org616017e]{checks}. 
+The attributes value is the basis for the dice pool one has available for \hyperref[sec:org12da81f]{checks}. 
 
 \subsection{Aspects}
-\label{sec:org954617a}
-Aspects are a combination of a descriptors and a value. When invoked the aspects value is added or subtracted from the dice pool  for \hyperref[sec:org616017e]{checks}. An aspect is always bound to something. Be it a player, a NPC, an object or even a zone. Be creative with aspects. Try to bind their effects to the value and they should stay balanced enough.
+\label{sec:org652ad55}
+\begin{short}
+Aspects have a descriptive name and a whole number value calles its aspect points (AP).
+\begin{itemize}
+\item Create: Make a check. The resulting AP are the AP of the new aspect.
+\item Use: Add the AP of the aspect to the check. Any AP can only be used once per round.
+\item Multiple Targets: To create an aspect that effects an area or multiple targets half the AP.
+\item Duration: By default an aspect can be used once. To make it apply every round until the duration is over half the AP.
+\item Acting: Aspects can perform actions on their own. For this use the AP as the dice pool.
+\item Remove: To remove an aspect you need to make a check. Reduce the AP of the aspect by the AP of the check.
+\item Resistance: Aspects can resist being removed. To reduce the AP of the check for removal by 1 for each resistance point. A point of resistance costs 1 AP.
+\end{itemize}
+\end{short}
+
+
+Aspects are a combination of a descriptors and a value. When invoked the aspects value is added or subtracted from the dice pool  for \hyperref[sec:org12da81f]{checks}. An aspect is always bound to something. Be it a player, a NPC, an object or even a zone. Be creative with aspects. Try to bind their effects to the value and they should stay balanced enough.
 
 \paragraph*{Creating an Aspect}
-\label{sec:orgd60adbd}
+\label{sec:org359351c}
 
 An aspect can be created at any time by the GM. It can also be created by any player, NPC or even object. To create an aspect all but the GM need to make a check. The aspect points (AP) from this check can be used to create an aspect. Increasing or decreasing an aspects value by 1 costs 1 AP (aspect point). The description of the aspect can be decided freely. 
 
-\begin{quote}
+\begin{pwexample}
 Arthur the mage wants to inflame the grass around him to channel the enemies into a one on one battle with his Companions. The GM likes this idea and creates the aspect "Dry Grass 1" that Arthur can use. Arthur decides to cast his spell, succeeds with 3 AP, and creates the aspect "Wall of Fire 3". Now any enemy has to either go around the wall or get burned. If an enemy tires to jump through, they have to roll on it against the Fires 3 dice. If the fire succeeds they get burned.
-\end{quote}
+\end{pwexample}
 
 \paragraph*{Using Aspects}
-\label{sec:org9c9cd19}
+\label{sec:orgd9355a3}
 
 Whenever it makes narrative sense an aspect can be used (also called invoked). When used an aspect adds its value to the number of points that can be used for a check. It is also possible to call out an aspect to be used to hinder a check. Then the value is subtracted from the points instead. An aspect can both be used for actions and reactions but never at the same time. If you use aspects in a contest make sure that aspects are not used more than once per round by a character or their points are distributed over different actions.
 
 \paragraph*{Area Aspects}
-\label{sec:orgd648157}
+\label{sec:orgce898df}
 
 An aspect can affect a zone. This means it can be invoked for all in the zone. To create such an aspect costs double the AP (aspect points). Exceptions may be made by the GM. 
 
 \paragraph*{Multiple Targets}
-\label{sec:org7ea6798}
-
+\label{sec:org42799a8}
 If an aspect impacts multiple targets it costs double the AP (aspect points). Exceptions may be made by the GM.
 
-\paragraph*{Duration of Aspects}
-\label{sec:org489c421}
-
+\paragraph*{Enduring Aspects}
+\label{sec:org38549a6}
 An aspect can be over within a round or it can last longer. Normally aspects last at least a scene long. If your aspect should last longer it should cost double the AP (aspect points). If it should only last for a round the costs half. Exceptions may be made by the GM. In general it can be said, that an aspect lasts as long as it makes sense.
 
 \paragraph*{Acting Aspects}
-\label{sec:orgb8dd8ee}
+\label{sec:org3a01ed1}
 
 Sometimes an aspect should perform actions on its own. Each round they can act like any other player or NPC. They use their value for their actions.
 
-\begin{quote}
-Poison Cloud 2: Each round it tries to use 2 dice to poison any inside. Since it impacts a zone it can do this for everyone inside the zone every round.
-\end{quote}
+\begin{pwexample}
+\aspect{Poison Cloud 2}: Each round it tries to use 2 dice to poison any inside. Since it impacts a zone it can do this for everyone inside the zone every round.
+\end{pwexample}
 
 \paragraph*{Resistant Aspects}
-\label{sec:orge57eeb1}
-
+\label{sec:org03d5237}
 An aspect can have resistance to being removed. The resistance is subtracted from any attempt to removing this aspect. For each point of resistance costs 1. The effective resistance can never be more than the aspects value. Be creative when invoking a resistant aspect. For example armor could be implemented as an aspect with resistance.
 
-\begin{quote}
-A heavy door blocks the way. The GM creates the aspect "Fortified Door 5[2]". This means the aspect has a value of 5 with a resistance of 2. The players try to break through with pure strength. On their first try they get 4 AP. 2 get absorbed by the doors resistance and the rest weakens the door. The doors aspect is now "Fortified Door 3[2]". On their second try the players get 6 AP and break through.
+\begin{pwexample}
+A heavy door blocks the way. The GM creates the aspect \aspect{Fortified Door 5[2]}. This means the aspect has a value of 5 with a resistance of 2. The players try to break through with pure strength. On their first try they get 4 AP. 2 get absorbed by the doors resistance and the rest weakens the door. The doors aspect is now \aspect{Fortified Door 3[2]}. On their second try the players get 6 AP and break through.
 If the players had decided to pick the lock the GM may had ignored the resistance value.
-\end{quote}
+\end{pwexample}
 
 
 \paragraph*{Character Aspects}
-\label{sec:org7c676ff}
+\label{sec:org3af7277}
 
 Aspects can also be bound to a character and be bought with CP (character points). If an aspect is mostly negative in nature it may give you CP instead. Character aspects can be invoked by the GM to make the character do something. 
 
 \paragraph*{Damage}
-\label{sec:org0e13e5f}
+\label{sec:org078bb98}
 
 Aspects are also used to represent damage a character or object has taken. If a character is unable to act in a scene because too many aspects hinder him, it is a good idea to narrate them out of the scene. It is also a good time to create a fitting negative character aspect representing this loss (like "lost an arm" or "fear of water" or "hateful of orcs").
 
-\subsection{Checks}
-\label{sec:org616017e}
-Checks are rolled when the outcome of an action is not certain. Each check is bound to an \hyperref[sec:org3864d98]{attribute}.
 
-Add the points in the relevant attribute and all applicable \hyperref[sec:org954617a]{aspects} together. This is your dice pool. You get the result of the roll in aspect points (AP).
+\subsection{Checks}
+\label{sec:org12da81f}
+\begin{short}
+Add points of attribute and aspects to get the dice pool. Roll one or multiple dice that are equvalent to the dice pool in value. The result of the roll are the aspect points (AP) of the check.
+\begin{itemize}
+\item Difficulty: Some aspects hinder a check. For them consider the AP to be negative instead.
+\item Collaboration: Add either the dice pool for the checks or the AP of all checks made together.
+\item Risky: Roll an additional \(d6\). If it shows a \(6\) then use the result of the check to create a negative aspect instead.
+\item Take Time: Make multiple checks and add the AP.
+\end{itemize}
+\end{short}
+
+Checks are rolled when the outcome of an action is not certain. Each check is bound to an \hyperref[sec:orgb22a034]{attribute}.
+
+Add the points in the relevant attribute and all applicable \hyperref[sec:org652ad55]{aspects} together. This is your dice pool. You get the result of the roll in aspect points (AP).
 
 If the aspect points are zero or negative the check fails.
 
 \paragraph*{Difficulty}
-\label{sec:org3bfec54}
-The checks difficulty is the sum of all aspects that are to be overcome or created. This means that a door having the difficulty 3 to be opened is the same thing as the door having the aspect "Closed 3" on it. 
+\label{sec:orgec754ba}
+The checks difficulty is the sum of all aspects that are to be overcome or created. This means that a door having the difficulty 3 to be opened is the same thing as the door having the aspect "Closed 3" on it. If an obstacle can not be partially overcome you can give it a \hyperref[sec:org03d5237]{resistant aspect}.
+
+\begin{pwexample}
+The player tries to pick a door lock. The GM decides that he can not partially pick a lock and thus chip away at the door. So he gives it the aspect \aspect{closed 1[5]}. This means that the player needs at least 6 AP to open it and has to do it with one check.
+\end{pwexample}
 
 \paragraph*{Collaborative checks}
-\label{sec:orge035bc7}
+\label{sec:org7efa56d}
 Everyone rolls individually and then sum together all AP.
 
 \paragraph*{Risky checks}
-\label{sec:orgf0ecf1c}
-If a check is risky the character might incur something bad if the check fails. If the check fails a negative aspect is created worth the difficulty in points. The minimum is 1. You can not take the average on a risky check.
+\label{sec:orgb8181f9}
+Roll an additional d6, called the risk die. If the risk die shows a 6 then the result of the check is used to create a negative aspect.
+
+Alternatively you can forego rolling a risky check all together, including the risk die, but then the result is always half of your dice pool.
 
 \paragraph*{Taking Time}
-\label{sec:org947d24e}
+\label{sec:org71cd458}
 Sometimes a check is to difficult to achieve something within 1 check. Then it may be possible to do multiple checks over a longer time to accumulate the points needed. However, you must decide beforehand how many checks you want to take. The AP of all checks are accumulated after considering the difficulty. The GM has a veto right and can limit the amount of checks.
 
+\paragraph*{Limited Aspects}
+\label{sec:org240479f}
+To prevent players from stacking up aspects endlessly it may be good to limit the ammount of points one can use. The dice pool should be limited to double the sum of the relevant attribute and all used aspect points from chracter inherent aspects. Feel free to disregard this rule however if it does not fit well with the story.
+
+\paragraph*{Multiple Checks}
+\label{sec:org789e569}
+Sometimes the players fail to pass an obstacle with just one check. If the players have a new idea on how they might overcome the challenge then you can allow them another check. The new idea may add the checks AP to the previous attempt or replace them, depending on the narrative.
+
+\begin{pwexample}
+The player has to climb up a cliff. The cliff has the aspect \aspect{sheer rock face 6[2]} At frist he tires to just climb. He rolls a 3 on his check. This does not suffice and because of the 2 resistance of the aspect he has only overcome 1 of the 6 AP, he needs. This is harder than expected and considering that he has already climbed some of the distance a failure may end in a fall. He pulls out some wedges from his pack and starts to use them to create some better holds. For this the GM allows a new check, which he gets 7 AP from. With those he just barely climbs the rest of the distance.
+\end{pwexample}
+
+
 \subsection{Contest}
-\label{sec:org1925a87}
+\label{sec:org5803eac}
+\begin{short}
+Each participant can make one or more checks each round.
+\begin{itemize}
+\item Action: A check to create an aspect
+\item Reaction: A check to prevent an aspect from being created.
+\item Turn Order: From the one with the highest dice pool to the one with the lowest. You can act on your turn or on any later point in the round.
+\item Multiple (re)actions: Total number of points (dice pool) gained from the attributes is the largest attribute value of the checks. From each attribute (and aspect) you can use at most its value in points.
+\end{itemize}
+\end{short}
+
 The prototypical contest is combat, but the same rules can be used any scenario where multiple parties act in opposition to each other. Be it a diplomatic debate or the hostile takeover of a company. 
 
 A contest is divided into rounds. Each participant in the contest can make one or more checks each round. When it is a participants turn or on any later point in the round they can perform an action.
 
 \paragraph*{Actions}
-\label{sec:orgf84fa0a}
+\label{sec:org51f2ff8}
 An action is a check that tries to create an aspect. Any kind of aspect can be created, based on what fits the scene. You can try to gain an advantageous position, or start a big fire.
 
-If in combat the aspect that is created it is by default \texttt{stress}. If a character has more \texttt{stress} than he has points in an attribute, then  he can not use this attribute any more. Once the scene ends the stress is converted to one or multiple negative aspects like wounds or exhaustion. 
+If in combat, by default, the aspect that is created is \aspect{damage}. Damage is an \hyperref[sec:org38549a6]{enduring aspect} thus costing 2 AP per level of the aspect. After combat \aspect{damage} gets converted to one or more fitting negative aspects like "broken leg" or "battered and bruised". 
+Alternatively the aspect can be \aspect{stress} as a non enduring alernative to damage. \aspect{Stress} only holds for 1 round but cost only 1 AP per level of the aspect.
+
+If a character has more \aspect{damage} than he has points in an applicable attribute and character aspects combined then he is considered incapacitated for the rest of combat. This may mean that he is unconcious, writhing in pain or just to demoralised to fight.
 
 \paragraph*{Reactions}
-\label{sec:org823c367}
+\label{sec:orge8c5553}
 Whenever someone takes an action and has rolled his dice anyone else can immediately try to perform a reaction to prevent it. A reaction does not by its nature create an aspect. If you announce this before the action is rolled you can take the average on a reaction. You have to announce the number of dice invested. The points from the reaction are then subtracted from the points of the action to lessen its effect.
 
 \paragraph*{Turn Order}
-\label{sec:orgc3bf1a9}
+\label{sec:orgaf01eb8}
 The participants take turn from the one with the highest relevant attribute (+ aspects) to the lowest. On your turn you don't have to act. You can act at any point after you turn in the turn order. Even multiple times. 
 
+Alternative:
+\begin{itemize}
+\item All characters of a party act together (typically all player characters or all enemies).
+\item If a party surprises the others then they go first.
+\item If a party has significantly less members, then they go first.
+\item If in doubt then determine the order by comparing the dice pools of the parties. The highest one begins.
+\end{itemize}
+
 \paragraph*{Multiple (re)actions}
-\label{sec:orgbc8a6c3}
+\label{sec:org7d0d911}
 Each round you can take multiple actions and reactions. The total number of points gained from the attributes is the largest attribute value of the checks. From each attribute you can use at most its value in points in total. Each Aspect can only be used once or their AP (attribute points) have to be distributed to the (re)actions.
 
 \paragraph*{Acting together}
-\label{sec:orgb4322ec}
-When acting together all values are combined and a single combined check is made or alternatively only the AP are combined. To act together all have to act at the same time in the turn order, so effectively at the earliest when the slowest has his turn.
+\label{sec:orgff0c247}
+When acting together all values are combined and a single combined check is made or alternatively everyone rolls seperately and only the AP are combined. To act together all have to act at the same time in the turn order, so effectively at the earliest when the slowest has his turn.
 
 \subsection{Traits}
-\label{sec:orgd0a2dd3}
+\label{sec:orga73475e}
+\begin{short}
+Traits allow characters to break rules in some way. Some checks that can only be performed because of a trait make those checks \hyperref[sec:orgb8181f9]{risky}. Traits can be bought for character points.
+\end{short}
+
 Traits are distinguishing things about the character that allow him to break a rule of the world or the game in some way. For example with the Trait Night Vision you can just see in the dark. No rolls required. Some traits (like all magic) should come with a risk, meaning all checks that can only be made with this trait are risky checks. They can be bought for character points, this is possible both at character creation and later in the game.
 
-See the chapter \hyperref[sec:orga2eb42f]{List of Traits} for examples.
+See the chapter \hyperref[sec:orgf7e3540]{List of Traits} for examples.
 
 \subsection{Karma}
-\label{sec:orga43a48a}
-Each player can have up to 3 karma. They can be used at any point in time to repeat a single die roll (not just your own) or to add an interesting aspect to a scene (GM has veto rights). Karma can be recovered by a characters aspect or trait being used against them or as a reward for good role play (anything that brings joy to all players and the GM). 
+\label{sec:org4e619c0}
+\begin{short}
+Each player can have up to 3 karma. They can be used at any point in time to repeat a single die roll (not just your own) or to add an interesting aspect to a scene. The GM has veto rights. Karma can be recovered by a characters aspect or trait being used against them or by objectively failing in a scene or as a reward for good role play (anything that brings joy to all players and the GM). 
+\end{short}
 
 
 \subsection{Character Creation}
-\label{sec:orgb6d437b}
+\label{sec:org810b613}
+\begin{short}
 Distribute 150 CP on your Attributes, Aspects and Traits.
 
 Use the rules under equipment to limit your starting gear.
@@ -302,104 +338,112 @@ A typical player character will have:
 \item 3 aspects with value 2
 \item 1 trait
 \end{itemize}
+\end{short}
 
 \subsection{Movement and Range}
-\label{sec:org1316a9e}
-Sometimes it is useful to draw maps and define distances. In a contest split the area into roughly 3-5 zones. A character can move from one zone to another each round. If one can act at a range like for example when shooting a bow one can act 1-2 zones far. During the round a character is moving he can be considered to be in both zones at once.
+\label{sec:org6e22964}
+\begin{short}
+Sometimes it is useful to draw maps and define distances. In a contest split the area into roughly 3-5 zones. A character can move from one zone to another each round. If one can act at a range, like for example when shooting a bow, one can act 1-2 zones far. During the round a character is moving he can be considered to be in both zones at once.
+\end{short}
 
 \subsection{Items and Equipment}
-\label{sec:org7abc812}
+\label{sec:org8e2c512}
 Items have a description and a resource value (RV). The RV is an abstraction for the items price or usefulness. 
 Items may have an aspect associated with them. If you want items to have any specific effects you may add aspects. At any time the GM can choose to give an item an aspect. Normally it will have the resource value of the item in AP. You don't have to write down the obvious aspects an item has. For example you dont need to specify that the sword is good for slicing stuff.
 
-A few examples can be found in the section \hyperref[sec:org1a307e8]{List of Items}.
+A few examples can be found in the section \hyperref[sec:org1c0fa02]{List of Items}.
 
 \begin{center}
 \begin{tabular}{c|l|l}
 \textbf{RV} & \textbf{Description} & \textbf{Example}\\[0pt]
 \hline
 0 & Free & a club\\[0pt]
-1 & Cheap & simple clothes, basic tools\\[0pt]
-2 & Affordable & regular car, apartment\\[0pt]
-3 & Costly & regular house\\[0pt]
-4 & Expensive & sports car\\[0pt]
-5 & Very Expensive & small airplane\\[0pt]
-6 & Luxurious & private jet\\[0pt]
+2 & Cheap & simple clothes, basic tools\\[0pt]
+4 & Affordable & regular car, apartment\\[0pt]
+6 & Costly & regular house\\[0pt]
+8 & Expensive & sports car, designer clothes\\[0pt]
+10 & Very Expensive & small airplane\\[0pt]
+12 & Luxurious & private jet\\[0pt]
 \end{tabular}
 \end{center}
 
 \paragraph*{Armor / Damage Reduction}
-\label{sec:orgd8e5634}
+\label{sec:orgb95b523}
 There is no Armor but some aspects can act as such. If an aspect can be used in a defensive (re)action, this effectively reduces the amount of AP of the attack. Thus they act like armor. Think of armor items as having the protective aspect on them. If an aspect can be used is up to the GM. So he can decide that the very expensive ballgown can not be used to defend against a bullet.
 
 \paragraph*{Equipment}
-\label{sec:org2089c07}
+\label{sec:org8c67790}
 Characters can have gear with a value of up to the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
 
 When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check against the RV of what they would like to have in the moment to see if they do. The check is risky and if they fail they get the negative aspect "Packed the wrong stuff" until the end of the mission or until they resupply. 
 
 \paragraph*{Buying}
-\label{sec:orgdf74510}
-Characters can buy new items with a Finances check. The check is risky. The bought item can be treated like an aspect that is created with this check. The GM does not have to let you retry on a fail. If you use items with aspects to do this like the "Treasure" you found during your last adventure you may lose them if you succeed on the check.
+\label{sec:orge2803c1}
+
+Characters can buy new items with a Finances check. It works just like crafting an aspect with the resource value (RV) in aspect points (AP). If you succeed in buying the item then you take a negative aspect on your finances for some time. The GM does not have to let you retry on a fail. If you use items with aspects to do this like the "Treasure" you found during your last adventure you may lose them if you succeed on the check.
 
 \paragraph*{Crafting}
-\label{sec:orgca5c77d}
-Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought and have a RV of the item to be build minus 1. To build the item the character needs to make a check with the items RV as difficulty. If that fails the resources might be lost, depending on what they are.
+\label{sec:orgafa70cf}
+Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought and have a RV of the item to be build minus 1. To build the item the character needs to make a check and achieve at least the items RV in AP. If that fails the resources might be lost, depending on what they are.
 
 \paragraph*{Gathering}
-\label{sec:org21b6a71}
+\label{sec:orga475885}
 Resources can be gathered with a check and their RV as difficulty.
 
-\paragraph*{Creating}
-\label{sec:orgfc596f3}
+\paragraph*{Describe}
+\label{sec:org57ebf56}
 To create an item first give it a short description. Second you determine its value if applicable. Add aspects if applicable. The sum of the aspects AP should not exceed the RV.
 
 \paragraph*{Bribing}
-\label{sec:org51b8cb0}
+\label{sec:orgbc0e31b}
 To Bribe someone you need to give them more than they can normally comfortably afford. This means you need more than their finances value in RV to bribe them.
 
 \section{Optional Rules}
-\label{sec:org8892695}
+\label{sec:org658e8d0}
 \subsection{Magic}
-\label{sec:orgf778329}
+\label{sec:orgeade8a5}
 
-Magic gives a huge narrative flexibility to explain aspects. To balance this out any checks made using magic should be considered risky. This means the value of the created aspects has to be defined beforehand. This is taken as the difficulty of the check. If the check fails the magician creates an unwanted likely negative aspect at the value of the difficulty. If he succeeds the created aspect has exactly the predefined value. Depending on the setting a trait might be necessary to cast magic or even a specific kind of magic.
+Magic gives a huge narrative flexibility to explain aspects. To balance this out any checks made using magic should be \hyperref[sec:orgb8181f9]{risky checks}.
+
+Depending on the setting, a trait might be necessary to cast magic or even a specific kind of magic.
 
 With this magic can still become quite powerful, since one can create several aspects and combine them for bigger spells. For example a mage might make special conjuration candles, draw a pentagram with magic symbols and then use those two aspect to assist in his conjuration spell.
 
+It is up to the individual games setting to define how magic works. By themselves the rules above give a very soft magic system, but by defining how magic works in your world, you can make it a hard magic system. 
+
 \subsection{Less precise Attributes}
-\label{sec:org9768f64}
+\label{sec:org2c71a51}
 
 Instead of using the attributes as listed you can use only the categories (Physical, Mental, Social, Resources). Learning a level in one of the categories costs double of what a level in an attribute would cost.
-For GMs it might even be useful to combine all attributes into a single value called the CB (capability) for some NPCs. In this case the costs are 8 times that of what a level in an attribute would cost.
+For GMs it might even be useful to combine all attributes into a single value called the capability (CB) for some NPCs. In this case the costs are 8 times that of what a level in an attribute would cost.
 
 \subsection{No Abstraction for Wealth}
-\label{sec:org0e5a0da}
+\label{sec:orgf637771}
 
-To remove the resources category from the attributes just raise the price of learning a level of the other attributes by 33\%. The costs for goods and services
+To remove the resources category from the attributes just raise the price of learning a level of the other attributes by \(\ + #3frac{1}{3}\) (from 6 to 8). The costs for goods and services
 depend on the campaign setting.
 
 \subsection{Retroactive Actions}
-\label{sec:orgbaa67d3}
+\label{sec:orgcc1ca0d}
 
-The GM may allow players retroactively having performed some action. For example having placed a trap beforehand. To balance this any check on such an action should be a risky check.
+The GM may allow players retroactively having performed some action. For example having placed a trap beforehand. To balance this any check on such an action should be a \hyperref[sec:orgb8181f9]{risky check}.
 
 \subsection{Quicker Battles}
-\label{sec:org5386442}
+\label{sec:orgdccf61f}
 
 Instead of differentiating between attacking and blocking you can speed up combat by handling it all as generic combat. If someone initiates combat with his action, others may react with combat in return. Whoever wins the contest makes the difference as a damaging aspect.
 
 \subsection{Stress in Contests}
-\label{sec:orgf6a026f}
+\label{sec:orgca5242b}
 
 To speed up and simplify contests you can always create an abstract Aspect called "Stress". Stress does not hinder you in a contest but once it reaches the same value as your attribute you lose the contest. After combat stress converts into an appropriate aspect of equal size.
 
 \subsection{Only Players Roll}
-\label{sec:orgaa27eed}
+\label{sec:org804b99a}
 If you like you can generally let only players roll the dice. Everyone else will take the average result. This means that in combat only players will roll to hit or roll to block.
 
 \subsection{Unexpected Results}
-\label{sec:org441e5f0}
+\label{sec:org841d25f}
 Assuming you play with a set of cards. Add the two jokers to the deck. If a joker is drawn then draw again and resolve the check normally. Afterwards, if the joker was red create an aspect worth the difficulty of the check in AP to the characters disadvantage. If the joker was black create create an advantageous aspect instead. The new aspect does not have to be related to the check.
 If a complication has appeared in the scene already you may ignore a joker (GMs choice).
 
@@ -414,22 +458,22 @@ Aspect: Intimidatin display
 \end{quote}
 
 \subsection{Alternative Dice Mechanics}
-\label{sec:org411da3b}
+\label{sec:org13782c5}
 The rules often mention a dice pool. This pool is hypothetical. It means if you always used a number of  \(d_0 2\) to perform any check this would be your dice pool. A \(d_0 2\) has an average result of \(1\). Therefore the dice in the dice pool is always exactly the average result of a check. This does not mean you have to roll your checks in that way. See the following for alternatives.
 
 \subsubsection{Shorthand notation}
-\label{sec:org9a0515f}
+\label{sec:orgb09492c}
 
 A \(F \cdot N d_0 X\) means rolling dice with \(0\) to \(X\) as possible results \(N\) times, and adding the results, multiplying the result with \(F\). Since there are very few dice that that have a 0 as a possible result you can use other methods to get the result. I suggest to draw a playing card.
 
 \subsubsection{Playing cards instead of dice}
-\label{sec:org293e5e3}
+\label{sec:org8011b51}
 
 To use Playing cards instead of dice you can do the following. Take a standard 54 card deck of playing cards. Remove the 2 Jokers from it. Shuffle and pick a card. If it is a number then take the number as a result. Aces count as 1. Jacks count as 11, Kings count as 12. Queens count as 0 since Q looks most like a 0.
 
 
 \subsubsection{Alternative Dice}
-\label{sec:org49249b8}
+\label{sec:org0825319}
 
 \begin{itemize}
 \item \(1 d_0 2\) is worth exactly 1 dice from the pool (this is the default)
@@ -439,20 +483,19 @@ To use Playing cards instead of dice you can do the following. Take a standard 5
 \item Any dice multiplied by a factor \(F\) is worth the price of a single dice multiplied by this factor \(F\)
 \end{itemize}
 
-The default is to use \(F \cdot 1 d_0 6 + c\). This means that the factor \(F\) is the dice pool divided by \(\frac{6}{2} = 3\) with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice pool.
+The default is to use \(F \cdot 1 d_0 8 + c\). This means that the factor \(F\) is the dice pool divided by \(\frac{8}{2} = 4\) with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice pool. Note that the more dice you roll the more predictable the results will be.
 
-Another alternative is to use a d10 die. Most of them start are actually a \(d_0 9\). You can use it as a \(d_0 8\) by ignoring any 9 that is rolled or if you use the \hyperref[sec:org441e5f0]{Unexpected Results} optional rules, treat a 9 as if it were a joker.
+One way to do this is to use a d10 die. Most of them start are actually a \(d_0 9\). You can use it as a \(d_0 8\) by ignoring any 9 that is rolled or if you use the \hyperref[sec:org841d25f]{Unexpected Results} optional rules, treat a 9 as if it were a joker.
 
-If you don't \texttt{take the average} then it is advisable to keep the constant points between \(-\frac{N}{2}\) and \(+\frac{N}{2}\), to keep the window of possible results wide.
-
+If you don't \texttt{take the average} then it is advisable to keep the constant points between \(-\frac{N}{2}\) and \(+\frac{N}{2}\), to keep the window of possible results wide. 
 
 \newpage
 \section{Lists}
-\label{sec:org320af5d}
+\label{sec:orgd0ff4a5}
 None of the following lists is exhaustive. They should be taken as examples. You are invited to design your own with your group.
 
 \subsection{List of Traits}
-\label{sec:orga2eb42f}
+\label{sec:orgf7e3540}
 \begin{quote}
 \textbf{Friend of Nature} (7): You can talk to the forces of nature and have a chance to convince them to help you. This can be asking, a bird what he has seen, letting yourself be concealed by a bush or calling a wild bear to aid you in combat.
 \end{quote}
@@ -519,7 +562,7 @@ None of the following lists is exhaustive. They should be taken as examples. You
 
 
 \subsection{List of Items}
-\label{sec:org1a307e8}
+\label{sec:org1c0fa02}
 \begin{quote}
 \textbf{Sword} (2): Its a stabby piece of metal. Especially good at harming unarmored enemies. Not so great at slicing though armor. 
 \end{quote}
@@ -558,86 +601,165 @@ None of the following lists is exhaustive. They should be taken as examples. You
 
 
 \subsection{List of NPCs}
-\label{sec:orga89017f}
-The following are examples of NPCs and monsters. They are all created using the rules for \hyperref[sec:orgb6d437b]{Character Creation}. 
+\label{sec:org51d4da7}
+The following are examples of NPCs and monsters. They are all created using the rules for \hyperref[sec:org810b613]{Character Creation}. 
 
-\begin{quote}
-\textbf{Average Citizen} (96 CP)
-Ph:2, Me:2, So:2, Re:2
-\end{quote}
+\begin{npc}{Average Citizen}{co}{2}{0}
+Aspects:
+\begin{itemize}
+\item None
+\end{itemize}
+Traits:
+\begin{itemize}
+\item None
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Goblin} (75 CP)
-Ph:2, Me:1, So:1, Re:1, Night Vision
-\end{quote}
+\begin{npc}{Goblin}{ca}{2 1 1 1}{15}
+Aspects:
+\begin{itemize}
+\item None
+\end{itemize}
+Traits:
+\begin{itemize}
+\item Night Vision
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Ratling} (54 CP)
-Ph:1, Me:1, So:1, Re:1, Strength in numbers 1
-\end{quote}
+\begin{npc}{Ratling}{ca}{1 1 1 1}{6}
+Aspects:
+\begin{itemize}
+\item Strength in Numbers 1
+\end{itemize}
+Traits:
+\begin{itemize}
+\item None
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Wolf} (78 CP)
-Ph:3, Me:1, So:2, Re:0, Endless endurance 1
-\end{quote}
+\begin{npc}{Wolf}{ca}{3 1 2 0}{6}
+Aspects:
+\begin{itemize}
+\item Endless endurance 1
+\end{itemize}
+Traits:
+\begin{itemize}
+\item None
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Guard} (108 CP)
-Ph:3, Me:2, So:2, Re:2
-\end{quote}
+\begin{npc}{Guard}{ca}{3 2 2 2}{0}
+Aspects:
+\begin{itemize}
+\item None
+\end{itemize}
+Traits:
+\begin{itemize}
+\item None
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Dark Mage} (237 CP)
-Ph:2, Me:7, So:3, Re:5, Necromancer 3, Telepathic Link to undead servants
-\end{quote}
+\begin{npc}{Dark Mage}{ca}{2 7 3 5}{33}
+Aspects:
+\begin{itemize}
+\item Necromancer 3
+\end{itemize}
+\columnbreak
+Traits:
+\begin{itemize}
+\item Telepathic link to undead servants
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Ogre} (192 CP)
-S:15, D:7, W:5, I:1, E:1 ,C:1, G:1, F:1
-\end{quote}
+\begin{npc}{Ogre}{at}{15 7 5 1 1 1 1 1}{}
+Aspects:
+\begin{itemize}
+\item None
+\end{itemize}
+Traits:
+\begin{itemize}
+\item None
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Zombie} (75 CP)
-Ph:2, Me:1, So:1, Re:1, Infectious Bite
-\end{quote}
+\begin{npc}{Zombie}{ca}{2 1 1 1}{15}
+Aspects:
+\begin{itemize}
+\item None
+\end{itemize}
+Traits:
+\begin{itemize}
+\item Infectious bite
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Bandit} (108 CP)
-Ph: 3, Me: 2, So: 2, Re: 2
-\end{quote}
+\begin{npc}{Bandit}{ca}{3 2 2 2}{}
+Aspects:
+\begin{itemize}
+\item None
+\end{itemize}
+Traits:
+\begin{itemize}
+\item None
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Combat Drone} (105 CP)
-Ph: 3, Me: 1, So: 1, Re: 1, Shooting 3, Night-vision
-\end{quote}
+\begin{npc}{Combat Drone}{ca}{3 1 1 1}{33}
+Aspects:
+\begin{itemize}
+\item Shooting 3
+\end{itemize}
+Traits:
+\begin{itemize}
+\item Night-vision
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Orc Veteran} (171 CP)
-Ph: 5, Me: 3, So: 2, Re: 2, Night Vision, Reckless and Bold 2
-\end{quote}
+\begin{npc}{Orc Veteran}{ca}{5 3 2 2}{27}
+Aspects:
+\begin{itemize}
+\item Reckless and Bold 2
+\end{itemize}
+Traits:
+\begin{itemize}
+\item Night-vision
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Orc Warrior} (105 CP)
-Ph: 3, Me: 2, So: 1, Re: 1, Night Vision, Reckless and Bold 1
-\end{quote}
+\begin{npc}{Orc Warrior}{ca}{3 2 1 1}{21}
+Aspects:
+\begin{itemize}
+\item Reckless and Bold 1
+\end{itemize}
+Traits:
+\begin{itemize}
+\item Night-vision
+\end{itemize}
+\end{npc}
 
-\begin{quote}
-\textbf{Giant Spider} (117 CP)
-S: 2, D: 4, W:2, I:2, E:1, C:1, G:2, F:1, Night Vision, Spider Webs 2
-\end{quote}
+\begin{npc}{Giant Spider}{at}{2 4 2 2 1 1 2 1}{27}
+Aspects:
+\begin{itemize}
+\item Spider Webs 2
+\end{itemize}
+Traits:
+\begin{itemize}
+\item Night-vision
+\end{itemize}
+\end{npc}
 
 
 \newpage
 
 \section{Advice}
-\label{sec:orgcfa11ee}
+\label{sec:orga455efb}
 \subsection{Gameplay Notes}
-\label{sec:orgda93db8}
+\label{sec:orgc8bb128}
 
 Since aspects can appear, disappear and change frequently during play, it is good to write them down and show them to your players. For this i suggest to use post-it notes. This has the nice effect that you can give your players something physical that represents the advantages they created or can use.
 
 \subsection{Character Creation}
-\label{sec:org77b4bde}
+\label{sec:orga42c53b}
 
 When creating a character you should adhere to the following advice:
 \begin{itemize}
@@ -652,8 +774,9 @@ When creating a character you should adhere to the following advice:
 Break these rules as you like.
 
 \subsection{Encounter Design}
-\label{sec:orgfd03251}
+\label{sec:org10b6ab1}
 
+The challenge value (CV) is a number servig as a quick reference for how hard aspects to overcome should be or how strog enemies should be, When creating aspects that the players must overcome use the CV as the AP (aspect points). Then creating enemies that the players must fight set their Competence or attribute to the CV.
 \begin{itemize}
 \item For static challenges, the players CP divided by 25 is a good challenge value.
 \item For group challenges, the sum of all players CP dividec by 25 is a good challenge value.
@@ -662,56 +785,51 @@ Break these rules as you like.
 \item Try to give any noteworthy opponent an advantageous and a disadvantageous aspect. Give the players a chance to find out about those.
 \end{itemize}
 
+\subsection{How to Rule: Stealth as a Group}
+\label{sec:org7a363e5}
+
+Only roll the checks for the players and take the average for everyone else. Compare the sneaking of each from the one party to the perception of each from the other party. If any perception is higher than any of the sneaking values then they get spotted.
+Often times the characters in the party help each other. Let them distribute some points within the group after they rolled their checks. This represents something like the best scout sneaking ahead and finding the best route for the others, or distracting a guard such that the more obvious members of the party can pass unnoticed.
+
+\subsection{How to Rule: Taunting}
+\label{sec:orge6bab08}
+Let the player make a check to create the "taunted by .." aspect. This may be opposed by the other party. If the aspect is created then it hinders any attack on someone else. It may also impact other actions. It may be a smart choice to make the "taunted by .." aspect \hyperref[sec:org38549a6]{enduring} and \hyperref[sec:org42799a8]{affecting the whole group}. 
+
+\subsection{How to Rule: Extremely Small Creatures}
+\label{sec:org57b2ea7}
+Lets say a player turns himself into a mouse. How does this impact his strength, dexterity and intellect? In most cases being a mouse is just an aspect on the player (here it is "mouse form 5"). Lets say the player has a value of 3 in all 
+
+Checks with zero or negative dice pools. Shift the dice pool for the check up until it reaches 1. Perform the same shift for the reaction. If multiple parties participate 
+
+If a dice pool turns negative it does not mean that you can not roll. Checks are really just a comparison between the rolled AP and either the AP oposing force. By default it is 0.  
+
+
 \section{Game-play Examples}
-\label{sec:org9c33942}
-\subsection{Character Build: Alchemist}
-\label{sec:org0dd2e0a}
+\label{sec:org08e5cb6}
+\subsection{Character Builds}
+\label{sec:org5753738}
 
-\begin{quote}
-\textbf{Anna the Alchemist}
-
-Strength: 3
-Dexterity: 3
-Will: 4
-Intelect: 6
-Empathy: 4
-Charisma: 3
-Gear: 6
-Finances: 6
-
+\begin{npc}{Anna the Alchemist}{at}{3 3 4 6 4 3 6 6}{51}
 Traits:
 \begin{itemize}
 \item Magical Alchemy
 \end{itemize}
-
+\columnbreak
 Aspects:
 \begin{itemize}
 \item Third daughter of an Aristocratic Family 2
 \item Proud member of the Alchemists Guild of Mistwater 3
 \item Hobby Horse Rider and Trainer 1
 \end{itemize}
-\end{quote}
+\end{npc}
 
-\subsection{Character Build: Babarian}
-\label{sec:orge965da5}
-
-\begin{quote}
-\textbf{Bob the Barbarian}
-
-Strength: 6
-Dexterity: 5
-Will: 4
-Intelect: 3
-Empathy: 2
-Charisma: 4
-Gear: 2
-Finances: 2
-
+\begin{npc}{Bob the Barbarian}{at}{6 5 4 3 2 4 2 2}{66}
 Traits:
 \begin{itemize}
 \item Cold Resistance
 \item Plot Armor: Can prevent getting a damaging aspect up to one time per scene.
 \end{itemize}
+\columnbreak
 
 Aspects:
 \begin{itemize}
@@ -719,41 +837,23 @@ Aspects:
 \item Best Fighter of his tribe and wrestling champion 3
 \item Gambler 1
 \end{itemize}
-\end{quote}
+\end{npc}
 
-\subsection{Character Build: Generic Citizen}
-\label{sec:org0fca0f2}
-
-\begin{quote}
-Strength: 2
-Dexterity: 2
-Will: 2
-Intellect: 2
-Empathy: 2
-Charisma: 2
-Gear: 2
-Finances: 2
-
+\begin{npc}{Generic Citizen}{co}{2}{0}
 Traits:
-none
+\begin{itemize}
+\item None
+\end{itemize}
+
+\columnbreak
 
 Aspects:
-none
-\end{quote}
+\begin{itemize}
+\item None
+\end{itemize}
+\end{npc}
 
-\subsection{Character Build: Shapeshifting Durid}
-\label{sec:orgce96d7e}
-
-\begin{quote}
-Strength: 4
-Dexterity: 4
-Will: 5
-Intellect: 3
-Empathy: 3
-Charisma: 4
-Gear: 3
-Finances: 2
-
+\begin{npc}{Shapeshifting Druid}{at}{4 4 5 3 3 4 3 2}{110}
 Traits:
 \begin{itemize}
 \item druidic magic
@@ -762,32 +862,24 @@ Traits:
 \item Seer
 \end{itemize}
 
+\columnbreak
+
 Aspects:
 \begin{itemize}
 \item Shapeshifting Druid 4
 \item Protector of the Ancient Grove 3
 \item Knowledgeable in the alchemy of the gifts of nature 2
 \end{itemize}
-\end{quote}
+\end{npc}
 
-\subsection{Character Build: Space Pirate}
-\label{sec:org44032c9}
-
-\begin{quote}
-Strength: 3
-Dexterity: 3
-Will: 4
-Intellect: 5
-Empathy: 3
-Charisma: 4
-Gear: 3
-Finances: 4
-
+\begin{npc}{Space Pirate}{at}{3 3 4 5 3 4 3 4}{78}
 Traits:
 \begin{itemize}
 \item Bionic Eye with super zoom level and infrared vision.
 \item Bionic Leg
 \end{itemize}
+
+\columnbreak
 
 Aspects:
 \begin{itemize}
@@ -797,10 +889,35 @@ Aspects:
 \item Gambler 2
 \item Really good with the needle 1
 \end{itemize}
-\end{quote}
+\end{npc}
+
+
+\begin{npc}{Cody the Cowboy}{ca}{2 2 2 2}{78}
+Traits:
+\begin{itemize}
+\item None
+\end{itemize}
+
+\columnbreak
+
+Aspects:
+\begin{itemize}
+\item True frontiersman 2
+\item Gambler 1
+\item Horse Whisperer 2
+\item 
+
+\item Has lived in space all his life 2
+\item If the captain ordered it, it has to be done 2
+\item Space engineer 1
+\item Gambler 2
+\item Really good with the needle 1
+\end{itemize}
+\end{npc}
+
 
 \subsection{Example: Ambushed by Goblins}
-\label{sec:org370912e}
+\label{sec:orgf3673cb}
 
 \textbf{GM} is the Game Master Mathew controlling the 3 goblins (P: 2, M; 1, S: 1, Life of Banditry 1)
 
@@ -843,14 +960,14 @@ Aspects:
 \item A rolls 7d = 5 => the smoke aspect has strength 5/2 = 2
 \end{itemize}
 
-\textbf{GM:} The goblins dont expect this and dont try to defend. I will add "covered in irritating smoke 2" to them.
+\textbf{GM:} The goblins dont expect this and dont try to defend. I will add \aspect{covered in irritating smoke 2} to them.
 
 \textbf{B:} I attack with my axe. I use 3 of my strength dice and my fighting aspect.
 \begin{itemize}
 \item B rolls 6d = 0 "and"
 \end{itemize}
 
-\textbf{GM:} During the attack you step partially into the smoke and breathe in some of it. I give you the aspect "coughing 2". The goblins attack. They rolled 5 please defend ben.
+\textbf{GM:} During the attack you step partially into the smoke and breathe in some of it. I give you the aspect \aspect{coughing 2}. The goblins attack. They rolled 5 please defend ben.
 \begin{itemize}
 \item GM rolls 9d-2d = 7d = 5
 \end{itemize}
@@ -882,11 +999,334 @@ Aspects:
 
 \textbf{GM:} The goblin runs away and soon the smoke dissipates and the street is silent once more.
 
+\subsection{Example: The Ambush}
+\label{sec:org78da198}
+
+The players are preparing an ambush on a patrol. The GM describes the scene
+
+\textbf{GM:} You know that the patrol is going to pass through this area, using the small forrest path. It is barely wide enough for a single cart and shallow ruts in the road indicate that the path is only used ocasionally. The underbrush is thick in some parts, but there are also stretches of dark pine forrest. Because of the recent rains there are mud puddles everywhere.
+
+He creates some aspects
+\begin{itemize}
+\item \aspect{shallow ruts 1}
+\item \aspect{narrow path 1}
+\item \aspect{thick underbrush 1}
+\item \aspect{dark shadows under the pines 1}
+\item \aspect{muddy ground 1}
+\end{itemize}
+
+The players will prepare the ambush. For this they can make as many checks to create aspects as they have time to do.
+
+\textbf{R:} As a ranger i am good in nature and will select the best spot for the ambush. It should be especially narrow such that they can not maneuver well. The ground should be muddy and i want particularly dark shadows to cover us, but not the enemy.
+
+\textbf{GM:} So no \aspect{shallow ruts} and no \aspect{thick underbush}?
+
+\textbf{R:} The \aspect{ruts} are fine, but i dont want us to be hindered by the \aspect{underbrush}.
+
+\textbf{GM:} Yes, that is possible. You can use the \aspect{dark shadows} and \aspect{muddy ground} to prepare the spot. Make the intelect check.
+
+\textbf{R:} I have 3 from my attribute and 3 from being a ranger. [rolls \(1 d_0 8 + 2 = 6 + 2\) on the check] I have 8AP. I would like the aspect to last the entire scene [AP / 2] and apply to all of us [AP / 2].
+
+He writes the aspect on a postit and places it on the table
+\begin{itemize}
+\item \aspect{Well prepared Ambush 2}
+\end{itemize}
+The GM takes the unused aspects back of the table. What is left are
+\begin{itemize}
+\item \aspect{shallow ruts 1}
+\item \aspect{narrow path 1}
+\item \aspect{dark shadows under the pines 1}
+\item \aspect{muddy ground 1}
+\end{itemize}
+
+\textbf{A:} As an Alchemist i would like to prepare a fire bomb at the spot of the ambush. As we establishes last time i should have all the ingredients.
+
+\textbf{GM:} With the muddy ground it will be hard to ignite the bomb.
+
+\textbf{A:} Fine. I can still do it. 4 from my intelect and 3 from being an alchemist.
+
+\textbf{GM:} Dont forget to hide the thing.
+
+\textbf{T:} As a reformed thief i will help him with that. 2 from intelect and 3 from thievery [rolls \(1 d_0 8 + 1 = 6\)].
+
+\textbf{A:} [rolls \(2 d_8 - 1 = 2*7 -1 = 13\)] Oh, that is going to hurt. I want all of them to be affected [AP / 2].
+
+The players create the aspects
+\begin{itemize}
+\item \aspect{Fire bomb 6}
+\item \aspect{Well hidden 6}
+\end{itemize}
+As they see the numbers fitting so well they replace the aspects with
+\begin{itemize}
+\item \aspect{Well hidden fire bomb 6}
+\end{itemize}
+
+\textbf{D:} My druidic circle specialises in turning into a bear for fighting. So i will shape shift and lie in wait. 4 will and 2 druidry plus 1 from my speciality in shape shifting [rolls \(2 d_0 - 1 = 2 - 1 = 1\)]. That is not going to be convincing.
+
+\textbf{GM:} You dont quite turn into a bear. Instead you become much more hary and a bit stronger.
+
+\textbf{D}: Can i at least hide?
+
+\textbf{GM:} No need. We will roll that check collectively later.
+
+The druid gets the aspect
+\begin{itemize}
+\item \aspect{Bear'ish form 1}
+\end{itemize}
+
+The preparations are done, and the GM narates how the patrol comes down the road.
+
+\textbf{GM:} Lets see if they can spot you. Is a collective check okay for all of you?
+
+\textbf{All}: Yes
+
+\textbf{A}: I have only 3 points, but 2 more from the well prepared ambush makes 5 in total.
+
+\textbf{T}: 6 from me.
+
+\textbf{D:} I can contribute 5. Does my fur help with hiding?
+
+\textbf{GM:} yes, it helps.
+
+\textbf{D}: Then 6 from me as well.
+
+\textbf{R}: I contribute 7. That makes 24 in total. [rolls \(6 d_0 8 = 24\)]
+
+\textbf{GM}: That makes 6 on average. The 5 soldiers have 4 each so they are surprised 2 (6 - 4 = 2) by your attack. You are still unnoticed as they reach the trap.
+
+The GM creates the aspect
+\begin{itemize}
+\item \aspect{Surprised 2}
+\end{itemize}
+
+\textbf{GM}: Let the combat scene begin.
+
+\textbf{A:} Kaboom
+
+\textbf{GM:} Indeed. The bomb explodes. Lets see if any one notices [rolls \(1 d_0 8 - 1\) each with the results 3,2,7,7,6 and compares this to the bomb being hidden]. Just two notice the smell of sulphur and try to evade [rolls \(1 d_0 8 - 3\) for both with results 2,1 and compares this to the bomb damage]. They all take a lot of damage. Three of them go down immediately. Two try to stand up.
+
+\textbf{R:} I shoot one of them [rolls \(1 d_0 8 + 3 = 10\)].
+
+\textbf{T:} And i the other [rolls \(1 d_0 8 + 1 = 4\)]
+
+\textbf{GM:} They are both dead. Congratulations it all worked perfectly. Lets hope the others did not hear the explosion.
+
+\textbf{All}: Oh no.
+
+
+\newpage
+
+\section{Solo Rules}
+\label{sec:org13a4f4f}
+
+\subsection{Scene}
+\label{sec:org14ff768}
+Roll on the Scene type table to find out what kind of scene it is.
+
+For at least 3 descriptors roll on the descriptor table. If you have consecutive scenes then i advise to roll only 1 new descriptor and remove only the first of the previous scene. This will make your encounters more connected to one another.
+
+Lead questions for Scenes: 
+\begin{itemize}
+\item Who/What?
+\item Does What?
+\item To whom?
+\item In what manner?
+\end{itemize}
+
+\subsection{NPCs}
+\label{sec:orgbc68997}
+
+Lead questions for NPCs:
+\begin{itemize}
+\item Who?
+\item Does What?
+\item Personality?
+\item Desires?
+\item Has Vice?
+\item Has Virtue?
+\end{itemize}
+
+\subsection{Environmental Challenges and Combat Encounters}
+\label{sec:orgcf785ba}
+
+\begin{itemize}
+\item take players average strength ( \(\frac{CP*3}{100}\) ) and add \$ 1 d\_0 8 - 4 \$
+This is the difficulty of challenging aspects or the average value for enemies.
+\item Add some beneficial and detremental aspects in equal measure as you see fit.
+\end{itemize}
+
+\subsection{Descriptors}
+\label{sec:orga6d0ad4}
+
+Ask you question and roll as often on the descriptor table as you need to get a good idea. Feel free to disregard meaning that dont work for you.
+The descriptor table is based on the Toki Pona language. The second column provides you with the applicable toki pona word and gives you a short form to write it down. 
+
+\newpage
+\subsection{Tables}
+\label{sec:org9bda3cb}
+\begin{multicols}{3}[]
+\begin{center}
+\textbf{Yes / No Questions}
+\begin{center}
+\begin{tabular}{rl}
+1 & Very No\\[0pt]
+2-4 & No\\[0pt]
+5-6 & Abiguous\\[0pt]
+7-9 & Yes\\[0pt]
+10 & Very yes\\[0pt]
+\end{tabular}
+\end{center}
+\columnbreak
+\textbf{Ammount}
+\begin{center}
+\begin{tabular}{rl}
+1 & Very Little\\[0pt]
+2-4 & Less\\[0pt]
+5-6 & Expected\\[0pt]
+7-9 & More\\[0pt]
+10 & Very Much\\[0pt]
+\end{tabular}
+\end{center}
+\columnbreak
+\textbf{Scene Type}
+\begin{center}
+\begin{tabular}{rl}
+1-4 & As Expected\\[0pt]
+5-6 & Environmental\\[0pt]
+7-8 & Social\\[0pt]
+9-10 & Combat\\[0pt]
+\end{tabular}
+\end{center}
+\end{center}
+\end{multicols}
+
+
+\begin{center}
+\textbf{Description}
+\end{center}
+\tiny
+\begin{multicols}{2}[]
+\begin{center}
+\begin{tabularx}{\linewidth}{rlX}
+00 & akesi & reptile, amphibian\\[0pt]
+01 & ala & no, not, zero, nothing\\[0pt]
+02 & alasa & to hunt, forage, seek, try to, attempt\\[0pt]
+03 & ale & all, abundant, bountiful, plentiful, life\\[0pt]
+04 & anpa & dependent, under, floor, low, bottom\\[0pt]
+05 & ante & different, altered, changed, other\\[0pt]
+06 & awen & enduring, protected, safe, waiting\\[0pt]
+07 & esun & market, shop, fair, bazaar, deal\\[0pt]
+08 & ijo & thing, phenomenon, object, matter\\[0pt]
+09 & ike & bad, negative, irrelevant, complicated\\[0pt]
+10 & ilo & tool, implement, machine, device\\[0pt]
+11 & insa & centre, content, inside, internal organ\\[0pt]
+12 & jaki & disgusting, obscene, sickly, toxic, unclean\\[0pt]
+13 & jan & human being, person, somebody\\[0pt]
+14 & jelo & yellow, yellowish\\[0pt]
+15 & jo & to have, carry, contain, hold\\[0pt]
+16 & kala & fish, marine animal, sea creature\\[0pt]
+17 & kalama & to produce a sound, recite, utter aloud\\[0pt]
+18 & kama & coming, future, summoned, to become\\[0pt]
+19 & kasi & plant, vegetation: herb, leaf\\[0pt]
+20 & kepeken & to use, with, by means of\\[0pt]
+21 & kili & fruit, vegetable, mushroom\\[0pt]
+22 & kiwen & hard object, metal, rock, stone\\[0pt]
+23 & ko & clay, semi-solid, paste, powder\\[0pt]
+24 & kon & air, breath, essence, spirit\\[0pt]
+25 & kule & colorful, pigmented, painted\\[0pt]
+26 & kulupu & community, company, group, nation\\[0pt]
+27 & kute & ear, to hear, listen, obey\\[0pt]
+28 & lape & sleeping, resting\\[0pt]
+29 & laso & blue, green\\[0pt]
+30 & lawa & head, mind, to control, direct, guide, own\\[0pt]
+31 & len & cloth, clothing, fabric, textile, cover\\[0pt]
+32 & lete & cold, cool, uncooked, raw\\[0pt]
+33 & lili & little, small, short, few, a bit, young\\[0pt]
+34 & linja & cord, hair, rope, thread, line, connection\\[0pt]
+35 & lipu & flat object, book, paper, record, website\\[0pt]
+36 & loje & red, reddish\\[0pt]
+37 & lon & located at, real, true, existing, affirmative\\[0pt]
+38 & luka & arm, hand, five, touch/feel, interact\\[0pt]
+39 & lukin & eye, see, examine, read, seek, try to\\[0pt]
+40 & lupa & door, hole, orifice, window\\[0pt]
+41 & ma & earth, outdoors, world, territory, soil\\[0pt]
+42 & mama & ancestor, creator, caretaker, sustainer\\[0pt]
+43 & mani & money, cash, savings, wealth\\[0pt]
+44 & moku & to eat, drink, consume, ingest\\[0pt]
+45 & moli & dead, dying\\[0pt]
+46 & monsi & back, behind, rear\\[0pt]
+47 & mu & animal noise, non-speech vocalization\\[0pt]
+48 & mun & moon, night sky object, star, glow\\[0pt]
+49 & musi & artistic, entertaining, playful, recreation\\[0pt]
+\end{tabularx}
+\end{center}
+
+
+\columnbreak
+\begin{center}
+\begin{tabularx}{\linewidth}{rlX}
+50 & mute & many, a lot, more, much, quantity\\[0pt]
+51 & nasa & unusual, strange: silly: drunk, intoxicated\\[0pt]
+52 & nasin & way, custom, doctrine, method, path, road\\[0pt]
+53 & nena & bump, button, hill, mountain, nose\\[0pt]
+54 & nimi & name, word\\[0pt]
+55 & noka & foot, leg, bottom, lower part\\[0pt]
+56 & olin & love, respect, show affection to\\[0pt]
+57 & open & begin, start, open, turn on\\[0pt]
+58 & pakala & botched, broken, damaged, harmed\\[0pt]
+59 & pali & do, take action on, build, prepare\\[0pt]
+60 & palisa & long hard thing, branch, rod, stick\\[0pt]
+61 & pan & cereal, grain, barley, bread, pasta\\[0pt]
+62 & pana & give, send, emit, provide, put, release\\[0pt]
+63 & pilin & heart, feeling, emotion\\[0pt]
+64 & pimeja & black, dark, unlit\\[0pt]
+65 & pini & ago, completed, ended, finished, past\\[0pt]
+66 & pipi & bug, insect, ant, spider\\[0pt]
+67 & poka & hip, side, next to, nearby, beside\\[0pt]
+68 & poki & container, bag, bowl, cupboard, vessel\\[0pt]
+69 & pona & good, positive, useful, friendly, simple\\[0pt]
+70 & sama & same, similar, sibling, peer, fellow, as, like\\[0pt]
+71 & seli & fire, chemical reaction, heat source\\[0pt]
+72 & selo & outer form, outer layer, bark, skin, boundary\\[0pt]
+73 & sewi & area above, awe, divine, supernatural\\[0pt]
+74 & sijelo & body, physical state, torso\\[0pt]
+75 & sike & ball, circle, cycle, sphere, wheel\\[0pt]
+76 & sin & new, fresh: additional, another, extra\\[0pt]
+77 & sinpin & face, foremost, front, wall\\[0pt]
+78 & sitelen & image, picture, symbol, mark, writing\\[0pt]
+79 & sona & know, be skilled in, be wise about\\[0pt]
+80 & soweli & animal, beast, land mammal\\[0pt]
+81 & suli & big, heavy, large, long, important, adult\\[0pt]
+82 & suno & sun, light, radiance, shine, light source\\[0pt]
+83 & supa & horizontal surface, bed, table\\[0pt]
+84 & suwi & sweet, fragrant: cute, innocent, adorable\\[0pt]
+85 & tawa & going to, toward, for, moving, going to\\[0pt]
+86 & telo & water, liquid, fluid, wet substance, beverages\\[0pt]
+87 & tenpo & time, duration, moment, period, situation\\[0pt]
+88 & toki & communicate, say, speak, talk, think\\[0pt]
+89 & tomo & indoor space, building, home, house, room\\[0pt]
+90 & tu & two, separate, cut\\[0pt]
+91 & unpa & have sexual relations with\\[0pt]
+92 & uta & mouth, lips, oral cavity, jaw\\[0pt]
+93 & utala & battle, challenge, struggle against\\[0pt]
+94 & walo & white, whitish, light-coloured, pale\\[0pt]
+95 & wan & unique, united: one\\[0pt]
+96 & waso & bird, flying creature, winged animal\\[0pt]
+97 & wawa & strong, confident, energetic, intense\\[0pt]
+98 & weka & absent, away, ignored\\[0pt]
+99 & wile & must, need, require, should, want, wish\\[0pt]
+\end{tabularx}
+\end{center}
+\end{multicols}
+\normalsize
+
+
+
 \section{Scenario: X-Files meets cold war}
-\label{sec:orgdebbc39}
+\label{sec:org4f7bc71}
 
 \subsection{Rules}
-\label{sec:org27c37ed}
+\label{sec:org1f94522}
 
 Players can access the resources of their respective Organisation. When they do this they can invoke the aspects of the organisation. The organisation can also act on its own.
 
@@ -907,7 +1347,7 @@ This is also the reason why all organisations dealing with the supernatural tend
 The supernatural creatures are also impacted by this. The universe itself is fighting against these invaders, which bring its internal logic into question. However the supernatural exists and tries to stay alive or even in some cases bring ruin to the universe itself (for example eldrich gods)
 
 \subsection{Organisations}
-\label{sec:org0180c24}
+\label{sec:org7a90529}
 Have aspects and traits.
 
 \texttt{MI13}
@@ -962,7 +1402,7 @@ Trait: Sexual magic rituals for the divination of the occult
 \end{quote}
 
 \subsection{Other Groups}
-\label{sec:orgeba3a01}
+\label{sec:org02ea893}
 \texttt{Alien Conspiracy Theorists}
 
 \texttt{Ghost Hunters}
@@ -971,12 +1411,12 @@ Trait: Sexual magic rituals for the divination of the occult
 Mostly consisting of 3-5 Individuals.
 
 \subsection{Monsters and the Supernatural}
-\label{sec:orga248ac2}
+\label{sec:orgfd9c7a1}
 
 \subsection{Anventure Hooks}
-\label{sec:org7af3280}
+\label{sec:orgd901f0d}
 \subsubsection{Spy in a cult}
-\label{sec:orgd834638}
+\label{sec:org8b8a513}
 
 The players are send to retrieve documents from a spy that hides in a cult. The spy was caught on film wearing the cults garb. 
 
@@ -1006,7 +1446,7 @@ Aspects:
 
 
 \subsubsection{The escape plan}
-\label{sec:org698890f}
+\label{sec:orge704adf}
 
 The players are tasked with exfiltrating a turncoat from eastern Germany into the west.
 
@@ -1019,7 +1459,7 @@ Aspects:
 \end{itemize}
 
 \subsubsection{An involuntary source}
-\label{sec:org61e3e56}
+\label{sec:org9f7cb55}
 
 The players must establish observation of a high ranking official. This can be done by turning him, observing him or extracing information through a honeypot. Let the group figure out how they could achieve this. The goal is to get a steady stream of information from the source.
 
@@ -1032,13 +1472,15 @@ Aspects:
 \end{itemize}
 
 \section{Scenario: WW1 in Fantasy}
-\label{sec:org024f8ff}
+\label{sec:org06a3d64}
 
-The world is inhabitat by all the typical races you find in fantasy. They are all races of Humanity, meaning that crossbreeding is possible, albeit in some cases may be rare. Magic is a comparatively rare thing. In ancient times it was more prominent but over the centuries the weave of magic became thinner and thinner. All the big nations and kingdoms are mostly homogenous with respect to the race of their citizens. 
+The world is inhabitated by all the typical races you find in fantasy. They are all races of Humanity, meaning that crossbreeding is possible, albeit in some cases may be rare. Magic is a comparatively rare thing. In ancient times it was more prominent but over the centuries the weave of magic became thinner and thinner. All the big nations and kingdoms are mostly homogenous with respect to the race of their citizens. 
 
-Technologically the world is comparable to the time of the first world war. 
+Technologically the world is comparable to the time of the first world war with a bit of steampunk.
 
-Recently the world has become very tumultuous. Most nations are at war with one another. Alliances are fleeting and the tides of war are constantly shifting
+Recently the world has become very tumultuous. Most nations are at war with one another. Alliances are fleeting and the tides of war are constantly shifting. The Nations of the world are not striktly separated by race. So a typical mixed group of players could be from anywhere. 
+
+The following assumes the group to play spies or gangsters.
 
 World Aspects:
 \begin{itemize}
@@ -1046,16 +1488,28 @@ World Aspects:
 \item The tides of war are constantly shifting 2
 \end{itemize}
 
+\subsection{Rules}
+\label{sec:orgc6a0092}
+
+Organisation Influence:
+
 
 \subsection{Adventure Hooks}
-\label{sec:orgf3bafd7}
+\label{sec:orgcb0ba11}
 
-\subsubsection{}
-\label{sec:org4f9f559}
+\subsubsection{Missing Orphans}
+\label{sec:orgf1acec7}
+
+The city is full of orphans because of the ongoing war. The players hear rumors that several orphans have gone missing.
+
+\begin{itemize}
+\item The institute of archane studies sits in a network of buildings litteres throughout the city.
+\item The institute provides weapons to the military and uses the Orphans to build some of them. The brains of the children are extracted and used as guidance systems for bombs.
+\item 
+\end{itemize}
+
 
 \newpage
-
-
 
 \begin{small} This product is licensed under the ORC License held in the License of Congress at TX000 [number tbd] and available online at various locations including www.chaosium.com/orclicense, www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein. This product is the original work of Lukas Zumvorde. If you use my ORC Content, please also credit me. \end{small}
 \end{document}

@@ -12,16 +12,32 @@
 \usepackage{xparse}
 \usepackage{soul}
 
+% No space above itemize
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=14pt}
+
+\usepackage{tabularx}
+\definecolor{grey}{rgb}{0.5,0.5,0.5}
+
+\newcommand{\ifstringequal}[4]{%
+  \ifnum\pdfstrcmp{#1}{#2}=0
+  #3%
+  \else
+  #4%
+  \fi
+}
 
 %%%%%%%%%%%%%%%%%%%%
 % Section Headings
 %%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \usepackage[explicit]{titlesec}
-\titleformat{name=\section,numbered}[block]{\normalfont\Large\bfseries}{}{0em}{\colorbox{black!100}{ {\color{white}\thesection\quad #1} }}
+\titleformat{name=\section,numbered}[block]{\normalfont\Large\bfseries}{}{0em}{\colorbox{black!100}{ {\color{white}\ifstringequal{\thesection}{0}{}{\thesection\quad} #1} }}
 \titleformat{name=\subsection}{\normalfont\large\bfseries}{}{0em}{\colorbox{black!66}{ {\color{white}\thesubsection\quad #1} }}
 \titleformat{name=\subsubsection}{\normalfont\normalsize\bfseries}{}{0em}{\colorbox{black!33}{ {\color{black}\thesubsubsection\quad #1} }}
 \makeatother
+
+
 
 %%%%%%%%%%%%%%
 % title page
@@ -59,6 +75,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage[many]{tcolorbox}
 \newtcolorbox{shortrules}[1]{
+  breakable,
   colback=black!5!white,
   colframe=black!50!white,
   fonttitle=\bfseries,
@@ -95,51 +112,65 @@
   \begin{center}%
   \setsepchar{ }%
   \readlist\arg{#2}%
+  %\rowcolors{2}{gray!25}{white}%
   \IfStrEqCase{#1}{%
     {at}{%
-      \begin{tabular}{| c | c | c | c | c | c | c | c |}%
+      \begin{tabularx}{\textwidth}{| X | X | X | X | X | X | X | X |}%
       \hline%
-      \multicolumn{2}{| c |}{Physical} &%
-      \multicolumn{2}{| c |}{Mental} &%
-      \multicolumn{2}{| c |}{Social} &%
-      \multicolumn{2}{| c |}{Resources} \\%
+      \multicolumn{2}{| c |}{\cellcolor{gray!50} Physical} &%
+      \multicolumn{2}{| c |}{\cellcolor{gray!40} Mental} &%
+      \multicolumn{2}{| c |}{\cellcolor{gray!50} Social} &%
+      \multicolumn{2}{| c |}{\cellcolor{gray!40} Resources} \\%
       \hline%
-      Str & Dex & Wil & Int & Emp & Cha & Gea & Fin \\%
+      \cellcolor{gray!25} Str. & %
+      \cellcolor{gray!20} Dex. & %
+      \cellcolor{gray!25} Will & %
+      \cellcolor{gray!20} Int. & %
+      \cellcolor{gray!25} Emp. & %
+      \cellcolor{gray!20} Cha. & %
+      \cellcolor{gray!25} Gear & %
+      \cellcolor{gray!20} Fin. \\%
       \hline%
-      \arg[1] & \arg[2] & \arg[3] & \arg[4] & \arg[5] & \arg[6] & \arg[7] & \arg[8] \\%
+      \cellcolor{gray!15} \arg[1] &
+      \cellcolor{gray!10} \arg[2] &
+      \cellcolor{gray!15} \arg[3] &
+      \cellcolor{gray!10} \arg[4] &
+      \cellcolor{gray!15} \arg[5] &
+      \cellcolor{gray!10} \arg[6] &
+      \cellcolor{gray!15} \arg[7] &
+      \cellcolor{gray!10} \arg[8] \\%
       \hline%
-      \end{tabular}%
+      \end{tabularx}%
     }%
     {ca}{%
-      \begin{tabular}{ | c | c | c | c |}%
-      \hline%
-      Physical & Mental & Social & Resources \\%
-      \hline%
-      \arg[1] & \arg[2] & \arg[3] & \arg[4] \\%
-      \hline%
-      \end{tabular}%
+      \begin{tabularx}{\textwidth}{ | X | X | X | X |}%
+        \hline%
+        \cellcolor{gray!25} Physical & %
+        \cellcolor{gray!15} Mental & %
+        \cellcolor{gray!25} Social & %
+        \cellcolor{gray!15} Resources \\%
+        \hline%
+        \cellcolor{gray!20} \arg[1] & %
+        \cellcolor{gray!10} \arg[2] & %
+        \cellcolor{gray!20} \arg[3] & %
+        \cellcolor{gray!10} \arg[4] \\%
+        \hline%
+      \end{tabularx}%
     }%
     {co}{%
-      \begin{tabular}{ | c | c |}%
+      \begin{tabularx}{\textwidth}{ | X | X |}%
       \hline%
-      Competency & \arg[1] \\%
+      \cellcolor{gray!25} Competency & \arg[1] \\%
       \hline%
-      \end{tabular}%
+      \end{tabularx}%
     }%
   }%
   \end{center}%
 }
 
-%% \newtcolorbox{npcbox}[1]{
-%%   colback=black!5!white,
-%%   colframe=black!50!white,
-%%   fonttitle=\bfseries,
-%%   title=#1,
-%% }
-
 \newtcolorbox{npcbox}[1]{
   enhanced,
-  breakable,
+  % breakable,
   borderline west={2pt}{0pt}{black},
   colback=black!5!white,
   boxrule=0pt,
@@ -149,17 +180,22 @@
   underlay={\tcbvignette{
       fade out=blue,
   }},
+  lower separated=false,
+  leftupper=-1pt,
+  rightupper=-3pt,
+  top=-4pt,
 }
 
 
 \newenvironment{npc}[4]{
   \begin{npcbox}{
-      Character: #1 (\characterpoints{#2}{#3}{#4}  CP)
+      #1 \hspace*{\fill}(\characterpoints{#2}{#3}{#4}  CP)
     }
     \attributestable{#2}{#3}
-    % \begin{multicols}{2}[]
+    \tcblower
+    \begin{multicols}{2}[]
 }{
-  % \end{multicols}
+  \end{multicols}
   \end{npcbox}
 }
 
@@ -180,3 +216,7 @@
 }{
   \end{examplebox}
 }
+
+\newtcbox{\aspect}{on line,
+  colframe=black!10!white,colback=black!10!white,
+  boxrule=0.5pt,arc=3pt,boxsep=0pt,left=1pt,right=1pt,top=1pt,bottom=1pt}

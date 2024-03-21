@@ -141,6 +141,7 @@ Karma was originally inspired by Fate Cores Fate Points, but EZD6 had the better
 The distribution of attributes into categories was inspired by the AERA RPG.
 The fate die to create unexpected events was inspired by the One Page Solo RPG Engine.
 The optional rule "Only Players Roll" is taken from the Cypher System.
+The alternaitve turn order was taken from Tides of Ambition.
 
 ** How to use the game
 
@@ -228,12 +229,8 @@ Aspects are a combination of a descriptors and a value. When invoked the aspects
 An aspect can be created at any time by the GM. It can also be created by any player, NPC or even object. To create an aspect all but the GM need to make a check. The aspect points (AP) from this check can be used to create an aspect. Increasing or decreasing an aspects value by 1 costs 1 AP (aspect point). The description of the aspect can be decided freely. 
 
 #+ATTR_LATEX: :environment quote
-#+begin_example
-Arthur the mage wants to inflame the grass around him to channel the enemies into a one on one battle with his Companions. The GM likes this idea and creates the aspect "Dry Grass 1" that Arthur can use. Arthur decides to cast his spell, succeeds with 3 AP, and creates the aspect "Wall of Fire 3". Now any enemy has to either go around the wall or get burned. If an enemy tires to jump through, they have to roll on it against the Fires 3 dice. If the fire succeeds they get burned.
-#+end_example
-
 #+begin_pwexample
-Some example text may be inside here
+Arthur the mage wants to inflame the grass around him to channel the enemies into a one on one battle with his Companions. The GM likes this idea and creates the aspect "Dry Grass 1" that Arthur can use. Arthur decides to cast his spell, succeeds with 3 AP, and creates the aspect "Wall of Fire 3". Now any enemy has to either go around the wall or get burned. If an enemy tires to jump through, they have to roll on it against the Fires 3 dice. If the fire succeeds they get burned.
 #+end_pwexample
 
 **** Using Aspects
@@ -245,6 +242,9 @@ Whenever it makes narrative sense an aspect can be used (also called invoked). W
 An aspect can affect a zone. This means it can be invoked for all in the zone. To create such an aspect costs double the AP (aspect points). Exceptions may be made by the GM. 
 
 **** Multiple Targets
+:PROPERTIES:
+:CUSTOM_ID: sec:aspects_multiple_targets
+:END:
 
 If an aspect impacts multiple targets it costs double the AP (aspect points). Exceptions may be made by the GM.
 
@@ -259,20 +259,22 @@ An aspect can be over within a round or it can last longer. Normally aspects las
 
 Sometimes an aspect should perform actions on its own. Each round they can act like any other player or NPC. They use their value for their actions.
 
-#+ATTR_LATEX: :environment quote
-#+begin_example
-Poison Cloud 2: Each round it tries to use 2 dice to poison any inside. Since it impacts a zone it can do this for everyone inside the zone every round.
-#+end_example
+#+begin_pwexample
+\aspect{Poison Cloud 2}: Each round it tries to use 2 dice to poison any inside. Since it impacts a zone it can do this for everyone inside the zone every round.
+#+end_pwexample
 
 **** Resistant Aspects
+:PROPERTIES:
+:CUSTOM_ID: sec:aspects_resistant
+:END:
 
 An aspect can have resistance to being removed. The resistance is subtracted from any attempt to removing this aspect. For each point of resistance costs 1. The effective resistance can never be more than the aspects value. Be creative when invoking a resistant aspect. For example armor could be implemented as an aspect with resistance.
 
 #+ATTR_LATEX: :environment quote
-#+begin_example
-A heavy door blocks the way. The GM creates the aspect "Fortified Door 5[2]". This means the aspect has a value of 5 with a resistance of 2. The players try to break through with pure strength. On their first try they get 4 AP. 2 get absorbed by the doors resistance and the rest weakens the door. The doors aspect is now "Fortified Door 3[2]". On their second try the players get 6 AP and break through.
+#+begin_pwexample
+A heavy door blocks the way. The GM creates the aspect \aspect{Fortified Door 5[2]}. This means the aspect has a value of 5 with a resistance of 2. The players try to break through with pure strength. On their first try they get 4 AP. 2 get absorbed by the doors resistance and the rest weakens the door. The doors aspect is now \aspect{Fortified Door 3[2]}. On their second try the players get 6 AP and break through.
 If the players had decided to pick the lock the GM may had ignored the resistance value.
-#+end_example
+#+end_pwexample
 
 
 **** Character Aspects
@@ -282,6 +284,7 @@ Aspects can also be bound to a character and be bought with CP (character points
 **** Damage
 
 Aspects are also used to represent damage a character or object has taken. If a character is unable to act in a scene because too many aspects hinder him, it is a good idea to narrate them out of the scene. It is also a good time to create a fitting negative character aspect representing this loss (like "lost an arm" or "fear of water" or "hateful of orcs").
+
 
 ** Checks
 :PROPERTIES:
@@ -313,7 +316,11 @@ If the aspect points are zero or negative the check fails.
 
 **** Difficulty
 # Difficulty reduces the number of aspect points. A good difficulty for a check is the sice of the dice pool P a player has. Reduce this by the factor F for easy checks and increase it by the factor F for hard checks.
-The checks difficulty is the sum of all aspects that are to be overcome or created. This means that a door having the difficulty 3 to be opened is the same thing as the door having the aspect "Closed 3" on it. 
+The checks difficulty is the sum of all aspects that are to be overcome or created. This means that a door having the difficulty 3 to be opened is the same thing as the door having the aspect "Closed 3" on it. If an obstacle can not be partially overcome you can give it a [[#sec:aspects_resistant][resistant aspect]].
+
+#+begin_pwexample
+The player tries to pick a door lock. The GM decides that he can not partially pick a lock and thus chip away at the door. So he gives it the aspect \aspect{closed 1[5]}. This means that the player needs at least 6 AP to open it and has to do it with one check.
+#+end_pwexample
 
 **** Collaborative checks
 Everyone rolls individually and then sum together all AP.
@@ -337,6 +344,13 @@ Sometimes a check is to difficult to achieve something within 1 check. Then it m
 **** Limited Aspects
 To prevent players from stacking up aspects endlessly it may be good to limit the ammount of points one can use. The dice pool should be limited to double the sum of the relevant attribute and all used aspect points from chracter inherent aspects. Feel free to disregard this rule however if it does not fit well with the story.
 
+**** Multiple Checks
+Sometimes the players fail to pass an obstacle with just one check. If the players have a new idea on how they might overcome the challenge then you can allow them another check. The new idea may add the checks AP to the previous attempt or replace them, depending on the narrative.
+
+#+begin_pwexample
+The player has to climb up a cliff. The cliff has the aspect \aspect{sheer rock face 6[2]} At frist he tires to just climb. He rolls a 3 on his check. This does not suffice and because of the 2 resistance of the aspect he has only overcome 1 of the 6 AP, he needs. This is harder than expected and considering that he has already climbed some of the distance a failure may end in a fall. He pulls out some wedges from his pack and starts to use them to create some better holds. For this the GM allows a new check, which he gets 7 AP from. With those he just barely climbs the rest of the distance.
+#+end_pwexample
+
 
 ** Contest
 :PROPERTIES:
@@ -358,16 +372,22 @@ A contest is divided into rounds. Each participant in the contest can make one o
 **** Actions
 An action is a check that tries to create an aspect. Any kind of aspect can be created, based on what fits the scene. You can try to gain an advantageous position, or start a big fire.
 
-If in combat, by default, the aspect that is created is =damage=. Damage is an [[#sec:aspects_enduring][enduring aspect]] thus costing 2 AP per level of the aspect. After combat =damage= gets converted to one or more fitting negative aspects like "broken leg" or "battered and bruised". 
-Alternatively the aspect can be =stress= as a non enduring alernative to damage. =Stress= only holds for 1 round but cost only 1 AP per level of the aspect.
+If in combat, by default, the aspect that is created is \aspect{damage}. Damage is an [[#sec:aspects_enduring][enduring aspect]] thus costing 2 AP per level of the aspect. After combat \aspect{damage} gets converted to one or more fitting negative aspects like "broken leg" or "battered and bruised". 
+Alternatively the aspect can be \aspect{stress} as a non enduring alernative to damage. \aspect{Stress} only holds for 1 round but cost only 1 AP per level of the aspect.
 
-If a character has more =damage= than he has points in an applicable attribute and character aspects combined then he is considered incapacitated for the rest of combat. This may mean that he is unconcious, writhing in pain or just to demoralised to fight.
+If a character has more \aspect{damage} than he has points in an applicable attribute and character aspects combined then he is considered incapacitated for the rest of combat. This may mean that he is unconcious, writhing in pain or just to demoralised to fight.
 
 **** Reactions
 Whenever someone takes an action and has rolled his dice anyone else can immediately try to perform a reaction to prevent it. A reaction does not by its nature create an aspect. If you announce this before the action is rolled you can take the average on a reaction. You have to announce the number of dice invested. The points from the reaction are then subtracted from the points of the action to lessen its effect.
 
 **** Turn Order
 The participants take turn from the one with the highest relevant attribute (+ aspects) to the lowest. On your turn you don't have to act. You can act at any point after you turn in the turn order. Even multiple times. 
+
+Alternative:
+- All characters of a party act together (typically all player characters or all enemies).
+- If a party surprises the others then they go first.
+- If a party has significantly less members, then they go first.
+- If in doubt then determine the order by comparing the dice pools of the parties. The highest one begins.
 
 **** Multiple (re)actions
 Each round you can take multiple actions and reactions. The total number of points gained from the attributes is the largest attribute value of the checks. From each attribute you can use at most its value in points in total. Each Aspect can only be used once or their AP (attribute points) have to be distributed to the (re)actions.
@@ -380,6 +400,10 @@ When acting together all values are combined and a single combined check is made
 :CUSTOM_ID: sec:traits
 :END:
 
+#+begin_short
+Traits allow characters to break rules in some way. Some checks that can only be performed because of a trait make those checks [[#sec:risky][risky]]. Traits can be bought for character points.
+#+end_short
+
 Traits are distinguishing things about the character that allow him to break a rule of the world or the game in some way. For example with the Trait Night Vision you can just see in the dark. No rolls required. Some traits (like all magic) should come with a risk, meaning all checks that can only be made with this trait are risky checks. They can be bought for character points, this is possible both at character creation and later in the game.
 
 See the chapter [[#sec:lotraits][List of Traits]] for examples.
@@ -389,7 +413,9 @@ See the chapter [[#sec:lotraits][List of Traits]] for examples.
 :CUSTOM_ID: sec:karma
 :END:
 
+#+begin_short
 Each player can have up to 3 karma. They can be used at any point in time to repeat a single die roll (not just your own) or to add an interesting aspect to a scene. The GM has veto rights. Karma can be recovered by a characters aspect or trait being used against them or by objectively failing in a scene or as a reward for good role play (anything that brings joy to all players and the GM). 
+#+end_short
 
 
 ** Character Creation
@@ -397,6 +423,7 @@ Each player can have up to 3 karma. They can be used at any point in time to rep
 :CUSTOM_ID: sec:charactercreation
 :END:
 
+#+begin_short
 Distribute 150 CP on your Attributes, Aspects and Traits.
 
 Use the rules under equipment to limit your starting gear.
@@ -412,13 +439,16 @@ A typical player character will have:
 - all attributes with value 2 on average
 - 3 aspects with value 2
 - 1 trait
+#+end_short
 
 ** Movement and Range
 :PROPERTIES:
 :CUSTOM_ID: sec:movement
 :END:
 
+#+begin_short
 Sometimes it is useful to draw maps and define distances. In a contest split the area into roughly 3-5 zones. A character can move from one zone to another each round. If one can act at a range, like for example when shooting a bow, one can act 1-2 zones far. During the round a character is moving he can be considered to be in both zones at once.
+#+end_short
 
 ** Items and Equipment
 :PROPERTIES:
@@ -716,70 +746,110 @@ None of the following lists is exhaustive. They should be taken as examples. You
 
 The following are examples of NPCs and monsters. They are all created using the rules for [[#sec:charactercreation][Character Creation]]. 
 
-#+begin_quote
-*Average Citizen* (96 CP)
-Ph:2, Me:2, So:2, Re:2
-#+end_quote
+#+ATTR_LATEX: :options {Average Citizen}{co}{2}{0}
+#+begin_npc
+Aspects:
+- None
+Traits:
+- None
+#+end_npc
 
-#+begin_quote
-*Goblin* (75 CP)
-Ph:2, Me:1, So:1, Re:1, Night Vision
-#+end_quote
+#+ATTR_LATEX: :options {Goblin}{ca}{2 1 1 1}{15}
+#+begin_npc
+Aspects:
+- None
+Traits:
+- Night Vision
+#+end_npc
 
-#+begin_quote
-*Ratling* (54 CP)
-Ph:1, Me:1, So:1, Re:1, Strength in numbers 1
-#+end_quote
+#+ATTR_LATEX: :options {Ratling}{ca}{1 1 1 1}{6}
+#+begin_npc
+Aspects:
+- Strength in Numbers 1
+Traits:
+- None
+#+end_npc
 
-#+begin_quote
-*Wolf* (78 CP)
-Ph:3, Me:1, So:2, Re:0, Endless endurance 1
-#+end_quote
+#+ATTR_LATEX: :options {Wolf}{ca}{3 1 2 0}{6}
+#+begin_npc
+Aspects:
+- Endless endurance 1
+Traits:
+- None
+#+end_npc
 
-#+begin_quote
-*Guard* (108 CP)
-Ph:3, Me:2, So:2, Re:2
-#+end_quote
+#+ATTR_LATEX: :options {Guard}{ca}{3 2 2 2}{0}
+#+begin_npc
+Aspects:
+- None
+Traits:
+- None
+#+end_npc
 
-#+begin_quote
-*Dark Mage* (237 CP)
-Ph:2, Me:7, So:3, Re:5, Necromancer 3, Telepathic Link to undead servants
-#+end_quote
+#+ATTR_LATEX: :options {Dark Mage}{ca}{2 7 3 5}{33}
+#+begin_npc
+Aspects:
+- Necromancer 3
+\columnbreak
+Traits:
+- Telepathic link to undead servants
+#+end_npc
 
-#+begin_quote
-*Ogre* (192 CP)
-S:15, D:7, W:5, I:1, E:1 ,C:1, G:1, F:1
-#+end_quote
+#+ATTR_LATEX: :options {Ogre}{at}{15 7 5 1 1 1 1 1}{}
+#+begin_npc
+Aspects:
+- None
+Traits:
+- None
+#+end_npc
 
-#+begin_quote
-*Zombie* (75 CP)
-Ph:2, Me:1, So:1, Re:1, Infectious Bite
-#+end_quote
+#+ATTR_LATEX: :options {Zombie}{ca}{2 1 1 1}{15}
+#+begin_npc
+Aspects:
+- None
+Traits:
+- Infectious bite
+#+end_npc
 
-#+begin_quote
-*Bandit* (108 CP)
-Ph: 3, Me: 2, So: 2, Re: 2
-#+end_quote
+#+ATTR_LATEX: :options {Bandit}{ca}{3 2 2 2}{}
+#+begin_npc
+Aspects:
+- None
+Traits:
+- None
+#+end_npc
 
-#+begin_quote
-*Combat Drone* (105 CP)
-Ph: 3, Me: 1, So: 1, Re: 1, Shooting 3, Night-vision
-#+end_quote
+#+ATTR_LATEX: :options {Combat Drone}{ca}{3 1 1 1}{33}
+#+begin_npc
+Aspects:
+- Shooting 3
+Traits:
+- Night-vision
+#+end_npc
 
-#+begin_quote
-*Orc Veteran* (171 CP)
-Ph: 5, Me: 3, So: 2, Re: 2, Night Vision, Reckless and Bold 2
-#+end_quote
+#+ATTR_LATEX: :options {Orc Veteran}{ca}{5 3 2 2}{27}
+#+begin_npc
+Aspects:
+- Reckless and Bold 2
+Traits:
+- Night-vision
+#+end_npc
 
-#+begin_quote
-*Orc Warrior* (105 CP)
-Ph: 3, Me: 2, So: 1, Re: 1, Night Vision, Reckless and Bold 1
-#+end_quote
+#+ATTR_LATEX: :options {Orc Warrior}{ca}{3 2 1 1}{21}
+#+begin_npc
+Aspects:
+- Reckless and Bold 1
+Traits:
+- Night-vision
+#+end_npc
 
-#+begin_quote
-*Giant Spider* (117 CP)
-S: 2, D: 4, W:2, I:2, E:1, C:1, G:2, F:1, Night Vision, Spider Webs 2
-#+end_quote
+#+ATTR_LATEX: :options {Giant Spider}{at}{2 4 2 2 1 1 2 1}{27}
+#+begin_npc
+Aspects:
+- Spider Webs 2
+Traits:
+- Night-vision
+#+end_npc
 
 
 #+LATEX: \newpage
@@ -817,7 +887,17 @@ The challenge value (CV) is a number servig as a quick reference for how hard as
 ** How to Rule: Stealth as a Group
 
 Only roll the checks for the players and take the average for everyone else. Compare the sneaking of each from the one party to the perception of each from the other party. If any perception is higher than any of the sneaking values then they get spotted.
-Often times the characters in each party may help each other. Let them distribute some points within the group after they rolled their checks. This represents something like the best scout sneaking ahead and finding the best route for the others, or distracting a guard such that the more obvious members of the party can pass unnoticed.
+Often times the characters in the party help each other. Let them distribute some points within the group after they rolled their checks. This represents something like the best scout sneaking ahead and finding the best route for the others, or distracting a guard such that the more obvious members of the party can pass unnoticed.
+
+** How to Rule: Taunting
+Let the player make a check to create the "taunted by .." aspect. This may be opposed by the other party. If the aspect is created then it hinders any attack on someone else. It may also impact other actions. It may be a smart choice to make the "taunted by .." aspect [[#sec:aspects_enduring][enduring]] and [[#sec:aspects_multiple_targets][affecting the whole group]]. 
+
+** How to Rule: Extremely Small Creatures
+Lets say a player turns himself into a mouse. How does this impact his strength, dexterity and intellect? In most cases being a mouse is just an aspect on the player (here it is "mouse form 5"). Lets say the player has a value of 3 in all 
+
+Checks with zero or negative dice pools. Shift the dice pool for the check up until it reaches 1. Perform the same shift for the reaction. If multiple parties participate 
+
+If a dice pool turns negative it does not mean that you can not roll. Checks are really just a comparison between the rolled AP and either the AP oposing force. By default it is 0.  
 
 
 * Game-play Examples
@@ -825,26 +905,25 @@ Often times the characters in each party may help each other. Let them distribut
 :CUSTOM_ID: sec:examples
 :END:
 
-** Character Build: Alchemist
+** Character Builds
 
 #+ATTR_LATEX: :options {Anna the Alchemist}{at}{3 3 4 6 4 3 6 6}{51}
 #+begin_npc
 Traits:
 - Magical Alchemy
-
+\columnbreak
 Aspects:
 - Third daughter of an Aristocratic Family 2
 - Proud member of the Alchemists Guild of Mistwater 3
 - Hobby Horse Rider and Trainer 1
 #+end_npc
 
-** Character Build: Babarian
-
 #+ATTR_LATEX: :options {Bob the Barbarian}{at}{6 5 4 3 2 4 2 2}{66}
 #+begin_npc
 Traits:
 - Cold Resistance
 - Plot Armor: Can prevent getting a damaging aspect up to one time per scene.
+\columnbreak
 
 Aspects:
 - Member of the isolated Nomads of the eastern steppes 2
@@ -852,17 +931,16 @@ Aspects:
 - Gambler 1
 #+end_npc
 
-** Character Build: Generic Citizen
-
 #+ATTR_LATEX: :options {Generic Citizen}{co}{2}{0}
 #+begin_npc
 Traits:
 - None
+
+\columnbreak
+
 Aspects:
 - None
 #+end_npc
-
-** Character Build: Shapeshifting Durid
 
 #+ATTR_LATEX: :options {Shapeshifting Druid}{at}{4 4 5 3 3 4 3 2}{110}
 #+begin_npc
@@ -872,19 +950,21 @@ Traits:
 - Shapeshifting
 - Seer
 
+\columnbreak
+
 Aspects:
 - Shapeshifting Druid 4
 - Protector of the Ancient Grove 3
 - Knowledgeable in the alchemy of the gifts of nature 2  
 #+end_npc
 
-** Character Build: Space Pirate
-
 #+ATTR_LATEX: :options {Space Pirate}{at}{3 3 4 5 3 4 3 4}{78}
 #+begin_npc
 Traits:
 - Bionic Eye with super zoom level and infrared vision.
 - Bionic Leg
+
+\columnbreak
 
 Aspects:
 - Has lived in space all his life 2
@@ -895,12 +975,12 @@ Aspects:
 #+end_npc
 
 
-** Character Build: Cowboy
-
-#+ATTR_LATEX: :options {Cody the Cowboy}{at}{2 2 2 2 2 2 2 2}{78}
+#+ATTR_LATEX: :options {Cody the Cowboy}{ca}{2 2 2 2}{78}
 #+begin_npc
 Traits:
-- 
+- None
+
+\columnbreak
 
 Aspects:
 - True frontiersman 2
@@ -950,12 +1030,12 @@ Aspects:
 *A:* I throw the bomb at them. I use 1d and the smoke bomb. I want it to cover a zone.
 - A rolls 7d = 5 => the smoke aspect has strength 5/2 = 2
 
-*GM:* The goblins dont expect this and dont try to defend. I will add "covered in irritating smoke 2" to them.
+*GM:* The goblins dont expect this and dont try to defend. I will add \aspect{covered in irritating smoke 2} to them.
 
 *B:* I attack with my axe. I use 3 of my strength dice and my fighting aspect.
 - B rolls 6d = 0 "and"
 
-*GM:* During the attack you step partially into the smoke and breathe in some of it. I give you the aspect "coughing 2". The goblins attack. They rolled 5 please defend ben.
+*GM:* During the attack you step partially into the smoke and breathe in some of it. I give you the aspect \aspect{coughing 2}. The goblins attack. They rolled 5 please defend ben.
 - GM rolls 9d-2d = 7d = 5
 
 *A:* I want to assist in bens defense.
@@ -987,34 +1067,34 @@ Aspects:
 
 The players are preparing an ambush on a patrol. The GM describes the scene
 
-*GM:* You know that the patrol is going to pass through this area, using the small forrest path. It is barely wide enough for a single cart and shallow ruts in the road indicate that the path is only used ocasionally. The unterbrush is thick in some parts, but there are also stretches of dark pine forrest. Because of the recent rains there are mud puddles everywhere.
+*GM:* You know that the patrol is going to pass through this area, using the small forrest path. It is barely wide enough for a single cart and shallow ruts in the road indicate that the path is only used ocasionally. The underbrush is thick in some parts, but there are also stretches of dark pine forrest. Because of the recent rains there are mud puddles everywhere.
 
 He creates some aspects
-- shallow ruts 1
-- narrow path 1
-- thick underbrush 1
-- dark shadows under the pines 1
-- muddy ground 1
+- \aspect{shallow ruts 1}
+- \aspect{narrow path 1}
+- \aspect{thick underbrush 1}
+- \aspect{dark shadows under the pines 1}
+- \aspect{muddy ground 1}
 
 The players will prepare the ambush. For this they can make as many checks to create aspects as they have time to do.
 
 *R:* As a ranger i am good in nature and will select the best spot for the ambush. It should be especially narrow such that they can not maneuver well. The ground should be muddy and i want particularly dark shadows to cover us, but not the enemy.
 
-*GM:* So no shallow ruts and no thick underbush?
+*GM:* So no \aspect{shallow ruts} and no \aspect{thick underbush}?
 
-*R:* The ruts are fine, but i dont want us to be hindered by the underbrush.
+*R:* The \aspect{ruts} are fine, but i dont want us to be hindered by the \aspect{underbrush}.
 
-*GM:* Yes, that is possible. You can use the dark shadows and muddy ground to prepare the spot. Make the intelect check.
+*GM:* Yes, that is possible. You can use the \aspect{dark shadows} and \aspect{muddy ground} to prepare the spot. Make the intelect check.
 
 *R:* I have 3 from my attribute and 3 from being a ranger. [rolls $1 d_0 8 + 2 = 6 + 2$ on the check] I have 8AP. I would like the aspect to last the entire scene [AP / 2] and apply to all of us [AP / 2].
 
 He writes the aspect on a postit and places it on the table
-- Well prepared Ambush 2
+- \aspect{Well prepared Ambush 2}
 The GM takes the unused aspects back of the table. What is left are
-- shallow ruts 1
-- narrow path 1
-- dark shadows under the pines 1
-- muddy ground 1
+- \aspect{shallow ruts 1}
+- \aspect{narrow path 1}
+- \aspect{dark shadows under the pines 1}
+- \aspect{muddy ground 1}
 
 *A:* As an Alchemist i would like to prepare a fire bomb at the spot of the ambush. As we establishes last time i should have all the ingredients.
 
@@ -1029,12 +1109,12 @@ The GM takes the unused aspects back of the table. What is left are
 *A:* [rolls $2 d_8 - 1 = 2*7 -1 = 13$] Oh, that is going to hurt. I want all of them to be affected [AP / 2].
 
 The players create the aspects
-- Fire bomb 6
-- Well hidden 6
+- \aspect{Fire bomb 6}
+- \aspect{Well hidden 6}
 As they see the numbers fitting so well they replace the aspects with
-- Well hidden fire bomb 6
+- \aspect{Well hidden fire bomb 6}
 
-*D:* My druidic circle specialises in the bear for fighting. So i will shape shift and lie in wait. 4 will and 2 druidry plus 1 from my speciality in shape shifting [rolls $2 d_0 - 1 = 2 - 1 = 1$]. That is not going to be convincing.
+*D:* My druidic circle specialises in turning into a bear for fighting. So i will shape shift and lie in wait. 4 will and 2 druidry plus 1 from my speciality in shape shifting [rolls $2 d_0 - 1 = 2 - 1 = 1$]. That is not going to be convincing.
 
 *GM:* You dont quite turn into a bear. Instead you become much more hary and a bit stronger.
 
@@ -1043,11 +1123,11 @@ As they see the numbers fitting so well they replace the aspects with
 *GM:* No need. We will roll that check collectively later.
 
 The druid gets the aspect
-- Bear'ish form 1
+- \aspect{Bear'ish form 1}
 
 The preparations are done, and the GM narates how the patrol comes down the road.
 
-*GM:* Lets see if they can spot you. Is a collective check for all of you ok?
+*GM:* Lets see if they can spot you. Is a collective check okay for all of you?
 
 *All*: Yes
 
@@ -1066,7 +1146,7 @@ The preparations are done, and the GM narates how the patrol comes down the road
 *GM*: That makes 6 on average. The 5 soldiers have 4 each so they are surprised 2 (6 - 4 = 2) by your attack. You are still unnoticed as they reach the trap.
 
 The GM creates the aspect
-- Surprised 2
+- \aspect{Surprised 2}
 
 *GM*: Let the combat scene begin.
 
@@ -1085,200 +1165,181 @@ The GM creates the aspect
 
 #+LATEX: \newpage
 
-* COMMENT Short form rules
-
-** Attributes
-| *Category* | *Attribute* | *Description*             |
-|------------+-------------+---------------------------|
-| Physical   | Strength    | strength and hardiness    |
-|            | Dexterity   | agility, speed, precision |
-|------------+-------------+---------------------------|
-| Mental     | Will        | perseverance, attention   |
-|            | Intellect   | intelligence, knowledge   |
-|------------+-------------+---------------------------|
-| Social     | Empathy     | understanding people      |
-|            | Charisma    | interacting with people   |
-|------------+-------------+---------------------------|
-| Resources  | Gear        | Gear you have prepared    |
-|            | Finances    | Money and investments     |
-
-** Aspects
-- Description: Free form text 
-- Value: Positive whole number. Is the size of the dice pool of the aspect. 
-- Resistance: Positive whole number or zero, can not be higher than the value. 
-- Cost in aspect points (AP):
-  - Aspects value in AP
-  - +1 AP for each point of resistance	 
-  - costs double if it affects an entire zone or group
-  - costs half if it lasts only 1 round
-	
-** Checks
-- The pool size P is the sum of an attribute and all applicable helping aspects minus all applicable hindering aspects.
-- The factor F is P / 3 with the remainder being R
-- Roll 3d{0,1,2} or pull one card (values 0-6)
-- Multiply by the factor F
-- Add the remainder R
-- Subtract the difficulty
-- The result are the AP of your check. Spend them on an aspect.
-- Roll 1 additional d6.
-  - on 1 add "but ..". Create an aspect worth the factor F in AP
-  - on 6 add "and ..". Create an aspect worth the factor F in AP
-	
-** Contest
-- Turn order: the one with the highest pool size begins. He can make actions immediately or at any later point in the turn.
-- Actions are checks that try to create an aspect.
-- Reactions are checks that try to prevent an aspect. Reactions can be taken at any time but must deal with an action.
-- If you take multiple (re)actions the sum of all used attribute dice can not exceed the highest used attribute value. For each individual attribute the sum can not exceed the attributes value.
-- To act together you can sum either the AP or the dice pools.
-
-** Karma
-- Maximum 3 Karma per player
-- Start each session with 2
-- Spend 1 karma to ..
-  - set any checks roll to the desired value
-  - set the fate die to the desired value
-  - add an aspect to a scene
-  - ignore an aspect being used
-- Gain 1 karma by ..
-  - having a character aspect used against you
-  - failing a check and having the fate die show "and .."
-  - begin compelled to do something because of an aspect	
-
-** Traits
-- Break or bend the rules of the game world or the game in some way. Pay an appropriate price in character points (typically 7) one to gain a trait.
-
-** Character Creation
-- Spend 100 character points (CP)
-- an attribute point costs 2 CP
-- An aspect point (AP) costs 2 CP
-- A Trait typically costs 7 CP
-
-** Movement and Range
-- Split the area into roughly 3-5 zones.
-- Characters can move 1 zone each round.
-- Ranged actions can reach 1-2 zones far.
-
-** Items and Equipment
-- Items have a description
-- The resource value (RV) is an abstraction for the price or usefulness.
-  - If the item has an aspect then the RV is at least AP.
-- Equipment:
-  - Character have as many items on them as they can reasonably carry or keep in their household
-  - The RV of the items does not exceed the attribute gear
-- Buying: Make a risky finances check on the RV of the item
-- Crafting:
-  - Needs tools and resources (worth RV-1)
-  - Make a check with the items RV as difficulty
-  - On a fail the resources may be lost
-- Gathering: Make a check with RV of the gathered items as difficulty
-- Bribing: You need their finances value in RV to bribe someone.
-
-#+LATEX: \newpage
-
-* COMMENT Solo Rules
-
-** Oracle
-- pick a card from the deck
-- The suit describes the topic if necessary
-  - $\heartsuit$ : Social, 
-  - $\diamondsuit$ : Financial, 
-  - $\clubsuit$ : Religious, Mystical
-  - $\spadesuit$ : Technical
-- The Number gives a measure of intensity
-  - high numbers: yes, positive, strong, ...
-  - low numbers: no, negative, weak
-  - 6: undecided, ambigouous, unknown
-- The court gives some accented information
-  - King: male, martiality, power, leadership, ambition
-  - Queen: female, cunning, intigue, kindness, loyalty
-  - Jack: youth, naivetee, new, future, music, instability
-  - Ace: age, old, past, nature, stability
-  - Joker: unexpected, otherworldly, treason, rebellion
-
-** Encounter Design
-
-Difficulty:
-- take players average strength ( $\frac{CP*3}{100}$ ) and add $ 1 d_0 12 - 6 $
-  This is the difficulty of challenging aspects and the average value for enemies.
-- Add some beneficial and detremental aspects in equal measure as you see fit.
-
-Kind of Encounter:
-- Roll on the oracle
-
-** Quest design
-
-Source:
-- NPC
-- Community
-- Organisation
-- New
-- Old
-
-Target:
-- Bring an Item
-- Move/Protect an Item
-- Destroy an Item
-- Bring a person
-- Kill a person
-- Move/Protect a person
-- Stop a Person/Organisation/Community/...
-- Prevent an action
-  
-Challenge:
-- New Character/Community/Organisation/...
-- Old Character/Community/Organisation/...
-- Environment
--
-
-** NPC
-
-What: Religious and Social => Works in an Orphanage
-Who: Male and technical => is the janitor there
-Personality: A Kind person
-Desire: Spread religion to the youth
-Vice: Very old fashioned
-
-* COMMENT Solo Rules v2
-
-** Descriptors
-Roll up to 3 times. Chain the results together to get a better idea on what it might be.
-If you have consecutive scenes then i advise to roll only 1 new descriptor and remove only the first of the previous scene. This will make your encounters more connected to one another.
-
-|  1 | decay                 |
-|  2 | growth                |
-|  3 | liquid / fluid        |
-|  4 | solid                 |
-|  5 | strong                |
-|  6 | weak                  |
-|  7 | light / clear         |
-|  8 | dark / obscure        |
-|  9 | natural               |
-| 10 | unnatural / technical |
+* Solo Rules
 
 ** Scene
-|   |   |
-|   |   |
+Roll on the Scene type table to find out what kind of scene it is.
 
-|   | Environmental |
-|   | Social        |
-|   | Combat        |
-|   | -             |
-|   |               |
+For at least 3 descriptors roll on the descriptor table. If you have consecutive scenes then i advise to roll only 1 new descriptor and remove only the first of the previous scene. This will make your encounters more connected to one another.
 
-** Ammount
-|   1 | very little |
-| 2-4 | less        |
-| 5-6 | expected    |
-| 7-9 | more        |
-|  10 | very much   |
+Lead questions for Scenes: 
+- Who/What?
+- Does What?
+- To whom?
+- In what manner? 
 
-** Oracle
-1d10
+** NPCs
+
+Lead questions for NPCs:
+- Who? 
+- Does What?
+- Personality?
+- Desires?
+- Has Vice?
+- Has Virtue?
+
+** Environmental Challenges and Combat Encounters
+
+- Take the players average strength ( $\frac{CP*3}{100}$ ) and add $ 1 d_0 8 - 4 $.
+  This is the difficulty of challenging aspects or the average value for enemies.
+- Add some beneficial and detremental aspects in equal measure as you see fit.
+
+** Descriptors
+
+Ask you question and roll as often on the descriptor table as you need to get a good idea. Feel free to disregard meaning that dont work for you.
+The descriptor table is based on the Toki Pona language. The second column provides you with the applicable toki pona word and gives you a short form to write it down. 
+
+#+LATEX: \newpage
+** Tables
+#+LATEX: \begin{multicols}{3}[]
+#+LATEX: \begin{center}
+*Yes / No Questions*
 |   1 | Very No  |
 | 2-4 | No       |
 | 5-6 | Abiguous |
 | 7-9 | Yes      |
 |  10 | Very yes |
+#+LATEX: \columnbreak
+*Ammount*
+|   1 | Very Little |
+| 2-4 | Less        |
+| 5-6 | Expected    |
+| 7-9 | More        |
+|  10 | Very Much   |
+#+LATEX: \columnbreak
+*Scene Type*
+|  1-4 | As Expected   |
+|  5-6 | Environmental |
+|  7-8 | Social        |
+| 9-10 | Combat        |
+#+LATEX: \end{center}
+#+LATEX: \end{multicols}
+
+
+#+LATEX: \begin{center}
+*Description*
+#+LATEX: \end{center}
+#+LATEX: \tiny
+#+LATEX: \begin{multicols}{2}[]
+#+ATTR_LATEX: :environment tabularx :width \linewidth :align rlX
+| 00 | akesi   | reptile, amphibian                             |
+| 01 | ala     | no, not, zero, nothing                         |
+| 02 | alasa   | to hunt, forage, seek, try to, attempt         |
+| 03 | ale     | all, abundant, bountiful, plentiful, life      |
+| 04 | anpa    | dependent, under, floor, low, bottom           |
+| 05 | ante    | different, altered, changed, other             |
+| 06 | awen    | enduring, protected, safe, waiting             |
+| 07 | esun    | market, shop, fair, bazaar, deal               |
+| 08 | ijo     | thing, phenomenon, object, matter              |
+| 09 | ike     | bad, negative, irrelevant, complicated         |
+| 10 | ilo     | tool, implement, machine, device               |
+| 11 | insa    | centre, content, inside, internal organ        |
+| 12 | jaki    | disgusting, obscene, sickly, toxic, unclean    |
+| 13 | jan     | human being, person, somebody                  |
+| 14 | jelo    | yellow, yellowish                              |
+| 15 | jo      | to have, carry, contain, hold                  |
+| 16 | kala    | fish, marine animal, sea creature              |
+| 17 | kalama  | to produce a sound, recite, utter aloud        |
+| 18 | kama    | coming, future, summoned, to become            |
+| 19 | kasi    | plant, vegetation: herb, leaf                  |
+| 20 | kepeken | to use, with, by means of                      |
+| 21 | kili    | fruit, vegetable, mushroom                     |
+| 22 | kiwen   | hard object, metal, rock, stone                |
+| 23 | ko      | clay, semi-solid, paste, powder                |
+| 24 | kon     | air, breath, essence, spirit                   |
+| 25 | kule    | colorful, pigmented, painted                   |
+| 26 | kulupu  | community, company, group, nation              |
+| 27 | kute    | ear, to hear, listen, obey                     |
+| 28 | lape    | sleeping, resting                              |
+| 29 | laso    | blue, green                                    |
+| 30 | lawa    | head, mind, to control, direct, guide, own     |
+| 31 | len     | cloth, clothing, fabric, textile, cover        |
+| 32 | lete    | cold, cool, uncooked, raw                      |
+| 33 | lili    | little, small, short, few, a bit, young        |
+| 34 | linja   | cord, hair, rope, thread, line, connection     |
+| 35 | lipu    | flat object, book, paper, record, website      |
+| 36 | loje    | red, reddish                                   |
+| 37 | lon     | located at, real, true, existing, affirmative  |
+| 38 | luka    | arm, hand, five, touch/feel, interact          |
+| 39 | lukin   | eye, see, examine, read, seek, try to          |
+| 40 | lupa    | door, hole, orifice, window                    |
+| 41 | ma      | earth, outdoors, world, territory, soil        |
+| 42 | mama    | ancestor, creator, caretaker, sustainer        |
+| 43 | mani    | money, cash, savings, wealth                   |
+| 44 | moku    | to eat, drink, consume, ingest                 |
+| 45 | moli    | dead, dying                                    |
+| 46 | monsi   | back, behind, rear                             |
+| 47 | mu      | animal noise, non-speech vocalization          |
+| 48 | mun     | moon, night sky object, star, glow             |
+| 49 | musi    | artistic, entertaining, playful, recreation    |
+
+
+#+LATEX: \columnbreak
+#+ATTR_LATEX: :environment tabularx :width \linewidth :align rlX
+| 50 | mute    | many, a lot, more, much, quantity              |
+| 51 | nasa    | unusual, strange: silly: drunk, intoxicated    |
+| 52 | nasin   | way, custom, doctrine, method, path, road      |
+| 53 | nena    | bump, button, hill, mountain, nose             |
+| 54 | nimi    | name, word                                     |
+| 55 | noka    | foot, leg, bottom, lower part                  |
+| 56 | olin    | love, respect, show affection to               |
+| 57 | open    | begin, start, open, turn on                    |
+| 58 | pakala  | botched, broken, damaged, harmed               |
+| 59 | pali    | do, take action on, build, prepare             |
+| 60 | palisa  | long hard thing, branch, rod, stick            |
+| 61 | pan     | cereal, grain, barley, bread, pasta            |
+| 62 | pana    | give, send, emit, provide, put, release        |
+| 63 | pilin   | heart, feeling, emotion                        |
+| 64 | pimeja  | black, dark, unlit                             |
+| 65 | pini    | ago, completed, ended, finished, past          |
+| 66 | pipi    | bug, insect, ant, spider                       |
+| 67 | poka    | hip, side, next to, nearby, beside             |
+| 68 | poki    | container, bag, bowl, cupboard, vessel         |
+| 69 | pona    | good, positive, useful, friendly, simple       |
+| 70 | sama    | same, similar, sibling, peer, fellow, as, like |
+| 71 | seli    | fire, chemical reaction, heat source           |
+| 72 | selo    | outer form, outer layer, bark, skin, boundary  |
+| 73 | sewi    | area above, awe, divine, supernatural          |
+| 74 | sijelo  | body, physical state, torso                    |
+| 75 | sike    | ball, circle, cycle, sphere, wheel             |
+| 76 | sin     | new, fresh: additional, another, extra         |
+| 77 | sinpin  | face, foremost, front, wall                    |
+| 78 | sitelen | image, picture, symbol, mark, writing          |
+| 79 | sona    | know, be skilled in, be wise about             |
+| 80 | soweli  | animal, beast, land mammal                     |
+| 81 | suli    | big, heavy, large, long, important, adult      |
+| 82 | suno    | sun, light, radiance, shine, light source      |
+| 83 | supa    | horizontal surface, bed, table                 |
+| 84 | suwi    | sweet, fragrant: cute, innocent, adorable      |
+| 85 | tawa    | going to, toward, for, moving, going to        |
+| 86 | telo    | water, liquid, fluid, wet substance, beverages |
+| 87 | tenpo   | time, duration, moment, period, situation      |
+| 88 | toki    | communicate, say, speak, talk, think           |
+| 89 | tomo    | indoor space, building, home, house, room      |
+| 90 | tu      | two, separate, cut                             |
+| 91 | unpa    | have sexual relations with                     |
+| 92 | uta     | mouth, lips, oral cavity, jaw                  |
+| 93 | utala   | battle, challenge, struggle against            |
+| 94 | walo    | white, whitish, light-coloured, pale           |
+| 95 | wan     | unique, united: one                            |
+| 96 | waso    | bird, flying creature, winged animal           |
+| 97 | wawa    | strong, confident, energetic, intense          |
+| 98 | weka    | absent, away, ignored                          |
+| 99 | wile    | must, need, require, should, want, wish        |
+#+LATEX: \end{multicols}
+#+LATEX: \normalsize
+
+
 
 * COMMENT Scenario: The Endless Underground
 - An endless underground city.
@@ -1466,137 +1527,4 @@ The city is full of orphans because of the ongoing war. The players hear rumors 
 
 #+LATEX: \begin{small} This product is licensed under the ORC License held in the License of Congress at TX000 [number tbd] and available online at various locations including www.chaosium.com/orclicense, www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein. This product is the original work of Lukas Zumvorde. If you use my ORC Content, please also credit me. \end{small}
 #+HTML: <font size=0.5>This product is licensed under the ORC License held in the License of Congress at TX000 [number tbd] and available online at various locations including www.chaosium.com/orclicense, www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein. This product is the original work of Lukas Zumvorde. If you use my ORC Content, please also credit me.</font>
-
-
-
-* COMMENT Toki Pona as an Orancle
-Lists of all words in Toki Pona Core, ordered.
-
-Entity
--
-
-Action
--
-
-Ammount
-- 
-
-[Oject] li [Predicate] e ([Subject] ([en]))
-
-
-Roll 1d100 + 1d20 => 
-
-
-Who
-| mi   | I, me, we, us     | 
-| sina | you               | 
-| ona  | he, she, it, they | 
-| ni   | that, this        | 
-
-Nouns
-| akesi   | reptile, amphibian                                                             | 
-| esun    | market, shop, fair, bazaar, business transaction                               | 
-| ijo     | thing, phenomenon, object, matter                                              | 
-| ilo     | tool, implement, machine, device                                               | 
-| insa    | centre, content, inside, between: internal organ, stomach                      | 
-| jan     | human being, person, somebody                                                  | 
-| kala    | fish, marine animal, sea creature                                              | 
-| kasi    | plant, vegetation: herb, leaf                                                  | 
-| kili    | fruit, vegetable, mushroom                                                     | 
-| kiwen   | hard object, metal, rock, stone                                                | 
-| ko      | clay, clinging form, dough, semi-solid, paste, powder                          | 
-| kon     | air, breath: essence, spirit: hidden reality, unseen agent                     | 
-| kulupu  | community, company, group, nation, society, tribe                              | 
-| kute    | ear: to hear, listen: pay attention to, obey                                   | 
-| lawa    | head, mind: to control, direct, guide, lead, own, plan, regulate, rule         | 
-| len     | cloth, clothing, fabric, textile: cover, layer of privacy                      | 
-| linja   | long and flexible thing: cord, hair, rope, thread, yarn ALT line, connection   | 
-| lipu    | flat object: book, document, card, paper, record, website                      | 
-| luka    | arm, hand, tactile organ: five ALT touch/feel physically, interact, press      | 
-| lukin   | eye: look at, see, examine, observe, read, watch: look for, seek: (pv.) try to | 
-| lupa    | door, hole, orifice, window                                                    | 
-| ma      | earth, land: outdoors, world: country, territory: soil                         | 
-| mama    | parent, ancestor: creator, originator: caretaker, sustainer                    | 
-| mani    | money, cash, savings, wealth: large domesticated animal                        | 
-| mu      | (animal noise or communication) ALT (non-speech vocalization)                  | 
-| mun     | moon, night sky object, star ALT glow, glowing light, light in the dark        | 
-| nasin   | way, custom, doctrine, method, path, road                                      | 
-| nena    | bump, button, hill, mountain, nose, protuberance                               | 
-| nimi    | name, word                                                                     | 
-| noka    | foot, leg, organ of locomotion: bottom, lower part                             | 
-| palisa  | long hard thing: branch, rod, stick                                            | 
-| pan     | cereal, grain: barley, corn, oat, rice, wheat: bread, pasta                    | 
-| pilin   | heart (physical or emotional): feeling (an emotion, a direct experience)       | 
-| pipi    | bug, insect, ant, spider                                                       | 
-| poka    | hip, side: next to, nearby, vicinity ALT along with (comitative), beside       | 
-| poki    | container, bag, bowl, box, cup, cupboard, drawer, vessel                       | 
-| seli    | fire: cooking element, chemical reaction, heat source                          | 
-| selo    | outer form, outer layer: bark, peel, shell, skin: boundary                     | 
-| sijelo  | body (of person or animal), physical state, torso                              | 
-| sike    | round or circular thing: ball, circle, cycle, sphere, wheel: of one year       | 
-| sinpin  | face, foremost, front, wall                                                    | 
-| sitelen | image, picture, representation, symbol, mark, writing                          | 
-| soweli  | animal, beast, land mammal                                                     | 
-| suno    | sun: light, brightness, glow, radiance, shine: light source                    | 
-| supa    | horizontal surface, thing to put or rest something on                          | 
-| telo    | water, liquid, fluid, wet substance: beverages                                 | 
-| tenpo   | time, duration, moment, occasion, period, situation                            | 
-| tomo    | indoor space: building, home, house, room                                      | 
-| uta     | mouth, lips, oral cavity, jaw                                                  | 
-| waso    | bird, flying creature, winged animal                                           | 
-
-Verbs
-| alasa   | to hunt, forage, seek ALT (pv.) try to, attempt                                                        |
-| anpa    | bowing down, downward, humble, lowly, dependent, lower part, under, below, floor, beneath, low, bottom |
-| ante    | different, altered, changed, other                                                                     |
-| awen    | enduring, kept, protected, safe, waiting, staying: (pv.) to continue to, to keep                       |
-| jo      | to have, carry, contain, hold                                                                          |
-| kalama  | to produce a sound: recite, utter aloud                                                                |
-| kama    | arriving, coming, future, summoned: (pv.) to become, manage to, succeed in                             |
-| kepeken | to use, with, by means of                                                                              |
-| lape    | sleeping, resting                                                                                      |
-| moku    | to eat, drink, consume, swallow, ingest                                                                |
-| olin    | love, have compassion for, respect, show affection to                                                  |
-| open    | begin, start: open: turn on                                                                            |
-| pali    | do, take action on, work on: build, make, prepare                                                      |
-| pana    | give, send, emit, provide, put, release                                                                |
-| sona    | know, be skilled in, be wise about, have information on: (pv.) know how to                             |
-| tawa    | going to, toward: for: from the perspective of: moving ALT (pv.) going to                              |
-| toki    | communicate, say, speak, talk, use language, think ALT hello                                           |
-| unpa    | have sexual relations with                                                                             |
-| utala   | battle, challenge, compete against, struggle against                                                   |
-
-Adjectives
-| ala    | no, not, zero: [~ ala ~] (used to form a yes-no question): nothing                                |
-| ale    | all: abundant, countless, bountiful, every, plentiful: abundance, everything, life, universe, 100 |
-| ike    | bad, negative: non-essential, irrelevant ALT complicated, complex                                 |
-| jaki   | disgusting, obscene, sickly, toxic, unclean, unsanitary                                           |
-| jelo   | yellow, yellowish                                                                                 |
-| ken    | to be able to, be allowed to, can, may: possible                                                  |
-| kule   | colorful, pigmented, painted ALT of or relating to the LGBT+ community                            |
-| laso   | blue, green                                                                                       |
-| lete   | cold, cool: uncooked, raw                                                                         |
-| lili   | little, small, short: few: a bit: young                                                           |
-| loje   | red, reddish                                                                                      |
-| lon    | located at, present at, real, true, existing ALT (affirmative response)                           |
-| moli   | dead, dying                                                                                       |
-| monsi  | back, behind, rear                                                                                |
-| musi   | artistic, entertaining, frivolous, playful, recreation                                            |
-| mute   | many, a lot, more, much, several, very: quantity ALT three (or more), 20                          |
-| nasa   | unusual, strange: silly: drunk, intoxicated                                                       |
-| pakala | botched, broken, damaged, harmed, messed up ALT (curse expletive, e.g. fuck!)                     |
-| pimeja | black, dark, unlit                                                                                |
-| pini   | ago, completed, ended, finished, past                                                             |
-| pona   | good, positive, useful: friendly, peaceful: simple                                                |
-| sama   | same, similar: each other: sibling, peer, fellow: as, like                                        |
-| sewi   | area above, highest part, something elevated: awe-inspiring, divine, sacred, supernatural         |
-| sin    | new, fresh: additional, another, extra                                                            |
-| suli   | big, heavy, large, long, tall: important: adult                                                   |
-| suwi   | sweet, fragrant: cute, innocent, adorable                                                         |
-| tu     | two ALT separate, cut                                                                             |
-| walo   | white, whitish: light-coloured, pale                                                              |
-| wan    | unique, united: one                                                                               |
-| wawa   | strong, powerful: confident, sure: energetic, intense                                             |
-| weka   | absent, away, ignored                                                                             |
-| wile   | must, need, require, should, want, wish                                                           |
 
