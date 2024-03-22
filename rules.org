@@ -157,12 +157,18 @@ Third rule of Gaming: Use the aspects value as a guideline and be creative with 
 :CUSTOM_ID: sec:conventions
 :END:
 
+*Dice shorthand*: $3 d 6$ means rolling three six sided dice and summing up the results. $1 d_0 2$ means rolling 1 dice whose sides go from 0 to 2 (three sides in total).
+
+*Aspects*: Aspects are highlighted like this \aspect{example aspect 3}. The tailing number indicates the value of the aspect. If an aspect has an additional number in square brackets, this denotes the [[#sec:aspects_resistant][resistance]] of the aspect.
+
+All core rules can be found in =Quick Reference= blocks at the beginning of their respective sections. Everything else are just explainations and extensions of these rules.
+
 ** What dice to roll
 :PROPERTIES:
 :CUSTOM_ID: sec:dice
 :END:
 
-We use a pool of $d_0 2$ to roll, although optional rules for [[#sec:alternativedicemechanics][alternative dice mechanics]] exist and are recommended once you get the hang of things. Since it is hard to find dice with the sides 0, 1, and 2 I recommend 2 alternatives.
+We use a pool of $d_0 2$ to roll, although optional rules for [[#sec:alternativedicemechanics][alternative dice mechanics]] exist and are strongly recommended once you get the hang of things. Since it is hard to find dice with the sides 0, 1, and 2 I recommend 2 alternatives.
 
 Option 1: Use a $d6$.
 - 1 or 2 get interpreted as a 0
