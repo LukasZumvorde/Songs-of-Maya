@@ -461,7 +461,7 @@ Items may have an aspect associated with them. If you want items to have any spe
 # The RV (Resource Value) of an Item determines how expensive or hard to get it is. Items also have a description and maybe special effects. Let your fantasy go wild.
 # The aspects an item has should not exceed its RV in AP.
 
-A few examples can be found in the section [[#sec:loitems][List of Items]].
+# A few examples can be found in the section [[#sec:loitems][List of Items]].
 
 #+ATTR_LATEX: :align c|l|l
 | *RV* | *Description*    | *Example*                      |
@@ -696,48 +696,11 @@ None of the following lists is exhaustive. They should be taken as examples. You
 *Amphibious* (7): You can live both underwater and on land.
 #+end_quote
 
-
-** List of Items
-:PROPERTIES:
-:CUSTOM_ID: sec:loitems
-:END:
-
 #+begin_quote
-*Sword* (2): Its a stabby piece of metal. Especially good at harming unarmored enemies. Not so great at slicing though armor. 
 #+end_quote
 
 #+begin_quote
-*Mail shirt* (3): A metal fabric that protects your torso and arms from being cut or stabbed pretty well. However it helps little against blunt force trauma.
 #+end_quote
-
-#+begin_quote
-*Club of the great Bear* (4): A mystical club made from the thigh bone of the great bear that terrorized the inokwa people. It still contains the strength of the mighty beast. When using this club you gain 1 in strength checks.
-#+end_quote
-
-#+begin_quote
-*Knightly Armor* (4): A good example of heavy armor that protects from physical damage from most weapons.
-#+end_quote
-
-#+begin_quote
-*Protective Amulet* (2): This amulet made from magically potent elder wood protects lightly (1 damage reduction) from mental damage coming from magic.
-#+end_quote
-
-#+begin_quote
-*Pentagram Amulet* (2): This amulet was made to prevent possession and influence of otherworldly forces. Allows you to reroll 1 die against attacks against your mental state when coming from ghosts, magic, or similar forces.
-#+end_quote
-
-#+begin_quote
-*Potion of Healing* (3): When being drunk it allows you to reduce the healing time of up to 3 physical damage from M to S
-#+end_quote
-
-#+begin_quote
-*Shield* (2): Gives the reroll of 1 die when blocking with the shield.
-#+end_quote
-
-#+begin_quote
-*Sword* (2): This stabby piece of steel typically makes class M damage. Its also good at slicing.
-#+end_quote
-
 
 ** List of NPCs
 :PROPERTIES:
