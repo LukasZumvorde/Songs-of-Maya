@@ -177,7 +177,7 @@ Option 1: Use a $d6$.
 
 Option 2: Use Fate dice. Fate dice have 3 different kinds of sides. $+$, $-$ and nothing. Just count the number of lines. This means a $+$ becomes a 2, a $-$ becomes a 1 and an empty side becomes a $0$.
 
-Sometimes it makes no sense to roll dice, but we want a constant value. Then we can =take the average=. This means instead of rolling dice we just take the dice pool as if it were the result of a roll. This is fair since it is also the average result of a roll.
+Sometimes it makes no sense to roll dice, but we want a constant value. Then we can [[#sec:checks_average][take the average]]. This means instead of rolling dice we just take the dice pool as if it were the result of a roll. This is fair since it is also the average result of a roll.
 
 
 
@@ -357,6 +357,11 @@ Sometimes the players fail to pass an obstacle with just one check. If the playe
 The player has to climb up a cliff. The cliff has the aspect \aspect{sheer rock face 6[2]} At frist he tires to just climb. He rolls a 3 on his check. This does not suffice and because of the 2 resistance of the aspect he has only overcome 1 of the 6 AP, he needs. This is harder than expected and considering that he has already climbed some of the distance a failure may end in a fall. He pulls out some wedges from his pack and starts to use them to create some better holds. For this the GM allows a new check, which he gets 7 AP from. With those he just barely climbs the rest of the distance.
 #+end_pwexample
 
+**** Take the average
+:PROPERTIES:
+:CUSTOM_ID: sec:checks_average
+:END:
+In some situations it may be good idea no to roll any dice at all. In those cases you can just assume that the average result was rolled. This means that you get the =dice pool= in =AP= out of the check.
 
 ** Contest
 :PROPERTIES:
