@@ -234,9 +234,8 @@ Aspects are a combination of a descriptors and a value. When invoked the aspects
 
 An aspect can be created at any time by the GM. It can also be created by any player, NPC or even object. To create an aspect all but the GM need to make a check. The aspect points (AP) from this check can be used to create an aspect. Increasing or decreasing an aspects value by 1 costs 1 AP (aspect point). The description of the aspect can be decided freely. 
 
-#+ATTR_LATEX: :environment quote
 #+begin_pwexample
-Arthur the mage wants to inflame the grass around him to channel the enemies into a one on one battle with his Companions. The GM likes this idea and creates the aspect "Dry Grass 1" that Arthur can use. Arthur decides to cast his spell, succeeds with 3 AP, and creates the aspect "Wall of Fire 3". Now any enemy has to either go around the wall or get burned. If an enemy tires to jump through, they have to roll on it against the Fires 3 dice. If the fire succeeds they get burned.
+Arthur the mage wants to inflame the grass around him to channel the enemies into a one on one battle with his Companions. The GM likes this idea and creates the aspect \aspect{Dry Grass 1} that Arthur can use. Arthur decides to cast his spell, succeeds with 3 AP, and creates the aspect \aspect{Wall of Fire 3}. Now any enemy has to either go around the wall or get burned. If an enemy tires to jump through, they have to roll on it against the fires 3 dice. If the fire succeeds they get burned.
 #+end_pwexample
 
 **** Using Aspects
@@ -526,6 +525,9 @@ With this magic can still become quite powerful, since one can create several as
 It is up to the individual games setting to define how magic works. By themselves the rules above give a very soft magic system, but by defining how magic works in your world, you can make it a hard magic system. 
 
 ** Less precise Attributes
+:PROPERTIES:
+:CUSTOM_ID: sec:less_precise_attributes
+:END:
 
 Instead of using the attributes as listed you can use only the categories (Physical, Mental, Social, Resources). Learning a level in one of the categories costs double of what a level in an attribute would cost.
 For GMs it might even be useful to combine all attributes into a single value called the capability (CB) for some NPCs. In this case the costs are 8 times that of what a level in an attribute would cost.
@@ -643,74 +645,74 @@ None of the following lists is exhaustive. They should be taken as examples. You
 :CUSTOM_ID: sec:lotraits
 :END:
 
+The number in the parenthesis is the cost in CP for the trait. Take this list as a starting point for your game. Feel free to diverge from it were you see fit.
+
 #+begin_quote
-*Friend of Nature* (7): You can talk to the forces of nature and have a chance to convince them to help you. This can be asking, a bird what he has seen, letting yourself be concealed by a bush or calling a wild bear to aid you in combat.
+*Friend of Nature* (15): You can talk to the forces of nature and have a chance to convince them to help you. This can be asking, a bird what he has seen, letting yourself be concealed by a bush or calling a wild bear to aid you in combat.
 #+end_quote
 
 #+begin_quote
-*Illusionist* (7): You are adapt at creating illusions. The bigger and more complex they get the harder this is.
+*Illusionist* (15): You are adapt at creating illusions. The bigger and more complex they get the harder this is.
 #+end_quote
 
 #+begin_quote
-*Speedster* (14): You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks and you always have at least 1 success in them. It takes you half the dice to move on a round.
+*Speedster* (30): You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks and you always have at least 1 success in them. It takes you half the dice to move on a round.
 #+end_quote
 
 #+begin_quote
-*Medium* (7): You can commune with ghosts and spirits. You have no control over them, but you can gain their attention.
+*Medium* (15): You can commune with ghosts and spirits. You have no control over them, but you can gain their attention.
 #+end_quote
 
 #+begin_quote
-*Night-vision* (7): You can see in darkness as if it were light.
+*Night-vision* (15): You can see in darkness as if it were light.
 #+end_quote
 
 #+begin_quote
-*Sleepless* (7): You don't need sleep. This means you have a lot more time in a day, but you still need to rest from to much physical or mental exertion.
+*Sleepless* (15): You don't need sleep. This means you have a lot more time in a day, but you still need to rest from to much physical or mental exertion.
 #+end_quote
 
 #+begin_quote
-*Flight* (16): You can fly. Be it with wings or otherwise. Your speed in flight is no different from your speed on land.
+*Flight* (35): You can fly. Be it with wings or otherwise. Your speed in flight is no different from your speed on land.
 #+end_quote
 
 #+begin_quote
-*Tinkerer* (7): You can build wondrous mechanical marvels. From clocks up to steam powered automatons. 
+*Tinkerer* (15): You can build wondrous mechanical marvels. From clocks up to steam powered automatons. 
 #+end_quote
 
 #+begin_quote
-*Hacker* (7): You are not only proficient in computer science but you can even achieve movie worthy feats like stopping another car with only your laptop during a car chase. Tools not included.
+*Hacker* (15): You are not only proficient in computer science but you can even achieve movie worthy feats like stopping another car with only your laptop during a car chase. Tools not included.
 #+end_quote
 
 #+begin_quote
-*Plot Armor* (3): Each scene you can disregards an aspect representing damage. 
+*Plot Armor* (15): Each scene you can disregards an aspect representing damage. 
 #+end_quote
 
 #+begin_quote
-*Short Weapon Fighting* (1): You can not get disadvantage because your weapons are to short compared to your opponent.
+*Short Weapon Fighting* (10): You can not get disadvantage because your weapons are to short compared to your opponent.
 #+end_quote
 
 #+begin_quote
-*Unarmed vs. Armed* (2): You can fight against armed opponents even when you have no weapon without disadvantage.
+*Unarmed vs. Armed* (10): You can fight against armed opponents even when you have no weapon without disadvantage.
 #+end_quote
 
 #+begin_quote
-*Alchemist* (7): You can brew potions, salves and other things which create wondrous effects.
+*Alchemist* (15): You can brew potions, salves and other things which create wondrous effects.
 #+end_quote
 
 #+begin_quote
-*Shape Shifter* (7): You can alter the physical form of either yourself or that of others.
+*Shape Shifter* (15): You can alter the physical form of either yourself or that of others.
 #+end_quote
 
 #+begin_quote
-*Seeer* (7): You have to ability to see glimpses of future, past and present. Both at your current position and over great distances. 
+*Seeer* (15): You have to ability to see glimpses of future, past and present. Both at your current position and over great distances. 
 #+end_quote
 
 #+begin_quote
-*Amphibious* (7): You can live both underwater and on land.
+*Amphibious* (15): You can live both underwater and on land.
 #+end_quote
 
 #+begin_quote
-#+end_quote
-
-#+begin_quote
+*Telepathic link to undead servants* (15): You can telepathically give orders or even see through the eyes of the undead creatures you raised. 
 #+end_quote
 
 ** List of NPCs
@@ -837,9 +839,9 @@ Traits:
 
 Since aspects can appear, disappear and change frequently during play, it is good to write them down and show them to your players. For this i suggest to use post-it notes. This has the nice effect that you can give your players something physical that represents the advantages they created or can use.
 
-** Character Creation
+** Player Character Creation
 
-When creating a character you should adhere to the following advice:
+When creating a character you may adhere these guidelines:
 - No attribute above 6
 - No attribute below 2
 - Have 1 aspect describing what you want to be good at
@@ -847,8 +849,18 @@ When creating a character you should adhere to the following advice:
 - Have 1 aspect describing what you like to do as a hubby
 - Forumlate your traits and aspects such that they can be interpreted as a vulnerability
 - Have at least 1 trait
-Break these rules as you like.
+Break these guidelines as you like.
 
+** Non-Player-Character Creation
+
+Often you dont need highly specific attributes. Use [[#sec:less_precise_attributes][less precise attributes]] unless you realy need more precision.
+- Define competency value (or attributes)
+- Have at least 1 aspect that describes a strength (for combat encounters)
+- Have at least 1 aspect that describes a weakness (for combat encounters)
+- Have at least 1 aspect that describes a desire (for social encounters)
+- Have at least 1 aspect that describes a vice (for social encounters)
+If you keep the positive and negative aspects balanced, then the math for the CP is only about the competency value, which is roughly 50 CP per point.
+  
 ** Encounter Design
 
 The challenge value (CV) is a number servig as a quick reference for how hard aspects to overcome should be or how strog enemies should be, When creating aspects that the players must overcome use the CV as the AP (aspect points). Then creating enemies that the players must fight set their Competence or attribute to the CV.
@@ -873,6 +885,27 @@ Checks with zero or negative dice pools. Shift the dice pool for the check up un
 
 If a dice pool turns negative it does not mean that you can not roll. Checks are really just a comparison between the rolled AP and either the AP oposing force. By default it is 0.  
 
+** How to Rule: Mind Control
+Mind control is similar to taunting. Create an aspect like \aspect{Mind Controlled by ..}. Any actions that would conflict with this aspect are hindered by it (for example attacking the controller). If the mind controll is stronger than the victims then it will generally follow orders.
+
+#+begin_pwexample
+Marty the mage casts his mind control spell on an orc bandit with the words "Fight for me". Marty has 9 AP from his check, while the orc has only 3 to defend against this. This means that Marty can create the aspect with 6 AP. Since he wanted an [[#sec:aspects_enduring][enduring aspect]] he creates \aspect{Fight for Marty 3}, The orc has only 3 Will, so he starts attacking his compatriouts. 
+#+end_pwexample
+
+** How to Rule: Healing
+Healing is just reducing a negative aspect. Whether this is possible, and by what means is up to the GM. Instead of removing the aspect immediately, i would strongly suggest to instead make the aspect time out faster. In most cases think about the timeframes in terms of the flow of the story.
+- Round: Until just after the next round of combat or action is going to be performed.
+- Scene: Until the next scene begins
+- Mission: Until the current objective is achieved or failed
+- Kampaign: Until the next big change in the story.
+
+#+begin_pwexample
+A Soldier got hit in a firefight and is now \aspect{bleeding 2}. If untreated this aspect would regularly roll with a dice pool of 2 to harm the soldier. The medic rolls to perform first aid and gets a result of 3. He aspect gets changed into \aspect{dressed bullet wound 2}. Now it does not thread to harm the soldier any more, but it still hinders him. It would heal in about 4-6 Months on its own. The soldier gets brought to a hospital where the wound is treated propperly. It heals after 3 Weeks. 
+#+end_pwexample
+
+#+begin_pwexample
+The party had a hard fight against the cultists. One got punched, he will recover by the next scene. Another got hit with a sword. He will recover by the end of the current mission (once they are done with the cultists secret temple). The last got cut with the demonic ritual dagger. His wound is unearthly and would only heal by the end of the kampaign. The group decides to seek out the help of the solarian church. With their help the demonic presense gets purged  and the wound turned into a regular cut, which heals by the end of the current mission.
+#+end_pwexample
 
 * Game-play Examples
 :PROPERTIES:
@@ -1146,32 +1179,35 @@ Roll on the Scene type table to find out what kind of scene it is.
 
 For at least 3 descriptors roll on the descriptor table. If you have consecutive scenes then i advise to roll only 1 new descriptor and remove only the first of the previous scene. This will make your encounters more connected to one another.
 
+#+LATEX: \begin{multicols}{2}
 Lead questions for Scenes: 
 - Who/What?
 - Does What?
 - To whom?
 - In what manner? 
-
-** NPCs
-
+#+LATEX: \columnbreak
 Lead questions for NPCs:
-- Who? 
-- Does What?
 - Personality?
 - Desires?
 - Has Vice?
 - Has Virtue?
+#+LATEX: \end{multicols}
 
-** Environmental Challenges and Combat Encounters
+Determine the scenes challenge rating.
+- Start with your players $\frac{CP * 3}{100}$.
+- For a successfull scene increase the challenge rating by 1
+- For a failed scene decrease the challenge rating by 3
 
-- Take the players average strength ( $\frac{CP*3}{100}$ ) and add $ 1 d_0 8 - 4 $.
-  This is the difficulty of challenging aspects or the average value for enemies.
-- Add some beneficial and detremental aspects in equal measure as you see fit.
+This will result in a natural ebb and flow for the story which favors the players being able to succeed. If you want a harder experience change the factors by which you change the challenge rating. 
+The challenge rating is the default difficulty for environmental challenges and the default total competency of all enemies in combat encounters.
+
+Add aspects to the scene or anything in it, based on the descriptors.
 
 ** Descriptors
 
 Ask you question and roll as often on the descriptor table as you need to get a good idea. Feel free to disregard meaning that dont work for you.
 The descriptor table is based on the Toki Pona language. The second column provides you with the applicable toki pona word and gives you a short form to write it down. 
+
 
 #+LATEX: \newpage
 ** Tables
@@ -1464,9 +1500,9 @@ Aspects:
 
 * Scenario: WW1 in Fantasy
 
-The world is inhabitated by all the typical races you find in fantasy. They are all races of Humanity, meaning that crossbreeding is possible, albeit in some cases may be rare. Magic is a comparatively rare thing. In ancient times it was more prominent but over the centuries the weave of magic became thinner and thinner. All the big nations and kingdoms are mostly homogenous with respect to the race of their citizens. 
+The world is inhabitated by all the typical humanoid races you find in fantasy. They are mostly races of Humanity, meaning that crossbreeding is possible, albeit in some cases may be rare. Magic is a comparatively rare thing. In ancient times it was more prominent, but over the centuries the weave of magic became thinner and thinner. All the big nations and kingdoms are mostly homogenous with respect to the race of their citizens. 
 
-Technologically the world is comparable to the time of the first world war with a bit of steampunk.
+Technologically the world is comparable to the time of the first world war mixed with steampunk elements.
 
 Recently the world has become very tumultuous. Most nations are at war with one another. Alliances are fleeting and the tides of war are constantly shifting. The Nations of the world are not striktly separated by race. So a typical mixed group of players could be from anywhere. 
 
@@ -1480,8 +1516,20 @@ World Aspects:
 
 Organisation Influence:
 
+
   
 ** Adventure Hooks
+
+*** Sabotage the War Machine
+The players are tasked with sabotaging the production of warmachines from a rival faction. In order to do this they need to achieve the following things:
+- Enter the enemies city
+- Gain access to the factory
+- Compromise one or more of the workers to perform the sabotage
+- Smuggle in the sabotaged parts
+- Ensure that the compromised worker(s) dont get caught
+
+
+
 
 *** Missing Orphans
 
