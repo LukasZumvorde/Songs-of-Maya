@@ -168,7 +168,7 @@ All core rules can be found in =Quick Reference= blocks at the beginning of thei
 :CUSTOM_ID: sec:dice
 :END:
 
-We use a pool of $d_0 2$ to roll, although optional rules for [[#sec:alternativedicemechanics][alternative dice mechanics]] exist and are strongly recommended once you get the hang of things. Since it is hard to find dice with the sides 0, 1, and 2 I recommend 2 alternatives.
+We use a number of $d_0 2$ to roll, although optional rules for [[#sec:alternativedicemechanics][alternative dice mechanics]] exist and are strongly recommended once you get the hang of things. Since it is hard to find dice with the sides 0, 1, and 2 I recommend 2 alternatives.
 
 Option 1: Use a $d6$.
 - 1 or 2 get interpreted as a 0
@@ -177,7 +177,7 @@ Option 1: Use a $d6$.
 
 Option 2: Use Fate dice. Fate dice have 3 different kinds of sides. $+$, $-$ and nothing. Just count the number of lines. This means a $+$ becomes a 2, a $-$ becomes a 1 and an empty side becomes a $0$.
 
-Sometimes it makes no sense to roll dice, but we want a constant value. Then we can [[#sec:checks_average][take the average]]. This means instead of rolling dice we just take the dice pool as if it were the result of a roll. This is fair since it is also the average result of a roll.
+Sometimes it makes no sense to roll dice, but we want a constant value. Then we can [[#sec:checks_average][take the average]]. This means instead of rolling dice we just take the dice points as if it were the result of a roll. This is fair since it is also the average result of a roll.
 
 
 
@@ -209,7 +209,7 @@ Attributes describe a characters potential. The higher the value the greater thi
 | Resources  | Gear        | Gear you have prepared    |
 |            | Finances    | Money and investments     |
 
-The attributes value is the basis for the dice pool one has available for [[#sec:checks][checks]]. 
+The attributes value is the basis for the dice points one has available for [[#sec:checks][checks]]. 
 
 ** Aspects
 :PROPERTIES:
@@ -222,13 +222,13 @@ Aspects have a descriptive name and a whole number value calles its aspect point
 - Use: Add the AP of the aspect to the check. Any AP can only be used once per round. 
 - Multiple Targets: To create an aspect that effects an area or multiple targets half the AP.
 - Duration: By default an aspect can be used once. To make it apply every round until the duration is over half the AP.
-- Acting: Aspects can perform actions on their own. For this use the AP as the dice pool.
+- Acting: Aspects can perform actions on their own. For this use the AP as the dice points.
 - Remove: To remove an aspect you need to make a check. Reduce the AP of the aspect by the AP of the check.
 - Resistance: Aspects can resist being removed. To reduce the AP of the check for removal by 1 for each resistance point. A point of resistance costs 1 AP.  
 #+end_short
 
 
-Aspects are a combination of a descriptors and a value. When invoked the aspects value is added or subtracted from the dice pool  for [[#sec:checks][checks]]. An aspect is always bound to something. Be it a player, a NPC, an object or even a zone. Be creative with aspects. Try to bind their effects to the value and they should stay balanced enough.
+Aspects are a combination of a descriptors and a value. When invoked the aspects value is added or subtracted from the dice points  for [[#sec:checks][checks]]. An aspect is always bound to something. Be it a player, a NPC, an object or even a zone. Be creative with aspects. Try to bind their effects to the value and they should stay balanced enough.
 
 **** Creating an Aspect
 
@@ -297,9 +297,9 @@ Aspects are also used to represent damage a character or object has taken. If a 
 :END:
 
 #+begin_short
-Add points of attribute and aspects to get the dice pool. Roll one or multiple dice that are equvalent to the dice pool in value. The result of the roll are the aspect points (AP) of the check.
+Add points of attribute and aspects to get the dice points. Roll one or multiple dice that are equvalent to the dice points in value. The result of the roll are the aspect points (AP) of the check.
 - Difficulty: Some aspects hinder a check. For them consider the AP to be negative instead. 
-- Collaboration: Add either the dice pool for the checks or the AP of all checks made together.
+- Collaboration: Add either the dice points for the checks or the AP of all checks made together.
 - Risky: Roll an additional $d6$. If it shows a $6$ then use the result of the check to create a negative aspect instead.
 - Take Time: Make multiple checks and add the AP.
 #+end_short
@@ -314,7 +314,7 @@ Checks are rolled when the outcome of an action is not certain. Each check is bo
 # - Roll 3 six sided dice. Count a 1 and 2 as 0, count a 3 and 4 as 1 and count a 5 and 6 as 2. Alternatively roll fudge dice instead of d6, and count the number of lines.
 # - Multiply the sum of the dice with the factor F and add the rest R. The result it your checks attribute points value (AP).
 
-Add the points in the relevant attribute and all applicable [[#sec:aspects][aspects]] together. This is your dice pool. You get the result of the roll in aspect points (AP).
+Add the points in the relevant attribute and all applicable [[#sec:aspects][aspects]] together. These are your dice points. You get the result of the roll in aspect points (AP).
 # If the check had a difficulty subtract it from the AP.
 If the aspect points are zero or negative the check fails.
 # If the aspect points are exactly 0 the check succeeds at a cost. Create a negative aspect worth the factor F in AP.
@@ -341,13 +341,13 @@ Everyone rolls individually and then sum together all AP.
  
 Roll an additional d6, called the risk die. If the risk die shows a 6 then the result of the check is used to create a negative aspect.
 
-Alternatively you can forego rolling a risky check all together, including the risk die, but then the result is always half of your dice pool.
+Alternatively you can forego rolling a risky check all together, including the risk die, but then the result is always half of your dice points.
 
 **** Taking Time
 Sometimes a check is to difficult to achieve something within 1 check. Then it may be possible to do multiple checks over a longer time to accumulate the points needed. However, you must decide beforehand how many checks you want to take. The AP of all checks are accumulated after considering the difficulty. The GM has a veto right and can limit the amount of checks.
 
 **** Limited Aspects
-To prevent players from stacking up aspects endlessly it may be good to limit the ammount of points one can use. The dice pool should be limited to double the sum of the relevant attribute and all used aspect points from chracter inherent aspects. Feel free to disregard this rule however if it does not fit well with the story.
+To prevent players from stacking up aspects endlessly it may be good to limit the ammount of points one can use. The dice points should be limited to double the sum of the relevant attribute and all used aspect points from chracter inherent aspects. Feel free to disregard this rule however if it does not fit well with the story.
 
 **** Multiple Checks
 Sometimes the players fail to pass an obstacle with just one check. If the players have a new idea on how they might overcome the challenge then you can allow them another check. The new idea may add the checks AP to the previous attempt or replace them, depending on the narrative.
@@ -360,7 +360,7 @@ The player has to climb up a cliff. The cliff has the aspect \aspect{sheer rock 
 :PROPERTIES:
 :CUSTOM_ID: sec:checks_average
 :END:
-In some situations it may be good idea no to roll any dice at all. In those cases you can just assume that the average result was rolled. This means that you get the =dice pool= in =AP= out of the check.
+In some situations it may be good idea no to roll any dice at all. In those cases you can just assume that the average result was rolled. This means that you get the =dice points= in =AP= out of the check.
 
 ** Contest
 :PROPERTIES:
@@ -371,8 +371,8 @@ In some situations it may be good idea no to roll any dice at all. In those case
 Each participant can make one or more checks each round.
 - Action: A check to create an aspect
 - Reaction: A check to prevent an aspect from being created.
-- Turn Order: From the one with the highest dice pool to the one with the lowest. You can act on your turn or on any later point in the round.
-- Multiple (re)actions: Total number of points (dice pool) gained from the attributes is the largest attribute value of the checks. From each attribute (and aspect) you can use at most its value in points.
+- Turn Order: From the one with the highest dice points to the one with the lowest. You can act on your turn or on any later point in the round.
+- Multiple (re)actions: Total number of points (dice points) gained from the attributes is the largest attribute value of the checks. From each attribute (and aspect) you can use at most its value in points.
 #+end_short
 
 The prototypical contest is combat, but the same rules can be used any scenario where multiple parties act in opposition to each other. Be it a diplomatic debate or the hostile takeover of a company. 
@@ -397,7 +397,7 @@ Alternative:
 - All characters of a party act together (typically all player characters or all enemies).
 - If a party surprises the others then they go first.
 - If a party has significantly less members, then they go first.
-- If in doubt then determine the order by comparing the dice pools of the parties. The highest one begins.
+- If in doubt then determine the order by comparing the dice points of the parties. The highest one begins.
 
 **** Multiple (re)actions
 Each round you can take multiple actions and reactions. The total number of points gained from the attributes is the largest attribute value of the checks. From each attribute you can use at most its value in points in total. Each Aspect can only be used once or their AP (attribute points) have to be distributed to the (re)actions.
@@ -534,7 +534,7 @@ For GMs it might even be useful to combine all attributes into a single value ca
 
 ** No Abstraction for Wealth
 
-To remove the resources category from the attributes just raise the price of learning a level of the other attributes by $\ + #3frac{1}{3}$ (from 6 to 8). The costs for goods and services
+To remove the resources category from the attributes just raise the price of learning a level of the other attributes by $\frac{1}{3}$ (from 6 to 8). The costs for goods and services
 depend on the campaign setting.
 
 ** Retroactive Actions
@@ -563,7 +563,7 @@ To speed up and simplify contests you can always create an abstract Aspect calle
 
 ** COMMENT Easier Calculations
 
-If you reach bigger dice pools then the calculations may become bothersome. One way to deal with this is to normalize the factors. What this means is make all parties use the same factor. To achieve this just take the smallest factor and reduce all other factors to it. For each reduction of the factor the remainder increases by 3. This changes the probability distribution a bit by making very low and very high results impossible, but the advantage is that opposing dice results can cancel each other out,
+If you reach bigger dice points then the calculations may become bothersome. One way to deal with this is to normalize the factors. What this means is make all parties use the same factor. To achieve this just take the smallest factor and reduce all other factors to it. For each reduction of the factor the remainder increases by 3. This changes the probability distribution a bit by making very low and very high results impossible, but the advantage is that opposing dice results can cancel each other out,
 
 
 # ** Options on what to do with the dice pool
@@ -611,7 +611,7 @@ Aspect: Intimidatin display
 :CUSTOM_ID: sec:alternativedicemechanics
 :END:
 
-The rules often mention a dice pool. This pool is hypothetical. It means if you always used a number of  $d_0 2$ to perform any check this would be your dice pool. A $d_0 2$ has an average result of $1$. Therefore the dice in the dice pool is always exactly the average result of a check. This does not mean you have to roll your checks in that way. See the following for alternatives.
+The rules often mention a dice points. If you always used a number of $d_0 2$ to perform any check this would be your dice pool. A $d_0 2$ has an average result of $1$. Therefore the dice in the dice pool is always exactly the average result of a check. This does not mean you have to roll your checks in that way. See the following for alternatives.
 
 *** Shorthand notation
 
@@ -624,13 +624,13 @@ To use Playing cards instead of dice you can do the following. Take a standard 5
 
 *** Alternative Dice
 
-- $1 d_0 2$ is worth exactly 1 dice from the pool (this is the default)
-- $1 d_0 N$ is worth $\frac{N}{2}$ dice from the pool
-- $1 d N$ is worth $\frac{N+1}{2}$ dice from the pool
-- Take the average: $N$ constant points is worth $N$ dice from the pool
+- $1 d_0 2$ is worth exactly 1 dice point (this is the default)
+- $1 d_0 N$ is worth $\frac{N}{2}$ dice points
+- $1 d N$ is worth $\frac{N+1}{2}$ dice points
+- Take the average: $N$ constant points is worth $N$ dice points ($N$ may be negative)
 - Any dice multiplied by a factor $F$ is worth the price of a single dice multiplied by this factor $F$
 
-The default is to use $F \cdot 1 d_0 8 + c$. This means that the factor $F$ is the dice pool divided by $\frac{8}{2} = 4$ with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice pool. Note that the more dice you roll the more predictable the results will be.
+The default is to use $F \cdot 1 d_0 8 + c$. This means that the factor $F$ is the dice points divided by $\frac{8}{2} = 4$ with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice points. Note that the more dice you roll the more predictable the results will be.
 
 One way to do this is to use a d10 die. Most of them start are actually a $d_0 9$. You can use it as a $d_0 8$ by ignoring any 9 that is rolled or if you use the [[#sec:unexpectedresults][Unexpected Results]] optional rules, treat a 9 as if it were a joker.
 
@@ -878,12 +878,12 @@ Often times the characters in the party help each other. Let them distribute som
 ** How to Rule: Taunting
 Let the player make a check to create the "taunted by .." aspect. This may be opposed by the other party. If the aspect is created then it hinders any attack on someone else. It may also impact other actions. It may be a smart choice to make the "taunted by .." aspect [[#sec:aspects_enduring][enduring]] and [[#sec:aspects_multiple_targets][affecting the whole group]]. 
 
-** How to Rule: Extremely Small Creatures
-Lets say a player turns himself into a mouse. How does this impact his strength, dexterity and intellect? In most cases being a mouse is just an aspect on the player (here it is "mouse form 5"). Lets say the player has a value of 3 in all 
+# ** COMMENT How to Rule: Extremely Small Creatures
+# Lets say a player turns himself into a mouse. How does this impact his strength, dexterity and intellect? In most cases being a mouse is just an aspect on the player (here it is "mouse form 5"). Lets say the player has a value of 3 in all 
 
-Checks with zero or negative dice pools. Shift the dice pool for the check up until it reaches 1. Perform the same shift for the reaction. If multiple parties participate 
+# Checks with zero or negative dice points. Shift the dice pool for the check up until it reaches 1. Perform the same shift for the reaction. If multiple parties participate 
 
-If a dice pool turns negative it does not mean that you can not roll. Checks are really just a comparison between the rolled AP and either the AP oposing force. By default it is 0.  
+# If a dice pool turns negative it does not mean that you can not roll. Checks are really just a comparison between the rolled AP and either the AP oposing force. By default it is 0.  
 
 ** How to Rule: Mind Control
 Mind control is similar to taunting. Create an aspect like \aspect{Mind Controlled by ..}. Any actions that would conflict with this aspect are hindered by it (for example attacking the controller). If the mind controll is stronger than the victims then it will generally follow orders.
@@ -900,7 +900,7 @@ Healing is just reducing a negative aspect. Whether this is possible, and by wha
 - Kampaign: Until the next big change in the story.
 
 #+begin_pwexample
-A Soldier got hit in a firefight and is now \aspect{bleeding 2}. If untreated this aspect would regularly roll with a dice pool of 2 to harm the soldier. The medic rolls to perform first aid and gets a result of 3. He aspect gets changed into \aspect{dressed bullet wound 2}. Now it does not thread to harm the soldier any more, but it still hinders him. It would heal in about 4-6 Months on its own. The soldier gets brought to a hospital where the wound is treated propperly. It heals after 3 Weeks. 
+A Soldier got hit in a firefight and is now \aspect{bleeding 2}. If untreated this aspect would regularly roll with 2 dice points to harm the soldier. The medic rolls to perform first aid and gets a result of 3. He aspect gets changed into \aspect{dressed bullet wound 2}. Now it does not thread to harm the soldier any more, but it still hinders him. It would heal in about 4-6 Months on its own. The soldier gets brought to a hospital where the wound is treated propperly. It heals after 3 Weeks. 
 #+end_pwexample
 
 #+begin_pwexample
