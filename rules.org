@@ -157,16 +157,14 @@ Third rule of Gaming: Use the aspects value as a guideline and be creative with 
 :CUSTOM_ID: sec:conventions
 :END:
 
-*Dice shorthand*: $3 d 6$ means rolling three six sided dice and summing up the results. $1 d_0 2$ means rolling 1 dice whose sides go from 0 to 2 (three sides in total).
+*Dice shorthand*: $3 d 6$ means rolling three six sided dice and summing up the results. $1 d_0 2$ means rolling 1 dice whose sides go from 0 to 2 (three sides in total). $2 \times d_0 8$ means rolling a dice whose sides go from 0 to 8 and multiplying the result by 2.
 
 *Aspects*: Aspects are highlighted like this \aspect{example aspect 3}. The tailing number indicates the value of the aspect. If an aspect has an additional number in square brackets, this denotes the [[#sec:aspects_resistant][resistance]] of the aspect.
 
 All core rules can be found in =Quick Reference= blocks at the beginning of their respective sections. Everything else are just explainations and extensions of these rules.
 
-** What dice to roll
-:PROPERTIES:
-:CUSTOM_ID: sec:dice
-:END:
+
+** COMMENT What dice to roll
 
 We use a number of $d_0 2$ to roll, although optional rules for [[#sec:alternativedicemechanics][alternative dice mechanics]] exist and are strongly recommended once you get the hang of things. Since it is hard to find dice with the sides 0, 1, and 2 I recommend 2 alternatives.
 
@@ -183,6 +181,36 @@ Sometimes it makes no sense to roll dice, but we want a constant value. Then we 
 
 #+LATEX: \newpage
 * Rules
+
+** Dice Mechanics
+:PROPERTIES:
+:CUSTOM_ID: sec:dice
+:END:
+
+#+begin_short
+The dice points (DP) are calculated from the attributes and aspects. The dice you roll and how the result is determined is based on them.
+
+Roll $F \times d_0 8 + c$ with $F = \lfloor \frac{DP}{4}$ (divide by 4 and round down) and $c = DP \mod{4}$ (divide by 4 and take the remainer). 
+#+end_short
+
+Based on your attributes and aspects you get dice points (see [[#sec:checks][checks]] for details). These dice points (DP) are used to decide what dice you roll for a check. 
+
+- $1 d_0 2$ is worth exactly 1 dice point (this is the default)
+- $1 d_0 N$ is worth $\frac{N}{2}$ dice points
+- $1 d N$ is worth $\frac{N+1}{2}$ dice points
+- a constant $N$ are worth $N$ dice points (generally you should limit this to $\frac{1}{4}$ of the dice points)
+- Any dice multiplied by a factor $F$ is worth the price of a single dice multiplied by this factor $F$
+
+The default is to use $F \cdot 1 d_0 8 + c$. This means that the factor $F$ is the dice points divided by $\frac{8}{2} = 4$ with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice points. Note that the more dice you roll the more predictable the results will be.
+
+There are multiple ways to simulate $d_0 N$ dice. To simulate a ...
+- $d_0 2$: take a $d6$ and count 1,2 as 0; 3,4 as 1; and 5,6 as 2.
+- $d_0 2$: roll a fudge die (also known as fate dice). Count the empty sides as 0, count the "-" as 1 and "+" as 2. (essentially counting the number of lines.)
+- $d_0 8$: roll a $d10$ (most actually go from 0 to 9). Reroll the die if you roll a 9.
+- $d_0 N$ with $N \le 12$: Take a deck of cards. Count the queen as 0, ace as 1, numbers as they are, joker as 11, and king as 12. Discard any cards you dont need.
+
+Sometimes it makes no sense to roll dice, but we want a constant value. Then we can [[#sec:checks_average][take the average]]. This means instead of rolling dice we just take the dice points as if it were the result of a roll. This is fair since it is also the average result of a roll.
+
 
 ** Attributes
 :PROPERTIES:
@@ -545,22 +573,6 @@ The GM may allow players retroactively having performed some action. For example
 
 Instead of differentiating between attacking and blocking you can speed up combat by handling it all as generic combat. If someone initiates combat with his action, others may react with combat in return. Whoever wins the contest makes the difference as a damaging aspect.
 
-# ** Even propability distribution
-# 
-# If you dislike the probability distribution you get with rolling multiple dice, then you can use the following trick. Instead of rolling the 3dice roll 1d8 count the 8 as a 0 and reroll on a 7. This die is worth 3 of the old dice.
-# Alternatively use Playing cards. Diregard all 7,8,9,10,J,K and jokers from the deck. Count the Ace as a 1 and the Queen as a 0. Instead of rolling 3 dice just pull a card from the deck. Instead of rolling 1 or 2 dice pull a card an subtract 2 or 1.
-
-# \heartsuit\diamondsuit\clubsuit\spadesuit
-
-** Stress in Contests
-
-To speed up and simplify contests you can always create an abstract Aspect called "Stress". Stress does not hinder you in a contest but once it reaches the same value as your attribute you lose the contest. After combat stress converts into an appropriate aspect of equal size.
-
-# ** Success at a cost
-
-# When you have exactly 0 AP after a check you can decide to succeed at a cost. You can take up to the factor F in a negative aspect and gain those points as AP for the check.
-# If in a contest both actors and reactors decide to succeed at a cost they can either outbid each other or none can. Then no negative aspects are created.
-
 ** COMMENT Easier Calculations
 
 If you reach bigger dice points then the calculations may become bothersome. One way to deal with this is to normalize the factors. What this means is make all parties use the same factor. To achieve this just take the smallest factor and reduce all other factors to it. For each reduction of the factor the remainder increases by 3. This changes the probability distribution a bit by making very low and very high results impossible, but the advantage is that opposing dice results can cancel each other out,
@@ -606,7 +618,7 @@ Aspect: Intimidatin display
 # Aspect: Covered in Blood 2.
 # #+end_quote
 
-** Alternative Dice Mechanics
+** COMMENT Alternative Dice Mechanics
 :PROPERTIES:
 :CUSTOM_ID: sec:alternativedicemechanics
 :END:
@@ -617,12 +629,12 @@ The rules often mention a dice points. If you always used a number of $d_0 2$ to
 
 A $F \cdot N d_0 X$ means rolling dice with $0$ to $X$ as possible results $N$ times, and adding the results, multiplying the result with $F$. Since there are very few dice that that have a 0 as a possible result you can use other methods to get the result. I suggest to draw a playing card.
 
-*** Playing cards instead of dice
+*** COMMENT Playing cards instead of dice
 
 To use Playing cards instead of dice you can do the following. Take a standard 54 card deck of playing cards. Remove the 2 Jokers from it. Shuffle and pick a card. If it is a number then take the number as a result. Aces count as 1. Jacks count as 11, Kings count as 12. Queens count as 0 since Q looks most like a 0.
 
 
-*** Alternative Dice
+*** COMMENT Alternative Dice
 
 - $1 d_0 2$ is worth exactly 1 dice point (this is the default)
 - $1 d_0 N$ is worth $\frac{N}{2}$ dice points
