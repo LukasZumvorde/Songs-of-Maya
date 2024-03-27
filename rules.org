@@ -66,10 +66,6 @@
 * COMMENT TODOs
 - replace campaign for another name that works both in german and english
 
-* COMMENT Play test questions
-Does the money and item system feel good?
-
-
 #+LATEX: \newpage
 * Introduction
 
@@ -898,7 +894,7 @@ Let the player make a check to create the "taunted by .." aspect. This may be op
 # If a dice pool turns negative it does not mean that you can not roll. Checks are really just a comparison between the rolled AP and either the AP oposing force. By default it is 0.  
 
 ** How to Rule: Mind Control
-Mind control is similar to taunting. Create an aspect like \aspect{Mind Controlled by ..}. Any actions that would conflict with this aspect are hindered by it (for example attacking the controller). If the mind controll is stronger than the victims then it will generally follow orders.
+Mind control is similar to taunting. Create an aspect like \aspect{Mind Controlled by ..}. Any actions that would conflict with this aspect are hindered by it (for example attacking the controller). If the mind control is stronger than the victims will then it will generally follow orders. The victim may try to break free each round. For this it makes a will check to remove the \aspect{Mind Controlled by} aspect.
 
 #+begin_pwexample
 Marty the mage casts his mind control spell on an orc bandit with the words "Fight for me". Marty has 9 AP from his check, while the orc has only 3 to defend against this. This means that Marty can create the aspect with 6 AP. Since he wanted an [[#sec:aspects_enduring][enduring aspect]] he creates \aspect{Fight for Marty 3}, The orc has only 3 Will, so he starts attacking his compatriouts. 
@@ -918,6 +914,11 @@ A Soldier got hit in a firefight and is now \aspect{bleeding 2}. If untreated th
 #+begin_pwexample
 The party had a hard fight against the cultists. One got punched, he will recover by the next scene. Another got hit with a sword. He will recover by the end of the current mission (once they are done with the cultists secret temple). The last got cut with the demonic ritual dagger. His wound is unearthly and would only heal by the end of the kampaign. The group decides to seek out the help of the solarian church. With their help the demonic presense gets purged  and the wound turned into a regular cut, which heals by the end of the current mission.
 #+end_pwexample
+
+** How to Rule: Stopping Movement
+If one character wants to move and someone else tries to hinder them, then both parties have to exert effort. This means both have to make a check. The results are compared. If the stopper has more then the movement is stopped, where appropriate. If the mover succeeds then the movement is not stopped. Sometimes it may be better to grant partial success to the stopper. In this case the distance that the mover moved is reduced accoring to how much AP both parties have compared to each other.
+
+
 
 * Game-play Examples
 :PROPERTIES:
