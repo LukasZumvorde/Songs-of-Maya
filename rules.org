@@ -352,7 +352,7 @@ The player tries to pick a door lock. The GM decides that he can not partially p
 #+end_pwexample
 
 **** Collaborative checks
-Everyone rolls individually and then sum together all AP.
+Everyone rolls individually and then sum together all AP. Alternatively you can also sum up the DP and make a single roll.
 
 **** Risky checks
 :PROPERTIES:
