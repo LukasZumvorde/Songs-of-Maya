@@ -647,6 +647,104 @@ One way to do this is to use a d10 die. Most of them start are actually a $d_0 9
 If you don't =take the average= then it is advisable to keep the constant points between $-\frac{N}{2}$ and $+\frac{N}{2}$, to keep the window of possible results wide. 
 
 #+LATEX: \newpage
+* Advice
+:PROPERTIES:
+:CUSTOM_ID: sec:advice
+:END:
+
+** Gameplay Notes
+
+Since aspects can appear, disappear and change frequently during play, it is good to write them down and show them to your players. For this i suggest to use post-it notes. This has the nice effect that you can give your players something physical that represents the advantages they created or can use.
+
+** Player Character Creation
+
+When creating a character you may adhere these guidelines:
+- No attribute above 6
+- No attribute below 2
+- Have 1 aspect describing what you want to be good at
+- Have 1 aspect describing how you make your living
+- Have 1 aspect describing what you like to do as a hubby
+- Forumlate your traits and aspects such that they can be interpreted as a vulnerability
+- Have at least 1 trait
+Break these guidelines as you like.
+
+** Non-Player-Character Creation
+
+Often you dont need highly specific attributes. Use [[#sec:less_precise_attributes][less precise attributes]] unless you realy need more precision.
+- Define competency value (or attributes)
+- Have at least 1 aspect that describes a strength (for combat encounters)
+- Have at least 1 aspect that describes a weakness (for combat encounters)
+- Have at least 1 aspect that describes a desire (for social encounters)
+- Have at least 1 aspect that describes a vice (for social encounters)
+If you keep the positive and negative aspects balanced, then the math for the CP is only about the competency value, which is roughly 50 CP per point.
+
+** Encounter Design
+
+The challenge value (CV) is a number servig as a quick reference for how hard aspects to overcome should be or how strog enemies should be, When creating aspects that the players must overcome use the CV as the AP (aspect points). Then creating enemies that the players must fight set their Competence or attribute to the CV.
+- For static challenges, the players CP divided by 25 is a good challenge value.
+- For group challenges, the sum of all players CP dividec by 25 is a good challenge value.
+- For contests match the enemies total CP with that of the players.
+- Let your players become creative and create aspects to help them better their odds.
+- Try to give any noteworthy opponent an advantageous and a disadvantageous aspect. Give the players a chance to find out about those.
+
+** How To: Stealth as a Group
+
+Only roll the checks for the players and take the average for everyone else. Compare the sneaking of each from the one group to the perception of each from the other group. If any perception is higher than any of the sneaking values then they get spotted.
+Often times the characters in the group help each other. Let them distribute some points within the group after they rolled their checks. This represents something like the best scout sneaking ahead and finding the best route for the others, or distracting a guard such that the more obvious members of the group can pass unnoticed.
+
+** How To: Taunting
+Let the player make a check to create the "taunted by .." aspect. This may be opposed by the other party. If the aspect is created then it hinders any attack on someone else. It may also impact other actions. It may be a smart choice to make the "taunted by .." aspect [[#sec:aspects_enduring][enduring]] and [[#sec:aspects_multiple_targets][affecting the whole group]]. 
+
+# ** COMMENT How to Rule: Extremely Small Creatures
+# Lets say a player turns himself into a mouse. How does this impact his strength, dexterity and intellect? In most cases being a mouse is just an aspect on the player (here it is "mouse form 5"). Lets say the player has a value of 3 in all 
+
+# Checks with zero or negative dice points. Shift the dice pool for the check up until it reaches 1. Perform the same shift for the reaction. If multiple parties participate 
+
+# If a dice pool turns negative it does not mean that you can not roll. Checks are really just a comparison between the rolled AP and either the AP oposing force. By default it is 0.  
+
+** How To: Mind Control
+Mind control is similar to taunting. Create an aspect like \aspect{Mind Controlled by ..}. Any actions that would conflict with this aspect are hindered by it (for example attacking the controller). If the mind control is stronger than the victims will then it will generally follow orders. The victim may try to break free each round. For this it makes a will check to remove the \aspect{Mind Controlled by} aspect.
+
+#+begin_pwexample
+Marty the mage casts his mind control spell on an orc bandit with the words "Fight for me". Marty has 9 AP from his check, while the orc has only 3 to defend against this. This means that Marty can create the aspect with 6 AP. Since he wanted an [[#sec:aspects_enduring][enduring aspect]] he creates \aspect{Fight for Marty 3}, The orc has only 3 Will, so he starts attacking his compatriouts. 
+#+end_pwexample
+
+** How To: Healing
+Healing is just reducing a negative aspect. Whether this is possible, and by what means is up to the GM. Instead of removing the aspect immediately, i would strongly suggest to instead make the aspect time out faster. In most cases think about the timeframes in terms of the flow of the story.
+- Round: Until just after the next round of combat or action is going to be performed.
+- Scene: Until the next scene begins
+- Mission: Until the current objective is achieved or failed
+- Kampaign: Until the next big change in the story.
+
+#+begin_pwexample
+A Soldier got hit in a firefight and is now \aspect{bleeding 2}. If untreated this aspect would regularly roll with 2 dice points to harm the soldier. The medic rolls to perform first aid and gets a result of 3. He aspect gets changed into \aspect{dressed bullet wound 2}. Now it does not thread to harm the soldier any more, but it still hinders him. It would heal in about 4-6 Months on its own. The soldier gets brought to a hospital where the wound is treated propperly. It heals after 3 Weeks. 
+#+end_pwexample
+
+#+begin_pwexample
+The party had a hard fight against the cultists. One got punched, he will recover by the next scene. Another got hit with a sword. He will recover by the end of the current mission (once they are done with the cultists secret temple). The last got cut with the demonic ritual dagger. His wound is unearthly and would only heal by the end of the kampaign. The group decides to seek out the help of the solarian church. With their help the demonic presense gets purged  and the wound turned into a regular cut, which heals by the end of the current mission.
+#+end_pwexample
+
+** How To: Stopping Movement
+If one character wants to move and someone else tries to hinder them, then both parties have to exert effort. This means both have to make a check. The results are compared. If the stopper has more then the movement is stopped, where appropriate. If the mover succeeds then the movement is not stopped. Sometimes it may be better to grant partial success to the stopper. In this case the distance that the mover moved is reduced accoring to how much AP both parties have compared to each other.
+
+** How To: Fall Damage
+Assuming your characters are humans then falling creates damage. Per 2.5m of height you get a damaging aspect worth 1 AP from falling. Characters can block this with an appropriate check. Remember that enduring aspects (including damage from falling) cost double the AP.
+For chracters that are particularly small
+
+#+begin_pwexample
+A burglar jumps from rooftop to rooftop to escape the guards. One of the casms is to wide though and he plumets onto the street 7.5m (3 AP) below. He makes a check with his dexterity to mitigate this fall. On this check he gets 2. Thus he gets only 1 AP worth of damage. The GM decides that he has a \aspect{sprained ancle 1} for the rest of the scene.
+#+end_pwexample
+
+** How To: Bribe
+To Bribe someone you need to give them more than they can normally comfortably afford. This means you need at least their finances value in RV to bribe them.
+
+** How To: Secret Checks
+To hide the result of a check you may change which side rolls the dice.
+
+#+begin_pwexample
+A PC wants to know if the NPC just lied to them. Instead of letting the player roll with their $9 DP$ against the lies $7 AP$, you can roll for the lie $7 DP$ and compare them against the players $9 AP$. The player never has to see what was rolled.
+#+end_pwexample
+
 * Lists
 None of the following lists is exhaustive. They should be taken as examples. You are invited to design your own with your group.
 
@@ -839,88 +937,6 @@ Traits:
 
 
 #+LATEX: \newpage
-
-* Advice
-:PROPERTIES:
-:CUSTOM_ID: sec:advice
-:END:
-
-** Gameplay Notes
-
-Since aspects can appear, disappear and change frequently during play, it is good to write them down and show them to your players. For this i suggest to use post-it notes. This has the nice effect that you can give your players something physical that represents the advantages they created or can use.
-
-** Player Character Creation
-
-When creating a character you may adhere these guidelines:
-- No attribute above 6
-- No attribute below 2
-- Have 1 aspect describing what you want to be good at
-- Have 1 aspect describing how you make your living
-- Have 1 aspect describing what you like to do as a hubby
-- Forumlate your traits and aspects such that they can be interpreted as a vulnerability
-- Have at least 1 trait
-Break these guidelines as you like.
-
-** Non-Player-Character Creation
-
-Often you dont need highly specific attributes. Use [[#sec:less_precise_attributes][less precise attributes]] unless you realy need more precision.
-- Define competency value (or attributes)
-- Have at least 1 aspect that describes a strength (for combat encounters)
-- Have at least 1 aspect that describes a weakness (for combat encounters)
-- Have at least 1 aspect that describes a desire (for social encounters)
-- Have at least 1 aspect that describes a vice (for social encounters)
-If you keep the positive and negative aspects balanced, then the math for the CP is only about the competency value, which is roughly 50 CP per point.
-  
-** Encounter Design
-
-The challenge value (CV) is a number servig as a quick reference for how hard aspects to overcome should be or how strog enemies should be, When creating aspects that the players must overcome use the CV as the AP (aspect points). Then creating enemies that the players must fight set their Competence or attribute to the CV.
-- For static challenges, the players CP divided by 25 is a good challenge value.
-- For group challenges, the sum of all players CP dividec by 25 is a good challenge value.
-- For contests match the enemies total CP with that of the players.
-- Let your players become creative and create aspects to help them better their odds.
-- Try to give any noteworthy opponent an advantageous and a disadvantageous aspect. Give the players a chance to find out about those.
-
-** How to Rule: Stealth as a Group
-
-Only roll the checks for the players and take the average for everyone else. Compare the sneaking of each from the one party to the perception of each from the other party. If any perception is higher than any of the sneaking values then they get spotted.
-Often times the characters in the party help each other. Let them distribute some points within the group after they rolled their checks. This represents something like the best scout sneaking ahead and finding the best route for the others, or distracting a guard such that the more obvious members of the party can pass unnoticed.
-
-** How to Rule: Taunting
-Let the player make a check to create the "taunted by .." aspect. This may be opposed by the other party. If the aspect is created then it hinders any attack on someone else. It may also impact other actions. It may be a smart choice to make the "taunted by .." aspect [[#sec:aspects_enduring][enduring]] and [[#sec:aspects_multiple_targets][affecting the whole group]]. 
-
-# ** COMMENT How to Rule: Extremely Small Creatures
-# Lets say a player turns himself into a mouse. How does this impact his strength, dexterity and intellect? In most cases being a mouse is just an aspect on the player (here it is "mouse form 5"). Lets say the player has a value of 3 in all 
-
-# Checks with zero or negative dice points. Shift the dice pool for the check up until it reaches 1. Perform the same shift for the reaction. If multiple parties participate 
-
-# If a dice pool turns negative it does not mean that you can not roll. Checks are really just a comparison between the rolled AP and either the AP oposing force. By default it is 0.  
-
-** How to Rule: Mind Control
-Mind control is similar to taunting. Create an aspect like \aspect{Mind Controlled by ..}. Any actions that would conflict with this aspect are hindered by it (for example attacking the controller). If the mind control is stronger than the victims will then it will generally follow orders. The victim may try to break free each round. For this it makes a will check to remove the \aspect{Mind Controlled by} aspect.
-
-#+begin_pwexample
-Marty the mage casts his mind control spell on an orc bandit with the words "Fight for me". Marty has 9 AP from his check, while the orc has only 3 to defend against this. This means that Marty can create the aspect with 6 AP. Since he wanted an [[#sec:aspects_enduring][enduring aspect]] he creates \aspect{Fight for Marty 3}, The orc has only 3 Will, so he starts attacking his compatriouts. 
-#+end_pwexample
-
-** How to Rule: Healing
-Healing is just reducing a negative aspect. Whether this is possible, and by what means is up to the GM. Instead of removing the aspect immediately, i would strongly suggest to instead make the aspect time out faster. In most cases think about the timeframes in terms of the flow of the story.
-- Round: Until just after the next round of combat or action is going to be performed.
-- Scene: Until the next scene begins
-- Mission: Until the current objective is achieved or failed
-- Kampaign: Until the next big change in the story.
-
-#+begin_pwexample
-A Soldier got hit in a firefight and is now \aspect{bleeding 2}. If untreated this aspect would regularly roll with 2 dice points to harm the soldier. The medic rolls to perform first aid and gets a result of 3. He aspect gets changed into \aspect{dressed bullet wound 2}. Now it does not thread to harm the soldier any more, but it still hinders him. It would heal in about 4-6 Months on its own. The soldier gets brought to a hospital where the wound is treated propperly. It heals after 3 Weeks. 
-#+end_pwexample
-
-#+begin_pwexample
-The party had a hard fight against the cultists. One got punched, he will recover by the next scene. Another got hit with a sword. He will recover by the end of the current mission (once they are done with the cultists secret temple). The last got cut with the demonic ritual dagger. His wound is unearthly and would only heal by the end of the kampaign. The group decides to seek out the help of the solarian church. With their help the demonic presense gets purged  and the wound turned into a regular cut, which heals by the end of the current mission.
-#+end_pwexample
-
-** How to Rule: Stopping Movement
-If one character wants to move and someone else tries to hinder them, then both parties have to exert effort. This means both have to make a check. The results are compared. If the stopper has more then the movement is stopped, where appropriate. If the mover succeeds then the movement is not stopped. Sometimes it may be better to grant partial success to the stopper. In this case the distance that the mover moved is reduced accoring to how much AP both parties have compared to each other.
-
-
 
 * Game-play Examples
 :PROPERTIES:
