@@ -548,7 +548,9 @@ Depending on the setting, a trait might be necessary to cast magic or even a spe
 
 With this magic can still become quite powerful, since one can create several aspects and combine them for bigger spells. For example a mage might make special conjuration candles, draw a pentagram with magic symbols and then use those two aspect to assist in his conjuration spell.
 
-It is up to the individual games setting to define how magic works. By themselves the rules above give a very soft magic system, but by defining how magic works in your world, you can make it a hard magic system. 
+It is up to the individual games setting to define how magic works. By themselves the rules above give a very soft magic system, but by defining how magic works in your world, you can make it a hard magic system.
+
+Some technology can be handled just like magic as well. For example in a cyberpunk setting a hacker may be handled just like a mage in a fantasy setting.
 
 ** Less precise Attributes
 :PROPERTIES:
@@ -1024,56 +1026,49 @@ Aspects:
 - True frontiersman 2
 - Gambler 1
 - Horse Whisperer 2
-- 
-- Has lived in space all his life 2
-- If the captain ordered it, it has to be done 2
-- Space engineer 1
-- Gambler 2
-- Really good with the needle 1
 #+end_npc
 
 
 ** Example: Ambushed by Goblins
 
-*GM* is the Game Master Mathew controlling the 3 goblins (P: 2, M; 1, S: 1, Life of Banditry 1)
+*GM* is the Game Master Mathew controlling the 4 goblin bandits (P: 2, M; 1, S: 1, Life of Banditry 1)
 
-*A* is the player Anna with her character Amy (P: 3,M: 6,S: 4, Proud member of the Alchemists Guild of Mistwater 3)
+*A* is the player Anna with her character Amy (P: 3,M: 6,S: 4, \aspect{Proud member of the Alchemists Guild of Mistwater 3})
 
-*B* is the player Ben with his character Boris (P: 6,M: 4,S: 3, Best Fighter of his tribe and wrestling champion 3, Member of the isolated Nomads of the eastern steppes 2)
+*B* is the player Ben with his character Boris (P: 6,M: 4,S: 3, \aspect{Best Fighter of his tribe and wrestling champion 3}, \aspect{Member of the isolated Nomads of the eastern steppes 2})
 
-*GM:* As you walk along the forest trail please roll for perception with your will.
-- GM rolls 6d = 4 for the 3 goblins trying to ambush
-- A rolls 4d =  4
-- B rolls 6d = 10
+*GM:* As you walk along the forest trail please roll for perception with your will. (against the goblins \aspect{ambush 8}) 
+- A rolls 4 DP => 4
+- B rolls 6 DP => 10
 
-*GM:* You notice a shuffling in the bushes before you reach the choke-point. You exchange a quick look with one another and know that the Goblins must be here. 
+*GM:* You notice a shuffling in the bushes before you reach the choke-point. You exchange a quick look with one another and know that bandits must be here. Ben you even get a glimpse of a goblin.
 
 *B:* I try to intimidate the goblins in order to prevent them from attacking us. I step forward as if there was nothing there and say to Amy "Remember the Wivern we killed last week. Turns out it ate one of the royal knights. What total weaklings they must have been. I mean we ripped that lizards fucking head of without breaking a sweat."
 
 *GM:* roll for intimidation with charisma, you can use your barbarian aspect for it. The story sounds very much like what a barbarian would do.
-- B rolls 6d = 2
-- GM rolls 3d = 5
+- B rolls 6 DP = 2
+- GM rolls 3 DP = 5
 
 *GM:* They block with their empathy. Sorry Ben, the goblins are not convinced. They jump out of the bushes.
 
 *A:* Can i have prepared a smoke bomb?
 
 *GM:* Ok, make a retroactive check for your alchemy.
-- A rolls 9d = 6 with an "and"
+- A rolls 9 DP = 6
 
-*A:* It should cover an area with smoke. For the and, how about it also causes coughing.
+*A:* It should cover an area with smoke. 
 
-*GM:* Sounds good. As i said the goblins jump out of the bushes and attack, still thinking that you don't expect them. Lets start the turn order. Anna, Ben you go first. Since you have equal values decide among yourself who begins.
+*GM:* Sounds good. As i said the goblins jump out of the bushes and attack, still thinking that you don't expect them. Lets start the turn order. Anna, Ben you go first. 
 
-*A:* I throw the bomb at them. I use 1d and the smoke bomb. I want it to cover a zone.
-- A rolls 7d = 5 => the smoke aspect has strength 5/2 = 2
+*A:* I throw the bomb at them. I use 1 DP and the \aspect{smoke bomb 3}. I want it to cover a zone.
+- A rolls 4 DP = 5 => the smoke aspect has strength 5/2 = 2
 
-*GM:* The goblins dont expect this and dont try to defend. I will add \aspect{covered in irritating smoke 2} to them.
+*GM:* The goblins dont expect this and dont try to defend. I will add \aspect{covered in smoke 2} to them.
 
 *B:* I attack with my axe. I use 3 of my strength dice and my fighting aspect.
-- B rolls 6d = 0 "and"
+- B rolls 6d = 0 
 
-*GM:* During the attack you step partially into the smoke and breathe in some of it. I give you the aspect \aspect{coughing 2}. The goblins attack. They rolled 5 please defend ben.
+*GM:* During the attack you step partially into the smoke and miss them. The goblins attack. They rolled 5 please defend ben.
 - GM rolls 9d-2d = 7d = 5
 
 *A:* I want to assist in bens defense.
@@ -1204,7 +1199,7 @@ The GM creates the aspect
 #+LATEX: \newpage
 
 * Solo Rules
-
+In case you want to play alone, you can use the following tools.
 ** Scene
 Roll on the Scene type table to find out what kind of scene it is.
 
@@ -1225,7 +1220,7 @@ Lead questions for NPCs:
 #+LATEX: \end{multicols}
 
 Determine the scenes challenge rating.
-- Start with your players $\frac{CP * 3}{100}$.
+- Start with your players $CP \cdot \frac{3}{100}$.
 - For a successfull scene increase the challenge rating by 1
 - For a failed scene decrease the challenge rating by 3
 
@@ -1236,7 +1231,7 @@ Add aspects to the scene or anything in it, based on the descriptors.
 
 ** Descriptors
 
-Ask you question and roll as often on the descriptor table as you need to get a good idea. Feel free to disregard meaning that dont work for you.
+Ask your question and roll as often on the descriptor table as you need to get a good idea. Feel free to disregard meaning that dont work for you.
 The descriptor table is based on the Toki Pona language. The second column provides you with the applicable toki pona word and gives you a short form to write it down. 
 
 
@@ -1403,7 +1398,7 @@ The descriptor table is based on the Toki Pona language. The second column provi
   - 
 
 
-* Scenario: X-Files meets cold war
+* COMMENT Scenario: X-Files meets cold war
 
 ** Rules
 
@@ -1529,7 +1524,7 @@ Aspects:
 - Strong routine 2
 - Hard to work with 1
 
-* Scenario: WW1 in Fantasy
+* COMMENT Scenario: WW1 in Fantasy
 
 The world is inhabitated by all the typical humanoid races you find in fantasy. They are mostly races of Humanity, meaning that crossbreeding is possible, albeit in some cases may be rare. Magic is a comparatively rare thing. In ancient times it was more prominent, but over the centuries the weave of magic became thinner and thinner. All the big nations and kingdoms are mostly homogenous with respect to the race of their citizens. 
 
