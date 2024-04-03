@@ -69,7 +69,7 @@
 #+LATEX: \newpage
 * Introduction
 
-Primordial waters is a generic, light, and abstract role playing rule set with a focus on keeping the game balanced while maintaining and even promoting creative story telling. It leans towards a cinematic play style.
+Primordial waters is a generic, light, and abstract role playing rule set with a focus on keeping the game balanced while maintaining an even probalibity distribution and promoting creative story telling. It leans towards a cinematic play style.
 
 ** Goals
 
@@ -137,7 +137,7 @@ Karma was originally inspired by Fate Cores Fate Points, but EZD6 had the better
 The distribution of attributes into categories was inspired by the AERA RPG.
 The fate die to create unexpected events was inspired by the One Page Solo RPG Engine.
 The optional rule "Only Players Roll" is taken from the Cypher System.
-The alternaitve turn order was taken from Tides of Ambition.
+The turn order was taken from Tides of Ambition.
 
 ** How to use the game
 
@@ -219,19 +219,19 @@ There are the 8 attributes Strength, Dexterity, Will, Intellect, Empathy, Charis
 
 Attributes describe a characters potential. The higher the value the greater things a character can achieve. There are the following 8 Attributes belonging to the 4 categories.
 
-| *Category* | *Attribute* | *Description*             |
-|------------+-------------+---------------------------|
-| Physical   | Strength    | strength and hardiness    |
-|            | Dexterity   | agility, speed, precision |
-|------------+-------------+---------------------------|
-| Mental     | Will        | perseverance, attention   |
-|            | Intellect   | intelligence, knowledge   |
-|------------+-------------+---------------------------|
-| Social     | Empathy     | understanding people      |
-|            | Charisma    | interacting with people   |
-|------------+-------------+---------------------------|
-| Resources  | Gear        | Gear you have prepared    |
-|            | Finances    | Money and investments     |
+| *Category*  | *Attribute* | *Description*               |
+|-----------+-----------+---------------------------|
+| Physical  | Strength  | strength and hardiness    |
+|           | Dexterity | agility, speed, precision |
+|-----------+-----------+---------------------------|
+| Mental    | Will      | perseverance, attention   |
+|           | Intellect | intelligence, knowledge   |
+|-----------+-----------+---------------------------|
+| Social    | Empathy   | understanding people      |
+|           | Charisma  | interacting with people   |
+|-----------+-----------+---------------------------|
+| Resources | Gear      | Gear you have prepared    |
+|           | Finances  | Money and investments     |
 
 The attributes value is the basis for the dice points one has available for [[#sec:checks][checks]]. 
 
@@ -241,7 +241,7 @@ The attributes value is the basis for the dice points one has available for [[#s
 :END:
 
 #+begin_short
-Aspects have a descriptive name and a whole number value calles its aspect points (AP).
+Aspects have a descriptive name and a whole number value called its aspect points (AP).
 - Create: Make a check. The resulting AP are the AP of the new aspect.
 - Use: Add the AP of the aspect to the check. Any AP can only be used once per round. 
 - Multiple Targets: To create an aspect that effects an area or multiple targets half the AP.
