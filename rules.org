@@ -363,9 +363,13 @@ Everyone rolls individually and then sum together all AP.
 
 # If the lowest possible value (die shows 0) is rolled on a risky check, then you reroll the check. This result is then used to create a negative aspect. 
  
-Roll an additional d6, called the risk die. If the risk die shows a 6 then the result of the check is used to create a negative aspect.
+# Roll an additional d6, called the risk die. If the risk die shows a 6 then the result of the check is used to create a negative aspect.
 
-Alternatively you can forego rolling a risky check all together, including the risk die, but then the result is always half of your dice points.
+# Alternatively you can forego rolling a risky check all together, including the risk die, but then the result is always half of your dice points.
+
+Roll the same dice you rolled for the check again. If these show a higher value then it comes to a bad outcome. The original check dice (not those for the risk check) are used to create a negative aspect.
+Before the check one can reduce or heighten the risk. The outcome of the check roll can be reduced by a number, then the risk roll will be reduced by double that number. 
+The chance of something bad happening is quite high (around 50%) unless you reduce the risk. If this is too  risky for your game then you can require two risk rolls instead. Something bad only happens if both risk rolls are higher (around 30%). 
 
 **** Taking Time
 Sometimes a check is to difficult to achieve something within 1 check. Then it may be possible to do multiple checks over a longer time to accumulate the points needed. However, you must decide beforehand how many checks you want to take. The AP of all checks are accumulated after considering the difficulty. The GM has a veto right and can limit the amount of checks.
