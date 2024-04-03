@@ -499,13 +499,15 @@ Sometimes it is useful to draw maps and define distances. In a contest split the
 :CUSTOM_ID: sec:items
 :END:
 
-Items have a description and a resource value (RV). The RV is an abstraction for the items price or usefulness. 
-Items may have an aspect associated with them. If you want items to have any specific effects you may add aspects. At any time the GM can choose to give an item an aspect. Normally it will have the resource value of the item in AP. You don't have to write down the obvious aspects an item has. For example you dont need to specify that the sword is good for slicing stuff.
+#+begin_short
+The RV of an item is the sum of all attached aspects AP. For multiple use items, remember that [[#sec:aspects_enduring][enduring aspects]] cost double the AP.
+- Equipment: Have gear with RV of up to the gear attribute in value. Have as much as you can carry or keep at home.
+- Buying: Make a finances and have the RV+1 in AP. On success get the item and a negative aspect \aspect{Expences} on your finances for some time.
+- Crafting: Resources must be expended, worth RV-1. Make a check and have the RV in AP.
+- Gathering: Make a check against the RV.
+#+end_short
 
-# The RV (Resource Value) of an Item determines how expensive or hard to get it is. Items also have a description and maybe special effects. Let your fantasy go wild.
-# The aspects an item has should not exceed its RV in AP.
-
-# A few examples can be found in the section [[#sec:loitems][List of Items]].
+Items are in essence just a named things with one or more attached aspects. The sum of the AP of all aspects on an item is its resource value (RV). For most items their apects are obvious and dont need to be mentioned specifically. For example if you use a sword with RV 4, then you can just assume that it has an aspect aiding in a fight for 2 points (because enduring aspects cost double). Some items may be [[#sec:aspects_enduring][enduring]], they can be used multiple times. Other items are a one use item like a first aid kit. 
 
 #+ATTR_LATEX: :align c|l|l
 | *RV* | *Description*    | *Example*                      |
@@ -518,30 +520,20 @@ Items may have an aspect associated with them. If you want items to have any spe
 | 10 | Very Expensive | small airplane               |
 | 12 | Luxurious      | private jet                  |
 
-**** Armor / Damage Reduction
-There is no Armor but some aspects can act as such. If an aspect can be used in a defensive (re)action, this effectively reduces the amount of AP of the attack. Thus they act like armor. Think of armor items as having the protective aspect on them. If an aspect can be used is up to the GM. So he can decide that the very expensive ballgown can not be used to defend against a bullet.
+*** Equipment
+Characters can have gear with an individual value of up to the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
 
-**** Equipment
-Characters can have gear with a value of up to the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
+When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check against the RV of what they would like to have in the moment to see if they do. The check is risky and if they fail they get the negative aspect "Packed the wrong stuff" until the end of the mission or until they resupply.
 
-When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check against the RV of what they would like to have in the moment to see if they do. The check is risky and if they fail they get the negative aspect "Packed the wrong stuff" until the end of the mission or until they resupply. 
+*** Buying
+Characters can buy new items with a Finances check. It works just like crafting an aspect with the resource value (RV) plus one, in aspect points (AP). If you succeed in buying the item then you take a negative aspect on your finances for some time. The GM does not have to let you retry on a fail. If you use items with aspects to do this like the \aspect{Treasure} you found during your last adventure you may lose them if you succeed on the check.
 
-**** Buying
-
-Characters can buy new items with a Finances check. It works just like crafting an aspect with the resource value (RV) in aspect points (AP). If you succeed in buying the item then you take a negative aspect on your finances for some time. The GM does not have to let you retry on a fail. If you use items with aspects to do this like the "Treasure" you found during your last adventure you may lose them if you succeed on the check.
-# Characters can buy new items with a Finances check. The check is risky. The bought item can be treated like an aspect that is created with this check. The GM does not have to let you retry on a fail. If you use items with aspects to do this like the "Treasure" you found during your last adventure you may lose them if you succeed on the check.
-
-**** Crafting
+*** Crafting
 Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought and have a RV of the item to be build minus 1. To build the item the character needs to make a check and achieve at least the items RV in AP. If that fails the resources might be lost, depending on what they are.
 
-**** Gathering
+*** Gathering
 Resources can be gathered with a check and their RV as difficulty.
 
-**** Describe
-To create an item first give it a short description. Second you determine its value if applicable. Add aspects if applicable. The sum of the aspects AP should not exceed the RV.
-
-**** Bribing
-To Bribe someone you need to give them more than they can normally comfortably afford. This means you need more than their finances value in RV to bribe them.
 
 * Optional Rules
 :PROPERTIES:
