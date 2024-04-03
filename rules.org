@@ -399,7 +399,7 @@ In some situations it may be good idea no to roll any dice at all. In those case
 Each participant can make one or more checks each round.
 - Action: A check to create an aspect
 - Reaction: A check to prevent an aspect from being created.
-- Turn Order: From the one with the highest dice points to the one with the lowest. You can act on your turn or on any later point in the round.
+- Turn Order: Groups act together. If a groups surprises the other or has significantly fewer members they go first. Characters can act on their turn or at any later time in the round.
 - Multiple (re)actions: Total number of points (dice points) gained from the attributes is the largest attribute value of the checks. From each attribute (and aspect) you can use at most its value in points.
 #+end_short
 
@@ -419,13 +419,19 @@ If a character has more \aspect{damage} than he has points in an applicable attr
 Whenever someone takes an action and has rolled his dice anyone else can immediately try to perform a reaction to prevent it. A reaction does not by its nature create an aspect. If you announce this before the action is rolled you can take the average on a reaction. You have to announce the number of dice invested. The points from the reaction are then subtracted from the points of the action to lessen its effect.
 
 **** Turn Order
-The participants take turn from the one with the highest relevant attribute (+ aspects) to the lowest. On your turn you don't have to act. You can act at any point after you turn in the turn order. Even multiple times. 
+- All characters of a group act together. The specific order within a group can be decided freely.
+- If a group surprises the others then they go first.
+- If a group has significantly fewer members, then they go first.
+- If all else fails determine the order randomly.
 
-Alternative:
-- All characters of a party act together (typically all player characters or all enemies).
-- If a party surprises the others then they go first.
-- If a party has significantly less members, then they go first.
-- If in doubt then determine the order by comparing the dice points of the parties. The highest one begins.
+A character can act on his turn or at any later time in the round. If two characters wait for each other none of them can act.
+# The participants take turn from the one with the highest relevant attribute (+ aspects) to the lowest. On your turn you don't have to act. You can act at any point after you turn in the turn order. Even multiple times. 
+
+# Alternative:
+# - All characters of a party act together (typically all player characters or all enemies).
+# - If a party surprises the others then they go first.
+# - If a party has significantly less members, then they go first.
+# - If in doubt then determine the order by comparing the dice points of the parties. The highest one begins.
 
 **** Multiple (re)actions
 Each round you can take multiple actions and reactions. The total number of points gained from the attributes is the largest attribute value of the checks. From each attribute you can use at most its value in points in total. Each Aspect can only be used once or their AP (attribute points) have to be distributed to the (re)actions.
