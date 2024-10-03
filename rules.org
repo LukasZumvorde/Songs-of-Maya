@@ -63,9 +63,6 @@
 #+LATEX: {\rowcolors{1}{grey!20}{grey!10}
 # #+LATEX: \begin{multicols}{2}[]
 
-* COMMENT TODOs
-- replace campaign for another name that works both in german and english
-
 #+LATEX: \newpage
 * Introduction
 
@@ -86,7 +83,7 @@ The intend is for the rules to be as small as possible given the other goals. It
 
 **** COMMENT Easy to Modify
 
-It should be easy to create useful house rules to make the game fit your campaign.
+It should be easy to create useful house rules to make the game fit your story.
 
 **** COMMENT World Agnostic
 
@@ -110,7 +107,7 @@ The game should allow GMs to prepare new characters and challenges easily and qu
 
 **** COMMENT Creative Character Build
 
-Players should be able to create nearly any character they like. It should also be possible to change the character at any point in the campaign to reflect the characters development. In this the rules should invite creativity and just ensure the games balance.
+Players should be able to create nearly any character they like. It should also be possible to change the character at any point in the story to reflect the characters development. In this the rules should invite creativity and just ensure the games balance.
 
 **** COMMENT Support interesting storys
 
@@ -563,7 +560,7 @@ For GMs it might even be useful to combine all attributes into a single value ca
 ** No Abstraction for Wealth
 
 To remove the resources category from the attributes just raise the price of learning a level of the other attributes by $\frac{1}{3}$ (from 6 to 8). The costs for goods and services
-depend on the campaign setting.
+depend on the setting.
 
 ** Retroactive Actions
 
