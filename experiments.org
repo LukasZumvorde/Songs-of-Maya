@@ -732,3 +732,84 @@ Average Contest Length:  1.4094094094094094
 Win Rates;   P 61%    E 39%
 Average DMG; P 0.2    E 0.7
 :end:
+
+
+#+begin_src python :results output drawer
+import random
+import math
+import operator
+import logging
+
+def roll(f,n,c):
+    return ( f * random.randint(0,n) ) + c
+
+def check(DP):
+    return roll( math.ceil(DP / 4), 8, (DP % -4) )
+
+def check2(DP):
+    return roll( math.floor(DP / 4), 8, DP % 4 )
+
+s1 = 0
+s2 = 0
+N =5000
+for i in range(N):
+    if check(10) < 20:
+        s1 += 1
+    if 10 < check2(20):
+        s2 += 1
+print("P1: {:.0%}".format(s1 / N))
+print("P2: {:.0%}".format(s2 / N))
+#+end_src
+
+#+RESULTS:
+:results:
+P1: 89%
+P2: 67%
+:end:
+
+
+#+begin_src python :results output drawer
+import random
+import math
+import operator
+import logging
+
+N = 1000
+n = 8
+offset = 0
+def experiment(n):
+    s = 0.0
+    results = []
+    for i in range(N):
+        a = random.randint(0,n)
+        b = random.randint(0,n) - offset
+        c = random.randint(0,n) - offset
+        if a == 0 or not (b > a and c > a):
+            s += 1
+            results.append(max(0, a - offset))
+        else:
+            results.append(-max(0,a - offset))
+    return s / N , results
+
+for j in range(2,13):
+    s, res = experiment(j)
+    pos_res = list( filter(lambda n: n >= 0, res) )
+    neg_res = list( filter(lambda n: n < 0, res) )
+    print("P{:2}: {:.0%} , {:.2} | {:.2}".format( j, s, sum(pos_res)/max(1,len(pos_res)), sum(neg_res)/max(1,len(neg_res)) ))
+#+end_src
+
+#+RESULTS:
+:results:
+P 2: 97% , 1.0 | -1.0
+P 3: 93% , 1.5 | -1.1
+P 4: 88% , 2.1 | -1.4
+P 5: 86% , 2.6 | -1.6
+P 6: 85% , 3.2 | -1.8
+P 7: 79% , 3.7 | -2.3
+P 8: 81% , 4.5 | -2.7
+P 9: 80% , 5.0 | -2.8
+P10: 78% , 5.5 | -2.8
+P11: 78% , 6.1 | -3.1
+P12: 75% , 6.6 | -3.2
+:end:
+
