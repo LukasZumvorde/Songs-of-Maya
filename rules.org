@@ -1,4 +1,4 @@
-#+title:      Primordial Waters
+#+title:      Songs of Maya
 #+author:     Lukas Zumvorde
 #+date:       [2022-10-03 Mo 13:19]
 
@@ -53,7 +53,7 @@
 
 # LATEX export header
 #+LATEX_CLASS: article
-#+LATEX_HEADER: \usepackage{primordial_waters}
+#+LATEX_HEADER: \usepackage{songs_of_maya}
 #+LaTeX_HEADER: \usepackage[a5paper, total={128mm, 190mm}]{geometry}
 # #+LaTeX_HEADER: \usepackage[a4paper, total={7.25in, 11in}]{geometry}
 # #+LaTeX_HEADER: \pagenumbering{gobble}
@@ -64,7 +64,7 @@
 #+LATEX: \newpage
 * Introduction
 
-Primordial waters is a generic, light, and abstract role playing rule set with a focus on keeping the game balanced while maintaining an even probalibity distribution and promoting creative story telling. It leans towards a cinematic play style.
+Songs of Maya is a generic, light, and abstract role playing rule set with a focus on keeping the game balanced while maintaining an even probalibity distribution and promoting creative story telling. It leans towards a cinematic play style.
 
 ** Goals
 
