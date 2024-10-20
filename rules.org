@@ -64,7 +64,7 @@
 #+LATEX: \newpage
 * Introduction
 
-Songs of Maya is a generic, light, and abstract role playing rule set with a focus on keeping the game balanced while maintaining an even probalibity distribution and promoting creative story telling. It leans towards a cinematic play style.
+Songs of Maya is a generic, light, and abstract role playing rule set with a focus on keeping the game balanced while maintaining an even probability distribution and promoting creative story telling. It leans towards a cinematic play style.
 
 ** Goals
 
@@ -95,7 +95,7 @@ It should be possible to play both super-humans and commoners. It should also be
 
 It should be possible to do multiple things simultaneously in a round. It should be a trade off. This adds a new dimension of interesting decision making to the game.
 
-**** COMMENT Constistent propability distribution
+**** COMMENT Consistent probability distribution
 
 No matter how powerful a character is, The probability distribution for his die rolls should be consistent and allow for interesting scenarios to occur. It should still feel fair.
 
@@ -107,9 +107,9 @@ The game should allow GMs to prepare new characters and challenges easily and qu
 
 Players should be able to create nearly any character they like. It should also be possible to change the character at any point in the story to reflect the characters development. In this the rules should invite creativity and just ensure the games balance.
 
-**** COMMENT Support interesting storys
+**** COMMENT Support interesting story's
 
-The rules should support the creation of interesting and consistent storys by providing anker points for unexpected results.
+The rules should support the creation of interesting and consistent story's by providing anchor points for unexpected results.
 
 **** COMMENT Keep Game Balance
 
@@ -125,7 +125,7 @@ The game should be playable without extensive bookkeeping. It should not be nece
 
 ** Inspirations
 
-This game did not come from nothing. Many other games had an impact on its creation. Some of the most impactfull ones are the following.:
+This game did not come from nothing. Many other games had an impact on its creation. Some of the most impactful ones are the following.:
 
 This games systems for aspects and movement were heavily inspired from the Fate Core system.
 Karma was originally inspired by Fate Cores Fate Points, but EZD6 had the better name for the concept.
@@ -152,7 +152,7 @@ Third rule of Gaming: Use the aspects value as a guideline and be creative with 
 
 *Aspects*: Aspects are highlighted like this \aspect{example aspect 3}. The tailing number indicates the value of the aspect. If an aspect has an additional number in square brackets (\aspect{example aspect 2[4]}), this denotes the [[#sec:aspects_resistant][resistance]] of the aspect. 
 
-*Quick Reference*: All core rules can be found in =Quick Reference= blocks at the beginning of their respective sections. Everything else are just explainations and extensions of these rules.
+*Quick Reference*: All core rules can be found in =Quick Reference= blocks at the beginning of their respective sections. Everything else are just explanations and extensions of these rules.
 
 
 ** COMMENT What dice to roll
@@ -189,7 +189,7 @@ The dice points (DP) are calculated from the attributes and aspects. They are us
 - A constant $N$ are worth $N$ dice points (generally you should limit this to $\frac{1}{4}$ of the dice points). Fractions of a point are possible.
 - Any dice multiplied by a factor $F$ is worth the price of a single die multiplied by this factor $F$
 
-You can decide for each check individualy what dice to roll, It is still advisable to always use the same dice if possible. 
+You can decide for each check individually what dice to roll, It is still advisable to always use the same dice if possible. 
 #+end_short
 
 # Based on your attributes and aspects you get dice points (see [[#sec:checks][checks]] for details). These dice points (DP) are used to decide what dice you roll for a check. 
@@ -202,13 +202,13 @@ You can decide for each check individualy what dice to roll, It is still advisab
 
 # The default is to use $F \cdot 1 d_0 8 + c$. This means that the factor $F$ is the dice points divided by $\frac{8}{2} = 4$ with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice points. Note that the more dice you roll the more predictable the results will be.
 
-To keep all possible results evenly distributed you should favor to roll just a single die, that has as at least 6 sides. Since many 10 sided dice go from 0 to 9 ($d_0 9$) they are a good default (cost $4.5$ DP). Pick higher factors ($F \times d_0 9$) if you have significantly more DP available. Dont be afraid of the fractional DP costs. 
+To keep all possible results evenly distributed you should favor to roll just a single die, that has as at least 6 sides. Since many 10 sided dice go from 0 to 9 ($d_0 9$) they are a good default (cost $4.5$ DP). Pick higher factors ($F \times d_0 9$) if you have significantly more DP available. Don't be afraid of the fractional DP costs. 
 
 There are multiple ways to simulate $d_0 N$ dice. To simulate a ...
 - $d_0 2$: take a $d6$ and count 1,2 as 0; 3,4 as 1; and 5,6 as 2.
 - $d_0 2$: roll a fudge die (also known as fate dice). Count the empty sides as 0, count the "-" as 1 and "+" as 2. (essentially counting the number of lines.)
-- $d_0 8$: roll a $d10$ (most actually go from 0 to 9). Reroll the die if you roll a 9.
-- $d_0 N$ with $N \le 12$: Take a deck of cards. Count the queen as 0, ace as 1, numbers as they are, joker as 11, and king as 12. Discard any cards you dont need.
+- $d_0 8$: roll a $d10$ (most actually go from 0 to 9). Re-roll the die if you roll a 9.
+- $d_0 N$ with $N \le 12$: Take a deck of cards. Count the queen as 0, ace as 1, numbers as they are, joker as 11, and king as 12. Discard any cards you don't need.
 
 Sometimes it makes no sense to roll dice, but we want a constant value. Then we can [[#sec:checks_average][take the average]]. This means instead of rolling dice we just take the dice points as if it were the result of a roll. This is fair since it is also the average result of a roll.
 
@@ -297,10 +297,12 @@ An aspect can affect a zone or multiple individual targets. To create such an as
 :END:
 
 An aspect can be over within a round or it can last longer. Normally aspects last for a round or until invoked once. If your aspect should last longer and potentially apply each round it should cost double the AP (aspect points) for each increase. Exceptions may be made by the GM. In general it can be said, that an aspect lasts as long as it makes sense. It is possible to make aspects last even longer. Use the following table as an orientation.
-| Round    | A few seconds or until used once, Example: triped     |
+| Round    | A few seconds or until used once, Example: tripped    |
 | Scene    | Until the end of a fight, Example: Frightened         |
 | Mission  | Until the end of a story or quest, Example: Wounded   |
-| Campagne | Until the end of a story arc, Example: Demonic Poison |
+| Campaign  | Until the end of a story arc, Example: Demonic Poison |
+
+If it takes effort to keep up the aspect then it should be applied as a negative aspect on other actions which may be impacted.
 
 **** Acting Aspects
 
@@ -335,7 +337,7 @@ Aspects are also used to represent damage a character or object has taken. If a 
 
 **** Converting Aspects
 
-Sometimes it may be usefull to change one or more aspects into another. In those cases just create a new aspects for an equivalent number of AP as all the aspects you remove for it.
+Sometimes it may be useful to change one or more aspects into another. In those cases just create a new aspects for an equivalent number of AP as all the aspects you remove for it.
 A good example for this is replacing a more abstract \aspect{combat damage} at the end of a fight, with a more permanent and more interesting long term damage.
 
 #+begin_pwexample
@@ -348,7 +350,7 @@ During a fist fight against the goblin chief the glorious knight has taken 7 dam
 :END:
 
 #+begin_short
-Add points of attribute and aspects to get the dice points. Roll one or multiple dice that are equvalent to the dice points in value. The result of the roll are the aspect points (AP) of the check.
+Add points of attribute and aspects to get the dice points. Roll one or multiple dice that are equivalent to the dice points in value. The result of the roll are the aspect points (AP) of the check.
 - Difficulty: Some aspects hinder a check. For them consider the AP to be negative instead. 
 - Collaboration: Add either the dice points for the checks or the AP of all checks made together.
 - Risky: Roll an additional $d6$. If it shows a $6$ then use the result of the check to create a negative aspect instead.
@@ -398,13 +400,13 @@ Before the check a player can reduce or heighten the risk. For this select a num
 Sometimes a check is to difficult to achieve something within 1 check. Then it may be possible to do multiple checks over a longer time to accumulate the points needed. However, you must decide beforehand how many checks you want to take. The AP of all checks are accumulated after considering the difficulty. The GM has a veto right and can limit the amount of checks.
 
 **** Limited Aspects
-To prevent players from stacking up aspects endlessly it may be good to limit the ammount of points one can use. The dice points should be limited to double the sum of the relevant attribute and all used aspect points from chracter inherent aspects. Feel free to disregard this rule however if it does not fit well with the story.
+To prevent players from stacking up aspects endlessly it may be good to limit the amount of points one can use. The dice points should be limited to double the sum of the relevant attribute and all used aspect points from character inherent aspects. Feel free to disregard this rule however if it does not fit well with the story.
 
 **** Multiple Checks
 Sometimes the players fail to pass an obstacle with just one check. If the players have a new idea on how they might overcome the challenge then you can allow them another check. The new idea may add the checks AP to the previous attempt or replace them, depending on the narrative.
 
 #+begin_pwexample
-The player has to climb up a cliff. The cliff has the aspect \aspect{sheer rock face 6[2]} At frist he tires to just climb. He rolls a 3 on his check. This does not suffice and because of the 2 resistance of the aspect he has only overcome 1 of the 6 AP, he needs. This is harder than expected and considering that he has already climbed some of the distance a failure may end in a fall. He pulls out some wedges from his pack and starts to use them to create some better holds. For this the GM allows a new check, which he gets 7 AP from. With those he just barely climbs the rest of the distance.
+The player has to climb up a cliff. The cliff has the aspect \aspect{sheer rock face 6[2]} At first he tires to just climb. He rolls a 3 on his check. This does not suffice and because of the 2 resistance of the aspect he has only overcome 1 of the 6 AP, he needs. This is harder than expected and considering that he has already climbed some of the distance a failure may end in a fall. He pulls out some wedges from his pack and starts to use them to create some better holds. For this the GM allows a new check, which he gets 7 AP from. With those he just barely climbs the rest of the distance.
 #+end_pwexample
 
 **** Take the average
@@ -422,7 +424,7 @@ In some situations it may be good idea not to roll any dice at all. In those cas
 Each participant can make one or more checks each round.
 - Action: A check to create an aspect
 - Reaction: A check to prevent an aspect from being created.
-- Turn Order: Groups act together. If a groups surprises the other or has significantly fewer members they go first. Characters can act on their turn or at any later time in the round. When in doupt the players or the stronger go first.
+- Turn Order: Groups act together. If a groups surprises the other or has significantly fewer members they go first. Characters can act on their turn or at any later time in the round. When in doubt the players or the stronger go first.
 - Multiple (re)actions: Total number of points (dice points) gained from the attributes is the largest attribute value of all used in the checks. From each attribute (and aspect) you can use at most its value in points.
 #+end_short
 
@@ -433,10 +435,10 @@ A contest is divided into rounds. Each participant in the contest can make one o
 **** Actions
 An action is a check that tries to create an aspect. Any kind of aspect can be created, based on what fits the scene. You can try to gain an advantageous position, or start a big fire.
 
-The default aspect created in combat is \aspect{damage}. Damage is an [[#sec:aspects_enduring][enduring aspect]] for the scene thus costing 2 AP per level of the aspect. After combat \aspect{damage} gets converted to one or more fitting negative aspects like \aspect{broken leg} or \aspect{battered and bruised}, These aspects are often times of a higher timeframe, therefore they cost more AP per level and are thus lower in effect.
-If a character has more \aspect{damage} than he has points in an applicable attribute and character aspects combined then he is considered incapacitated for the rest of combat. This may mean that he is unconcious, writhing in pain or just to demoralised to fight.
+The default aspect created in combat is \aspect{damage}. Damage is an [[#sec:aspects_enduring][enduring aspect]] for the scene thus costing 2 AP per level of the aspect. After combat \aspect{damage} gets converted to one or more fitting negative aspects like \aspect{broken leg} or \aspect{battered and bruised}, These aspects are often times of a higher time frame, therefore they cost more AP per level and are thus lower in effect.
+If a character has more \aspect{damage} than he has points in an applicable attribute and character aspects combined then he is considered incapacitated for the rest of combat. This may mean that he is unconscious, writhing in pain or just to demoralized to fight.
 
-Alternatively the aspect can be \aspect{stress} as a non enduring alernative to damage. \aspect{Stress} only holds for 1 round but cost only 1 AP per level of the aspect. It can be invoked to hinder the victims action. Note that you can only use any point of this aspect once in the round. 
+Alternatively the aspect can be \aspect{stress} as a non enduring alternative to damage. \aspect{Stress} only holds for 1 round but cost only 1 AP per level of the aspect. It can be invoked to hinder the victims action. Note that you can only use any point of this aspect once in the round. 
 
 **** Reactions
 Whenever someone takes an action and has rolled his dice anyone else can immediately try to perform a reaction to prevent it. A reaction does not by its nature create an aspect. If you announce this before the action is rolled you can take the average on a reaction. You have to announce the number of dice invested. The AP from the reaction are then subtracted from the AP of the action to lessen its effect.
@@ -460,7 +462,7 @@ A character can act on his turn or at any later time in the round. If two charac
 Each round you can take multiple actions and reactions. The total number of points gained from the attributes is the largest attribute value of the checks. From each attribute you can use at most its value in DP in total. Each Aspect can only be used once per round or their AP (aspect points) have to be distributed to the (re)actions.
 
 **** Acting together
-When acting together all values are combined and a single combined check is made or alternatively everyone rolls seperately and only the AP are combined. To act together all have to act at the same time in the turn order, so effectively at the earliest when the slowest has his turn.
+When acting together all values are combined and a single combined check is made or alternatively everyone rolls separately and only the AP are combined. To act together all have to act at the same time in the turn order, so effectively at the earliest when the slowest has his turn.
 
 ** Traits
 :PROPERTIES:
@@ -530,7 +532,7 @@ The RV of an item is the sum of all attached aspects AP. For multiple use items,
 - Gathering: Make a check against the RV.
 #+end_short
 
-Items are in essence just a named things with one or more attached aspects. The sum of the AP of all aspects on an item is its resource value (RV). For most items their apects are obvious and dont need to be mentioned specifically. For example if you use a sword with RV 4, then you can just assume that it has an aspect aiding in a fight for 2 points (because enduring aspects cost double). Some items may be [[#sec:aspects_enduring][enduring]], they can be used multiple times. Other items are a one use item like a first aid kit. 
+Items are in essence just a named things with one or more attached aspects. The sum of the AP of all aspects on an item is its resource value (RV). For most items their aspects are obvious and don't need to be mentioned specifically. For example if you use a sword with RV 4, then you can just assume that it has an aspect aiding in a fight for 2 points (because enduring aspects cost double). Some items may be [[#sec:aspects_enduring][enduring]], they can be used multiple times. Other items are a one use item like a first aid kit. 
 
 #+ATTR_LATEX: :align c|l|l
 | *RV* | *Description*    | *Example*                      |
@@ -575,7 +577,7 @@ It is up to the individual games setting to define how magic works. By themselve
 
 Some technology can be handled just like magic as well. For example in a cyberpunk setting a hacker may be handled just like a mage in a fantasy setting.
 
-To limit the ammount of spells being cast, you may rule that a spell has to be kept active. This means that each active spell acts as a negative aspect for each additionaly cast spell. 
+To limit the ammount of spells being cast, you may rule that a spell has to be kept active. This means that each active spell acts as a negative aspect for each additionally cast spell. 
 
 ** Less precise Attributes
 :PROPERTIES:
@@ -613,7 +615,7 @@ If you reach bigger dice points then the calculations may become bothersome. One
 ** Only Players Roll
 If you like you can generally let only players roll the dice. Everyone else will take the average result. This means that in combat only players will roll to hit or roll to block.
 
-** Unexpected Results
+** COMMENT Unexpected Results
 :PROPERTIES:
 :CUSTOM_ID: sec:unexpectedresults
 :END:
@@ -622,14 +624,14 @@ Assuming you play with a set of cards. Add the two jokers to the deck. If a joke
 If a complication has appeared in the scene already you may ignore a joker (GMs choice).
 
 #+begin_quote
-A negative aspect during a mountaineering expedition may be that \aspect{heavy rain} starts to pur down.
+A negative aspect during a mountaineering expedition may be that \aspect{heavy rain} starts to pour down.
 #+end_quote
 
 #+begin_quote
 A positive aspect during a fight against goblins may be that you decapitate the goblin in an \aspect{intimidating display}, Not only does the goblin die but the display also weakens the goblins resolve. Likely they will try to flee after seeing this.
 #+end_quote
 
-# You roll an additional d6, called the fate die. On a 1 you add a "but .." and create an additional aspect worth the factor F in points that counteracts the result somewhat. On a 6 you add a "and .." and create an additional aspect worth the factor F in points that enhances the result somewhat. The extra die can also be rerolled with a fate point or advantage on the check.
+# You roll an additional d6, called the fate die. On a 1 you add a "but .." and create an additional aspect worth the factor F in points that counteracts the result somewhat. On a 6 you add a "and .." and create an additional aspect worth the factor F in points that enhances the result somewhat. The extra die can also be re-rolled with a fate point or advantage on the check.
 
 # #+begin_quote
 # "Success and" during a fight against a goblin. You decapitate the goblin in an intimidating display, Not only does the goblin die but the display also weakens the goblins resolve. Likely they will try to flee after seeing this.
@@ -689,7 +691,7 @@ When creating a character you may adhere these guidelines:
 - Have 1 aspect describing what you want to be good at
 - Have 1 aspect describing how you make your living
 - Have 1 aspect describing what you like to do as a hobby
-- Forumlate your traits and aspects such that they can be interpreted as a vulnerability
+- Formulate your traits and aspects such that they can be interpreted as a vulnerability
 - Have at least 1 trait
 Break these guidelines as you like.
 
@@ -705,9 +707,9 @@ If you keep the positive and negative aspects balanced, then the math for the CP
 
 ** Encounter Design
 
-The challenge value (CV) is a number servig as a quick reference for how hard aspects to overcome should be or how strog enemies should be, When creating aspects that the players must overcome use the CV as the AP (aspect points). Then creating enemies that the players must fight set their Competence or attribute to the CV.
+The challenge value (CV) is a number serving as a quick reference for how hard aspects to overcome should be or how strong enemies should be, When creating aspects that the players must overcome use the CV as the AP (aspect points). Then creating enemies that the players must fight set their Competence or attribute to the CV.
 - For static challenges, the players CP divided by 25 is a good challenge value.
-- For group challenges, the sum of all players CP dividec by 25 is a good challenge value.
+- For group challenges, the sum of all players CP divided by 25 is a good challenge value.
 - For contests match the enemies total CP with that of the players.
 - Let your players become creative and create aspects to help them better their odds.
 - Try to give any noteworthy opponent an advantageous and a disadvantageous aspect. Give the players a chance to find out about those.
@@ -731,33 +733,33 @@ Let the player make a check to create the \aspect{taunted by ..} aspect. This ma
 Mind control is similar to taunting. Create an aspect like \aspect{Mind Controlled by ..}. Any actions that would conflict with this aspect are hindered by it (for example attacking the controller). If the mind control is stronger than the victims will then it will generally follow orders. The victim may try to break free each round. For this it makes a will check to remove the \aspect{Mind Controlled by} aspect.
 
 #+begin_pwexample
-Marty the mage casts his mind control spell on an orc bandit with the words "Fight for me". Marty has 9 AP from his check, while the orc has only 3 to defend against this. This means that Marty can create the aspect with 6 AP. Since he wanted an [[#sec:aspects_enduring][enduring aspect]] he creates \aspect{Fight for Marty 3}, The orc has only 3 Will, so he starts attacking his compatriouts. 
+Marty the mage casts his mind control spell on an orc bandit with the words "Fight for me". Marty has 9 AP from his check, while the orc has only 3 to defend against this. This means that Marty can create the aspect with 6 AP. Since he wanted an [[#sec:aspects_enduring][enduring aspect]] he creates \aspect{Fight for Marty 3}, The orc has only 3 Will, so he starts attacking his compatriots. 
 #+end_pwexample
 
 ** How To: Healing
-Healing is just reducing a negative aspect. Whether this is possible, and by what means is up to the GM. Instead of removing the aspect immediately, i would strongly suggest to instead make the aspect time out faster. In most cases think about the timeframes in terms of the flow of the story.
+Healing is just reducing a negative aspect. Whether this is possible, and by what means is up to the GM. Instead of removing the aspect immediately, i would strongly suggest to instead make the aspect time out faster. In most cases think about the time-frames in terms of the flow of the story.
 - Round: Until just after the next round of combat or action is going to be performed.
 - Scene: Until the next scene begins
 - Mission: Until the current objective is achieved or failed
-- Kampaign: Until the next big change in the story.
+- Champaign: Until the next big change in the story.
 
 #+begin_pwexample
-A Soldier got hit in a firefight and is now \aspect{bleeding 2}. If untreated this aspect would regularly roll with 2 dice points to harm the soldier. The medic rolls to perform first aid and gets a result of 3. He aspect gets changed into \aspect{dressed bullet wound 2}. Now it does not thread to harm the soldier any more, but it still hinders him. It would heal in about 4-6 Months on its own. The soldier gets brought to a hospital where the wound is treated propperly. It heals after 3 Weeks. 
+A Soldier got hit in a firefight and is now \aspect{bleeding 2}. If untreated this aspect would regularly roll with 2 dice points to harm the soldier. The medic rolls to perform first aid and gets a result of 3. He aspect gets changed into \aspect{dressed bullet wound 2}. Now it does not thread to harm the soldier any more, but it still hinders him. It would heal in about 4-6 Months on its own. The soldier gets brought to a hospital where the wound is treated properly. It heals after 3 Weeks. 
 #+end_pwexample
 
 #+begin_pwexample
-The party had a hard fight against the cultists. One got punched, he will recover by the next scene. Another got hit with a sword. He will recover by the end of the current mission (once they are done with the cultists secret temple). The last got cut with the demonic ritual dagger. His wound is unearthly and would only heal by the end of the kampaign. The group decides to seek out the help of the solarian church. With their help the demonic presense gets purged  and the wound turned into a regular cut, which heals by the end of the current mission.
+The party had a hard fight against the cultists. One got punched, he will recover by the next scene. Another got hit with a sword. He will recover by the end of the current mission (once they are done with the cultists secret temple). The last got cut with the demonic ritual dagger. His wound is unearthly and would only heal by the end of the champaign. The group decides to seek out the help of the solarian church. With their help the demonic presence gets purged  and the wound turned into a regular cut, which heals by the end of the current mission.
 #+end_pwexample
 
 ** How To: Stopping Movement
-If one character wants to move and someone else tries to hinder them, then both parties have to exert effort. This means both have to make a check. The results are compared. If the stopper has more then the movement is stopped, where appropriate. If the mover succeeds then the movement is not stopped. Sometimes it may be better to grant partial success to the stopper. In this case the distance that the mover moved is reduced accoring to how much AP both parties have compared to each other.
+If one character wants to move and someone else tries to hinder them, then both parties have to exert effort. This means both have to make a check. The results are compared. If the stopper has more then the movement is stopped, where appropriate. If the mover succeeds then the movement is not stopped. Sometimes it may be better to grant partial success to the stopper. In this case the distance that the mover moved is reduced according to how much AP both parties have compared to each other.
 
 ** How To: Fall Damage
 Assuming your characters are humans then falling creates damage. Per 2.5m of height you get a damaging aspect worth 1 AP from falling. Characters can block this with an appropriate check. Remember that enduring aspects (including damage from falling) cost double the AP.
-For chracters that are particularly small
+For characters that are particularly small
 
 #+begin_pwexample
-A burglar jumps from rooftop to rooftop to escape the guards. One of the casms is to wide though and he plumets onto the street 7.5m (3 AP) below. He makes a check with his dexterity to mitigate this fall. On this check he gets 2. Thus he gets only 1 AP worth of damage. The GM decides that he has a \aspect{sprained ancle 1} for the rest of the scene.
+A burglar jumps from rooftop to rooftop to escape the guards. One of the chasms is to wide though and he plummets onto the street 7.5m (3 AP) below. He makes a check with his dexterity to mitigate this fall. On this check he gets 1. Thus he gets only 1 AP worth of damage. The GM decides that he has a \aspect{sprained ancle 1} for the rest of the scene.
 #+end_pwexample
 
 ** How To: Bribe
@@ -789,7 +791,7 @@ The number in the parenthesis is the cost in CP for the trait. Take this list as
 #+end_quote
 
 #+begin_quote
-*Speedster* (30): You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks, so you can reroll them once per round. You can move double the distance per round.
+*Speedster* (30): You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks, so you can re-roll them once per round. You can move double the distance per round.
 #+end_quote
 
 #+begin_quote
@@ -997,13 +999,13 @@ Aspects:
 #+ATTR_LATEX: :options {Carl the Cleric}{at}{3 2 3 2 4 4 3 3}{69}
 #+begin_npc
 Traits:
-- Imbued with the power of the sungod Sol
+- Imbued with the power of the sun god Sol
 \columnbreak
   
 Aspects:
-- Ordaned servant of the sungod Sol 4
+- Ordained servant of the sun god Sol 4
 - Kindhearted beacon of hope 3
-- Likes to play the lire 2  
+- Likes to play the lyre 2  
 #+end_npc
 
 #+ATTR_LATEX: :options {Generic Citizen}{co}{2}{0}
@@ -1044,7 +1046,11 @@ Traits:
 Aspects:
 - Has lived in space all his life 2
 - If the captain ordered it, it has to be done 2
-- Space engineer 1
+- Space engnist* (15): You are adapt at creating illusions. The bigger and more complex they get the harder this is.
+#+end_quote
+
+#+begin_quote
+*Speedster* (30): You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks, so you can rerollineer 1
 - Gambler 2
 - Really good with the needle 1
 #+end_npc
@@ -1098,7 +1104,7 @@ Aspects:
 *A:* I throw the bomb at them. I use 1 DP and the \aspect{smoke bomb 3}. I want it to cover a zone.
 - A rolls 4 DP = 5 => the smoke aspect has strength 5/2 = 2
 
-*GM:* The goblins dont expect this and dont try to defend. I will add \aspect{covered in smoke 2} to them.
+*GM:* The goblins don't expect this and don't try to defend. I will add \aspect{covered in smoke 2} to them.
 
 *B:* I attack with my axe. I use 3 of my strength dice and my fighting aspect.
 - B rolls 6d = 0 
@@ -1106,7 +1112,7 @@ Aspects:
 *GM:* During the attack you step partially into the smoke and miss them. The goblins attack. They rolled 5 please defend ben.
 - GM rolls 9d-2d = 7d = 5
 
-*A:* I want to assist in bens defense.
+*A:* I want to assist in Bens defense.
 - A rolls 2d = 3
 - B rolls 6d-2d = 4d = 3
 
@@ -1135,7 +1141,7 @@ Aspects:
 
 The players are preparing an ambush on a patrol. The GM describes the scene
 
-*GM:* You know that the patrol is going to pass through this area, using the small forrest path. It is barely wide enough for a single cart and shallow ruts in the road indicate that the path is only used ocasionally. The underbrush is thick in some parts, but there are also stretches of dark pine forrest. Because of the recent rains there are mud puddles everywhere.
+*GM:* You know that the patrol is going to pass through this area, using the small forest path. It is barely wide enough for a single cart and shallow ruts in the road indicate that the path is only used occasionally. The underbrush is thick in some parts, but there are also stretches of dark pine forest. Because of the recent rains there are mud puddles everywhere.
 
 He creates some aspects
 - \aspect{shallow ruts 1}
@@ -1150,13 +1156,13 @@ The players will prepare the ambush. For this they can make as many checks to cr
 
 *GM:* So no \aspect{shallow ruts} and no \aspect{thick underbush}?
 
-*R:* The \aspect{ruts} are fine, but i dont want us to be hindered by the \aspect{underbrush}.
+*R:* The \aspect{ruts} are fine, but i don't want us to be hindered by the \aspect{underbrush}.
 
-*GM:* Yes, that is possible. You can use the \aspect{dark shadows} and \aspect{muddy ground} to prepare the spot. Make the intelect check.
+*GM:* Yes, that is possible. You can use the \aspect{dark shadows} and \aspect{muddy ground} to prepare the spot. Make the intellect check.
 
 *R:* I have 3 from my attribute and 3 from being a ranger. [rolls $1 d_0 8 + 2 = 6 + 2$ on the check] I have 8AP. I would like the aspect to last the entire scene [AP / 2] and apply to all of us [AP / 2].
 
-He writes the aspect on a postit and places it on the table
+He writes the aspect on a post-it and places it on the table
 - \aspect{Well prepared Ambush 2}
 The GM takes the unused aspects back of the table. What is left are
 - \aspect{shallow ruts 1}
@@ -1168,11 +1174,11 @@ The GM takes the unused aspects back of the table. What is left are
 
 *GM:* With the muddy ground it will be hard to ignite the bomb.
 
-*A:* Fine. I can still do it. 4 from my intelect and 3 from being an alchemist.
+*A:* Fine. I can still do it. 4 from my intellect and 3 from being an alchemist.
 
-*GM:* Dont forget to hide the thing.
+*GM:* Don't forget to hide the thing.
 
-*T:* As a reformed thief i will help him with that. 2 from intelect and 3 from thievery [rolls $1 d_0 8 + 1 = 6$].
+*T:* As a reformed thief i will help him with that. 2 from intellect and 3 from thievery [rolls $1 d_0 8 + 1 = 6$].
 
 *A:* [rolls $2 d_8 - 1 = 2*7 -1 = 13$] Oh, that is going to hurt. I want all of them to be affected [AP / 2].
 
@@ -1182,9 +1188,9 @@ The players create the aspects
 As they see the numbers fitting so well they replace the aspects with
 - \aspect{Well hidden fire bomb 6}
 
-*D:* My druidic circle specialises in turning into a bear for fighting. So i will shape shift and lie in wait. 4 will and 2 druidry plus 1 from my speciality in shape shifting [rolls $2 d_0 - 1 = 2 - 1 = 1$]. That is not going to be convincing.
+*D:* My druidic circle specializes in turning into a bear for fighting. So i will shape shift and lie in wait. 4 will and 2 druidry plus 1 from my specialty in shape shifting [rolls $2 d_0 - 1 = 2 - 1 = 1$]. That is not going to be convincing.
 
-*GM:* You dont quite turn into a bear. Instead you become much more hary and a bit stronger.
+*GM:* You don't quite turn into a bear. Instead you become much more hairy and a bit stronger.
 
 *D*: Can i at least hide?
 
@@ -1193,7 +1199,7 @@ As they see the numbers fitting so well they replace the aspects with
 The druid gets the aspect
 - \aspect{Bear'ish form 1}
 
-The preparations are done, and the GM narates how the patrol comes down the road.
+The preparations are done, and the GM narrates how the patrol comes down the road.
 
 *GM:* Lets see if they can spot you. Is a collective check okay for all of you?
 
@@ -1256,7 +1262,7 @@ Lead questions for NPCs:
 
 Determine the scenes challenge rating.
 - Start with your players $CP \cdot \frac{3}{100}$.
-- For a successfull scene increase the challenge rating by 1
+- For a successful scene increase the challenge rating by 1
 - For a failed scene decrease the challenge rating by 3
 
 This will result in a natural ebb and flow for the story which favors the players being able to succeed. If you want a harder experience change the factors by which you change the challenge rating. 
@@ -1266,7 +1272,7 @@ Add aspects to the scene or anything in it, based on the descriptors.
 
 ** Descriptors
 
-Ask your question and roll as often on the descriptor table as you need to get a good idea. Feel free to disregard meaning that dont work for you.
+Ask your question and roll as often on the descriptor table as you need to get a good idea. Feel free to disregard meaning that don't work for you.
 The descriptor table is based on the Toki Pona language. The second column provides you with the applicable toki pona word and gives you a short form to write it down. 
 
 
@@ -1277,7 +1283,7 @@ The descriptor table is based on the Toki Pona language. The second column provi
 *Yes / No Questions*
 |   1 | Very No  |
 | 2-4 | No       |
-| 5-6 | Abiguous |
+| 5-6 | Ambiguous |
 | 7-9 | Yes      |
 |  10 | Very yes |
 #+LATEX: \columnbreak
@@ -1314,7 +1320,7 @@ The descriptor table is based on the Toki Pona language. The second column provi
 | 08 | ijo     | thing, phenomenon, object, matter              |
 | 09 | ike     | bad, negative, irrelevant, complicated         |
 | 10 | ilo     | tool, implement, machine, device               |
-| 11 | insa    | centre, content, inside, internal organ        |
+| 11 | insa    | center, content, inside, internal organ        |
 | 12 | jaki    | disgusting, obscene, sickly, toxic, unclean    |
 | 13 | jan     | human being, person, somebody                  |
 | 14 | jelo    | yellow, yellowish                              |
@@ -1358,7 +1364,7 @@ The descriptor table is based on the Toki Pona language. The second column provi
 #+LATEX: \columnbreak
 #+ATTR_LATEX: :environment tabularx :width \linewidth :align rlX
 | 50 | mute    | many, a lot, more, much, quantity              |
-| 51 | nasa    | unusual, strange: silly: drunk, intoxicated    |
+| 51 | nasa    | unusual, strange: silly: drunk, intoxicated    | 
 | 52 | nasin   | way, custom, doctrine, method, path, road      |
 | 53 | nena    | bump, button, hill, mountain, nose             |
 | 54 | nimi    | name, word                                     |
@@ -1401,7 +1407,7 @@ The descriptor table is based on the Toki Pona language. The second column provi
 | 91 | unpa    | have sexual relations with                     |
 | 92 | uta     | mouth, lips, oral cavity, jaw                  |
 | 93 | utala   | battle, challenge, struggle against            |
-| 94 | walo    | white, whitish, light-coloured, pale           |
+| 94 | walo    | white, light-colored, pale                    |
 | 95 | wan     | unique, united: one                            |
 | 96 | waso    | bird, flying creature, winged animal           |
 | 97 | wawa    | strong, confident, energetic, intense          |
@@ -1421,10 +1427,10 @@ The descriptor table is based on the Toki Pona language. The second column provi
 - Some build new rooms and tunnels but most just reuse the existing ones.
 - Some plants (and mushrooms) can gain energy from heat, water and minerals.
 - Some plants give light
-- Many plants produce oxigen (just like overground)
-- Underground denisens
+- Many plants produce oxygen (just like overground)
+- Underground denizens
   - Dwarfs
-  - Orks
+  - Orcs
   - Goblins
   - Drow
   - Spiders
@@ -1441,9 +1447,9 @@ The supernatural exists in the shadows. Hidden from the eyes of the normal popul
 
 
 *** Magic
-- All checks for magic are risky. The negative consequences depend on how much reality was to be changed by the spell. For small or inpercivable changes the consequences are very temporary and often directed at the magician only (example: a short term confusion). For bigger changes or those that are very obvious or public the consequences can be more dire (example: a deadly explosion, permanent disfigurement or a curse)
-- To perform magic some form of an envolved action has to be performed. This can be a occult ritual, the taking of specific drugs, chanting or something similar. There is no fixed time that a spell needs.
-- Often times mages use special Ingredients. These can be parts of supernatural animals or plants, but also mundane items with specific characterisitcs (example: the blood of a murderer)
+- All checks for magic are risky. The negative consequences depend on how much reality was to be changed by the spell. For small or imperceivable changes the consequences are very temporary and often directed at the magician only (example: a short term confusion). For bigger changes or those that are very obvious or public the consequences can be more dire (example: a deadly explosion, permanent disfigurement or a curse)
+- To perform magic some form of an involved action has to be performed. This can be a occult ritual, the taking of specific drugs, chanting or something similar. There is no fixed time that a spell needs.
+- Often times mages use special Ingredients. These can be parts of supernatural animals or plants, but also mundane items with specific characteristics (example: the blood of a murderer)
 
 The mythstical can be experienced by everyone but the world has a strong tendency to obfuscate itself. Anyone who hinders it in doing so will be cursed with evil things. Those who aid it will sometimes be blessed, but only while in the pursuit of obfuscation. No one knows why this is.
 
@@ -1453,9 +1459,9 @@ A cursed person may be befallen with disease, bad luck or find himself disliked 
 Apsect: Blessed
 A blessed person may use the AP from the blessing (once per point) to aid in his actions. 
 
-This is also the reason why all organisations dealing with the supernatural tend to be very secretive, small and compartmentalised. Often operators and soldiers know only the bear minimum they need to. 
+This is also the reason why all organizations dealing with the supernatural tend to be very secretive, small and compartmentalized. Often operators and soldiers know only the bear minimum they need to. 
 
-The supernatural creatures are also impacted by this. The universe itself is fighting against these invaders, which bring its internal logic into question. However the supernatural exists and tries to stay alive or even in some cases bring ruin to the universe itself (for example eldrich gods)
+The supernatural creatures are also impacted by this. The universe itself is fighting against these invaders, which bring its internal logic into question. However the supernatural exists and tries to stay alive or even in some cases bring ruin to the universe itself (for example eldritch gods)
 
 ** Realms
 
@@ -1508,7 +1514,7 @@ Traits:
 #+end_npc
   
 *** Demon
-Demons are incorporeal creatures. They are able to possess people or objects. While possessed the demon has full control over the victim. The demon makes use of the victims physical and resource attributes. It can also try to get access to all the victims memories, skills and voice, but for this it has to continouusly overpower the victim which is still in there.
+Demons are in-corporeal creatures. They are able to possess people or objects. While possessed the demon has full control over the victim. The demon makes use of the victims physical and resource attributes. It can also try to get access to all the victims memories, skills and voice, but for this it has to continuously overpower the victim which is still in there.
 #+ATTR_LATEX: :options {Witch}{ca}{0 3 3 0}{63}
 #+begin_npc
 Aspects:
@@ -1531,9 +1537,9 @@ Traits:
 
 ** Rules
 
-Players can access the resources of their respective Organisation. When they do this they can invoke the aspects of the organisation. The organisation can also act on its own.
+Players can access the resources of their respective Organization. When they do this they can invoke the aspects of the organization. The organization can also act on its own.
 
-Since the players may only have a limited influence to access the resources of the organisation they can only get a limited ammount of help per mission. The value of the abstract =authority in <organisation>=  is this limiting factor. This value is not bought but earned. The GM may award a point to this aspect at the end of a session. The aspect is not bound to a single player character but the entire group. The aspect starts at the value 2. 
+Since the players may only have a limited influence to access the resources of the organization they can only get a limited amount of help per mission. The value of the abstract =authority in <organisation>=  is this limiting factor. This value is not bought but earned. The GM may award a point to this aspect at the end of a session. The aspect is not bound to a single player character but the entire group. The aspect starts at the value 2. 
 
 
 
@@ -1542,14 +1548,14 @@ Sometimes the characters will encounter the mystical. The mythstical can be expe
 Aspect: Cursed
 A cursed person may be befallen with disease, bad luck or find himself disliked and not believed by others. The curse tends to disappear as less and less people believe in what ever was revealed.
 
-Apsect: Blessed
+Aspect: Blessed
 A blessed person may use the AP from the blessing (once per point) to aid in his actions. 
 
-This is also the reason why all organisations dealing with the supernatural tend to be very secretive, small and compartmentalised. Often operators and soldiers know only the bear minimum they need to. 
+This is also the reason why all organizations dealing with the supernatural tend to be very secretive, small and compartmentalized. Often operators and soldiers know only the bear minimum they need to. 
 
-The supernatural creatures are also impacted by this. The universe itself is fighting against these invaders, which bring its internal logic into question. However the supernatural exists and tries to stay alive or even in some cases bring ruin to the universe itself (for example eldrich gods)
+The supernatural creatures are also impacted by this. The universe itself is fighting against these invaders, which bring its internal logic into question. However the supernatural exists and tries to stay alive or even in some cases bring ruin to the universe itself (for example eldritch gods)
 
-** Organisations
+** Organizations
 Have aspects and traits.
 
 =MI13=
@@ -1557,9 +1563,9 @@ Have aspects and traits.
 Observation: 
 Assault: 
 Human Intelligence: 
-Interrigation: 
+Interrogation: 
 Investigation:
-Okkultismus: 
+Occultism: 
 
 The MI13 is a secret branch of the British secret services. It deals with the supernatural. Because of the British colonial history, they have access to ancient artifacts from all over the world. These artifacts are mostly stored in vaults, but in some cases used to further the British agenda.
 
@@ -1586,17 +1592,16 @@ Trait: Occult Obfuscation Rituals
 
 =Order of Montessa=
 #+begin_quote
-Nachfolgeorden der Tempelritter
-- Streng christlich
-- 
+Descendent Order of the Knights Templar
+- Strictly Christian
 
 Trait: Banishing the Unnatural
 #+end_quote
 
 =Ordo Templi Orientis=
 #+begin_quote
-Okkulte Organisation
-Verbindung zu Theodor Reuß und Aleister Crowley
+Occult Organization
+Connection to Theodor Reuß and Aleister Crowley
 
 Trait: Sexual magic rituals for the divination of the occult
 #+end_quote
@@ -1635,7 +1640,7 @@ Aspects:
 
 *** The escape plan
 
-The players are tasked with exfiltrating a turncoat from eastern Germany into the west.
+The players are tasked with exfiltrating a turn-coat from eastern Germany into the west.
 
 Aspects:
 - Police State 2
@@ -1659,7 +1664,7 @@ The world is inhabitated by all the typical humanoid races you find in fantasy. 
 
 Technologically the world is comparable to the time of the first world war mixed with steampunk elements.
 
-Recently the world has become very tumultuous. Most nations are at war with one another. Alliances are fleeting and the tides of war are constantly shifting. The Nations of the world are not striktly separated by race. So a typical mixed group of players could be from anywhere. 
+Recently the world has become very tumultuous. Most nations are at war with one another. Alliances are fleeting and the tides of war are constantly shifting. The Nations of the world are not strictly separated by race. So a typical mixed group of players could be from anywhere. 
 
 The following assumes the group to play spies or gangsters.
 
@@ -1676,7 +1681,7 @@ Organisation Influence:
 ** Adventure Hooks
 
 *** Sabotage the War Machine
-The players are tasked with sabotaging the production of warmachines from a rival faction. In order to do this they need to achieve the following things:
+The players are tasked with sabotaging the production of war-machines from a rival faction. In order to do this they need to achieve the following things:
 - Enter the enemies city
 - Gain access to the factory
 - Compromise one or more of the workers to perform the sabotage
@@ -1690,7 +1695,7 @@ The players are tasked with sabotaging the production of warmachines from a riva
 
 The city is full of orphans because of the ongoing war. The players hear rumors that several orphans have gone missing.
 
-- The institute of archane studies sits in a network of buildings litteres throughout the city.
+- The institute of arcane studies sits in a network of buildings littered throughout the city.
 - The institute provides weapons to the military and uses the Orphans to build some of them. The brains of the children are extracted and used as guidance systems for bombs.
 - 
 
@@ -1711,9 +1716,9 @@ The city is full of orphans because of the ongoing war. The players hear rumors 
 Myths, folklore, science
 ** 2. Idea Generation
 legality
-need ingredients or foki
+need ingredients or fokus
 needs to be related to myth and folklore
-Wird Ingredients like "first snow of may" or "blood of a murderer" are needed
+Weird Ingredients like "first snow of may" or "blood of a murderer" are needed
 ** 3. Alignment (with the story)
 Give players the ability to interact with the supernatural
 give players an incentive to interact with the supernatural
@@ -1739,14 +1744,14 @@ it is unclear what determines the meaning of the things which are symbolic
 - the living
 - the dead
 the meaning of things can change with time but the magic has a resistance to this change. not an immunity
-magicians greatly enhance the symbols effects wen doing magic,
+magicians greatly enhance the symbols effects when doing magic,
 a magician hones this ability to enhance the power of the symbolism
 a magician studied symbols and stories.
-esoteric types of understanding are also effectfull.
-magic often combines different symbols to achieve precice effects
+esoteric types of understanding are also effectful.
+magic often combines different symbols to achieve precise effects
 
 Restrictions:
-- every spell needs a worldly compoent
+- every spell needs a worldly component
   - an object
   - a sound
   - an action
@@ -1813,11 +1818,11 @@ Traits:
 Aspects:
 - Spy  Training 5
 - Combat Training 2
-- Contorionist 2
+- Contortionist 2
 \columnbreak
 
 Traits:
-- Cameleon Suit: This suit can dynamicaly change color and even appear semi transparent. With Training one can use it almost like an invisibility suit.
+- Cameleon Suit: This suit can dynamically change color and even appear semi transparent. With Training one can use it almost like an invisibility suit.
 #+end_npc
 
 
@@ -1825,8 +1830,8 @@ Traits:
 
 ** Rules
 
-- Every scene you play one round of the battle between the spaceshps. 
-- For each ship sum together all rools ship values
+- Every scene you play one round of the battle between the spaceships. 
+- For each ship sum together all rolled ship values
 - Attack is used to attack the opponent.
 - Defense is used to defend against the opponents attack.
 - Any damage goes first against the total shield strength.
@@ -1845,10 +1850,10 @@ Traits:
 Ships Values
 - Attack 120
 - Defense 0
-- Power Consuption 60
+- Power Consumption 60
 - Hull 75
 
-- 6 Enineers (CR 4)
+- 6 Engineers (CR 4)
   - \aspect{Plasma Pistol 2}
 - \aspect{Danger: Explosive 5}
 - \aspect{Many nooks and crannies 4}
@@ -1857,10 +1862,10 @@ Ships Values
 Ships Values
 - Attack 0
 - Defense 120
-- Power Consuption 180
+- Power Consumption 180
 - Hull 50
 
-- 3 Enineers (CR 4)
+- 3 Engineers (CR 4)
   - \aspect{Plasma Pistol 2}
 - \aspect{High Power Consuption 5}
 - \aspect{Many nooks and crannies 4}
@@ -1870,10 +1875,10 @@ Ships Values
 Ships Values
 - Attack 0
 - Defense 0
-- Power Consuption 180
+- Power Consumption 180
 - Hull 50
 
-- 4 Enineers (CR 4)
+- 4 Engineers (CR 4)
   - \aspect{Plasma Pistol 2}
 - 2 Guards (CR 5)
   - \aspect{Plasma Rifle 3}
@@ -1884,10 +1889,10 @@ Ships Values
 Ships Values
 - Attack 0
 - Defense 0
-- Power Consuption 300
+- Power Consumption 300
 - Hull 75
 
-- 4 Enineers (CR 4)
+- 4 Engineers (CR 4)
   - \aspect{Plasma Pistol 2}
 - 4 Guards (CR 5)
   - \aspect{Plasma Rifle 3}
@@ -1936,15 +1941,15 @@ Ships Values
 During the first 3 Scenes, will some of the board personal be here. They will stow away all movable objects in the hall. Afterwards they will move to the shuttle bay in order to be ready for an evacuation.
 
 - \aspect{}
-- 5 Ship Personel (CR 3)
+- 5 Ship Personnel (CR 3)
 
 *** Medical Bay
 Ships Values
 - Hull 100
 
-Whenever a room gets hit and destroyed some of the personel may be injured and brought to the medical bay. 
+Whenever a room gets hit and destroyed some of the personnel may be injured and brought to the medical bay. 
 
-- 2 Docktors (CR 3)
+- 2 Doctors (CR 3)
   - \apsect{Medical Training 4}
   - \apsect{Pacifist 2}
 - \aspect{Medical Equipment 6}
@@ -1956,14 +1961,14 @@ A Medieval Fantasy scenario.
 
 Escape from the dungeon of a necromancer.
 
-The players play a group of people who were captured by a powerfull necromancer. The necromancer has conquered a small kingdom with his forces and regularly gets deliveries of prisoners which he uses for his necromantic experiments. The group find themselves in the dungeon cells. And need to flee. Through another half dead prisoner they get the information that escape is impossible. Every prisoner is magically marked and can always be found by the necromancers forces. The Necromancer is Arrogant and Cruel. If you can escape your only chance is defeating the necromancer and freeing this land from his scurge.  
+The players play a group of people who were captured by a powerful necromancer. The necromancer has conquered a small kingdom with his forces and regularly gets deliveries of prisoners which he uses for his necromantic experiments. The group find themselves in the dungeon cells. And need to flee. Through another half dead prisoner they get the information that escape is impossible. Every prisoner is magically marked and can always be found by the necromancers forces. The Necromancer is Arrogant and Cruel. If you can escape your only chance is defeating the necromancer and freeing this land from his scourge.  
 
 ** Cast
 
 #+ATTR_LATEX: :options {Knight}{at}{6 5 5 3 3 3 5 5}{54}
 #+begin_npc
 Aspects:
-- Experieced Turney Combatant 5
+- Experienced Tournament Combatant 5
 - Member of a noble family 4
   
 \columnbreak
@@ -1975,7 +1980,7 @@ Traits:
 #+ATTR_LATEX: :options {Thief}{at}{5 7 3 4 3 5 3 3}{69}
 #+begin_npc
 Aspects:
-- Member of the Shadows (thiefes guild) 5
+- Member of the Shadows (thieves guild) 5
 - Great free climber 3
 - Smooth talker 1
   
@@ -1988,7 +1993,7 @@ Traits:
 #+ATTR_LATEX: :options {Druid}{at}{3 3 5 6 3 3 5 5}{96}
 #+begin_npc
 Aspects:
-- Circle of the eternal forrest druid 6
+- Circle of the eternal forest druid 6
 - Herbalist 5
 - Recluse 2
   
@@ -2007,7 +2012,7 @@ Aspects:
 - Divinator 10
 - Ruler of the Darklands 7
 - Sadistic Master of Pain 5
-- Shure of himself / Arrogant 5
+- Sure of himself / Arrogant 5
   
 \columnbreak
 
@@ -2051,7 +2056,7 @@ Traits:
 *** Dungeon (-1 floor)
 CR +0
 
-The dungeon is a couple of hallways which are lined with small cells. Each cell has walls made from mordared rough stone and are shut with a metal banded heavy wooden door. The only sources of light are a dimmly glowing lichen and some magical candles in the hallways which are made from fingerbones.
+The dungeon is a couple of hallways which are lined with small cells. Each cell has walls made from mortared rough stone and are shut with a metal banded heavy wooden door. The only sources of light are a dimly glowing lichen and some magical candles in the hallways which are made from finger bones.
 
 - Very dim light 3
 - Rot and decay 3
@@ -2062,7 +2067,7 @@ The dungeon is a couple of hallways which are lined with small cells. Each cell 
 *** Torture Chamber (-1 floor)
 CR +1
 
-The pain and suffering of sentients are a powerfull ingredient if extracted correctly. The torture chamber has all the tools of the trade. Its ceiling is adorned by a green eye which appears to be unmoving yet always gives the eary feeling it is looking right at you. The eye extacts the pain and channels it into the green elixir which has to be placed on the altar on the far side if the room.
+The pain and suffering of sentient are a powerful ingredient if extracted correctly. The torture chamber has all the tools of the trade. Its ceiling is adorned by a green eye which appears to be unmoving yet always gives the eary feeling it is looking right at you. The eye extracts the pain and channels it into the green elixir which has to be placed on the altar on the far side if the room.
 
 - all sorts of torture implements 6
 - 
@@ -2070,17 +2075,17 @@ The pain and suffering of sentients are a powerfull ingredient if extracted corr
 *** Pantry and Wine Cellar (-1 floor)
 CR -1
 
-A long line of barrels line one side of this hallway. The other is lined with dusty wine bottles. To keep his mortal servants from stealing from his precious collection the necromancer has created the stalker. A scarily deformed skeleton whichis supposed to hide in the shadows and ambush and thiev. however it did sucumb to decay and now some of the guards steal a little from time to time.
+A long line of barrels line one side of this hallway. The other is lined with dusty wine bottles. To keep his mortal servants from stealing from his precious collection the necromancer has created the stalker. A scarily deformed skeleton which is supposed to hide in the shadows and ambush and thieve. however it did succumb to decay and now some of the guards steal a little from time to time.
 
 - Dark nooks and crannies 4
 - Great wine 6
-- Vial of konzentrated suffering
+- Vial of concentrated suffering
 
 
 *** Necromantic Lab (-1 floor)
 CR +2
 
-In this horrid room full of horrors and half fished experiments. This is where all the necromancers special troops are stitched together. The players will find here some of the notes ot the dark mage, dangerous creatures and more than enough reason to hate. The partially build creatures here will attack the players once they come close enough.
+In this horrid room full of horrors and half fished experiments. This is where all the necromancers special troops are stitched together. The players will find here some of the notes of the dark mage, dangerous creatures and more than enough reason to hate. The partially build creatures here will attack the players once they come close enough.
 
 - 
 
@@ -2096,13 +2101,12 @@ A few bunk beds, a table, and some chairs are in this room, This is where the gu
 *** Entrance Hall (0 floor)
 CR -2
 
-The tall double winged door is closed. Outside, infront of the door stand a couple of heavyly armored guards.
+The tall double winged door is closed. Outside, in front of the door stand a couple of heavily armored guards.
 
 *** Alchemy Lab (0 floor)
 CR +0
 
 - All sorts of Alchemical instruments and ingredients 6
-- 
 
 *** Kitchen (0 floor)
 CR +0
@@ -2117,14 +2121,14 @@ CR +0
 *** Dining Room (1 floor)
 CR +0
 
-A long table, made from Mahogany, is the centerpiece of this room. Despite the sice, and Luxury of this room, is it mainly used by the dark lord of this house to demonstrate his superiority.
+A long table, made from Mahogany, is the centerpiece of this room. Despite the size, and Luxury of this room, is it mainly used by the dark lord of this house to demonstrate his superiority.
 
-- lucurious 5
+- luxurious 5
 
 *** Living Chambers (2 floor)
 CR +2
 
-The personal chambers of the lord are surprisingly simple, yet or of high qualit. The players have to be carefull as these rooms is always guarded. 
+The personal chambers of the lord are surprisingly simple, yet or of high quality. The players have to be careful as these rooms is always guarded. 
 
 - Simple 3
 - Quality 3
@@ -2134,19 +2138,19 @@ CR +3
 
 This room is frequently visited and occupied by the mage.
 
-- A vast coleection of tomes 6
+- A vast collection of tomes 6
 
   
 
 *** Observatory (4 floor)
 CR +4
 
-On the very top of the tower and surounded by a balcony is the mages observagory.
+On the very top of the tower and surrounded by a balcony is the mages observatory.
 
 - Tools of astronomy and divination 6
 . High up 6
 
-* COMMENT TODO One Shot: Chrashed in the Amazon
+* COMMENT TODO One Shot: Crashed in the Amazon
 
 A pulp adventure scenario.
 
@@ -2156,12 +2160,12 @@ The year is 1930. Your group has crash landed in the Amazonean Rainforrest. Yoha
 
 A modern horror scenario.
 
-The year is 1980. You play a group of collegue students who decided on a dare to spend a night in an abandoned hospital. Originally you came with more people but because of a stupid fight you split up into two groups. You settled down in one of the old patients rooms on the first floor. As the clock shows midnight, you hear a sudden bang, as all doors and windows of the hospital shut at once. From this point on they can not be opened by any means. You have to figure out how to escape from this situation. 
+The year is 1980. You play a group of college students who decided on a dare to spend a night in an abandoned hospital. Originally you came with more people but because of a stupid fight you split up into two groups. You settled down in one of the old patients rooms on the first floor. As the clock shows midnight, you hear a sudden bang, as all doors and windows of the hospital shut at once. From this point on they can not be opened by any means. You have to figure out how to escape from this situation. 
 
 Background:
 - The hospital has a very long history.
   - The oldest part of the hospital is build in a former prison.
-  - It was once a mental istitution.
+  - It was once a mental institution.
   - A couple of years ago, there was a scandal when a nurse turned serial child murderer.
 - It is inhabited by several ghosts. Each has different goals.
   - A ghost can be pacified or destroyed. For both you need an understanding of his history.
@@ -2220,7 +2224,7 @@ Traits:
 
 Items:
 - Flashlight 1
-- Pocketknive 2
+- Pocketknife 2
 - Gaffa Tape 1
 #+end_npc
 
@@ -2300,13 +2304,13 @@ The players are not able to leave the hospital in any way until they have dealt 
 
 Stalked by the shadows. If one of the shadows catches you it will try to carry you off into the Orthopedic ward. There they will Break your limbs.
 
-Points of Interrest:
+Points of Interest:
 - You can find beta-blockers to calm your nerves.
-- You can find Koffein to stay awake.
+- You can find Coffein to stay awake.
 
 *** Kitchen (1 floor)
 
-The kitchen is pure chaos. A bunch of poltergeists throw stuff around in here. Only the cleaning closet is untuched by the poltergeist.
+The kitchen is pure chaos. A bunch of poltergeists throw stuff around in here. Only the cleaning closet is untouched by the poltergeist.
 
 - \aspect{Poltergeist 4}
 - \aspect{Save but insanely cold walk in fridge 5}
@@ -2322,7 +2326,7 @@ Stalked by the shadows. If one of the shadows catches you it will try to carry y
 Shadow (C 4):
 - \aspect{Strong 8}
 - \aspect{Pushed away by light 3}
-- Incorporal and immportal
+- Incorporal and immortal
 
 
 *** Accident & Emergency (1 floor)
@@ -2331,20 +2335,20 @@ If the players find the ambulance in the garage, they can try to bring it back t
 
 - \aspect{broken Ambulance 6}
 
-Points of Interrest:
+Points of Interest:
 - You can find some tools here. \aspect{Hammers 1}, \aspect{Saws 2}. In one of the ambulances even a \aspect{crowbar 2}
-- You can find a pair of walky talkies here.
+- You can find a pair of walky-talkies here.
 
 
 *** Entrance Hall (1 floor)
 
-The entrance hall is mostly like the players remember from when they came in. Since it is the way to everything else you can hear noised and feel winds comming from everywhere.
+The entrance hall is mostly like the players remember from when they came in. Since it is the way to everything else you can hear noised and feel winds coming from everywhere.
 
 - \aspect{A feeling of strong unease and damger 2}
 
 
-Points of Interrest:
-- A brief history of the Hospital with maps and fotos.
+Points of Interest:
+- A brief history of the Hospital with maps and photos.
   - If looked at closely you can find a weird spot on the basements map from back in asylum times.
     If cross referenced with the maps from prison times your find the spot of a hidden room. Today it borders on the Autopsy chambers.
 
@@ -2352,16 +2356,16 @@ Points of Interrest:
 
 Stalked by the shadows. If one of the shadows catches you it will try to carry you off into the Orthopedic ward. There they will Break your limbs.
 
-*** Surgery theathres (2 floor)
-The former surgery theatres and neighboring rooms smell weird. Sometimes a fog moves through the rooms. If a creature is caught in it it tends to put them to sleep.
+*** Surgery theaters (2 floor)
+The former surgery theaters and neighboring rooms smell weird. Sometimes a fog moves through the rooms. If a creature is caught in it it tends to put them to sleep.
 
 - \aspect{The smell of pain 3}
 - \aspect{Anestetic Fog 4}
 
-Points of Interrest:
-- A display cabinet with the original notebook of a famous neurologist (TODO Name) who worked here back when it was an insame asylum.
+Points of Interest:
+- A display cabinet with the original notebook of a famous neurologist (TODO Name) who worked here back when it was an insane asylum.
   - If read by the players they can find notes about operations on patient during which he found several abnormalities with their brains.
-  - If cross referenced with the notes you can find in administration you will find out that those patiens where officially not operated on but died by other causes just before the date of the operation.
+  - If cross referenced with the notes you can find in administration you will find out that those patients where officially not operated on but died by other causes just before the date of the operation.
   - You can find a hint on where in the basement the operation room should be.
 
 *** Chapel (2 floor)
@@ -2372,15 +2376,15 @@ Points of Interrest:
 
 - \aspect{Chaos 3}
 
-Points of Interrest:
+Points of Interest:
 - If you go through the notes you may find:
-  - Asylum Patient Records: It contains lists of patients, their arrival, conditions and release or death date. Also the cause of death if applicable. If cross referenced with the notebook from the Surgery Theatre then ... (see there)
-  - Personel Records: If they search for the Murderous Nurse then they will find out that her grandmother died in the insame asylum. If they search for her in asylum records then they will find how she had murderous rages whenever she was separated from her Baby Blanket. Beacuse of company policy it was once taken from her completely and put into storage.
+  - Asylum Patient Records: It contains lists of patients, their arrival, conditions and release or death date. Also the cause of death if applicable. If cross referenced with the notebook from the Surgery Theater then ... (see there)
+  - Personnel Records: If they search for the Murderous Nurse then they will find out that her grandmother died in the insane asylum. If they search for her in asylum records then they will find how she had murderous rages whenever she was separated from her Baby Blanket. Because of company policy it was once taken from her completely and put into storage.
 
 
-*** Pediadric and Maternity Ward (3 floor)
+*** Pediatric and Maternity Ward (3 floor)
 
-The pediatric ward is stalek by the ghost of the Murderous Nurse. She stalks through the rooms hunting the ghosts of the children. If a player is seen by her then she will hunt them. She is corporeal and will react to being fought with weapons. But she can not die. If she is slain her body will disintegrate and she will soon stalk the halls again.
+The pediatric ward is stalked by the ghost of the Murderous Nurse. She stalks through the rooms hunting the ghosts of the children. If a player is seen by her theen she will hunt them. She is corporeal and will react to being fought with weapons. But she can not die. If she is slain her body will disintegrate and she will soon stalk the halls again.
 
 - \aspect{Childrens Noises 2}
 
@@ -2392,9 +2396,9 @@ Mad Maggie (C 4xPlayers):
 - \aspect{Broken Mind of a Mad Woman 6}
 
 
-*** Autopsie (-1 floor)
-Set in a renovated part of the former Prison Celar is the autopsy department. The main room is lined with a wall of body storages.
-When the group comes into the room the dead in the storages begin to rise. They start to move and pound on the doors. If freed or if they had enough time to free selselves they will fight the living. Once the dead have left their confinement the lights turn of and only blink for a second when turned on again. Flashlights may still work normally.
+*** Autopsy (-1 floor)
+Set in a renovated part of the former Prison Cellar is the autopsy department. The main room is lined with a wall of body storages.
+When the group comes into the room the dead in the storages begin to rise. They start to move and pound on the doors. If freed or if they had enough time to free themselves they will fight the living. Once the dead have left their confinement the lights turn of and only blink for a second when turned on again. Flashlights may still work normally.
 
 - \aspect{Unnaturally Cold 3}
 - \aspect{Sharp Instruments 4}
@@ -2405,19 +2409,19 @@ Zombie (C 3)
 - \aspect{Unfeeling undead 2}
 - \aspect{Literally Brainless 3}
 
-Points of Interrest:
-- The zombies are the patients of the famous nuerologist. They all have some mark of surgery on their heads.
-- Entrance to secret surgery room: Behind the wall where the bodys are stored there is the old surgery room of the neurologist. This can be found out in the entrance hall.
+Points of Interest:
+- The zombies are the patients of the famous neurologist. They all have some mark of surgery on their heads.
+- Entrance to secret surgery room: Behind the wall where the bodies are stored there is the old surgery room of the neurologist. This can be found out in the entrance hall.
 
 
 *** storage cellar (-1 floor)
-Since the Hospital is build on a former Prison its cellar still has that layout. The rooms are fillesd.
+Since the Hospital is build on a former Prison its cellar still has that layout. The rooms are filled.
 
 - \aspect{Prison Doors 3 [10]}
 - \aspect{A bunch of Random Stuff in Storage 5}
 - \aspect{Flickering Lights 2}
 
-Points of Interrest:
+Points of Interest:
 - In a few of the rooms you can find a bunch of very old numbered boxes. In them is very random stuff.
   - One of the boxes contains the baby blanket of the murderous nurses grandmother. This can be used to pacify the ghost.
 
