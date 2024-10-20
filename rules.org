@@ -2427,12 +2427,11 @@ Points of Interest:
 
 
 #+LATEX: \newpage
+#+LATEX: \newgeometry{margin=0.75cm,top=0.75cm,left=0.75cm,bottom=0.75cm}
+#+LATEX: \afterpage{\restoregeometry}
 #+LATEX: \thispagestyle{empty}
 
 #+ATTR_LATEX: :width 1.0\textwidth
 [[file:images/Character Sheet.png]]
 
-#+LATEX: \setlength{\hoffset}{0pt}
-#+LATEX: \setlength{\voffset}{0pt}
-#+LATEX: \setlength{\textwidth}{14cm}
 
