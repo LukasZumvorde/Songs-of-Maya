@@ -2420,3 +2420,15 @@ Since the Hospital is build on a former Prison its cellar still has that layout.
 Points of Interrest:
 - In a few of the rooms you can find a bunch of very old numbered boxes. In them is very random stuff.
   - One of the boxes contains the baby blanket of the murderous nurses grandmother. This can be used to pacify the ghost.
+
+
+#+LATEX: \newpage
+#+LATEX: \thispagestyle{empty}
+
+#+ATTR_LATEX: :width 1.0\textwidth
+[[file:images/Character Sheet.png]]
+
+#+LATEX: \setlength{\hoffset}{0pt}
+#+LATEX: \setlength{\voffset}{0pt}
+#+LATEX: \setlength{\textwidth}{14cm}
+
