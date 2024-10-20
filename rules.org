@@ -1753,7 +1753,9 @@ Restrictions:
 - every spell can be disabled with worldly means.
 - Symbols change and their interactions with one another change as well. This makes magic dangerous.    
 
-* One Shot: Sabotage during a space battle (Scy-Fi)
+* One Shot: Sabotage during a space battle
+
+A Sci-Fi scenario.
 
 ** Introduction
 You are a group of spies that snuck in on an enemies powers military space ship. You have face identities. Recently you have been informed by your command that your ship is going to be attacked. Your job is to sabotage the ship you are on in order to ensure the battle goes in your factions favor. You are then supposed to flee with one of the drop pods.
@@ -1835,7 +1837,9 @@ Traits:
 
 ** Spaceship
 
-[[file:images/Space Ship.png][Space Ship Plan]]
+
+[[file:images/Space Ship.png]]
+
 
 *** Weapons Bays
 Ships Values
@@ -1946,7 +1950,9 @@ Whenever a room gets hit and destroyed some of the personel may be injured and b
 - \aspect{Medical Equipment 6}
 
 
-* One Shot: In the Necromancers Dungeon (Medieval Fantasy)
+* One Shot: In the Necromancers Dungeon
+
+A Medieval Fantasy scenario.
 
 Escape from the dungeon of a necromancer.
 
@@ -2140,11 +2146,15 @@ On the very top of the tower and surounded by a balcony is the mages observagory
 - Tools of astronomy and divination 6
 . High up 6
 
-* COMMENT TODO One Shot: Chrashed in the Amazon (Pulp Adventure)
+* COMMENT TODO One Shot: Chrashed in the Amazon
+
+A pulp adventure scenario.
 
 The year is 1930. Your group has crash landed in the Amazonean Rainforrest. Yohave to find a way out. The only signs of Humans are an ancient Pyramid and the Revolutionaries Base nearby. They will not let you leave alive, out of fear you could tell anyone outside about them.
 
-* One Shot: A night at the Hospital (Modern Horror)
+* One Shot: A night at the Hospital
+
+A modern horror scenario.
 
 The year is 1980. You play a group of collegue students who decided on a dare to spend a night in an abandoned hospital. Originally you came with more people but because of a stupid fight you split up into two groups. You settled down in one of the old patients rooms on the first floor. As the clock shows midnight, you hear a sudden bang, as all doors and windows of the hospital shut at once. From this point on they can not be opened by any means. You have to figure out how to escape from this situation. 
 
