@@ -2,11 +2,9 @@
 #+author:     Lukas Zumvorde
 #+date:       [2022-10-03 Mo 13:19]
 
-#+begin_comment
-# Dice Sym https://anydice.com/program/3234f
-#+end_comment
-
 #+OPTIONS: toc:t H:10 tex:t author:nil date:nil num:3
+
+# Alternative Namens ideen: Songs of Maya
 
 # HTML export CSS
 #+HTML_HEAD: <style type="text/css">
@@ -184,8 +182,9 @@ Sometimes it makes no sense to roll dice, but we want a constant value. Then we 
 The dice points (DP) are calculated from the attributes and aspects. They are used to buy the dice you roll for a check.
 
 - A die is worth exactly its average result in DP
-  - $1 d N$ is worth $\frac{N+1}{2}$ dice points
-  - $1 d_0 N$ is worth $\frac{N}{2}$ dice points
+  - $1 d N$ is worth $\frac{N+1}{2}$ DP
+  - $1 d_0 N$ is worth $\frac{N}{2}$ DP
+  - Throwing a N sided die twice and subtracting the lower result from the higher is worth $\frac{N}{3}$ DP
 - It is possible for costs to contain a fraction of a DP.
 - A constant $N$ are worth $N$ dice points (generally you should limit this to $\frac{1}{4}$ of the dice points). Fractions of a point are possible.
 - Any dice multiplied by a factor $F$ is worth the price of a single die multiplied by this factor $F$
@@ -389,16 +388,11 @@ Everyone rolls individually and then sum together all AP. Alternatively you can 
 :CUSTOM_ID: sec:risky
 :END:
 
-# If a check is risky the character might incur something bad if the check fails. If the check fails a negative aspect is created worth the difficulty in points. The minimum is 1. You can not take the average on a risky check.
-# If the lowest possible value (die shows 0) is rolled on a risky check, then you reroll the check. This result is then used to create a negative aspect. 
-# Roll an additional d6, called the risk die. If the risk die shows a 6 then the result of the check is used to create a negative aspect.
-# Alternatively you can forego rolling a risky check all together, including the risk die, but then the result is always half of your dice points.
-
 Roll the same dice you rolled for the check again. If these show a higher value then it comes to a bad outcome. The original check dice (not those for the risk check) are used to create a negative aspect.
 
 The chance of something bad happening is quite high (around 50%) unless you reduce the risk. If this is too risky for your game then you can require two risk rolls instead. Something bad only happens if both risk rolls are higher (around 30%). 
 
-Before the check a player can reduce or heighten the risk. To do this reduce the risk rolls by a number. After comparing them to the check roll the check roll is reduced by the same number, down to a minimum of 0. Note that you reduce the result of the dice roll, not the AP for the check. 
+Before the check a player can reduce or heighten the risk. For this select a number. For the comparison of the dice, the check roll is increased by the number, but for the result the check is decreased by the number. The check roll can not go below its regular minimum. Calculating the AP from the check happens after all this.
 
 **** Taking Time
 Sometimes a check is to difficult to achieve something within 1 check. Then it may be possible to do multiple checks over a longer time to accumulate the points needed. However, you must decide beforehand how many checks you want to take. The AP of all checks are accumulated after considering the difficulty. The GM has a veto right and can limit the amount of checks.
@@ -580,6 +574,8 @@ With this, magic can still become quite powerful, since one can create several a
 It is up to the individual games setting to define how magic works. By themselves the rules above give a very soft magic system, but by defining how magic works in your world, you can make it a hard magic system.
 
 Some technology can be handled just like magic as well. For example in a cyberpunk setting a hacker may be handled just like a mage in a fantasy setting.
+
+To limit the ammount of spells being cast, you may rule that a spell has to be kept active. This means that each active spell acts as a negative aspect for each additionaly cast spell. 
 
 ** Less precise Attributes
 :PROPERTIES:
@@ -1755,11 +1751,9 @@ Restrictions:
   - a sound
   - an action
 - every spell can be disabled with worldly means.
-- Symbols change and their interactions with one antoher change as well. This makes magic dangerous.    
+- Symbols change and their interactions with one another change as well. This makes magic dangerous.    
 
-
-
-* COMMENT One Shot: Sabotage during a space battle (Scy-Fi)
+* One Shot: Sabotage during a space battle (Scy-Fi)
 
 ** Introduction
 You are a group of spies that snuck in on an enemies powers military space ship. You have face identities. Recently you have been informed by your command that your ship is going to be attacked. Your job is to sabotage the ship you are on in order to ensure the battle goes in your factions favor. You are then supposed to flee with one of the drop pods.
@@ -1952,17 +1946,206 @@ Whenever a room gets hit and destroyed some of the personel may be injured and b
 - \aspect{Medical Equipment 6}
 
 
-* COMMENT One Shot: In the Necromancers Dungeon (Medieval Fantasy)
+* One Shot: In the Necromancers Dungeon (Medieval Fantasy)
 
 Escape from the dungeon of a necromancer.
 
-* COMMENT One Shot: Chrashed in the Amazon (Pulp Adventure)
+The players play a group of people who were captured by a powerfull necromancer. The necromancer has conquered a small kingdom with his forces and regularly gets deliveries of prisoners which he uses for his necromantic experiments. The group find themselves in the dungeon cells. And need to flee. Through another half dead prisoner they get the information that escape is impossible. Every prisoner is magically marked and can always be found by the necromancers forces. The Necromancer is Arrogant and Cruel. If you can escape your only chance is defeating the necromancer and freeing this land from his scurge.  
+
+** Cast
+
+#+ATTR_LATEX: :options {Knight}{at}{6 5 5 3 3 3 5 5}{54}
+#+begin_npc
+Aspects:
+- Experieced Turney Combatant 5
+- Member of a noble family 4
+  
+\columnbreak
+
+Traits:
+- none
+#+end_npc
+
+#+ATTR_LATEX: :options {Thief}{at}{5 7 3 4 3 5 3 3}{69}
+#+begin_npc
+Aspects:
+- Member of the Shadows (thiefes guild) 5
+- Great free climber 3
+- Smooth talker 1
+  
+\columnbreak
+
+Traits:
+- Sink into Shadows 
+#+end_npc
+
+#+ATTR_LATEX: :options {Druid}{at}{3 3 5 6 3 3 5 5}{96}
+#+begin_npc
+Aspects:
+- Circle of the eternal forrest druid 6
+- Herbalist 5
+- Recluse 2
+  
+\columnbreak
+
+Traits:
+- Protector and Servant of Nature
+#+end_npc
+
+** NPCs
+
+#+ATTR_LATEX: :options {Necromancer}{at}{12 12 24 24 16 20 16 16}{264}
+#+begin_npc
+Aspects:
+- Master of the Dark Arts 12
+- Divinator 10
+- Ruler of the Darklands 7
+- Sadistic Master of Pain 5
+- Shure of himself / Arrogant 5
+  
+\columnbreak
+
+Traits:
+- Lich
+- Necromantic Fleshweaver
+
+Items:
+- Skeleton Staff 6
+- Dagger of Pain 6
+#+end_npc
+
+#+ATTR_LATEX: :options {Guard}{at}{4 4 3 3 3 3 3 3}{0}
+#+begin_npc
+Aspects:
+- Trained Guard 3
+- Likes to Drink 2
+- 
+  
+\columnbreak
+
+Traits:
+- 
+#+end_npc
+
+#+ATTR_LATEX: :options {Undead Abomination}{at}{6 6 1 1 1 1 0 0}{15}
+#+begin_npc
+Aspects:
+- Hates life 6 
+  
+\columnbreak
+
+Traits:
+- Undead
+- Obedient Servant
+#+end_npc
+
+
+** Map
+
+*** Dungeon (-1 floor)
+CR +0
+
+The dungeon is a couple of hallways which are lined with small cells. Each cell has walls made from mordared rough stone and are shut with a metal banded heavy wooden door. The only sources of light are a dimmly glowing lichen and some magical candles in the hallways which are made from fingerbones.
+
+- Very dim light 3
+- Rot and decay 3
+- Water dripping from the ceiling 2
+- Heavy iron banded doors 
+
+
+*** Torture Chamber (-1 floor)
+CR +1
+
+The pain and suffering of sentients are a powerfull ingredient if extracted correctly. The torture chamber has all the tools of the trade. Its ceiling is adorned by a green eye which appears to be unmoving yet always gives the eary feeling it is looking right at you. The eye extacts the pain and channels it into the green elixir which has to be placed on the altar on the far side if the room.
+
+- all sorts of torture implements 6
+- 
+
+*** Pantry and Wine Cellar (-1 floor)
+CR -1
+
+A long line of barrels line one side of this hallway. The other is lined with dusty wine bottles. To keep his mortal servants from stealing from his precious collection the necromancer has created the stalker. A scarily deformed skeleton whichis supposed to hide in the shadows and ambush and thiev. however it did sucumb to decay and now some of the guards steal a little from time to time.
+
+- Dark nooks and crannies 4
+- Great wine 6
+- Vial of konzentrated suffering
+
+
+*** Necromantic Lab (-1 floor)
+CR +2
+
+In this horrid room full of horrors and half fished experiments. This is where all the necromancers special troops are stitched together. The players will find here some of the notes ot the dark mage, dangerous creatures and more than enough reason to hate. The partially build creatures here will attack the players once they come close enough.
+
+- 
+
+*** Watch Room (0 floor)
+CR +2
+
+A few bunk beds, a table, and some chairs are in this room, This is where the guards stay if they dont have to do their rounds. Most of the time there is at least one guard here. Either sleeping or playing cards at the table. Maybe even drinking some stolen wine.
+
+- Well lit 2
+- Kind of chaotic 2
+- 
+
+*** Entrance Hall (0 floor)
+CR -2
+
+The tall double winged door is closed. Outside, infront of the door stand a couple of heavyly armored guards.
+
+*** Alchemy Lab (0 floor)
+CR +0
+
+- All sorts of Alchemical instruments and ingredients 6
+- 
+
+*** Kitchen (0 floor)
+CR +0
+
+- Pots Pans and Knives 3
+
+*** Guest Rooms (1 floor)
+CR +0
+
+
+
+*** Dining Room (1 floor)
+CR +0
+
+A long table, made from Mahogany, is the centerpiece of this room. Despite the sice, and Luxury of this room, is it mainly used by the dark lord of this house to demonstrate his superiority.
+
+- lucurious 5
+
+*** Living Chambers (2 floor)
+CR +2
+
+The personal chambers of the lord are surprisingly simple, yet or of high qualit. The players have to be carefull as these rooms is always guarded. 
+
+- Simple 3
+- Quality 3
+  
+*** Library (3 floor)
+CR +3
+
+This room is frequently visited and occupied by the mage.
+
+- A vast coleection of tomes 6
+
+  
+
+*** Observatory (4 floor)
+CR +4
+
+On the very top of the tower and surounded by a balcony is the mages observagory.
+
+- Tools of astronomy and divination 6
+. High up 6
+
+* COMMENT TODO One Shot: Chrashed in the Amazon (Pulp Adventure)
 
 The year is 1930. Your group has crash landed in the Amazonean Rainforrest. Yohave to find a way out. The only signs of Humans are an ancient Pyramid and the Revolutionaries Base nearby. They will not let you leave alive, out of fear you could tell anyone outside about them.
 
-* COMMENT One Shot: Ghost Hunters (Modern Mystery)
+* One Shot: A night at the Hospital (Modern Horror)
 
-** Introduction
 The year is 1980. You play a group of collegue students who decided on a dare to spend a night in an abandoned hospital. Originally you came with more people but because of a stupid fight you split up into two groups. You settled down in one of the old patients rooms on the first floor. As the clock shows midnight, you hear a sudden bang, as all doors and windows of the hospital shut at once. From this point on they can not be opened by any means. You have to figure out how to escape from this situation. 
 
 Background:
@@ -1978,21 +2161,118 @@ Background:
 
 *** History Student
 
+#+ATTR_LATEX: :options {History Student}{at}{4 3 2 3 4 2 3 3}{36}
+#+begin_npc
+Aspects:
+- \aspect{History Nerd 3}
+- \aspect{Tourist Guide 1}
+- \aspect{Plays Sports 2}
+\columnbreak
+
+Traits:
+- None
+
+Items:
+- Flashlight 1
+- Lighter 1
+#+end_npc
+
+
 *** Linguistics Student
+
+#+ATTR_LATEX: :options {Linguistics Student}{at}{3 2 3 4 3 3 3 3}{36}
+#+begin_npc
+Aspects:
+- \aspect{Latin Nerd 3}
+- \aspect{Works in a Library 1}
+- \aspect{Plays the Guitar 2}
+\columnbreak
+
+Traits:
+- None
+
+Items:
+- Flashlight 1
+- Guitar 2
+#+end_npc
 
 *** Engineering Student
 
+#+ATTR_LATEX: :options {Engineering Student}{at}{4 3 3 3 3 2 4 3}{30}
+#+begin_npc
+Aspects:
+- \aspect{Engineer 3}
+- \aspect{Hobby car mechanic 2}
+\columnbreak
+
+Traits:
+- None
+
+Items:
+- Flashlight 1
+- Pocketknive 2
+- Gaffa Tape 1
+#+end_npc
+
 *** Phychology Student
+
+#+ATTR_LATEX: :options {Phychology Student}{at}{2 3 3 3 4 4 2 3}{36}
+#+begin_npc
+Aspects:
+- \aspect{Phychology 3}
+- \aspect{Barista 1}
+- \aspect{Dancer 2}
+\columnbreak
+
+Traits:
+- None
+
+Items:
+- Flashlight 1
+- Dance Shoes 1
+#+end_npc
 
 *** Chemistry Student
 
+#+ATTR_LATEX: :options {Chemistry Student}{at}{3 3 2 5 2 2 4 3}{36}
+#+begin_npc
+Aspects:
+- \aspect{Chemistry 3}
+- \aspect{Plays the Harmonica 1}
+- \aspect{Runner 2}
+\columnbreak
+
+Traits:
+- None
+
+Items:
+- Flashlight 1
+- Chocolate Bar
+- Harmonica 1
+#+end_npc
+
+
 ** NPCs
 
+
+#+ATTR_LATEX: :options {Mad Maggie the Child Murderer}{at}{3 3 2 5 2 2 4 3}{36}
+#+begin_npc
+Aspects:
+- \aspect{Chemistry 3}
+- \aspect{Plays the Harmonica 1}
+- \aspect{Runner 2}
+\columnbreak
+
+Traits:
+- None
+
+Items:
+- Flashlight 1
+- Chocolate Bar
+- Harmonica 1
+#+end_npc
+
 Maggie the Child Murderer
-
-
-
-Darrel the tortured mentaly ill
 
 Dr. Francis Budgelburry the Famous Neurologist
 
@@ -2001,6 +2281,8 @@ Dr. Francis Budgelburry the Famous Neurologist
 ** Rules
 
 The ghosts are bound to the hospital in general and to their area in particular. They are able to move away from it but tend to avoid it out of habit.
+
+The players are not able to leave the hospital in any way until they have dealt with the two ghosts.
 
 ** Map
 
@@ -2027,8 +2309,8 @@ Points of Interrest:
 
 Stalked by the shadows. If one of the shadows catches you it will try to carry you off into the Orthopedic ward. There they will Break your limbs.
 
-Shadow (C 2):
-- \aspect{Strong 4}
+Shadow (C 4):
+- \aspect{Strong 8}
 - \aspect{Pushed away by light 3}
 - Incorporal and immportal
 
@@ -2037,7 +2319,7 @@ Shadow (C 2):
 
 If the players find the ambulance in the garage, they can try to bring it back to working condition. For this they need to repair the vehicle and get some fuel.
 
-- \aspect{broken Ambulance 4}
+- \aspect{broken Ambulance 6}
 
 Points of Interrest:
 - You can find some tools here. \aspect{Hammers 1}, \aspect{Saws 2}. In one of the ambulances even a \aspect{crowbar 2}
@@ -2092,6 +2374,12 @@ The pediatric ward is stalek by the ghost of the Murderous Nurse. She stalks thr
 
 - \aspect{Childrens Noises 2}
 
+Mad Maggie (C 4xPlayers):
+- \aspect{Murderous 6}
+- \aspect{Terrifying 6}
+- \aspect{Sadistic 6}
+- \aspect{Impulsive 6}
+- \aspect{Broken Mind of a Mad Woman 6}
 
 
 *** Autopsie (-1 floor)
@@ -2113,7 +2401,7 @@ Points of Interrest:
 
 
 *** storage cellar (-1 floor)
-Since the Hostital is build on a former Prison its cellar still has that layout. The rooms are filles.
+Since the Hospital is build on a former Prison its cellar still has that layout. The rooms are fillesd.
 
 - \aspect{Prison Doors 3 [10]}
 - \aspect{A bunch of Random Stuff in Storage 5}
