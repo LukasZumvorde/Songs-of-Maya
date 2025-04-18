@@ -1,4 +1,4 @@
-
+#
 \usepackage{multicol}
 \setlength{\parindent}{0pt}
 \setlength{\parindent}{0pt}
@@ -32,7 +32,8 @@
 %%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \usepackage[explicit]{titlesec}
-\titleformat{name=\section,numbered}[block]{\normalfont\Large\bfseries}{}{0em}{\colorbox{black!100}{ {\color{white}\ifstringequal{\thesection}{0}{}{\thesection\quad} #1} }}
+%% \titleformat{name=\section,numbered}[block]{\normalfont\Large\bfseries}{}{0em}{\colorbox{black!100}{ {\color{white}\ifstringequal{\thesection}{0}{}{\thesection\quad} #1} }}
+\titleformat{name=\section}[block]{\normalfont\Large\bfseries}{}{0em}{\colorbox{black!100}{ {\color{white}\ifstringequal{\thesection}{0}{}{\thesection\quad} #1} }}
 \titleformat{name=\subsection}{\normalfont\large\bfseries}{}{0em}{\colorbox{black!66}{ {\color{white}\thesubsection\quad #1} }}
 \titleformat{name=\subsubsection}{\normalfont\normalsize\bfseries}{}{0em}{\colorbox{black!33}{ {\color{black}\thesubsubsection\quad #1} }}
 \makeatother
