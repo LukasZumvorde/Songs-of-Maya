@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Songs of Maya</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./som_vtt.css" />
+  </head>
+
+  <body>
+    <div class="div_checks">
+      <hr>
+      <div class="div_checks_row">
+        <label for="aspect_dice_points" style="margin-right: 10px">Dice Points:</label>
+        <input type="number" id="aspect_dice_points" name="aspect_dice_points" min="1" max="99" size="3" value="6">
+      </div>
+      <div class="div_checks_row">
+        <label class="container">risky check
+          <input type="checkbox" id="aspect_risky" name="aspect_risky" onclick="calc_aspect_value();">
+          <span class="checkmark"></span>
+          <input type="number" id="aspect_savety" name="aspect_savety" size="3" min="0" max="99" value="0">
+        </label>
+      </div>
+      <div class="div_checks_row">
+        <button type="button" class="button" name="aspect_roll" onclick="roll_check()">Roll</button>
+        <label style="margin-left: 10px" for="aspect_result">AP: </label>
+        <input type="number" id="aspect_result" name="aspect_result" size="4" onclick="calc_aspect_value();"  min="1" max="999">
+        <input type="number" id="aspect_result_risk" name="aspect_result_risk" size="4" onclick="calc_aspect_value();"  min="1" max="999" style="display: none">
+      </div>
+      <hr>
+      <div class="div_checks_row">
+        <label class="container">multiple targets
+          <input type="checkbox" id="aspect_multi_target" name="aspect_multi_target" value="2" onclick="calc_aspect_value();">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="div_checks_row">
+        <label class="container">duration: single use
+          <input type="radio" id="aspect_single_use" name="aspect_duration" value="1" onclick="calc_aspect_value();">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="div_checks_row">
+        <label class="container">duration: scene
+          <input type="radio" id="aspect_scene" name="aspect_duration" value="2" onclick="calc_aspect_value();">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="div_checks_row">
+        <label class="container">duration: mission
+          <input type="radio" id="aspect_mission" name="aspect_duration" value="4" onclick="calc_aspect_value();">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="div_checks_row">
+        <label class="container">duration: campaign
+          <input type="radio" id="aspect_campaign" name="aspect_duration" value="8" onclick="calc_aspect_value();">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="div_checks_row">
+        <input type="number" id="aspect_resistance" name="aspect_resistance" value="0" size="3" onclick="calc_aspect_value();" min="0" max="99">
+        <label for="aspect_resistance">Resistance</label>
+      </div>
+      <hr>
+      <div class="div_checks_row">
+        <label>Value:</label>
+        <input type="text" id="aspect_value" name="aspect_value" size="5" readonly>
+        <label>Rest:</label>
+        <input type="text" id="aspect_rest" name="aspect_rest" size="3" readonly>
+      </div>
+    </div>
+    <div class="div_rules">
+      <object data="./rules.pdf" type="application/pdf" style="width:100%;height:98vh;">
+    </div>
+    <script type="text/javascript" src="./som_vtt.js"></script>
+  </body>
+</html>
