@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=contain" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Songs of Maya</title>
-    <meta charset="UTF-8" />
     <link rel="stylesheet" href="./som_vtt.css" />
   </head>
-
   <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="div_checks">
       <hr>
       <div class="div_checks_row">
@@ -15,7 +25,7 @@
       </div>
       <div class="div_checks_row">
         <label class="container">risky check
-          <input type="checkbox" id="aspect_risky" name="aspect_risky" onclick="calc_aspect_value();">
+          <input type="checkbox" id="aspect_risky" name="aspect_risky" onclick="aspect_risky_change();">
           <span class="checkmark"></span>
           <input type="number" id="aspect_savety" name="aspect_savety" size="3" min="0" max="99" value="0">
         </label>
@@ -23,7 +33,7 @@
       <div class="div_checks_row">
         <button type="button" class="button" name="aspect_roll" onclick="roll_check()">Roll</button>
         <label style="margin-left: 10px" for="aspect_result">AP: </label>
-        <input type="number" id="aspect_result" name="aspect_result" size="4" onclick="calc_aspect_value();"  min="1" max="999">
+        <input type="number" id="aspect_result" name="aspect_result" size="4" onclick="calc_aspect_value();"  min="1" max="999" value="0">
         <input type="number" id="aspect_result_risk" name="aspect_result_risk" size="4" onclick="calc_aspect_value();"  min="1" max="999" style="display: none">
       </div>
       <hr>
@@ -68,10 +78,37 @@
         <label>Rest:</label>
         <input type="text" id="aspect_rest" name="aspect_rest" size="3" readonly>
       </div>
+      <hr>
+      <div class="div_checks_row">
+        <button type="button" class="button" name="show_rules" onclick="show_rules()">Rules</button>
+        <button type="button" class="button" name="show_board" onclick="show_board()">Whiteboard</button>
+      </div>
+      <hr>
+      <!-- <div class="div_checks_row"> -->
+      <!-- </div> -->
+      <!-- <div id="custom_scripts"> -->
+      <!--   <hr/> -->
+      <!--   <p>Create a new js plujgin</p> -->
+      <!--   <label>Type: -->
+      <!--     <input list="script-types" name="script-type" id="script-type"> -->
+      <!--   </label> -->
+      <!--   <datalist id="script-types"> -->
+      <!--     <option value="javascript"> -->
+      <!--     <option value="typescript"> -->
+      <!--   </datalist> -->
+      <!--   <label>Script: -->
+      <!--     <input type="file" id="custom_script_file"/> -->
+      <!--   </label> -->
+      <!--   <button type="button" class="button" name="add_customization" onclick="add_custom_js()">Add</button> -->
+      <!-- </div> -->
     </div>
-    <div class="div_rules">
+    <div class="div_whiteboard" id="div_whiteboard">
+      <div id="tldraw_container"></div>
+    </div>
+    <div class="div_rules" id="div_rules">
       <object data="./rules.pdf" type="application/pdf" style="width:100%;height:98vh;">
     </div>
     <script type="text/javascript" src="./som_vtt.js"></script>
+    <div id="tldraw_container"></div>
   </body>
 </html>

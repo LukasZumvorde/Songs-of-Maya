@@ -88,7 +88,7 @@ The fate die to create unexpected events was inspired by the One Page Solo RPG E
 The optional rule "Only Players Roll" is taken from the Cypher System.
 The turn order was taken from Tides of Ambition.
 
-** How to use the gameq
+** How to use the game
 
 
 - Have fun. If the rules hinder you from having fun then screw the rules.
@@ -111,8 +111,13 @@ The turn order was taken from Tides of Ambition.
 
 *Aspects*: Aspects are highlighted like this \aspect{example aspect 3}. The tailing number indicates the value of the aspect. If an aspect has an additional number in square brackets (\aspect{example aspect 2[4]}), this denotes the [[#sec:aspects_resistant][resistance]] of the aspect. A trailing letter denotes the duration of the aspect \textbf{S}cene, \textbf{M}ission, \textbf{C}ampaign. (\aspect{example aspect 1[2]M})
 
-*Quick Reference*: All core rules can be found in =Quick Reference= blocks at the beginning of their respective sections. Everything else are just explanations and extensions of these rules.
+*Quick Reference*: All core rules can be found in =Quick Reference= blocks at the beginning of their respective sections. Everything else are just explanations and extensions of these rules.#
 
+*DP*: Means dice points (see [[#sec:dice][Dice Mechanics]])
+
+*AP*: Means aspect points (see [[#sec:checks][Checks]])
+
+*AV*: Means aspect value (see [[#sec:aspects][Aspects]])
 
 * Rules
 
@@ -128,11 +133,11 @@ The dice points (DP) are calculated from the attributes and aspects. They are us
   - $1 d N$ is worth $\frac{N+1}{2}$ DP
   - $1 d_0 N$ is worth $\frac{N}{2}$ DP
   - Throwing a N sided die twice and subtracting the lower result from the higher is worth $\frac{N}{3}$ DP
+  - A dice that always rolls a constant value $N$ is worth $N$ DP
 - It is possible for costs to contain a fraction of a DP.
-- A constant $N$ are worth $N$ dice points (generally you should limit this to $\frac{1}{4}$ of the dice points). Fractions of a point are possible.
 - Any dice multiplied by a factor $F$ is worth the price of a single die multiplied by this factor $F$
 
-You can decide for each check individually what dice to roll, It is still advisable to always use the same dice if possible. 
+You can decide for each check individually what dice to roll, It is still advisable to always use the same dice if possible.
 #+end_short
 
 # Based on your attributes and aspects you get dice points (see [[#sec:checks][checks]] for details). These dice points (DP) are used to decide what dice you roll for a check. 
@@ -176,6 +181,7 @@ Sometimes it makes no sense to roll dice, but we want a constant value. Then we 
 
 #+begin_short
 There are the 8 attributes Strength, Dexterity, Will, Intellect, Empathy, Charisma, Gear, and Finances. Each attribute gets a whole number value.
+Two attributes each can be combined to a attribute category (see table below).
 #+end_short
 
 Attributes describe a characters potential. The higher the value the greater things a character can achieve. There are the following 8 Attributes belonging to the 4 categories.
@@ -202,24 +208,24 @@ The attributes value is the basis for the dice points one has available for [[#s
 :END:
 
 #+begin_short
-Aspects have a descriptive name and a whole number value called its aspect points (AP).
-- Create: Make a check. For each AP from the checks result you can increase the AP of the new aspect by one.
-- Use: Add the AP of the aspect to the check. Any AP can only be used once per round. 
-- Multiple Targets: To create an aspect that effects an area or multiple targets, double the cost per AP.
-- Duration: By default an aspect can be used once. To make it apply every round until the duration is over, double the cost per AP.
-- Acting: Some aspects can perform actions on their own. For this use the AP as the dice points.
-- Remove: To remove an aspect you need to make a check. Reduce the AP of the aspect by the AP of the check.
-- Resistance: Aspects can resist being removed. Reduce any attempt to remove the aspect by its resistancce. Each point of resistance costs 1 AP. The costs double with other modifications.
+Aspects have a descriptive name and a whole number value (AV).
+- Create: Make a check. For each aspect point (AP) from the checks result you can increase the AV of the new aspect by one.
+- Use: Add the AV of the aspect to the DP for the check. Any AV point can only be used once per round. 
+- Multiple Targets: To create an aspect that effects an area or multiple targets, double the AP cost per AV.
+- Duration: By default an aspect can be used once. To make it apply every round until the duration is over, double the cost per AV per duration category (once, scene, mission, campaign). 
+- Acting: Some aspects can perform actions on their own. For this use the AV as the DP for the check.
+- Remove: To remove an aspect you need to make a check. Reduce the AV of the aspect by the AP of the check.
+- Resistance: Aspects can resist being removed. Reduce any attempt to remove the aspect by its resistancce. Each point of resistance costs 1 AP. The costs double in line with other modifications.
 #+end_short
 
-Aspects are a combination of a descriptors and a value. When invoked the aspects value is added or subtracted from the dice points  for [[#sec:checks][checks]]. An aspect is always bound to something. Be it a player, a NPC, an object or even a zone. Be creative with aspects. Try to bind their effects to the value and they should stay balanced enough.
+Aspects are a combination of a descriptors and a value. When invoked the AV (aspects value) is added or subtracted from the DP (dice points) for [[#sec:checks][checks]]. An aspect is always bound to something. Be it a player, a NPC, an object, an event, or a zone. Be creative with aspects. Try to bind their effects to the value and they should stay balanced enough.
 
 **** Creating an Aspect
 
-An aspect can be created at any time by the GM. It can also be created by any player, NPC or even object. To create an aspect all but the GM need to make a check. The aspect points (AP) from this check can be used to create an aspect. Increasing or decreasing an aspects value by 1 costs 1 AP (aspect point). The description of the aspect can be decided freely. 
+An aspect can be created at any time by the GM. It can also be created by any player, NPC or even object. To create an aspect all but the GM need to make a check. The aspect points (AP) from this check can be used to create an aspect. Increasing or decreasing an AV (aspects value) by 1 costs 1 AP (aspect point). The description of the aspect can be decided freely. 
 
 #+begin_pwexample
-Arthur the mage wants to inflame the grass around him to channel the enemies into a one on one battle with his Companions. The GM likes this idea and creates the aspect \aspect{Dry Grass 1} that Arthur can use. Arthur decides to cast his spell, succeeds with 3 AP, and creates the aspect \aspect{Wall of Fire 3}. Now any enemy has to either go around the wall or get burned. If an enemy tires to jump through, they have to roll on it against the fires 3 dice. If the fire succeeds they get burned.
+Arthur the mage wants to inflame the grass around him to channel the enemies into a one on one battle with his Companions. The GM likes this idea and creates the aspect \aspect{Dry Grass 3} that Arthur can use. Arthur decides to cast his spell, succeeds with 6 AP, and creates the aspect \aspect{Wall of Fire 3}. Now the next enemy has to either go around the wall or get burned. If an enemy tires to jump through, they have to roll on it against the fires 6 dice points. If the fire succeeds they get burned.
 #+end_pwexample
 
 **** Using Aspects
@@ -239,7 +245,7 @@ An aspect can affect a zone or multiple individual targets. To create such an as
 :END:
 
 An aspect can be over within a round or it can last longer. Normally aspects last for a round or until invoked once. If your aspect should last longer and potentially apply each round it should cost double the AP (aspect points) for each increase. Exceptions may be made by the GM. In general it can be said, that an aspect lasts as long as it makes sense. It is possible to make aspects last even longer. Use the following table as an orientation.
-| Round    | A few seconds or until used once, Example: tripped    |
+| Once     | A few seconds or until used once, Example: tripped    |
 | Scene    | Until the end of a fight, Example: Frightened         |
 | Mission  | Until the end of a story or quest, Example: Wounded   |
 | Campaign  | Until the end of a story arc, Example: Demonic Poison |
@@ -251,7 +257,7 @@ If it takes effort to keep up the aspect then it should be applied as a negative
 Sometimes an aspect should perform actions on its own. Each round they can act like any other player or NPC. They use their value for their actions.
 
 #+begin_pwexample
-\aspect{Poison Cloud 2}: Each round it tries to use 2 dice to poison any inside. Since it impacts a zone it can do this for everyone inside the zone every round.
+\aspect{Poison Cloud 2S}: Each round it tries to use 2 dice points to poison anyone inside the cloud. Since it impacts a zone, it can do this for everyone inside the zone every round.
 #+end_pwexample
 
 **** Resistant Aspects
@@ -294,9 +300,9 @@ During a fist fight against the goblin chief the glorious knight has taken 7 dam
 
 **** Aspects with special effects
 
-Not everything that you want to achieve can be usefully quantified with a number. In those cases it may be easier to orient yourself on comparable [[#sec:traits][traits]]. Take the cost in CP of an equivalent trait and divide it by 2.5. The result is how high the value of the aspect would have to be to create a comparable result. For anything else these aspects act the same as any other.
+Not everything that you want to achieve can be usefully quantified with a number. In those cases it may be easier to orient yourself on comparable [[#sec:traits][traits]]. Take the cost in CP of an equivalent trait and divide it by 6 (the CP cost of an character aspect point). The result is how high the value of the aspect (AV) would have to be to create a comparable result. For anything else these aspects act the same as any other.
 
-For example the trait Flight costs 35 CP. In order to achieve full flight with an aspect it needs to have a value of 14. Lower values mean a diminished form of the same, like the ability to glide. 
+For example the trait Flight costs 60 CP. In order to achieve full flight with an aspect it needs to have a AV of 10. Lower values mean a diminished form of the same, like the ability to glide. 
 
 ** Checks
 :PROPERTIES:
@@ -304,32 +310,23 @@ For example the trait Flight costs 35 CP. In order to achieve full flight with a
 :END:
 
 #+begin_short
-Add points of an attribute and one or more aspects to get the dice points. Roll one or multiple dice that are equivalent to the dice points in value. The result of the roll are the aspect points (AP) of the check.
-- Difficulty: Some aspects hinder a check. For them consider the AP to be negative instead. 
-- Collaboration: Add either the dice points for the checks or the AP of all checks made together.
+Add points of an attribute any applicable aspects value (AV) to get the dice points (DP). For these you can buy one or more dice to roll (see [[#sec:dice][dice mechanics]]). The result of the roll are the aspect points (AP) of the check.
+- Difficulty: Some aspects hinder a check. For them consider the AV to be negative instead. 
+- Collaboration: Add either the DP for the checks or the AP of all checks made together.
 - Risky: Roll the same dice again, this is the risk check. If the risk check is higher, then use the result of the check to create a negative aspect instead. To reduce the risk by $n$, reduce the risk roll by $n$ before the comparison and the result after.
 - Take Time: Make multiple checks and add the AP.
 #+end_short
 
 Checks are rolled when the outcome of an action is not certain. Each check is bound to an [[#sec:attributes][attribute]].
 
-# The dice are rolled according to a modified dice pool system. Instead of rolling a number of dice directly we take the number and use the rules below to break it down to just 3 dice, that have to be rolled. The average result stays exactly the same but the propability distribution is more uniform this way.
-# One gets a number of points equal to the sum off those from the attribute and applicable [[#sec:aspects][aspects]]. Distribute these point according to the rules.
-# - You can never roll more than 3 dice (plus the one fate die).
-# - If you have less than 3 points then roll 1 dice for each point.
-# - Divide the number of points by 3 with a rest. The result is called the factor F and the rest of the division is called R.
-# - Roll 3 six sided dice. Count a 1 and 2 as 0, count a 3 and 4 as 1 and count a 5 and 6 as 2. Alternatively roll fudge dice instead of d6, and count the number of lines.
-# - Multiply the sum of the dice with the factor F and add the rest R. The result it your checks attribute points value (AP).
-
 Add the points in the relevant attribute and all applicable [[#sec:aspects][aspects]] together. These are your dice points. Use them to buy the dice to roll (see [[#sec:dice][Dice Mechanics]]). You get the result of the roll in aspect points (AP) to create or change an Aspect.
-# If the check had a difficulty subtract it from the AP.
+
 If the aspect points are zero or negative, the check fails.
-# If the aspect points are exactly 0 the check succeeds at a cost. Create a negative aspect worth the factor F in AP.
+
 If the aspect points are not a whole number, then you can round the result just before creating the aspect.
 
 
 **** Difficulty
-# Difficulty reduces the number of aspect points. A good difficulty for a check is the sice of the dice pool P a player has. Reduce this by the factor F for easy checks and increase it by the factor F for hard checks.
 The checks difficulty is the sum of all aspects that are to be overcome or created. This means that a door having the difficulty 3 to be opened is the same thing as the door having the aspect \aspect{Closed 3} on it. If an obstacle can not simply be partially overcome you can give it a [[#sec:aspects_resistant][resistant aspect]].
 
 #+begin_pwexample
@@ -367,7 +364,7 @@ The player has to climb up a cliff. The cliff has the aspect \aspect{sheer rock 
 :PROPERTIES:
 :CUSTOM_ID: sec:checks_average
 :END:
-In some situations it may be good idea not to roll any dice at all. In those cases you can just assume that the average result was rolled. This means that you get the =dice points= in =AP= out of the check. 
+In some situations it may be good idea not to roll any dice at all. In those cases you can just assume that the average result was rolled. This means that you get the =DP= in =AP= out of the check. 
 
 ** Contest
 :PROPERTIES:
@@ -447,7 +444,7 @@ Each player can have up to 3 karma. They can be used at any point in time to rep
 :END:
 
 #+begin_short
-Distribute 150 CP (character points) on your Attributes, Aspects and Traits.
+Distribute 240 CP (character points) on your Attributes, Aspects and Traits.
 
 Use the rules under equipment to limit your starting gear.
 
@@ -457,11 +454,11 @@ You may reward your players with CP (character points) for reaching milestones i
 
 - An attribute point costs 6 CP.
 - An Aspect point typically costs 6 CP, but can vary based on how specific they are.
-- A Trait typically costs 15 CP but can vary widely. Negative traits can even have a negative price.
+- A Trait typically costs 25 CP but can vary widely. Negative traits can even have a negative price.
 
 A typical player character will have:
-- all attributes with value 2 on average
-- 3 aspects with value 2
+- all attributes with value 3 on average
+- 3 aspects with value 4
 - 1 trait
 #+end_short
 
@@ -480,44 +477,34 @@ Sometimes it is useful to draw maps and define distances. In a contest split the
 :END:
 
 #+begin_short
-The RV (resource value) of an item is the sum of all attached aspects AP cost. For multiple use items, remember that [[#sec:aspects_enduring][enduring aspects]] cost double the AP or more.
-- Equipment: Have gear with RV of up to the gear attribute in value. Have as much as you can carry or keep at home.
-- Buying: Make a finances check to create the items aspects. For the purposes of the check the aspects value is considered to be one higher. On success get the item and a negative aspect \aspect{Expences RV} on your finances for some time.
-- Crafting: Make a finances check to create the items aspects. For the purposes of the check the aspects value is considered to be one lower. Resources, worth $RV-1$ must be expended.
-- Gathering: Make a finances check to create the items aspects. 
-- Condition: Apply the rules for [[#sec:aspects_enduring][enduring aspects]] if the item is in use. It its time has run out you can still use them, but they may break at any time.
+Items behave exactly like aspects if they have an AV. For multiple use items apply the rules for [[#sec:aspects_enduring][enduring aspects]]. 
+- Equipment: Characters may initially have any item that they could aquire using buying, crafting, or gathering if they always take the average on checks.
+- Buying: Make a finances check to create the items aspects. On success get the item and a negative aspect \aspect{Expences} worth the same amount of AP on your finances for some time.
+- Crafting: Make a check to create the items aspects. Resources used for the check get used up.
+- Gathering: Make a check to create the items aspects. 
+- Condition: Apply the rules for [[#sec:aspects_enduring][enduring aspects]] if the item is in use. If its time has run out you can still use it, but it may break at any time, especially on a failed check.
 #+end_short
 
-Items are in essence just named things with one or more attached aspects. The sum of the AP of all aspects on an item is its resource value (RV). For most items their aspects are obvious and don't need to be mentioned specifically. For example if you use a sword with RV 4, then you can just assume that it has an aspect aiding in a fight for 2 points (because enduring aspects cost double). Some items may be [[#sec:aspects_enduring][enduring]], they can be used multiple times. Other items are a one use item like a first aid kit. 
- 
-#+ATTR_LATEX: :align c|l|l
-| *RV* | *Description*    | *Example*                      |
-|----+----------------+------------------------------|
-|  0 | Free           | a stick                      |
-|  2 | Cheap          | simple clothes, basic tools  |
-|  4 | Affordable     | regular car, apartment       |
-|  6 | Costly         | regular house                |
-|  8 | Expensive      | sports car, designer clothes |
-| 10 | Very Expensive | small airplane               |
-| 12 | Luxurious      | private jet                  |
+Items are in essence just named things with one or more attached aspects. For most items their aspects are obvious and don't need to be mentioned specifically. For example if you use a sword with AV 4, then you can just assume that it has an aspect aiding in a fight for 4 points. Some items may be [[#sec:aspects_enduring][enduring]], they can be used multiple times. Other items are a one use item like a first aid kit. 
 
 *** Equipment
 Characters may initially have any item on them that they could aquire by buying, crafting, or gathering if they always take the average on checks. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
-Characters can have gear with an individual value of up to the attribute Gear in RV on them. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
 
-When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check to see if you have an item. For this check your AP are halfed, however. The check is risky and if they fail they get the negative aspect \aspect{Packed the wrong stuff} until the end of the mission or until they resupply.
+When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check to see if you have an item. The check is risky and if they fail they get the negative aspect \aspect{Packed the wrong stuff} until the end of the mission or until they resupply.
 
 *** Buying
-Characters can buy new items with a Finances check. It works just like crafting the items aspects. For the purpose of the check, the aspects total value is considered to be one higher. If you succeed in buying the item then you take a negative aspect \aspect{expenses RV} on your finances for some time. The GM does not have to let you retry on a fail. If you use items with aspects to help with the check, like the \aspect{Treasure} you found during your last adventure, you may lose them if you succeed on the check.
+
+Characters can buy new items with a Finances check. It works just like crafting the items aspects. If you succeed in buying the item then you take a negative aspect \aspect{expenses} worth the same AP on your finances for some time. The negative aspect should have a AV lower than your finances plus fitting aspects. The GM does not have to let you retry on a fail. If you use items with aspects to help with the check, like the \aspect{Treasure} you found during your last adventure, you may lose them if you succeed on the check.
 
 *** Crafting
-Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be bought and have a RV of the item to be build minus 1. To build the item the character needs to make a check. For the purpose of this check consider the total value of the aspects to be one lower. If the check fails the resources might be lost, depending on what they are.
+
+Characters can also build their own items. For that they need the appropriate tools and resources. The resources may be used as assisting aspects. If the check to create the item fails the resources might be lost, depending on what they are.
 
 *** Gathering
-Resources can be gathered with a check and their RV as difficulty.
+Resources can be gathered with a simple check. The environments aspects may help or hinder this check.
 
 *** Condition
-Items may break, even when used normally. Use the rules for [[#sec:aspects_enduring][enduring aspects]] to create the item and determine its durability. The items dont immediately break if the aspects time has run out, but the GM may decidide that they do at any time. This should be done if a check with them fails. To repair an item make a crafting check if it makes sense for the item. Depening on the AP the item may not be repaired fully.
+Items may break, even when used normally. Use the rules for [[#sec:aspects_enduring][enduring aspects]] to create the item and determine its durability. The items don't immediately break if the aspects time has run out, but the GM may decidide that they do at any time afterwards. This could for example be done if a check with them fails. To repair an item make a crafting check, if it makes sense for the item. Depening on the AV the item may not be repaired fully.
 
 * Optional Rules
 :PROPERTIES:
@@ -527,7 +514,7 @@ Items may break, even when used normally. Use the rules for [[#sec:aspects_endur
 ** Magic
 
 Magic gives a huge narrative flexibility to explain aspects. To balance this out any checks made using magic should be [[#sec:risky][risky checks]].
-# This means the value of the created aspects has to be defined beforehand. This is taken as the difficulty of the check. If the check fails the magician creates an unwanted likely negative aspect at the value of the difficulty. If he succeeds the created aspect has exactly the predefined value.
+
 Depending on the setting, a trait might be necessary to cast magic or even a specific kind of magic.
 
 With this, magic can still become quite powerful, since one can create several aspects and combine them for bigger spells. For example a mage might make special conjuration candles, draw a pentagram with magic symbols and then use those two aspect to assist in his conjuration spell.
@@ -564,11 +551,11 @@ If you like you can generally let only players roll the dice. Everyone else will
 
 ** Adjust Powerlevel
 
-The powerlevel describes how strong player characters may be in comparison to average people and how quickly they become stronger. By default an average person has the value $3$ in every attribute (competence $3$) and no traits and aspects. This also means that by just one aspect point a character becomes 33% stronger compared to an average person. To play a more grounded or more differentiated game you can change this average competence to for example $10$. Then a character becomes only 10% stronger per aspect point. Follow these steps to adjust your games power level.
+The powerlevel describes how strong player characters may be in comparison to average people and how quickly they become stronger. By default an average person has the value $5$ in every attribute (competence $5$) and no traits and aspects. This also means that by just one aspect point a character becomes 20% stronger compared to an average person. To play a more grounded or more differentiated game you can change this average competence to for example $10$. Then a character becomes only 10% stronger per aspect point. Follow these steps to adjust your games power level.
 
 - Let $N$ be the competence value of an average person.
 - CP cost for attributes and aspects stay the same.
-- CP cost for an average trait becomes $5 \times N$.
+- CP cost for an average trait becomes $5 \times N$. (alternatively multiply the CP cost for the traits in the list with $\frac{N_{new}}{N_{old}}$)
 - Default start CP become $48 \times N$.
 
 #+LATEX: \newpage
@@ -584,7 +571,7 @@ Since aspects can appear, disappear and change frequently during play, it is goo
 ** Player Character Creation
 
 When creating a character you may adhere these guidelines:
-- No attribute above 6
+- No attribute above 8
 - No attribute below 2
 - Have 1 aspect describing what you want to be good at
 - Have 1 aspect describing how you make your living
@@ -605,10 +592,10 @@ If you keep the positive and negative aspects balanced, then the math for the CP
 
 ** Encounter Design
 
-The challenge rating (CR) is a number serving as a quick reference for how hard aspects to overcome should be or how strong enemies should be, When creating aspects that the players must overcome use the CR as the AP (aspect points). Then creating enemies that the players must fight set their Competence or attribute to the CR.
+The challenge rating (CR) is a number serving as a quick reference for how hard aspects to overcome should be or how strong enemies should be, When creating aspects that the players must overcome use the CR as the AV (aspect value). Then creating enemies that the players must fight set their Competence or attribute to the CR.
 - A players or NPCs CR can be calculated from their CP. $CR = \frac{CP}{50}$
 - For static challenges, the average of the players CR is a good value for the aspect (challenge rating).
-- For group challenges, the sum of all players CR is a good value for the aspect (challenge rating).
+- For group challenges, the sum of all players CR is a good value for the aspect.
 - For contests match the enemies total CR or CP with that of the players.
 - Let your players become creative and create aspects to help them better their odds.
 - Try to give any noteworthy opponent an advantageous and a disadvantageous aspect. Give the players a chance to find out about those.
@@ -620,6 +607,7 @@ Only roll the checks for the players and take the average for everyone else. Com
 Often times the characters in the group help each other. Let them distribute some points within the group after they rolled their checks. This represents something like the best scout sneaking ahead and finding the best route for the others, or distracting a guard such that the more obvious members of the group can pass unnoticed.
 
 ** How To: Taunting
+
 Let the player make a check to create the \aspect{taunted by ..} aspect. This may be opposed by the other party. If the aspect is created then it hinders any attack on someone else. It may also impact other actions. It may be a smart choice to make the \aspect{taunted by ..} aspect [[#sec:aspects_enduring][enduring]] and [[#sec:aspects_multiple_targets][affecting the whole group]]. 
 
 # ** COMMENT How to Rule: Extremely Small Creatures
@@ -633,7 +621,7 @@ Let the player make a check to create the \aspect{taunted by ..} aspect. This ma
 Mind control is similar to taunting. Create an aspect like \aspect{Mind Controlled by ..}. Any actions that would conflict with this aspect are hindered by it (for example attacking the controller). If the mind control is stronger than the victims will then it will generally follow orders. The victim may try to break free each round. For this it makes a will check to remove the \aspect{Mind Controlled by} aspect.
 
 #+begin_pwexample
-Marty the mage casts his mind control spell on an orc bandit with the words "Fight for me". Marty has 9 AP from his check, while the orc has only 3 to defend against this. This means that Marty can create the aspect with 6 AP. Since he wanted an [[#sec:aspects_enduring][enduring aspect]] he creates \aspect{Fight for Marty 3}, The orc has only 3 Will, so he starts attacking his compatriots. 
+Marty the mage casts his mind control spell on an orc bandit with the words "Fight for me". Marty has 9 AP from his check, while the orc has only 3 to defend against this. This means that Marty can create the aspect with 6 AP. Since he wanted an [[#sec:aspects_enduring][enduring aspect]] he creates \aspect{Fight for Marty 3s}, The orc has only 3 Will, so he starts attacking his compatriots. 
 #+end_pwexample
 
 ** How To: Healing
@@ -663,7 +651,7 @@ A burglar jumps from rooftop to rooftop to escape the guards. One of the chasms 
 #+end_pwexample
 
 ** How To: Bribe
-To Bribe someone you need to give them more than they can normally comfortably afford. This means you need at least their finances value in RV to bribe them.
+To Bribe someone you need to give them more than they can normally comfortably afford. This means you need to create the \aspect{bribe} with an AV of at least their finances value plus applicable aspects. The \aspect{bribe} may need to be [[#sec:aspects_enduring][enduring]] to cover a longer timespan.
 
 ** How To: Secret Checks
 To hide the result of a check you may change which side rolls the dice.
@@ -686,75 +674,75 @@ A mage sacrificing a maiden in order to summon a daemon or a priest sacrificing 
 The number in the parenthesis is the cost in CP for the trait. Take this list as a starting point for your game. Feel free to diverge from it were you see fit.
 
 #+begin_quote
-*Friend of Nature* (15): You can talk to the forces of nature and have a chance to convince them to help you. This can be asking, a bird what he has seen, letting yourself be concealed by a bush or calling a wild bear to aid you in combat.
+*Friend of Nature* (25): You can talk to the forces of nature and have a chance to convince them to help you. This can be asking, a bird what he has seen, letting yourself be concealed by a bush or calling a wild bear to aid you in combat.
 #+end_quote
 
 #+begin_quote
-*Illusionist* (15): You are adapt at creating illusions. The bigger and more complex they get the harder this is.
+*Illusionist* (25): You are adapt at creating illusions. The bigger and more complex they get the harder this is.
 #+end_quote
 
 #+begin_quote
-*Speedster* (30): You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks, so you can re-roll them once per round. You can move double the distance per round.
+*Speedster* (50): You have incredible speed. Others see only a blur when you sprint past them. This often gives you an advantage on dexterity checks, so you can re-roll them once per round. You can move double the distance per round.
 #+end_quote
 
 #+begin_quote
-*Medium* (15): You can commune with ghosts and spirits. You have no control over them, but you can gain their attention.
+*Medium* (25): You can commune with ghosts and spirits. You have no control over them, but you can gain their attention.
 #+end_quote
 
 #+begin_quote
-*Night-vision* (15): You can see in darkness as if it were light.
+*Night-vision* (25): You can see in darkness as if it were light.
 #+end_quote
 
 #+begin_quote
-*Sleepless* (15): You don't need sleep. This means you have a lot more time in a day, but you still need to rest from to much physical or mental exertion.
+*Sleepless* (25): You don't need sleep. This means you have a lot more time in a day, but you still need to rest from to much physical or mental exertion.
 #+end_quote
 
 #+begin_quote
-*Flight* (35): You can fly. Be it with wings or otherwise. Your speed in flight is no different from your speed on land.
+*Flight* (60): You can fly. Be it with wings or otherwise. Your speed in flight is no different from your speed on land.
 #+end_quote
 
 #+begin_quote
-*Tinkerer* (15): You can build wondrous mechanical marvels. From clocks up to steam powered automatons. 
+*Tinkerer* (25): You can build wondrous mechanical marvels. From clocks up to steam powered automatons. 
 #+end_quote
 
 #+begin_quote
-*Hacker* (15): You are not only proficient in computer science but you can even achieve movie worthy feats like stopping another car with only your laptop during a car chase. Tools not included.
+*Hacker* (25): You are not only proficient in computer science but you can even achieve movie worthy feats like stopping another car with only your laptop during a car chase. Tools not included.
 #+end_quote
 
 #+begin_quote
-*Plot Armor* (15): Each scene you can disregard one new aspect or one change in an aspect representing damage. 
+*Plot Armor* (25): Each scene you can disregard one new aspect or one change in an aspect representing damage. 
 #+end_quote
 
 #+begin_quote
-*Short Weapon Fighting* (10): You can not get disadvantage because your weapons are to short compared to your opponent.
+*Short Weapon Fighting* (15): You can not get disadvantage because your weapons are to short compared to your opponent.
 #+end_quote
 
 #+begin_quote
-*Unarmed vs. Armed* (10): You can fight against armed opponents even when you have no weapon without disadvantage.
+*Unarmed vs. Armed* (15): You can fight against armed opponents even when you have no weapon without disadvantage.
 #+end_quote
 
 #+begin_quote
-*Alchemist* (15): You can brew potions, salves and other things which create wondrous effects.
+*Alchemist* (25): You can brew potions, salves and other things which create wondrous effects.
 #+end_quote
 
 #+begin_quote
-*Shape Shifter* (15): You can alter the physical form of either yourself or that of others.
+*Shape Shifter* (25): You can alter the physical form of either yourself or that of others.
 #+end_quote
 
 #+begin_quote
-*Seeer* (15): You have to ability to see glimpses of future, past and present. Both at your current position and over great distances. 
+*Seeer* (25): You have to ability to see glimpses of future, past and present. Both at your current position and over great distances. 
 #+end_quote
 
 #+begin_quote
-*Amphibious* (15): You can live both underwater and on land.
+*Amphibious* (25): You can live both underwater and on land.
 #+end_quote
 
 #+begin_quote
-*Telepathic link to undead servants* (15): You can telepathically give orders or even see through the eyes of the undead creatures you raised. 
+*Telepathic link to undead servants* (25): You can telepathically give orders or even see through the eyes of the undead creatures you raised. 
 #+end_quote
 
 #+begin_quote
-*Hide in Plain Sight* (15): You can disapear from sight, like a ninja with a smoke bomb.
+*Hide in Plain Sight* (25): You can disapear from sight, like a ninja with a smoke bomb.
 #+end_quote
 
 ** List of NPCs
@@ -764,7 +752,7 @@ The number in the parenthesis is the cost in CP for the trait. Take this list as
 
 The following are examples of NPCs and monsters. They are all created using the rules for [[#sec:charactercreation][Character Creation]]. 
 
-#+ATTR_LATEX: :options {Average Citizen}{co}{2}{0}
+#+ATTR_LATEX: :options {Average Citizen}{co}{5}{0}
 #+begin_npc
 Aspects:
 - None
@@ -772,15 +760,15 @@ Traits:
 - None
 #+end_npc
 
-#+ATTR_LATEX: :options {Goblin}{ca}{2 1 1 1}{15}
+#+ATTR_LATEX: :options {Goblin}{ca}{3 2 2 2}{25}
 #+begin_npc
 Aspects:
 - None
 Traits:
-- Night Vision
+- Night Vision (25 CP)
 #+end_npc
 
-#+ATTR_LATEX: :options {Ratling}{ca}{1 1 1 1}{6}
+#+ATTR_LATEX: :options {Ratling}{ca}{2 2 2 2}{6}
 #+begin_npc
 Aspects:
 - Strength in Numbers 1
@@ -796,15 +784,15 @@ Traits:
 - None
 #+end_npc
 
-#+ATTR_LATEX: :options {Guard}{ca}{3 2 2 2}{0}
+#+ATTR_LATEX: :options {Guard}{ca}{6 5 5 4}{6}
 #+begin_npc
 Aspects:
-- None
+- City Guard 1
 Traits:
 - None
 #+end_npc
 
-#+ATTR_LATEX: :options {Dark Mage}{ca}{2 7 3 5}{33}
+#+ATTR_LATEX: :options {Dark Mage}{ca}{4 10 5 7}{43}
 #+begin_npc
 Aspects:
 - Necromancer 3
@@ -813,7 +801,7 @@ Traits:
 - Telepathic link to undead servants
 #+end_npc
 
-#+ATTR_LATEX: :options {Ogre}{at}{15 7 5 1 1 1 1 1}{}
+#+ATTR_LATEX: :options {Ogre}{at}{12 5 5 2 2 2 1 1}{}
 #+begin_npc
 Aspects:
 - None
@@ -821,7 +809,7 @@ Traits:
 - None
 #+end_npc
 
-#+ATTR_LATEX: :options {Zombie}{ca}{2 1 1 1}{15}
+#+ATTR_LATEX: :options {Zombie}{ca}{5 1 1 1}{25}
 #+begin_npc
 Aspects:
 - None
@@ -829,7 +817,7 @@ Traits:
 - Infectious bite
 #+end_npc
 
-#+ATTR_LATEX: :options {Bandit}{ca}{3 2 2 2}{}
+#+ATTR_LATEX: :options {Bandit}{ca}{6 5 5 4}{}
 #+begin_npc
 Aspects:
 - None
@@ -837,7 +825,7 @@ Traits:
 - None
 #+end_npc
 
-#+ATTR_LATEX: :options {Combat Drone}{ca}{3 1 1 1}{33}
+#+ATTR_LATEX: :options {Combat Drone}{ca}{3 1 1 1}{43}
 #+begin_npc
 Aspects:
 - Shooting 3
@@ -845,7 +833,7 @@ Traits:
 - Night-vision
 #+end_npc
 
-#+ATTR_LATEX: :options {Orc Veteran}{ca}{5 3 2 2}{27}
+#+ATTR_LATEX: :options {Orc Veteran}{ca}{6 4 3 3}{37}
 #+begin_npc
 Aspects:
 - Reckless and Bold 2
@@ -853,7 +841,7 @@ Traits:
 - Night-vision
 #+end_npc
 
-#+ATTR_LATEX: :options {Orc Warrior}{ca}{3 2 1 1}{21}
+#+ATTR_LATEX: :options {Orc Warrior}{ca}{5 4 2 2}{31}
 #+begin_npc
 Aspects:
 - Reckless and Bold 1
@@ -861,7 +849,7 @@ Traits:
 - Night-vision
 #+end_npc
 
-#+ATTR_LATEX: :options {Giant Spider}{at}{2 4 2 2 1 1 2 1}{27}
+#+ATTR_LATEX: :options {Giant Spider}{at}{2 4 2 2 1 1 2 1}{37}
 #+begin_npc
 Aspects:
 - Spider Webs 2
@@ -872,12 +860,12 @@ Traits:
 
 #+LATEX: \newpage
 
-* Game-play Examples
+* COMMENT Game-play Examples
 :PROPERTIES:
 :CUSTOM_ID: sec:examples
 :END:
 
-** Character Builds
+** COMMENT Character Builds
 
 #+ATTR_LATEX: :options {Anna the Alchemist}{at}{3 3 4 6 4 3 6 6}{51}
 #+begin_npc
@@ -977,7 +965,7 @@ Aspects:
 #+end_npc
 
 
-** Example: Ambushed by Goblins
+** COMMENT Example: Ambushed by Goblins
 
 *GM* is the Game Master Mathew controlling the 4 goblin bandits (P: 2, M; 1, S: 1, Life of Banditry 1)
 
@@ -1040,7 +1028,7 @@ Aspects:
 
 *GM:* The goblin runs away and soon the smoke dissipates and the street is silent once more.
 
-** Example: The Ambush
+** COMMENT Example: The Ambush
 
 The players are preparing an ambush on a patrol. The GM describes the scene
 
@@ -1180,7 +1168,7 @@ The descriptor table is based on the Toki Pona language (but not identical to it
 
 
 
-** TODO Connections
+** COMMENT TODO Connections
 - Create a list for the story points. Make it 12 fields long. 
 - Story points as results of scenes
 - To introduce connections between them use these rules

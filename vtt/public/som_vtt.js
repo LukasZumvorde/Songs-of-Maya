@@ -68,3 +68,38 @@ function calc_aspect_value() {
     }
     return
 }
+
+function show_rules() {
+    document.getElementById("div_whiteboard").style.display = "none";
+    document.getElementById("div_rules").style.display = "";
+}
+
+function show_board() {
+    document.getElementById("div_whiteboard").style.display = "";
+    document.getElementById("div_rules").style.display = "none";
+}
+
+function aspect_risky_change() {
+    calc_aspect_value();
+    if (document.getElementById("aspect_risky").checked) {
+        var audio = new Audio('risiko.mp3');
+        audio.volume = 0.1;
+        audio.play();
+    }
+}
+
+// function add_custom_js() {
+//     document.getElementById("custom_script_textarea").value;
+//     document.getElementById("custom_scripts").innerHTML += document.getElementById("custom_script_textarea").value;
+// }
+
+
+// document.getElementById("custom_script_file").onchange = e => {
+//    var file = e.target.files[0];
+//    var reader = new FileReader();
+//    reader.readAsText(file,'UTF-8');
+//    reader.onload = readerEvent => {
+//       var content = readerEvent.target.result; // this is the content!
+//       console.log( content );
+//    }
+// }
