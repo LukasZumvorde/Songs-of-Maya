@@ -4,8 +4,6 @@
 
 #+OPTIONS: toc:t H:10 tex:t author:nil date:nil num:3
 
-# Alternative Namens ideen: Songs of Maya
-
 # HTML export CSS
 #+HTML_HEAD: <style type="text/css">
 #+HTML_HEAD:   	body {
@@ -94,13 +92,6 @@ The turn order was taken from Tides of Ambition.
 - Have fun. If the rules hinder you from having fun then screw the rules.
 - When in doubt use common sense. The rules will never be perfect. If something is illogical when using the rules or if no rules exists for the situation then feel free to find your own.
 - Use the aspects value as a guideline and be creative with what it could mean. Does a flame wall having a value of 4 mean that it has a difficulty of 4 to jump over it or does it attack anyone jumping over with 4 dice points? Do what fits your story. 
-   
-# First rule of Gaming: Have fun. If the rules hinder you from having fun then screw the rules.
-
-# Second rule of Gaming: When in doubt use common sense. The rules will never be perfect. If something is illogical when using the rules or if no rules exists for the situation then feel free to find your own. 
-
-# Third rule of Gaming: Use the aspects value as a guideline and be creative with what it could mean. Does a flame wall having a value of 4 mean that it has a difficulty of 4 to jump over it or does it attack anyone jumping over with 4 dice? Do what fits your story. 
-
 
 ** Conventions
 :PROPERTIES:
@@ -127,52 +118,74 @@ The turn order was taken from Tides of Ambition.
 :END:
 
 #+begin_short
-The dice points (DP) are calculated from the attributes and aspects. They are used to buy the dice you roll for a check.
+Whenever a dice roll is required you get dice points (DP) (see [[#sec:checks][Checks]]). The result of a roll are aspect points (AP). There are many ways to perform a roll. This is only the default way to do it. Read the entire section [[#sec:dice][Dice Mechanics]] to develop your own.
 
-- A die is worth exactly its average result in DP
-  - $1 d N$ is worth $\frac{N+1}{2}$ DP
-  - $1 d_0 N$ is worth $\frac{N}{2}$ DP
-  - Throwing a N sided die twice and subtracting the lower result from the higher is worth $\frac{N}{3}$ DP
-  - A dice that always rolls a constant value $N$ is worth $N$ DP
-- It is possible for costs to contain a fraction of a DP.
-- Any dice multiplied by a factor $F$ is worth the price of a single die multiplied by this factor $F$
+When a roll is required, roll one six sided die and add the result to your DP. Then roll another six sided die and subtract it from your DP. The result are your AP.
 
-You can decide for each check individually what dice to roll, It is still advisable to always use the same dice if possible.
+$AP = DP + 1d6 - 1d6$
 #+end_short
 
-# Based on your attributes and aspects you get dice points (see [[#sec:checks][checks]] for details). These dice points (DP) are used to decide what dice you roll for a check. 
+The dice points (DP) are calculated from the attributes and aspects. They can be used to buy dice and constant points for the roll of a check. When dice are rolled, the results are added together, together with any constant points to get the result of the check. They are called the aspect points (AP). AP can be used to create aspects (see [[#sec:aspects][Aspects]]). DP can only be used in a single roll, and not be kept for future rolls.
 
-# - $1 d_0 2$ is worth exactly 1 dice point (this is the default)
-# - $1 d_0 N$ is worth $\frac{N}{2}$ dice points
-# - $1 d N$ is worth $\frac{N+1}{2}$ dice points
-# - a constant $N$ are worth $N$ dice points (generally you should limit this to $\frac{1}{4}$ of the dice points). They can also be negative in value and this give DP.
-# - Any dice multiplied by a factor $F$ is worth the price of a single dice multiplied by this factor $F$
+#+begin_quote
+- A die is worth exactly its average result in DP.
+  - $1 d N$ is worth $\frac{N+1}{2} DP$
+  - $1 d_0 N$ is worth $\frac{N}{2} DP$
+  - Throwing a N sided die twice and subtracting the lower result from the higher is worth $\frac{N}{3} DP$
+  - Rolling any dice twice and subtracting the second roll from the first is worth exactly $0 DP$
+  - A dice that always rolls the constant value $N$ is worth $N$ DP
+- It is possible for costs to contain a fraction of a DP.
+- Any dice multiplied by a factor $F$ is worth the price of a single die multiplied by this factor $F$
+#+end_quote
 
-# The default is to use $F \cdot 1 d_0 8 + c$. This means that the factor $F$ is the dice points divided by $\frac{8}{2} = 4$ with c being the remainder. The players are free to use any other combination of dice they like as long as they don't exceed the dice points. Note that the more dice you roll the more predictable the results will be.
+You can decide for each check individually what dice to roll, It is still advisable to always use the same dice if possible.
+To keep all possible results evenly distributed you should favor to roll just a single die, or at most two dice. Pick higher factors ($F \times d10$) if you have significantly more DP available. Don't be afraid of the fractional DP costs. 
 
-To keep all possible results evenly distributed you should favor to roll just a single die, that has as at least 6 sides. Since many 10 sided dice go from 0 to 9 ($d_0 9$) they are a good default (cost $4.5$ DP). Pick higher factors ($F \times d_0 9$) if you have significantly more DP available. Don't be afraid of the fractional DP costs. 
 
+# #+begin_short
+# The dice points (DP) are calculated from the attributes and aspects. They are used to buy the dice you roll for a check.
+
+# - A die is worth exactly its average result in DP
+#   - $1 d N$ is worth $\frac{N+1}{2}$ DP
+#   - $1 d_0 N$ is worth $\frac{N}{2}$ DP
+#   - Throwing a N sided die twice and subtracting the lower result from the higher is worth $\frac{N}{3}$ DP
+#   - A dice that always rolls a constant value $N$ is worth $N$ DP
+#   - Rolling any dice twice and subtracting the second roll from the first is worth exactly $0 DP$
+# - It is possible for costs to contain a fraction of a DP.
+# - Any dice multiplied by a factor $F$ is worth the price of a single die multiplied by this factor $F$
+
+# You can decide for each check individually what dice to roll, It is still advisable to always use the same dice if possible.
+# #+end_short
+
+# To keep all possible results evenly distributed you should favor to roll just a single die, that has as at least 6 sides. Since many 10 sided dice go from 0 to 9 ($d_0 9$) they are a good default (cost $4.5$ DP). Pick higher factors ($F \times d_0 9$) if you have significantly more DP available. Don't be afraid of the fractional DP costs. 
+
+#+begin_quote
 There are multiple ways to simulate $d_0 N$ dice. To simulate a ...
 - $d_0 2$: take a $d6$ and count 1,2 as 0; 3,4 as 1; and 5,6 as 2.
 - $d_0 2$: roll a fudge die (also known as fate dice). Count the empty sides as 0, count the "-" as 1 and "+" as 2. (essentially counting the number of lines.)
 - $d_0 8$: roll a $d10$ (most actually go from 0 to 9). Re-roll the die if you roll a 9.
 - $d_0 N$ with $N \le 12$: Take a deck of cards. Count the queen as 0, ace as 1, numbers as they are, joker as 11, and king as 12. Discard any cards you don't need.
+#+end_quote
 
 Sometimes it makes no sense to roll dice, but we want a constant value. Then we can [[#sec:checks_average][take the average]]. This means instead of rolling dice we just take the dice points as if it were the result of a roll. This is fair since it is also the average result of a roll.
 
-| Dice     | Cost (DP) |
-|----------+-----------|
-| $d3$     |         2 |
-| $d4$     |       2.5 |
-| $d6$     |       3.5 |
-| $d8$     |       4.5 |
-| $d10$    |       5.5 |
-| $d12$    |       6.5 |
-| $d20$    |      10.5 |
-| $d_0 2$  |         1 |
-| $d_0 8$  |         4 |
-| $d_0 9$  |       4.5 |
-| $d_0 12$ |         6 |
+| Dice          | Cost (DP) |
+|---------------+-----------|
+| $d3$          |         2 |
+| $d4$          |       2.5 |
+| $d6$          |       3.5 |
+| $d8$          |       4.5 |
+| $d10$         |       5.5 |
+| $d12$         |       6.5 |
+| $d20$         |      10.5 |
+| $d_0 2$       |         1 |
+| $d_0 8$       |         4 |
+| $d_0 9$       |       4.5 |
+| $d_0 12$      |         6 |
+| $1d6 - 1d6$   |         0 |
+| $1d10 - 1d10$ |         0 |
+
+# If you find the dice mechanics confusing, then you can always use the following. Roll $1d6$ add it to your dice points (DP), roll $1d6$ again and subtract it from your $DP$. The result are your aspect points (AP). 
 
 ** Attributes
 :PROPERTIES:
@@ -180,11 +193,7 @@ Sometimes it makes no sense to roll dice, but we want a constant value. Then we 
 :END:
 
 #+begin_short
-There are the 8 attributes Strength, Dexterity, Will, Intellect, Empathy, Charisma, Gear, and Finances. Each attribute gets a whole number value.
-Two attributes each can be combined to a attribute category (see table below).
-#+end_short
-
-Attributes describe a characters potential. The higher the value the greater things a character can achieve. There are the following 8 Attributes belonging to the 4 categories.
+There are the 8 attributes Strength, Dexterity, Will, Intellect, Empathy, Charisma, Gear, and Finances. Each attribute gets a whole number value. The higher the value the greater things a character can achieve.
 
 | *Category*  | *Attribute* | *Description*               |
 |-----------+-----------+---------------------------|
@@ -200,7 +209,9 @@ Attributes describe a characters potential. The higher the value the greater thi
 | Resources | Gear      | Gear you have prepared    |
 |           | Finances  | Money and investments     |
 
+Two attributes each can be combined to a attribute category. Having a point in a category means having a point in all its attributes and vice versa. All categories can be combined to a single value called competence.
 The attributes value is the basis for the dice points one has available for [[#sec:checks][checks]]. 
+#+end_short
 
 ** Aspects
 :PROPERTIES:
@@ -214,8 +225,8 @@ Aspects have a descriptive name and a whole number value (AV).
 - Multiple Targets: To create an aspect that effects an area or multiple targets, double the AP cost per AV.
 - Duration: By default an aspect can be used once. To make it apply every round until the duration is over, double the cost per AV per duration category (once, scene, mission, campaign). 
 - Acting: Some aspects can perform actions on their own. For this use the AV as the DP for the check.
-- Remove: To remove an aspect you need to make a check. Reduce the AV of the aspect by the AP of the check.
-- Resistance: Aspects can resist being removed. Reduce any attempt to remove the aspect by its resistancce. Each point of resistance costs 1 AP. The costs double in line with other modifications.
+- Remove: To remove an aspect you need to make a check. Reduce the AV of the aspect by the AP of the check. You may need to match the duration of the aspect or the GM can make apply again later.
+- Resistance: Aspects can resist being removed. Reduce any attempt to remove the aspect by its resistance. Each point of resistance costs 1 AP. The costs double in line with other modifications.
 #+end_short
 
 Aspects are a combination of a descriptors and a value. When invoked the AV (aspects value) is added or subtracted from the DP (dice points) for [[#sec:checks][checks]]. An aspect is always bound to something. Be it a player, a NPC, an object, an event, or a zone. Be creative with aspects. Try to bind their effects to the value and they should stay balanced enough.
@@ -287,7 +298,7 @@ Aspects are also used to represent damage a character or object has taken. If a 
 
 # It is also a good time to create a fitting negative character aspect representing this loss (like \aspect{lost an arm} or \aspect{fear of water} or \aspect{hateful of orcs}).
 
-The endruing aspect \aspect{Damage} is also the name of an abstraction for other more precise aspects like \aspect{broken leg} or \aspect{intimidated}. Its only purpose is to speed up combat when detail is not wanted. As such it acts a bit differently. Damage does not hinder one during a contest. After a contest it is converted to another aspect of equal value. Often times this enduring aspect is more enduring. If one has more \aspect{damage} which would hinder one in an action, than AP available for this action, then one can not perform this action. This is generally the point at which one is considered incapacitated.
+The enduring aspect \aspect{Damage} is also the name of an abstraction for other more precise aspects like \aspect{broken leg} or \aspect{intimidated}. Its only purpose is to speed up combat when detail is not wanted. As such it acts a bit differently. Damage does not hinder one during a contest. After a contest it is converted to another aspect of equal value. Often times this enduring aspect is more enduring. If one has more \aspect{damage} which would hinder one in an action, than DP available for this action, then one can not perform this action. This is generally the point at which one is considered incapacitated.
 
 **** Converting Aspects
 
@@ -478,8 +489,8 @@ Sometimes it is useful to draw maps and define distances. In a contest split the
 
 #+begin_short
 Items behave exactly like aspects if they have an AV. For multiple use items apply the rules for [[#sec:aspects_enduring][enduring aspects]]. 
-- Equipment: Characters may initially have any item that they could aquire using buying, crafting, or gathering if they always take the average on checks.
-- Buying: Make a finances check to create the items aspects. On success get the item and a negative aspect \aspect{Expences} worth the same amount of AP on your finances for some time.
+- Equipment: Characters may initially have any item that they could acquire using buying, crafting, or gathering if they always take the average on checks.
+- Buying: Make a finances check to create the items aspects. On success get the item and a negative aspect \aspect{Expenses} worth the same amount of AP on your finances for some time.
 - Crafting: Make a check to create the items aspects. Resources used for the check get used up.
 - Gathering: Make a check to create the items aspects. 
 - Condition: Apply the rules for [[#sec:aspects_enduring][enduring aspects]] if the item is in use. If its time has run out you can still use it, but it may break at any time, especially on a failed check.
@@ -488,7 +499,7 @@ Items behave exactly like aspects if they have an AV. For multiple use items app
 Items are in essence just named things with one or more attached aspects. For most items their aspects are obvious and don't need to be mentioned specifically. For example if you use a sword with AV 4, then you can just assume that it has an aspect aiding in a fight for 4 points. Some items may be [[#sec:aspects_enduring][enduring]], they can be used multiple times. Other items are a one use item like a first aid kit. 
 
 *** Equipment
-Characters may initially have any item on them that they could aquire by buying, crafting, or gathering if they always take the average on checks. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
+Characters may initially have any item on them that they could acquire by buying, crafting, or gathering if they always take the average on checks. They must be able to carry all that gear on them or if it is part of their household it must fit in their normally furnished home. Apply reason as necessary.
 
 When out adventuring characters have all the gear that they have written down. Additionally they can be allowed to make a Gear check to see if you have an item. The check is risky and if they fail they get the negative aspect \aspect{Packed the wrong stuff} until the end of the mission or until they resupply.
 
@@ -504,7 +515,7 @@ Characters can also build their own items. For that they need the appropriate to
 Resources can be gathered with a simple check. The environments aspects may help or hinder this check.
 
 *** Condition
-Items may break, even when used normally. Use the rules for [[#sec:aspects_enduring][enduring aspects]] to create the item and determine its durability. The items don't immediately break if the aspects time has run out, but the GM may decidide that they do at any time afterwards. This could for example be done if a check with them fails. To repair an item make a crafting check, if it makes sense for the item. Depening on the AV the item may not be repaired fully.
+Items may break, even when used normally. Use the rules for [[#sec:aspects_enduring][enduring aspects]] to create the item and determine its durability. The items don't immediately break if the aspects time has run out, but the GM may decide that they do at any time afterwards. This could for example be done if a check with them fails. To repair an item make a crafting check, if it makes sense for the item. Depending on the AV the item may not be repaired fully.
 
 * Optional Rules
 :PROPERTIES:
@@ -523,7 +534,7 @@ It is up to the individual games setting to define how magic works. By themselve
 
 Some technology can be handled just like magic as well. For example in a cyberpunk setting a hacker may be handled just like a mage in a fantasy setting.
 
-To limit the ammount of spells being cast, you may rule that a spell has to be kept active. This means that each active spell acts as a negative aspect for each additionally cast spell. 
+To limit the amount of spells being cast, you may rule that a spell has to be kept active. This means that each active spell acts as a negative aspect for each additionally cast spell. 
 
 ** Less precise Attributes
 :PROPERTIES:
@@ -549,9 +560,9 @@ Instead of differentiating between attacking and blocking you can speed up comba
 ** Only Players Roll
 If you like you can generally let only players roll the dice. Everyone else will take the average result. This means that in combat only players will roll to hit or roll to block.
 
-** Adjust Powerlevel
+** Adjust Power-level
 
-The powerlevel describes how strong player characters may be in comparison to average people and how quickly they become stronger. By default an average person has the value $5$ in every attribute (competence $5$) and no traits and aspects. This also means that by just one aspect point a character becomes 20% stronger compared to an average person. To play a more grounded or more differentiated game you can change this average competence to for example $10$. Then a character becomes only 10% stronger per aspect point. Follow these steps to adjust your games power level.
+The power-level describes how strong player characters may be in comparison to average people and how quickly they become stronger. By default an average person has the value $5$ in every attribute (competence $5$) and no traits and aspects. This also means that by just one aspect point a character becomes 20% stronger compared to an average person. To play a more grounded or more differentiated game you can change this average competence to for example $10$. Then a character becomes only 10% stronger per aspect point. Follow these steps to adjust your games power level.
 
 - Let $N$ be the competence value of an average person.
 - CP cost for attributes and aspects stay the same.
@@ -610,14 +621,8 @@ Often times the characters in the group help each other. Let them distribute som
 
 Let the player make a check to create the \aspect{taunted by ..} aspect. This may be opposed by the other party. If the aspect is created then it hinders any attack on someone else. It may also impact other actions. It may be a smart choice to make the \aspect{taunted by ..} aspect [[#sec:aspects_enduring][enduring]] and [[#sec:aspects_multiple_targets][affecting the whole group]]. 
 
-# ** COMMENT How to Rule: Extremely Small Creatures
-# Lets say a player turns himself into a mouse. How does this impact his strength, dexterity and intellect? In most cases being a mouse is just an aspect on the player (here it is "mouse form 5"). Lets say the player has a value of 3 in all 
-
-# Checks with zero or negative dice points. Shift the dice pool for the check up until it reaches 1. Perform the same shift for the reaction. If multiple parties participate 
-
-# If a dice pool turns negative it does not mean that you can not roll. Checks are really just a comparison between the rolled AP and either the AP oposing force. By default it is 0.  
-
 ** How To: Mind Control
+
 Mind control is similar to taunting. Create an aspect like \aspect{Mind Controlled by ..}. Any actions that would conflict with this aspect are hindered by it (for example attacking the controller). If the mind control is stronger than the victims will then it will generally follow orders. The victim may try to break free each round. For this it makes a will check to remove the \aspect{Mind Controlled by} aspect.
 
 #+begin_pwexample
@@ -643,17 +648,29 @@ The party had a hard fight against the cultists. One got punched, he will recove
 If one character wants to move and someone else tries to hinder them, then both parties have to exert effort. This means both have to make a check. The results are compared. If the stopper has more then the movement is stopped, where appropriate. If the mover succeeds then the movement is not stopped. Sometimes it may be better to grant partial success to the stopper. In this case the distance that the mover moved is reduced according to how much AP both parties have compared to each other.
 
 ** How To: Fall Damage
-Assuming your characters are humans then falling creates damage. Per 2.5m of height you get a damaging aspect worth 1 AP from falling. Characters can block this with an appropriate check. Remember that enduring aspects (including damage from falling) cost double the AP.
-For characters that are particularly small
+Assuming your characters are humans then falling creates damage. You get a damaging aspect worth 4 AP per 1m of height of the fall. This can be reduced with an appropriate check. Remember that enduring aspects (including damage from falling) cost double the AP.
 
 #+begin_pwexample
-A burglar jumps from rooftop to rooftop to escape the guards. One of the chasms is to wide though and he plummets onto the street 7.5m (3 AP) below. He makes a check with his dexterity to mitigate this fall. On this check he gets 1. Thus he gets only 1 AP worth of damage. The GM decides that he has a \aspect{sprained ancle 1} for the rest of the scene.
+A burglar jumps from rooftop to rooftop to escape the guards. One of the chasms is to wide though and he plummets onto the street 4m (16 AP) below. He makes a check with his dexterity to mitigate this fall. On this check he gets 10 AP. Thus he gets only 6 AP worth of damage. The GM decides that he has a \aspect{sprained ankle 3} for the rest of the scene.
+#+end_pwexample
+
+#+begin_pwexample
+The spy is hanging on a zip-line rappelling from one sky scraper to the next. The enemy guards cut the rope. Now the spy is falling to the balcony far below his original target. The fall would be roughly 10m (40 AP). Even with his skills this is deadly. He rolls only 3 AP on his mitigation check. Thus he crashes to the ground receiving /aspect{Broken bones all over the body 4c} and /aspect{disoriented 5r} form the fall. Luckily his constitution is quite good \aspect{Physical 6} so he survives, but barely.
 #+end_pwexample
 
 ** How To: Bribe
-To Bribe someone you need to give them more than they can normally comfortably afford. This means you need to create the \aspect{bribe} with an AV of at least their finances value plus applicable aspects. The \aspect{bribe} may need to be [[#sec:aspects_enduring][enduring]] to cover a longer timespan.
+To Bribe someone you need to give them more than they can normally comfortably afford. This means you need to create the \aspect{bribe} with an AV of at least their finances value plus applicable aspects. The \aspect{bribe} may need to be [[#sec:aspects_enduring][enduring]] to cover a longer time span.
+
+#+begin_pwexample
+The group got caught in the streets by a guard after the curfew. They try to bribe him to convince him to act as if he hadn't seen them. For this they need 5 AP to match the guards finances value of 5.
+#+end_pwexample
+
+#+begin_pwexample
+The crime boss intends to bribe the police commissioner to keep the police force away from his business until he gets the next big deal done. The commissioner has \aspect{finances 6} and also a \aspect{sense of duty 4}. So bribing him for this limited time (until the end of the mission) would cost 40 AP.
+#+end_pwexample
 
 ** How To: Secret Checks
+
 To hide the result of a check you may change which side rolls the dice.
 
 #+begin_pwexample
@@ -661,10 +678,11 @@ A PC wants to know if the NPC just lied to them. Instead of letting the player r
 #+end_pwexample
 
 * Lists
+
 None of the following lists is exhaustive. They should be taken as examples. You are invited to design your own with your group.
 
 ** How To: Sacrifices
-A mage sacrificing a maiden in order to summon a daemon or a priest sacrificing a goat to please his god are common themes in stories. In game you will want to use such a sacrifice as a helping aspect. Also sacrifices of objects are feasable. For objects set its total $\frac{AP cost}{2}$ as the sacrivices value. For animals and similar set its $CR \times 2$ as its sacrifices value. For people set their $CR \times 4$ as the sacrifices value.
+A mage sacrificing a maiden in order to summon a daemon or a priest sacrificing a goat to please his god are common themes in stories. In game you will want to use such a sacrifice as a helping aspect. Also sacrifices of objects are feasible. For objects set its total $\frac{AP cost}{2}$ as the sacrifices value. For animals and similar set its $CR \times 2$ as its sacrifices value. For people set their $CR \times 4$ as the sacrifices value.
 
 ** List of Traits
 :PROPERTIES:
@@ -742,8 +760,17 @@ The number in the parenthesis is the cost in CP for the trait. Take this list as
 #+end_quote
 
 #+begin_quote
-*Hide in Plain Sight* (25): You can disapear from sight, like a ninja with a smoke bomb.
+*Hide in Plain Sight* (25): You can disappear from sight, like a ninja with a smoke bomb.
 #+end_quote
+
+#+begin_quote
+*Short Range Teleportation* (90): You can disapear from your current position and instantaneously appear somewhere else. The target has to be in a short range to you, maybe a couple of zones at most. The ability is limited by some condition like: "you have to see the place", "You have to have been there", "You can only teleport from one shadow to another".
+#+end_quote
+
+#+begin_quote
+*Long Range Teleportation* (180): You can disapear from your current position and instantaneously appear somewhere else. There is practically no limit to the range. The ability is limited by some condition like: "you have to see the place", "You have to have been there", "You can only teleport from one shadow to another".
+#+end_quote
+
 
 ** List of NPCs
 :PROPERTIES:
@@ -967,7 +994,7 @@ Aspects:
 
 ** COMMENT Example: Ambushed by Goblins
 
-*GM* is the Game Master Mathew controlling the 4 goblin bandits (P: 2, M; 1, S: 1, Life of Banditry 1)
+*GM* is the Game Master Matthew controlling the 4 goblin bandits (P: 2, M; 1, S: 1, Life of Banditry 1)
 
 *A* is the player Anna with her character Amy (P: 3,M: 6,S: 4, \aspect{Proud member of the Alchemists Guild of Mistwater 3})
 
@@ -1045,7 +1072,7 @@ The players will prepare the ambush. For this they can make as many checks to cr
 
 *R:* As a ranger i am good in nature and will select the best spot for the ambush. It should be especially narrow such that they can not maneuver well. The ground should be muddy and i want particularly dark shadows to cover us, but not the enemy.
 
-*GM:* So no \aspect{shallow ruts} and no \aspect{thick underbush}?
+*GM:* So no \aspect{shallow ruts} and no \aspect{thick underbrush}?
 
 *R:* The \aspect{ruts} are fine, but i don't want us to be hindered by the \aspect{underbrush}.
 
@@ -1173,7 +1200,7 @@ The descriptor table is based on the Toki Pona language (but not identical to it
 - Story points as results of scenes
 - To introduce connections between them use these rules
 - Write story points in a list when they come up and you feel like it
-  - Whenever you create a new stroy point you may create a connection to an existing one.
+  - Whenever you create a new story point you may create a connection to an existing one.
   - To add randomness you can roll on the list of story points 
 
 #+LATEX: \newpage
@@ -1320,16 +1347,16 @@ The descriptor table is based on the Toki Pona language (but not identical to it
 
 * Scenario: A Spark of Divinity
 
-Gods are real and numerous. When they have children with other gods or mortals their offspring sometimes inherit the spark of divinity. The gods are shaped and enpowered by the believes of the mortals about them.
+Gods are real and numerous. When they have children with other gods or mortals their offspring sometimes inherit the spark of divinity. The gods are shaped and empowered by the believes of the mortals about them.
 
-The player characters are born with this spark of divinity. Initialy they are mostly like the mortals. But as interact more and more in the world, stories about their deeds start shaping their being and enpower them.
+The player characters are born with this spark of divinity. Initially they are mostly like the mortals. But as interact more and more in the world, stories about their deeds start shaping their being and empower them.
 
 ** Rules
 
 Additionaly to regular experience in the form of character points, the GM will distribute story aspects,
 
 Story aspects are mostly like regular aspects except ...
-- they simbolise what people think about the character
+- they symbolize what people think about the character
 - initially they are generic
   - generic story aspects are worth one aspect point per value
   - they can be converted to other fitting not generic story aspects
@@ -1345,6 +1372,38 @@ Story aspects are mostly like regular aspects except ...
 
 #+LATEX: \begin{small} This product is licensed under the ORC License held in the License of Congress at TX000 [number tbd] and available online at various locations including www.chaosium.com/orclicense, www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein. This product is the original work of Lukas Zumvorde. If you use my ORC Content, please also credit me. \end{small}
 #+HTML: <font size=0.5>This product is licensed under the ORC License held in the License of Congress at TX000 [number tbd] and available online at various locations including www.chaosium.com/orclicense, www.azoralaw.com/orclicense, www.gencon.com/orclicense and others. All warranties are disclaimed as set forth therein. This product is the original work of Lukas Zumvorde. If you use my ORC Content, please also credit me.</font>
+
+
+* Scenario: A galaxy of wonders
+
+** Society
+- Many alien species
+- The galaxy is old and has many species in it. May an empire has rissen and fallen. Some seeded other life, some destroyed it.
+- Common prefered conditions for life
+
+  
+** Technology
+- Technological Improvements have stalled
+- Common translator technology
+- Common and shared technologies
+- Almost no one planet/species is able to produce the best of all technologies themselves
+- Interstellar Travel ist possible and common.
+- Droids and Robots are perfeclty possible and where the technology allows for it common.
+- Meele weapons are common. Many spaceships are very fragile for internal projectules and damage can be catastophic for the shoter as well as his target. Also some schields and armors exists that can block ranged weapons (for the most part). There exists many melee weapon types which can defeat armor, for example a plasma blade may be able to slowly melt itself through many a armor plate.
+- Some particularly turbulent areas of hyperspace can be traversed with the help of Gates. These form a more stable corridor to fly though.
+- Psynics exist. They are a advanced technology that is sometimes genectically implanted in (some indivuduals of) species and very rarely enacted by machines.
+- The power for psyonics must come from something, however this something does not have to be physical but can also be metaphorical or otherwise immaterial.
+
+** Ecology
+- Hyperspace can not be savely entered near to bodies of mass
+- In Hyperspace weird and chaotic currents exists, which makes travel sometimes fast and sometimes slow.
+- Some prefer to stay awake during hyperspace travel, others prefer to be in stasis
+- When not shieldet hyperspace tends to slowly change what enters it. (Metal becomes like glass, peoples personality changes, ..) there is no single pattern to the changes.
+- AGI is possible but needs special materials as a substrate. These are rare. One particular AGI runs on Biological Brains of one particular sentient Species. The AI is otherwise benevolent but has to resort to this barbarity for its continued existence.
+
+** History
+- The galaxy has collided with another galaxy. An alliance of many powerfull empires wanted to prevent this. They build a massive machine around the black hole at the center of the galaxy to shift galaxy through hyperspace in order to prevent the collision. They failed spectacularly. Now the galaxys are mid collision and for centuries the hyperspace has become so turbulent that most plannets were isolated.
+
 
 
 
@@ -1486,7 +1545,7 @@ Ships Values
 
 - 3 Engineers (CR 4)
   - \aspect{Plasma Pistol 2}
-- \aspect{High Power Consuption 5}
+- \aspect{High Power Consumption 5}
 - \aspect{Many nooks and crannies 4}
 
 # #+LATEX: \end{samepage}
@@ -1503,7 +1562,7 @@ Ships Values
   - \aspect{Plasma Pistol 2}
 - 2 Guards (CR 5)
   - \aspect{Plasma Rifle 3}
-- \aspect{High Power Consuption 5}
+- \aspect{High Power Consumption 5}
 
 # #+LATEX: \end{samepage}
 # #+LATEX: \begin{samepage}
@@ -1519,7 +1578,7 @@ Ships Values
   - \aspect{Plasma Pistol 2}
 - 4 Guards (CR 5)
   - \aspect{Plasma Rifle 3}
-- \aspect{High Power Consuption 8}
+- \aspect{High Power Consumption 8}
 
 # #+LATEX: \end{samepage}
 # #+LATEX: \begin{samepage}
@@ -1856,10 +1915,10 @@ Items:
 - Gaffa Tape 1
 #+end_npc
 
-#+ATTR_LATEX: :options {Phychology Student}{at}{2 3 3 3 4 4 2 3}{36}
+#+ATTR_LATEX: :options {Psychology Student}{at}{2 3 3 3 4 4 2 3}{36}
 #+begin_npc
 Aspects:
-- \aspect{Phychology 3}
+- \aspect{Psychology 3}
 - \aspect{Barista 1}
 - \aspect{Dancer 2}
 \columnbreak
@@ -1930,7 +1989,7 @@ Stalked by the shadows. If one of the shadows catches you it will try to carry y
 
 Points of Interest:
 - You can find beta-blockers to calm your nerves.
-- You can find Coffein to stay awake.
+- You can find caffeine to stay awake.
 
 *** Kitchen (1 floor)
 
@@ -1939,7 +1998,7 @@ The kitchen is pure chaos. A bunch of poltergeists throw stuff around in here. O
 - \aspect{Poltergeist 4}
 - \aspect{Save but insanely cold walk in fridge 5}
 
-Points of Interrest:
+Points of Interest:
 - You can find some cooking oil from which you can make fuel for the ambulance.
 - You can find ingredients in the cleaning closet (the only)
 
@@ -1968,7 +2027,7 @@ Points of Interest:
 
 The entrance hall is mostly like the players remember from when they came in. Since it is the way to everything else you can hear noised and feel winds coming from everywhere.
 
-- \aspect{A feeling of strong unease and damger 2}
+- \aspect{A feeling of strong unease and danger 2}
 
 
 Points of Interest:
@@ -2057,5 +2116,41 @@ Points of Interest:
 
 #+ATTR_LATEX: :width 1.0\textwidth
 [[file:images/Character Sheet.png]]
+#+LATEX: \newpage
+* Simplified Rules
+
+** Aspects
+Aspects don't get values.
+
+Aspects have no duration or act on multiple targets. Do treat them as enduring if it makes sense and however long it makes sense. 
+
+** Attributes
+There are the 4 Attributes: Physical, Mental, Social, Ressources.
+
+Each attribute can only have one of the 5 states: Very Low, Low, Normal, High, Very High.
+
+- If a character uses a very low attribute in a check, it acts like two negative aspects.
+- If a character uses a low attribute in a check, it acts like a negative aspect.
+- If a character uses a high attribute in a check, it acts like a positive aspect.
+- If a character uses a very high attribute in a check, it acts like two positive aspects.
+
+** Checks
+Roll 2d6 one after the other. If the first is higher than the second then the check is a success. If it is lower then it is a failure. For each positive aspect you can change any of the two dice by one. For each negative aspect you have to do it to your disadvantage.
+
+Roll a 1d10. Consider the 5 or higher a success if the die goes from 0 to 9 or consider the 6 or higher a success if the die goes from 1 to 10. For each positive aspect change the rolled number by 1 to your advantage. For each negative aspect change the number by 1 for your disadvantage.
 
 
+** Contests
+Each round two or more parties each roll a check. The one with better result wins. If it is even, then it becomes a stalemate.
+
+The winner of the contest may create an aspect or remove an aspect. If a side has little or no chance to succeed a round of the contest, then it ends.
+
+** Traits
+As normal.
+
+** Character Creation
+You have 240 CP. You can buy the following from them.
+- 1 Attribute from normal to high (30CP)
+- 1 Attribute from normal to low (-30CP)
+- 1 Aspect (15CP)
+- 1 Trait (25CP)
